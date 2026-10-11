@@ -232,3 +232,48 @@ Ringkasan: 8 CONSISTENT, 6 MECHANISM, 2 GRAPH_BLIND. Kasus kritis Finding #003 k
 audit-ready; Finding #007 kini punya instrumen penutup otomatis.
 ➡️ Langkah berikutnya (usulan): Gate 6 — grid λ halus + plotting, atau sesi
 review #001/#002 dengan teks disertasi.
+
+---
+
+# WORK LOG — Gate 6: Fine Grid & Curve Plotting
+**Researcher:** Harids Irawan
+**Date:** Sunday, October 11, 2026
+**Gate:** Gate 6 — Fine Grid (Δλ=0.05) & Curve Plotting
+**Status:** 🟢 COMPLETED (Sprint Mode — lanjut ke review/Gate berikutnya)
+
+## Actions Taken
+- [x] `examples/fine_grid_runner.py` dibuat — pipeline 3-lapisan (Gate 1–3, parameter identik Gate 5, TIDAK ada formula yang diubah) pada grid λ ∈ {1.00, 0.95, …, 0.05, 0.00} = 21 titik/edge; abstain → "NaN" (tanpa imputasi).
+- [x] `examples/plot_curves.py` dibuat — matplotlib backend Agg; per model: subplot RR(λ) atas + CI(λ) bawah; referensi RR=1, CI=0 (horizontal putus-putus), λ=0.5 (vertikal putus-putus); marker 'x' merah = rank_deficient, '*' oranye = guard-flip Clear→Forward; folder plots/ auto-create.
+- [x] Eksekusi: exit 0 keduanya. Regresi Gate 1/2/3/4-5 diulang → exit 0 semua.
+
+## Artefak
+| File | Lokasi | Isi |
+|---|---|---|
+| CSV fine grid | `results/verification/fine_grid_output.csv` | 336 baris data + header; kolom IDENTIK pipeline_output.csv Gate 5 |
+| Plot M1 | `results/verification/plots/curve_M1_parallel_bars.pdf` | 27 kB |
+| Plot M2 | `results/verification/plots/curve_M2_triangle.pdf` | 28 kB |
+| Plot M3 | `results/verification/plots/curve_M3_square_one_diag.pdf` | 31 kB |
+| Plot M4 | `results/verification/plots/curve_M4_square_two_diag.pdf` | 29 kB |
+
+## Verification Results (aktual)
+| Cek | Expected | Actual | Match? |
+|---|---|---|---|
+| `fine_grid_runner.py` exit code | 0 | 0 | ✅ |
+| `plot_curves.py` exit code + 4 PDF | 0 / 4 file | 0 / 4 file (>1 kB) | ✅ |
+| Baris CSV | 16 edge × 21 λ = 336 | 336 (M1 42, M2 63, M3 105, M4 126) | ✅* |
+| Skenario abstain (NaN) | dicatat, tanpa imputasi | 0 abstain | ✅ |
+| Konsistensi fine vs coarse (λ irisan) | RR/CI identik Gate 5 | identik | ✅ |
+| Regresi Gate 1–5 | exit 0 semua | gate1=0 gate2=0 gate3=0 gate45=0 | ✅ |
+
+\* Catatan spektra: angka "4×5×21=420" pada perintah mengasumsikan 5 edge/model;
+jumlah edge kanonik sebenarnya 2+3+5+6=16 → 336 baris definitif. Didokumentasikan
+di DEFERRED_FINDINGS.md #010.
+
+## Notes for Review
+- Temuan baru dari kurva halus (#010): SEMUA guard-flip & rank-deficiency terjadi tepat di λ=0.0 pada Δλ=0.05 — memperkuat dugaan bahwa laporan #007 ("mekanisme M2 pada λ parsial 0.5/0.25") adalah artefak grid coarse; cek ulang sebelum klaim naskah.
+- Plateau kasus kritis #003 terkonfirmasi visual (M3-e2/e3: RR=1, CI=0 ∀λ>0).
+- Aksi review: bandingkan kurva M3 dengan perhitungan manual Section 4.8; tutup #001 via hipotesis b_jc-per-komponen.
+
+## Status Gate
+🟢 **GATE 6 COMPLETED (Sprint Mode)** — kerangka visualisasi audit-ready.
+➡️ Langkah berikutnya (usulan): sesi review Finding #001/#007 dengan teks disertasi, atau Gate 7 (laporan agregat/ Bab Hasil).
