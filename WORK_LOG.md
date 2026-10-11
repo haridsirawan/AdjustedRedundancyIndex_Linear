@@ -136,7 +136,7 @@ Ringkasan: 8 CONSISTENT, 6 MECHANISM, 2 GRAPH_BLIND. Kasus kritis Finding #003 k
       guard_label, U*, S_baseline/S_scenario, RR/ARI/CI, note) dan
       `results/verification/screening_report.json` (agregat per model +
       consistency-checks + daftar inkonsistensi).
-- [x] Konsistensi-check antar-lapisan内置 di pipeline (exit code ≠ 0 jika gagal):
+- [x] Konsistensi-check antar-lapisan tertanam (built-in) di pipeline (exit code ≠ 0 jika gagal):
       (i) deteksi mekanisme Lapisan-2 vs Lapisan-3 harus sepakat — 64/64 OK;
       (ii) GRAPH_BLIND hanya boleh pada skenario mekanisme — OK;
       (iii) monotonisitas RR(λ) per-edge (RR tak naik saat λ turun) — 0 pelanggaran;
