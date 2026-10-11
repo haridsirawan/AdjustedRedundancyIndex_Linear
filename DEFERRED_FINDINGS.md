@@ -51,6 +51,16 @@ ditunda hingga fase detail-after-skeleton. ID = DF-nn, dipetakan ke penomoran Fi
 **Tindakan sprint:** deviasi di-flag `DEVIASI-DEFERRED`, tidak memblokir gate.
 Kasus KRITIS penerimaan (e3/e4: rank turun tapi CI≈0) sudah PASS.
 
+**Update hipotesis (Gate 5, 2026-10-11):** Dugaan kuat: kesalahan
+perhitungan bobot tumpuan (b_jc) **per komponen beban (c)** pada model
+asimetris — bukan error regularisasi ε. Bukti pendukung parsial: b_map
+kode {0: 0.57721, 1: 0.42279} berasal dari SATU load case gabungan
+(f_ux=30, f_uy=0 di node 2); jika disertasi memperlakukan komponen beban
+secara terpisah atau memakai reaksi per-case, distribusi b_jc berubah dan
+dapat menggeser RR e1/e2/e5 sementara e3/e4 (zero-force) tetap ~1.
+Sesuai instruksi sprint: TIDAK ada perubahan formula/parameter; hanya
+hipotesis yang dicatat. Investigasi lanjutan dilakukan terpisah.
+
 ---
 
 ## DF-02 (Finding #004a) — Rank-deficiency state terdisrupsi vs skor murni-graf
@@ -183,3 +193,45 @@ pada seluruh 16 edge; (iv) regresi angka kunci Gate 2 (Tabel 4.11 & kasus
 kritis Tabel 4.3) cocok dalam toleransi. Tidak ada perubahan formula/parameter
 — pipeline murni orkestrasi. Ambang CI_BLIND_TOL=0.01 dipertahankan; nilai
 CI=1.11e-16 pada M3-id2 saat λ=0 mengonfirmasi floor numerik max(1−ARI,0).
+
+---
+
+## Finding #009 (Gate 5) — Kebutuhan ekstraksi kurva RR(λ) & λ_kritis utk analisis sensitivitas per edge
+
+**Status**: INFO (kebutuhan terpenuhi oleh `examples/curve_extractor.py`, 2026-10-11).
+
+Pipeline Gate 4 menghasilkan grid λ∈{1,0.75,0.5,0.25,0} per edge, namun
+angka kunci sensitivitas (pada λ berapa CI menembus ambang; pada λ berapa
+guard berubah Clear→Forward) belum diekstrak secara sistematis — ini yang
+dibutuhkan untuk menutup Finding #007 (mekanisme M2 muncul pada λ parsial)
+dan untuk bab analisis sensitivitas disertasi. Gate 5 menambahkan:
+
+* `results/verification/pipeline_output.csv` — schema kanonik 12 kolom
+  [model_id, edge_id, lambda, S_intact, S_disrupted, RR, ARI, CI,
+  rank_status, margin_m, guard_decision, U_star] (80 baris per-edge).
+* `examples/curve_extractor.py` → `results/verification/critical_lambdas.json`.
+
+**Definisi operasional yang perlu direview (Sprint Mode):**
+1. Interpolasi LINEAR antar titik grid coarse (bukan spline). Nilai kontinu
+   lintasan CI=0.5 disimpan di `lambda_crit_note`; angka yang dilaporkan
+   adalah batas ATAS zona kritis (konservatif).
+2. Margin kinematik m_e(λ) := rank_drop/ndof_free (fraksi DOF bebas intak
+   yang hilang). Ini proxy observasional — BUKAN analisis nullspace penuh;
+   keputusan formulasi utk didokumentasikan di naskah.
+3. guard_decision = "Clear" jika solvable & m=0, selain itu "Forward".
+   Deteksi flip hanya sedetail grid λ.
+
+**Hasil aktual (grid coarse, threshold CI≥0.5):**
+* λ_crit tercapai HANYA pada M1-e0 (lapor 0.25; kontinu 0.4333), M1-e1
+  (0.0; kontinu 0.1905), M2-e0/e1/e2 (0.0; kontinu ≈0.236). Semua edge
+  M3/M4: `not_reached_on_grid` — konsisten dengan plateau RR(λ≤0.5)
+  (#004a/#008): degradasi parsial nyaris tidak mengubah skor jalur.
+* Guard-flip (Clear→Forward) pada 8 edge (M2 semua, M3 semua) — semuanya
+  di λ=0.0 pada grid ini.
+* Kelas GRAPH-BLIND-LIKE (guard flip tapi CI_max<0.5): 6 edge, termasuk
+  M3-e2/e3 dengan worst CI = 0.000000 persis (reproduksi Finding #003 via
+  pipeline otomatis — penutup mekanistik #007 utk kasus nol-gaya).
+
+Implikasi utk naskah: pada grid coarse, λ_kritis berbasis-CI dan berbasis-
+guard sering TIDAK berimpit; rekomendasi grid λ lebih halus (mis. 0.05)
+atau definisi formal m_e(λ) diperlukan sebelum klaim numerik dibuat.

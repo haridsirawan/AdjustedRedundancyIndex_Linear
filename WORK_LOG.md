@@ -175,3 +175,60 @@ Ringkasan: 8 CONSISTENT, 6 MECHANISM, 2 GRAPH_BLIND. Kasus kritis Finding #003 k
 🟢 **GATE 4 PASSED** — pipeline penuh audit-ready satu perintah.
 ➡️ Langkah berikutnya (usulan): Gate 5 — kurva RR(λ) & ambang λ_kritis per edge
 (menutup Finding #007), lalu sesi review #001/#002 dengan naskah disertasi.
+
+---
+
+# GATE 5 — Verification Runner & Curve Extraction
+**Date:** Sunday, October 11, 2026
+**Status:** 🟢 COMPLETED (Sprint Mode — lanjut ke Gate 6)
+
+## Actions Taken
+- [x] `examples/run_pipeline.py` diperluas: menulis **schema kanonik Gate 5**
+      `results/verification/pipeline_output.csv` dengan kolom wajib
+      [model_id, edge_id, lambda, S_intact, S_disrupted, RR, ARI, CI,
+      rank_status, margin_m, guard_decision, U_star] (80 baris per-edge;
+      kontrol utuh tanpa edge-id tidak masuk skema ini). CSV audit Gate 4
+      (`ari_screening_full.csv`) tetap ditulis + kolom margin_m/guard_decision.
+- [x] Definisi margin kinematik m_e(λ) := rank_drop / ndof_free (proxy
+      observasional; keputusan formulasi dicatat di Finding #009) dan
+      guard_decision Clear/Forward ditambahkan ke pipeline.
+- [x] Modul baru `examples/curve_extractor.py`: baca pipeline_output.csv,
+      interpolasi linear kurva RR(λ)/CI(λ), ekstraksi λ_crit (ambang CI≥0.5,
+      konvensi konservatif "batas atas zona kritis" + nilai kontinu di note)
+      dan λ_guard-flip (Clear→Forward); abstain → tanpa angka. Output:
+      `results/verification/critical_lambdas.json`.
+- [x] `DEFERRED_FINDINGS.md`: **Finding #009** (kebutuhan & hasil ekstraksi
+      kurva/λ_kritis) + **update hipotesis Finding #001**: dugaan kuat
+      kesalahan bobot tumpuan b_jc per komponen beban (c) pada model
+      asimetris, BUKAN error regularisasi ε. Tidak ada perubahan formula.
+- [x] Regresi penuh dijalankan ulang: Gate 1 PASS, Gate 2 PASS, Gate 3 PASS,
+      Gate 4 pipeline PASS (exit 0, inkonsistensi=[]), Gate 5 extractor exit 0.
+
+## Verification Results (aktual, rerun 2026-10-11)
+| Cek | Expected | Actual | Match? |
+|---|---|---|---|
+| run_pipeline exit code | 0 | 0 (84 baris; 64+20) | ✅ |
+| pipeline_output.csv schema | 12 kolom kanonik | sesuai, 80 baris data | ✅ |
+| curve_extractor exit code | 0 | 0 (critical_lambdas.json terbentuk) | ✅ |
+| Tabel 4.11 remove bar0/bar1 RR | 7/17 / 10/17 | 0.411764716 / 0.588235304 | ✅ (tol 1e-6) |
+| Tabel 4.3 e3/e4 KRITIS | RR=1, CI=0 | 1.0 / ≤1.1e-16 | ✅ |
+| Konsistensi-check antar-lapisan | [] | [] | ✅ |
+| λ_crit(CI≥0.5) tercapai | — | M1-e0 @0.25 (kontinu 0.433), M1-e1 @0.0 (0.190), M2-e0/e1/e2 @0.0 (≈0.236); M3/M4 not_reached_on_grid | ℹ️ (#009) |
+| Guard-flip Clear→Forward | — | 8 edge (M2×3, M3×5), semua di λ=0 grid coarse | ℹ️ |
+| GRAPH-BLIND-LIKE otomatis | memuat M3-e2/e3 CI=0 | 6 edge, incl. M3-e2/e3 worst-CI=0.000000 | ✅ (#003 via pipeline) |
+| Abstain edges | 0 | 0 dari 16 | ✅ |
+
+## Notes for Review
+- Cara menjalankan: `python examples/run_pipeline.py && python examples/curve_extractor.py`.
+- Temuan #001 TIDAK didebug (sprint mode) — hanya hipotesis b_jc-per-komponen
+  yang dicatat; penutupan menunggu naskah Section 2.11–2.13.
+- Grid λ coarse {1,.75,.5,.25,0} membuat λ_crit berbasis-CI dan berbasis-guard
+  sering tidak berimpit → rekomendasi grid halus (Δλ=0.05) utk bab sensitivitas.
+- Artefak: results/verification/{pipeline_output.csv, critical_lambdas.json,
+  ari_screening_full.csv, screening_report.json}.
+
+## Status Gate
+🟢 **GATE 5 COMPLETED (Sprint Mode)** — kerangka ekstraksi kurva & λ_kritis
+audit-ready; Finding #007 kini punya instrumen penutup otomatis.
+➡️ Langkah berikutnya (usulan): Gate 6 — grid λ halus + plotting, atau sesi
+review #001/#002 dengan teks disertasi.

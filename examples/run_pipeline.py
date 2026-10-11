@@ -1,6 +1,7 @@
 """
-run_pipeline.py — GATE 4: Integrasi Pipeline Penuh ARI Screening
-================================================================
+run_pipeline.py — GATE 4/5: Integrasi Pipeline Penuh ARI Screening
+==================================================================
+(Gate 5 menambahkan schema kanonik `pipeline_output.csv` utk curve_extractor.)
 
 Disertasi "Adjusted Redundancy Index (ARI) for Mechanics-Based Screening".
 
@@ -59,6 +60,8 @@ from kinematic_guard import (kinetic_snapshot,          # noqa: E402 (Gate 3)
 
 LAMBDAS = (1.0, 0.75, 0.5, 0.25, 0.0)     # grid penuh (kontrol + disrupsi)
 OUT_CSV = ROOT / "results" / "verification" / "ari_screening_full.csv"
+# Gate 5: schema KANONIK utk curve_extractor.py (spektra disertasi):
+PIPE_CSV = ROOT / "results" / "verification" / "pipeline_output.csv"
 OUT_JSON = ROOT / "results" / "verification" / "screening_report.json"
 
 CSV_COLS = [
@@ -70,9 +73,31 @@ CSV_COLS = [
     "RR", "ARI", "CI",
     # --- Lapisan 3: kinematic guard (Gate 3) ---
     "disrupted_rank", "rank_drop", "solvable", "guard_label",
+    # --- Gate 5: margin kinematik & keputusan guard kanonik ---
+    "margin_m", "guard_decision",
     # --- audit tambahan ---
     "note",
 ]
+
+# Schema kanonik pipeline_output.csv (Gate 5 — kontrak curve_extractor):
+PIPE_COLS = ["model_id", "edge_id", "lambda", "S_intact", "S_disrupted",
+             "RR", "ARI", "CI", "rank_status", "margin_m",
+             "guard_decision", "U_star"]
+
+
+def _margin_and_decision(diag: Optional[dict], intact: Optional[dict]):
+    """Margin kinematik m_e(lambda) — definisi observasional Gate 5.
+
+    m = rank_drop / ndof_free  (fraksi DOF bebas intak yang hilang akibat
+    disrupsi). m = 0 <=> tidak ada mekanisme baru. Bukan pengganti analisis
+    nullspace penuh; cukup utk deteksi perubahan status Clear->Forward.
+    """
+    if diag is None or intact is None:
+        return "", ""
+    ndof = int(intact["intact_ndof"]) or 1
+    m = max(0, int(diag["rank_drop"])) / float(ndof)
+    decision = "Clear" if (diag["solvable"] and m == 0.0) else "Forward"
+    return round(m, 6), decision
 
 
 def _f(x: Optional[float], nd: int = 12):
@@ -136,7 +161,8 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
             U_star=None, force=None, status=ctrl.status,
             mech=ctrl.detail.get("mechanical_status", "ok"),
             S_b=s_base, S=ctrl.S, RR=ctrl.RR, ARI=ctrl.ARI, CI=ctrl.CI,
-            diag=None, label="?", note="kontrol utuh tanpa edge"))
+            diag=None, label="?", margin=0.0, decision="Clear",
+            note="kontrol utuh tanpa edge"))
         n_control_runs += 1
 
         # ---- Per edge x lambda -------------------------------------------
@@ -150,7 +176,7 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
                 U_star=res1.U_star, force=forces[eid], status=res1.status,
                 mech=res1.detail.get("mechanical_status", "ok"),
                 S_b=s_base, S=res1.S, RR=res1.RR, ARI=res1.ARI, CI=res1.CI,
-                diag=None, label="?",
+                diag=None, label="?", margin=0.0, decision="Clear",
                 note="RR eksak 1; CI=eta*U*_e (kontrol Gate 2 blok [5])"))
             n_control_runs += 1
             # Konsistensi-check vs kontrak Gate 2: RR==1 eksak, CI==eta*U*
@@ -169,12 +195,14 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
                                      pair_cache=caches[mid])
                 diag = guard_scenario(m, eid, lam, intact)
                 label = classify(diag, res.CI)
+                margin, decision = _margin_and_decision(diag, intact)
                 rows.append(dict(
                     layer="disruption", model=mid, edge_id=eid, lam=lam,
                     U_star=res.U_star, force=forces[eid], status=res.status,
                     mech=res.detail.get("mechanical_status", ""),
                     S_b=s_base, S=res.S, RR=res.RR, ARI=res.ARI, CI=res.CI,
-                    diag=diag, label=label,
+                    diag=diag, label=label, margin=margin,
+                    decision=decision,
                     note=res.detail.get("note", "")))
                 n_disruption_runs += 1
                 summary["counts"][label] = summary["counts"].get(label, 0) + 1
@@ -270,7 +298,7 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
         print(f"  {mid:26s} {c.get('CONSISTENT',0):>10d} "
               f"{c.get('MECHANISM',0):>10d} {c.get('GRAPH_BLIND',0):>12d}")
 
-    # ---- Tulis CSV --------------------------------------------------------
+    # ---- Tulis CSV (audit trail penuh Gate 4) -----------------------------
     OUT_CSV.parent.mkdir(parents=True, exist_ok=True)
     _intact_by_model = {mid: agg[mid]["intact"]["rank"] for mid in agg}
     with open(OUT_CSV, "w", newline="") as fh:
@@ -289,9 +317,33 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
                 _num(r["RR"]), _num(r["ARI"]), _num(r["CI"]),
                 diag.get("disrupted_rank", ""), diag.get("rank_drop", ""),
                 ("yes" if diag.get("solvable") else "no") if diag else "",
-                r["label"], r["note"],
+                r["label"],
+                r["margin"], r["decision"],
+                r["note"],
             ])
     print(f"\n[CSV] {OUT_CSV} ({len(rows)} baris data + header)")
+
+    # ---- Tulis pipeline_output.csv (Gate 5 — schema kanonik curve_extractor)
+    # Baris yg dipakai extractor: SEMUA layer (kontrol utuh edge_id="" hanya
+    # utk informasi; extractor mengelompokkan per (model_id, edge_id)).
+    with open(PIPE_CSV, "w", newline="") as fh:
+        wr = csv.writer(fh)
+        wr.writerow(PIPE_COLS)
+        for r in rows:
+            if r["layer"] == "control_intact":
+                continue          # bukan skenario per-edge
+            diag = r["diag"] or {}
+            rank_status = ("ok" if (r["layer"] != "disruption"
+                                    or diag.get("solvable", True))
+                           else "rank_deficient")
+            wr.writerow([
+                r["model"], r["edge_id"], r["lam"],
+                _num(r["S_b"], 9), _num(r["S"], 9),
+                _num(r["RR"]), _num(r["ARI"]), _num(r["CI"]),
+                rank_status,
+                r["margin"], r["decision"], _num(r["U_star"]),
+            ])
+    print(f"[CSV] {PIPE_CSV} (schema Gate 5: {', '.join(PIPE_COLS)})")
 
     report = dict(
         generated="Gate 4 pipeline (run_pipeline.py)",
