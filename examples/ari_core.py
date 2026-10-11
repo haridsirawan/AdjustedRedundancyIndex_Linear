@@ -440,6 +440,48 @@ def compute_graph_score(am: AriModelData,
     return total, "ok"
 
 
+def kinetic_snapshot(model: dict) -> dict:
+    """Gate 3 (Kinematic Guard) — diagnostik state INTAK via solver Gate 1.
+
+    Didefinisikan lokal di ari_core agar tidak ada import melingkar dengan
+    kinematic_guard.py; implementasi identik dengan kinematic_guard.
+    """
+    res = solve_model(model)
+    return dict(
+        intact_solvable=(res.status == "ok"),
+        intact_rank=int(res.rank),
+        intact_ndof=int(res.ndof),
+        intact_min_eig=float(res.min_eig),
+        intact_max_eig=float(res.max_eig),
+    )
+
+
+def guard_diagnostic(model: dict, weight_mult: Dict[int, float]) -> dict:
+    """Gate 3 — diagnostik kinematik state terdisrupsi M_{e,lambda}.
+
+    lambda=0 diperlakukan sebagai penghapusan fisik (drop_zero=True).
+    Rank-check memakai solver Gate 1 apa adanya (eigvals, tol relatif 1e-10,
+    TANPA pseudoinverse). Non-destruktif terhadap skor graf.
+    """
+    intact = kinetic_snapshot(model)
+    disrupted = _apply_stiffness_multiplier(model, weight_mult, drop_zero=True)
+    try:
+        res = solve_model(disrupted)
+        status, rank = res.status, int(res.rank)
+        min_eig, max_eig = float(res.min_eig), float(res.max_eig)
+    except Exception:
+        status, rank = "rank_deficient", -1
+        min_eig = max_eig = float("nan")
+    return dict(
+        disrupted_status=status,
+        disrupted_rank=rank,
+        intact_rank=intact["intact_rank"],
+        rank_drop=int(intact["intact_rank"] - rank),
+        solvable=(status == "ok"),
+        min_eig=min_eig, max_eig=max_eig,
+    )
+
+
 def _apply_stiffness_multiplier(model: dict, mult: Dict[int, float],
                                 drop_zero: bool = False) -> dict:
     """State terdisrupsi M_{e,lambda}: EA_e -> lambda*EA_e (kapasitas & atribut
@@ -505,11 +547,21 @@ def compute_ari(am: AriModelData, disruption: Optional[Tuple[int, float]] = None
         # Kontrol per-edge: w_e tidak berubah -> S identik baseline, RR = 1
         # EKSAK; penalti utilisasi TETAP aktif sehingga CI = eta*U*_e (bukan 0),
         # sesuai kontrak acceptance "Kontrol lambda=1".
+        # Gate 3 (Kinematic Guard): kontrol diverifikasi dengan solver Gate 1
+        # pada state INTAK — status mekanik & rank tercatat di audit trail.
+        ctrl_audit = dict(S_baseline=s_base, mechanical_status="ok",
+                          note="kontrol lambda=1: RR eksak 1")
+        kin = kinetic_snapshot(am.model)
+        ctrl_audit.update(kin)
+        ctrl_status = "ok"
+        if not kin["intact_solvable"]:
+            ctrl_status = "ok_with_rank_deficiency"
+            ctrl_audit["note"] += (" | PERINGATAN KINEMATIC-GUARD: state INTAK"
+                                   " rank-deficient (mekanisme)")
         return ScenarioResult(eid, lam, s_base, 1.0, u_star,
                               1.0 - cfg["eta"] * u_star,
-                              max(cfg["eta"] * u_star, 0.0), "ok",
-                              dict(S_baseline=s_base, mechanical_status="ok",
-                                   note="kontrol lambda=1: RR eksak 1"))
+                              max(cfg["eta"] * u_star, 0.0), ctrl_status,
+                              ctrl_audit)
     if eid is None:
         # Kontrol utuh (tanpa edge): tidak ada U*_e -> ARI = RR = 1, CI = 0
         rr = 1.0

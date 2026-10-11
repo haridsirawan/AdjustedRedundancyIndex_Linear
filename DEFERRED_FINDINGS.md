@@ -132,3 +132,22 @@ per-edge λ=1, BUKAN oleh kontrol edge-less (CI=0). Harus eksplisit di naskah.
 **(d) Peringatan reviewer potensial:** karena (a)+(b), CI kecil dapat muncul
 pada struktur yang secara mekanis sudah mekanisme — narasi 'screening-only,
 bukan safety assessment' wajib ada di bab diskusi disertasi.
+
+---
+
+## Finding #005 (Gate 3) — Penomoran edge: "e1..e5" pada Tabel 4.3 = 1-based vs `id` JSON 0-based
+
+**Status**: BARU (ditemukan saat self-test Gate 3, 2026-10-11). Relevan utk Finding #001.
+
+**Bukti dari `kinematic_guard.py` [2]** (rank-drop state terdisrupsi, hapus-total):
+- Edge JSON id=2 (CD) dan id=3 (DA) adalah **zero-force members** intak → rank turun 5→4 dengan RR=1.000000, CI=0.000000 → terlabel `GRAPH_BLIND`.
+- Narasi disertasi menyebut kasus kritis "e3 dan e4". Jika label tabel adalah **1-based**, maka e3≡id2(CD), e4≡id3(DA) — cocok persis dengan temuan guard. Ini juga menggeser hipotesis pemetaan nama utk #001 (H2): target tabel e1,e2,e5 mungkin ≡ id0,id1,id4 — yang memang sudah kami pakai di test_ari.py; namun perlu dikonfirmasi dari naskah.
+- Catatan tambahan: M2_planar_triangle kehilangan chord/leg manapun → rank-deficient (MECHANISM); M4 tetap rank-penuh utk semua hapus tunggal (konsisten: dua diagonal + perimeter = stabil).
+
+**Keputusan sprint**: tidak mengubah kode; dokumentasi & self-test kini memakai id JSON eksplisit (id2/id3) dgn catatan padanan label tabel.
+
+---
+
+## Finding #006 (Gate 3) — Kinematic Guard terpasang; klasifikasi observasional
+
+Guard menambahkan kolom audit `kinematic` (intact_rank→disrupted_rank, rank_drop, solvable, min/max eig) dan `guard_label` ∈ {CONSISTENT, MECHANISM, GRAPH_BLIND} TANPA mengubah RR/ARI/CI (sanity [4] PASS eksak 1e-12). Kontrol λ=1 per-edge kini membawa snapshot kinematik INTAK di audit trail. Hasil skrining λ=0 (16 skenario): 8 CONSISTENT, 6 MECHANISM, 2 GRAPH_BLIND (M3 id2, id3). Ambang GRAPH_BLIND: CI < 0.01 & rank_drop > 0 (`CI_BLIND_TOL`).
