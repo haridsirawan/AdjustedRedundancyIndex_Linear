@@ -1,53 +1,38 @@
-# WORK LOG — ARI for Mechanics-Based Screening
+# WORK LOG - ARI Disertasi Implementation
+**Date:** Sunday, October 11, 2026
+**Current Gate:** Gate 1 - Reference Solver Verification
+**Status:** 🟢 PASSED
 
-Disertasi: *Adjusted Redundancy Index (ARI) for Mechanics-Based Screening*
-Satuan proyek: Gaya = kN, Panjang = mm, E = 200 kN/mm².
+## Actions Taken
+- [x] Created `examples/verification_models.json` with 4 canonical models.
+- [x] Created `examples/truss_reference.py` (FEM axial bar solver).
+- [x] Ran verification script (`examples/test_truss_reference.py`, exit code 0 — semua PASS).
 
----
+## Verification Results (vs Table 4.1)
+Toleransi penerimaan: |Δ| < 5e-4. Nilai aktual di bawah adalah output riil dari rerun verifikasi pada 2026-10-11.
 
-## Sesi 1 — Fondasi: Model Kanonik & Solver Referensi (Bagian 3.1.3, 4.1.2, 4.1.3, 4.5.7)
+| Model       | Expected umax | Actual umax | Expected Umax | Actual Umax | Status |
+|-------------|---------------|-------------|---------------|-------------|--------|
+| Parallel    | 1.000000      | 1.000000    | 0.500000      | 0.500000    | ✅      |
+| Triangle    | 1.154460      | 1.154460    | 0.442218      | 0.442218    | ✅      |
+| 1-Diagonal  | 5.935311      | 5.935311    | 0.530330      | 0.530330    | ✅      |
+| 2-Diagonal  | 3.582277      | 3.582277    | 0.320083      | 0.320083    | ✅      |
 
-**Tanggal:** 2026-10-11
+Deviasi maksimum aktual: Δumax = 4.98e-07 mm (Triangle), ΔUmax = 4.79e-07 (2-Diagonal).
 
-### Tujuan
-Membangun fondasi paling dasar disertasi:
-1. Definisi mesin-baca untuk 4 model kanonik verifikasi (Bagian 4.1.2).
-2. Solver referensi elemen hingga untuk batang aksial 1D / truss planar 2D
-   (Bagian 4.1.3 & 4.5.7) yang mereproduksi **Tabel 4.1 (Intact-Model Response)**.
+### Data pendukung tambahan (regangan energi W, kN·mm)
+| Model      | W (solver) |
+|------------|------------|
+| Parallel   | 15.000000  |
+| Triangle   | 16.956287  |
+| 1-Diagonal | 86.139610  |
+| 2-Diagonal | 51.989854  |
 
-### File yang dibuat
-| File | Isi |
-|---|---|
-| `examples/verification_models.json` | Definisi 4 model kanonik: M1 dua batang paralel 1D; M2 truss segitiga planar; M3 persegi + 1 diagonal; M4 persegi + 2 diagonal (diagonal TIDAK berbagi simpul tengah). Termasuk material (E = 200 kN/mm²), area, kapasitas, perletakan, beban, dan `expected_results` Tabel 4.1. |
-| `examples/truss_reference.py` | Solver referensi: perakitan K global, kondisi batas zero-displacement (pinned / roller_vertical / roller_horizontal), rank-check `K_ff` via `numpy.linalg.eigvals` (toleransi relatif 1e-10 terhadap eigenvalue terbesar), penyelesaian `K_ff u_f = p_f` via `numpy.linalg.solve` (**tanpa pseudoinverse**; rank-deficient → status `"rank_deficient"`), gaya batang, utilisasi U = \|N\|/Capacity, umax (norm resultant perpindahan node), dan regangan energi W = Σ N²L/(2EA). |
-| `examples/test_truss_reference.py` | Skrip uji coba: menjalankan solver pada ke-4 model, membandingkan dengan Tabel 4.1 (toleransi 5e-4), plus uji penolakan mekanisme rank-deficient. |
+## Notes for Reviewer (GenOffice)
+- Solver menggunakan `numpy.linalg.solve`.
+- Rank check menggunakan eigenvalue tolerance 1e-10 (relatif terhadap eigenvalue terbesar); struktur rank-deficient dicatat status `"rank_deficient"` dan TIDAK diselesaikan dengan pseudoinverse. Uji penolakan mekanisme juga PASS (rank = 1/4 terdeteksi).
+- Konvensi penting: `umax` = norm resultan perpindahan per node √(ux²+uy²) — satu-satunya definisi yang mereproduksi seluruh baris Tabel 4.1. Roller "vertical only" = restraint uy = 0. Model Triangle menyertakan tie chord (0,0)-(1000,0); tanpa chord struktur menjadi mekanisme.
+- Cara menjalankan: `python examples/truss_reference.py` atau `python examples/test_truss_reference.py`.
 
-### Keputusan teknis penting
-- **Definisi `umax`**: norm resultan perpindahan maksimum per node
-  (√(ux²+uy²)), BUKAN komponen tunggal. Ini adalah-satu-satunya definisi yang
-  mereproduksi seluruh baris Tabel 4.1 secara konsisten (mis. M3: komponen
-  ux = 5.742641 mm vs resultan = 5.935311 mm ✓).
-- **Model M2** menyertakan batang bawah (tie chord) (0,0)-(1000,0); tanpanya
-  struktur menjadi mekanisme di bawah beban vertikal.
-- **Roller "vertical only"** = restraint uy=0 (menahan gaya vertikal), sesuai
-  hasil verifikasi numerik terhadap Tabel 4.1.
-
-### Hasil verifikasi (Tabel 4.1)
-| Model | umax [mm] (solver / target) | Umax [-] (solver / target) | Status |
-|---|---|---|---|
-| Parallel bars (M1) | 1.000000 / 1.000000 | 0.500000 / 0.500000 | PASS |
-| Triangle (M2) | 1.154460 / 1.154460 | 0.442218 / 0.442218 | PASS |
-| One diagonal (M3) | 5.935311 / 5.935311 | 0.530330 / 0.530330 | PASS |
-| Two diagonals (M4) | 3.582277 / 3.582277 | 0.320083 / 0.320083 | PASS |
-
-Deviasi maksimum < 5×10⁻⁷. Uji rank-deficient (mekanisme) juga PASS: solver
-menolak solusi dan mencatat status `"rank_deficient"` tanpa pseudoinverse.
-
-### Status
-✅ **SELESAI** — Kriteria penerimaan terpenuhi seluruhnya.
-
-### Langkah berikutnya (rencana)
-- Skenario pemutusan elemen (element-removal / damage cases) per Bagian 4.2.
-- Formulasi indeks redundansi & penyesuaian (ARI) berdasarkan respons
-  pasca-pemutusan (utilisasi, perpindahan, regangan energi).
-- Matriks verifikasi lengkap (Tabel 4.2 dst.) dan kalibrasi ambang screening.
+## Status Gate
+🟢 **GATE 1 PASSED** — Menunggu persetujuan untuk lanjut ke Gate 2 (ARI Core).
