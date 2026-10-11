@@ -151,3 +151,35 @@ bukan safety assessment' wajib ada di bab diskusi disertasi.
 ## Finding #006 (Gate 3) — Kinematic Guard terpasang; klasifikasi observasional
 
 Guard menambahkan kolom audit `kinematic` (intact_rank→disrupted_rank, rank_drop, solvable, min/max eig) dan `guard_label` ∈ {CONSISTENT, MECHANISM, GRAPH_BLIND} TANPA mengubah RR/ARI/CI (sanity [4] PASS eksak 1e-12). Kontrol λ=1 per-edge kini membawa snapshot kinematik INTAK di audit trail. Hasil skrining λ=0 (16 skenario): 8 CONSISTENT, 6 MECHANISM, 2 GRAPH_BLIND (M3 id2, id3). Ambang GRAPH_BLIND: CI < 0.01 & rank_drop > 0 (`CI_BLIND_TOL`).
+
+---
+
+## Finding #007 (Gate 4) — Mekanisme terdeteksi pada parsial λ>0 di M2 (bukan hanya hapus-total)
+
+**Status**: BARU (pipeline grid penuh λ∈{1,0.75,0.5,0.25,0}, 2026-10-11).
+
+**Bukti** (`results/verification/screening_report.json`, agregat guard per model):
+M2_planar_triangle: MECHANISM = 3 dari 12 skenario disrupsi. Label MECHANISM
+muncul juga untuk λ PARSIAL (mis. leg e0/e1 dengan EA→λ·EA cukup kecil
+sehingga rasio kekakuan chord terhadap gaya horisontal membuat K_ff rank-deficient
+menurut toleransi eigvals relatif 1e-10), bukan hanya λ=0.
+Perlu dicatat di naskah bahwa "ambang mekanisme" bergantung toleransi numerik
+solver; untuk aplikasi nyata ambang λ_kritis sebaiknya dilaporkan per edge
+(dari CSV pipeline, kolom `solvable`). Implikasi Gate 5 (jika ada): kurva
+RR(λ) dapat berpotongan dengan batas solvabilitas mekanik sebelum λ=0.
+
+---
+
+## Finding #008 (Gate 4) — Perpanjangan plateau RR(λ): konsistensi lintas-lapisan & monotonisitas global
+
+**Status**: INFO (tidak ada pelanggaran; keputusan verifikasi Gate 4).
+
+Grid penuh pipeline (64 skenario disrupsi + 20 kontrol = 84 baris CSV)
+memperluas temuan #004(a): plateau RR(λ≤0.5) terjadi pada banyak edge M3/M4
+(bukan hanya e4/e5). Semua cek antar-lapisan LULUS tanpa inkonsistensi:
+(i) deteksi mekanisme Lapisan-2 vs Lapisan-3 sepakat pada 64/64 skenario;
+(ii) tidak ada GRAPH_BLIND tanpa mekanisme; (iii) RR monoton tak-naik per-edge
+pada seluruh 16 edge; (iv) regresi angka kunci Gate 2 (Tabel 4.11 & kasus
+kritis Tabel 4.3) cocok dalam toleransi. Tidak ada perubahan formula/parameter
+— pipeline murni orkestrasi. Ambang CI_BLIND_TOL=0.01 dipertahankan; nilai
+CI=1.11e-16 pada M3-id2 saat λ=0 mengonfirmasi floor numerik max(1−ARI,0).

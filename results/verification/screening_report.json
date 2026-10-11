@@ -1,0 +1,197 @@
+{
+  "generated": "Gate 4 pipeline (run_pipeline.py)",
+  "date": "2026-10-11",
+  "config": {
+    "alpha_k": 0.5,
+    "alpha_R": 0.5,
+    "q_e": 1.0,
+    "K": 2,
+    "gamma": 1.0,
+    "beta": 0.1,
+    "eta": 0.5,
+    "eps_w": 1e-09,
+    "eps_d": 1e-09,
+    "eps_R": 1e-06,
+    "baseline_tol": 1e-12,
+    "lambdas": [
+      1.0,
+      0.75,
+      0.5,
+      0.25,
+      0.0
+    ]
+  },
+  "n_rows": 84,
+  "n_disruption_runs": 64,
+  "n_control_runs": 20,
+  "per_model": {
+    "M1_parallel_bars_1d": {
+      "model": "M1_parallel_bars_1d",
+      "S_baseline": 0.485714286,
+      "baseline_status": "ok",
+      "intact": {
+        "rank": 1,
+        "ndof": 2,
+        "solvable": true
+      },
+      "n_rows": 0,
+      "counts": {
+        "CONSISTENT": 8,
+        "MECHANISM": 0,
+        "GRAPH_BLIND": 0,
+        "?": 0
+      },
+      "graph_blind": [],
+      "utilization": {
+        "0": 0.5,
+        "1": 0.5
+      }
+    },
+    "M2_planar_triangle": {
+      "model": "M2_planar_triangle",
+      "S_baseline": 0.379544236,
+      "baseline_status": "ok",
+      "intact": {
+        "rank": 3,
+        "ndof": 6,
+        "solvable": true
+      },
+      "n_rows": 0,
+      "counts": {
+        "CONSISTENT": 9,
+        "MECHANISM": 3,
+        "GRAPH_BLIND": 0,
+        "?": 0
+      },
+      "graph_blind": [],
+      "utilization": {
+        "0": 0.442218,
+        "1": 0.442218,
+        "2": 0.234375
+      }
+    },
+    "M3_square_one_diagonal": {
+      "model": "M3_square_one_diagonal",
+      "S_baseline": 0.360252395,
+      "baseline_status": "ok",
+      "intact": {
+        "rank": 5,
+        "ndof": 8,
+        "solvable": true
+      },
+      "n_rows": 0,
+      "counts": {
+        "CONSISTENT": 15,
+        "MECHANISM": 3,
+        "GRAPH_BLIND": 2,
+        "?": 0
+      },
+      "graph_blind": [
+        {
+          "edge_id": 2,
+          "lambda_": 0.0,
+          "RR": 1.0,
+          "CI": 0.0,
+          "rank_drop": 1
+        },
+        {
+          "edge_id": 3,
+          "lambda_": 0.0,
+          "RR": 1.0,
+          "CI": 0.0,
+          "rank_drop": 1
+        }
+      ],
+      "utilization": {
+        "0": 0.0,
+        "1": 0.375,
+        "2": 0.0,
+        "3": 0.0,
+        "4": 0.53033
+      }
+    },
+    "M4_square_two_diagonals": {
+      "model": "M4_square_two_diagonals",
+      "S_baseline": 0.360252395,
+      "baseline_status": "ok",
+      "intact": {
+        "rank": 5,
+        "ndof": 8,
+        "solvable": true
+      },
+      "n_rows": 0,
+      "counts": {
+        "CONSISTENT": 24,
+        "MECHANISM": 0,
+        "GRAPH_BLIND": 0,
+        "?": 0
+      },
+      "graph_blind": [],
+      "utilization": {
+        "0": 0.148667,
+        "1": 0.226333,
+        "2": 0.148667,
+        "3": 0.148667,
+        "4": 0.320083,
+        "5": 0.210248
+      }
+    }
+  },
+  "consistency_checks": [
+    {
+      "check": "Tabel 4.11 remove bar0 RR=7/17",
+      "expected": 0.4117647058823529,
+      "actual": 0.411764716399654,
+      "pass_": true
+    },
+    {
+      "check": "Tabel 4.11 remove bar1 RR=10/17",
+      "expected": 0.5882352941176471,
+      "actual": 0.5882353041885813,
+      "pass_": true
+    },
+    {
+      "check": "Tabel 4.3 e3(CD) KRITIS RR=1",
+      "expected": 1.0,
+      "actual": 1.0,
+      "pass_": true
+    },
+    {
+      "check": "Tabel 4.3 e3(CD) KRITIS CI=0",
+      "expected": 0.0,
+      "actual": 1.1102230246251565e-16,
+      "pass_": true
+    },
+    {
+      "check": "Tabel 4.3 e4(DA) KRITIS RR=1",
+      "expected": 1.0,
+      "actual": 1.0,
+      "pass_": true
+    },
+    {
+      "check": "Tabel 4.3 e4(DA) KRITIS CI=0",
+      "expected": 0.0,
+      "actual": 0.0,
+      "pass_": true
+    },
+    {
+      "check": "Guard melabeli M3 e2,e3 GRAPH_BLIND",
+      "expected": [
+        2,
+        3
+      ],
+      "actual": [
+        2,
+        3
+      ],
+      "pass_": true
+    }
+  ],
+  "inconsistencies": [],
+  "deferred_refs": [
+    "Finding #001 (DF-01) Tabel 4.3 e1/e2/e5",
+    "Finding #002 (DF-03) invariansi asimtotik",
+    "Finding #003 kasus kritis GRAPH_BLIND (terdeteksi)",
+    "Finding #005 penamaan edge 1-based (tabel disertasi)"
+  ]
+}

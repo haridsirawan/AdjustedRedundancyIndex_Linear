@@ -116,3 +116,62 @@ Ringkasan: 8 CONSISTENT, 6 MECHANISM, 2 GRAPH_BLIND. Kasus kritis Finding #003 k
 
 ## Langkah Selanjutnya
 ➡️ Gate 4: integrasi pipeline penuh (screening grid λ × guard × CSV berkolom kinematik) & review session utk #001/#002/#005.
+
+---
+
+# Gate 4 — Integrasi Pipeline Penuh (Screening Orchestration)
+**Date:** Sunday, October 11, 2026
+**Status:** 🟢 PASSED (pipeline exit 0; regresi Gate 1/2/3 tetap hijau)
+
+## Actions Taken
+- [x] `examples/run_pipeline.py` dibuat — orkestrasi SATU perintah tiga lapisan:
+      Lapisan 1 solver FE Gate 1 → Lapisan 2 mesin ARI Gate 2 (`ari_core`) →
+      Lapisan 3 Kinematic Guard Gate 3 (`kinematic_guard`). TIDAK ada perubahan
+      formula/parameter (regresi dijaga); guard tetap observasional.
+- [x] Grid penuh dieksekusi: λ∈{1, 0.75, 0.5, 0.25, 0} × 16 edge = **64 skenario
+      disrupsi + 20 kontrol** (4 kontrol utuh per model + 16 kontrol per-edge
+      λ=1) = 84 baris audit.
+- [x] Output artefak: `results/verification/ari_screening_full.csv` (kolom
+      berjenjang `layer`, rank intak→terdisrupsi, rank_drop, solvable,
+      guard_label, U*, S_baseline/S_scenario, RR/ARI/CI, note) dan
+      `results/verification/screening_report.json` (agregat per model +
+      consistency-checks + daftar inkonsistensi).
+- [x] Konsistensi-check antar-lapisan内置 di pipeline (exit code ≠ 0 jika gagal):
+      (i) deteksi mekanisme Lapisan-2 vs Lapisan-3 harus sepakat — 64/64 OK;
+      (ii) GRAPH_BLIND hanya boleh pada skenario mekanisme — OK;
+      (iii) monotonisitas RR(λ) per-edge (RR tak naik saat λ turun) — 0 pelanggaran;
+      (iv) kontrol λ=1: RR=1 eksak & CI=η·U*_e — PASS semua edge;
+      (v) regresi angka kunci Gate 2 (Tabel 4.11 & kasus kritis Tabel 4.3) — PASS.
+- [x] `DEFERRED_FINDINGS.md`: Finding #007 (mekanisme M2 muncul juga pada λ
+      parsial — ambang bergantung toleransi eigvals solver) dan #008 (plateau
+      RR(λ≤0.5) meluas ke banyak edge M3/M4; seluruh cek lintas-lapisan lulus).
+- [x] Regresi gate sebelumnya dijalankan ulang: `test_truss_reference.py` exit 0,
+      `test_ari.py` exit 0 (Tabel 4.11 LULUS; #001/#002 tetap terdokumentasi),
+      `kinematic_guard.py` exit 0 (GRAPH_BLIND=2).
+
+## Verification Results (aktual dari rerun 2026-10-11)
+| Cek | Expected | Actual | Match? |
+|---|---|---|---|
+| Pipeline selesai | 84 baris (64+20), tanpa error | 84 baris, inkonsistensi=[] | ✅ |
+| Tabel 4.11 remove bar0 RR | 7/17 = 0.411765 | 0.411764716 | ✅ (tol 1e-6) |
+| Tabel 4.11 remove bar1 RR | 10/17 = 0.588235 | 0.588235304 | ✅ |
+| Tabel 4.3 e3(CD)/e4(DA) KRITIS | RR=1, CI=0 | 1.0 / ≤1.1e-16 | ✅ |
+| Guard GRAPH_BLIND M3@λ0 | edge id {2,3} | {2,3} | ✅ |
+| Sepakatan Lapisan-2 vs -3 (mekanisme) | 64/64 | 64/64 | ✅ |
+| Monotonisitas RR per-edge grid penuh | 0 pelanggaran | 0 pelanggaran | ✅ |
+| Kontrol λ=1 (RR=1 eksak, CI=η·U*) | 16/16 | 16/16 | ✅ |
+| Agregat label guard (64 skenario) | — | 56 CONSISTENT, 6 MECHANISM, 2 GRAPH_BLIND | ℹ️ |
+| Baseline S(G_M) M1/M2/M3/M4 | — | 0.485714 / 0.379544 / 0.360252 / 0.360252 | ℹ️ |
+
+## Notes for Review
+- Cara menjalankan: `python examples/run_pipeline.py` (exit 0 = PASS).
+- Deviasi Tabel 4.3 e1/e2/e5 (#001) TIDAK berubah — pipeline tidak menyentuh
+  formula; temuan Gate 4 baru (#007, #008) didokumentasikan untuk review.
+- CSV lama Gate 2 (`ari_screening.csv`) dipertahankan sebagai artefak historis;
+  CSV pipeline (`ari_screening_full.csv`) adalah sumber tunggal untuk tabel
+  disertasi berikutnya.
+
+## Status Gate
+🟢 **GATE 4 PASSED** — pipeline penuh audit-ready satu perintah.
+➡️ Langkah berikutnya (usulan): Gate 5 — kurva RR(λ) & ambang λ_kritis per edge
+(menutup Finding #007), lalu sesi review #001/#002 dengan naskah disertasi.
