@@ -339,15 +339,20 @@ def _mag(comps: Dict[str, float], dim: int) -> float:
     return math.sqrt(sum(comps.get(c, 0.0) ** 2 for c in comps_all[:dim]))
 
 
-def base_weights_of(am: AriModelData) -> Dict[int, float]:
-    """Bobot intact w_e^M (diekspos untuk audit)."""
+def base_weights_of(am: AriModelData,
+                    scales: Optional[dict] = None) -> Dict[int, float]:
+    """Bobot intact w_e^M (diekspos untuk audit). `scales` opsional mengganti
+    (s_k, s_R) — dipakai uji invariansi penskalaan-serentak (DF-03)."""
     cfg = am.config
+    sc = dict(am.scales)
+    if scales:
+        sc.update(scales)
     caps = {int(k): float(v) for k, v in am.model["capacities"].items()}
     out = {}
     for m in am.edges:
         eid = m["id"]
-        k_hat = am.k_raw[eid] / (am.k_raw[eid] + am.scales["s_k"])
-        r_hat = caps[eid] / (caps[eid] + am.scales["s_R"])
+        k_hat = am.k_raw[eid] / (am.k_raw[eid] + sc["s_k"])
+        r_hat = caps[eid] / (caps[eid] + sc["s_R"])
         out[eid] = 1.0 * (cfg["alpha_k"] * k_hat + cfg["alpha_R"] * r_hat)
     return out
 
@@ -355,7 +360,8 @@ def base_weights_of(am: AriModelData) -> Dict[int, float]:
 def compute_graph_score(am: AriModelData,
                         weight_mult: Optional[Dict[int, float]] = None,
                         pair_cache: Optional[dict] = None,
-                        audit: Optional[dict] = None) -> Tuple[float, str]:
+                        audit: Optional[dict] = None,
+                        scales: Optional[dict] = None) -> Tuple[float, str]:
     """S(G) untuk state saat ini. weight_mult = pengali lambda per edge TANPA
     renormalisasi (Section 4.8.4).
 
@@ -364,7 +370,7 @@ def compute_graph_score(am: AriModelData,
     """
     cfg = am.config
     wm = weight_mult or {}
-    base_w = base_weights_of(am)
+    base_w = base_weights_of(am, scales)
     weights = {eid: w * wm.get(eid, 1.0) for eid, w in base_w.items()}
 
     graph = Multigraph([int(n["id"]) for n in am.model["nodes"]], am.edges)
@@ -411,7 +417,7 @@ def compute_graph_score(am: AriModelData,
         pair_records = []
         for i_node, a_w in ai.items():
             for j_node, b_w in b_map.items():
-                key = (i_node, j_node, tuple(sorted(weights.items())))
+                key = (i_node, j_node, tuple(sorted(edge_cost.items())))
                 if pair_cache is not None and key in pair_cache:
                     phi, st = pair_cache[key]
                 else:
@@ -460,13 +466,22 @@ def _apply_stiffness_multiplier(model: dict, mult: Dict[int, float],
 def compute_ari(am: AriModelData, disruption: Optional[Tuple[int, float]] = None,
                 config: Optional[dict] = None,
                 baseline: Optional[Tuple[float, str]] = None,
-                pair_cache: Optional[dict] = None) -> ScenarioResult:
+                pair_cache: Optional[dict] = None,
+                scales: Optional[dict] = None) -> ScenarioResult:
     """RR, ARI, CI untuk skenario s=(e, lambda). disruption=None => kontrol utuh.
 
-    Kontrol lambda=1: RR = 1 eksak (state identik dengan baseline).
+    Kontrol lambda=1: RR = 1 eksak; ARI = 1 - eta*U*_e sehingga CI = eta*U*_e
+    (bukan nol — penalti utilisasi tetap aktif pada state utuh).
+
+    `scales` opsional mengganti (s_k, s_R) model — dipakai uji invariansi
+    penskalaan-serentak (DF-03). Jika diberikan, baseline yang dikirim caller
+    WAJIB dihitung dengan skala yang sama.
     """
     cfg = dict(am.config)
     cfg.update(config or {})
+    sc = dict(am.scales)
+    if scales:
+        sc.update({k: float(v) for k, v in scales.items()})
     eid, lam = (None, 1.0) if disruption is None else (int(disruption[0]),
                                                        float(disruption[1]))
 
@@ -479,22 +494,32 @@ def compute_ari(am: AriModelData, disruption: Optional[Tuple[int, float]] = None
         u_star = min(demand / (caps[eid] + cfg["eps_R"]), 1.0)
 
     if baseline is None:
-        baseline = compute_graph_score(am, None, pair_cache)
+        baseline = compute_graph_score(am, None, pair_cache, scales=sc)
     s_base, st_base = baseline
     if st_base != "ok" or s_base < cfg["baseline_tol"]:
         return ScenarioResult(eid, lam, float("nan"), None, u_star, None, None,
                               "abstain", dict(S_baseline=s_base,
                                               baseline_status=st_base))
 
-    if eid is None or lam == 1.0:
-        # Kontrol: state identik baseline -> RR eksak 1
+    if eid is not None and lam == 1.0:
+        # Kontrol per-edge: w_e tidak berubah -> S identik baseline, RR = 1
+        # EKSAK; penalti utilisasi TETAP aktif sehingga CI = eta*U*_e (bukan 0),
+        # sesuai kontrak acceptance "Kontrol lambda=1".
+        return ScenarioResult(eid, lam, s_base, 1.0, u_star,
+                              1.0 - cfg["eta"] * u_star,
+                              max(cfg["eta"] * u_star, 0.0), "ok",
+                              dict(S_baseline=s_base, mechanical_status="ok",
+                                   note="kontrol lambda=1: RR eksak 1"))
+    if eid is None:
+        # Kontrol utuh (tanpa edge): tidak ada U*_e -> ARI = RR = 1, CI = 0
         rr = 1.0
         s_val = s_base
         st = "ok"
         mech = "ok"
     else:
         scen_audit: dict = {}
-        s_val, st = compute_graph_score(am, {eid: lam}, pair_cache, scen_audit)
+        s_val, st = compute_graph_score(am, {eid: lam}, pair_cache,
+                                        scen_audit, scales=sc)
         mech = scen_audit.get("mechanical_status", "unknown")
 
     detail = dict(S_baseline=s_base, mechanical_status=mech)
@@ -504,12 +529,17 @@ def compute_ari(am: AriModelData, disruption: Optional[Tuple[int, float]] = None
         return ScenarioResult(eid, lam, float("nan"), None, u_star, None, None,
                               "uncertified", detail)
     if st == "rank_deficient":
-        # Mekanisme: solusi ditolak (tanpa pseudoinverse). Skor runtuh -> RR:=0.
-        detail["note"] = ("mekanisme; solusi Gate-1 menolak tanpa pseudoinverse;"
-                          " RR:=0 => CI:=1")
-        return ScenarioResult(eid, lam, float("nan"), 0.0, u_star, 0.0, 1.0,
-                              "rank_deficient", detail)
-    if st != "ok":
+        # Peringatan audit (Layer-3): pada skenario hapus-total, struktur FE
+        # dapat menjadi mekanisme (rank K_ff turun; Gate 1 menolak WITHOUT
+        # pseudoinverse). Tabel 4.3 disertasi TIDAK meng-abstain kasus ini:
+        # skor jalur tetap dihitung murni-graf pada topologi terdisrupsi.
+        # Status dicatat sebagai "ok_with_rank_deficiency" agar reviewer dapat
+        # melihat degradasi kinematik yang tidak tercermin dalam RR/CI.
+        detail["note"] = ("FE rank-deficient (mekanisme) pada state terdisrupsi;"
+                          " skor graf tetap dihitung murni-graf sesuai kontrak"
+                          " Tabel 4.3 — lihat DEFERRED_FINDINGS DF-02")
+        st = "ok_with_rank_deficiency"
+    if st not in ("ok", "ok_with_rank_deficiency"):
         return ScenarioResult(eid, lam, s_val, None, u_star, None, None, st,
                               detail)
 
@@ -517,7 +547,7 @@ def compute_ari(am: AriModelData, disruption: Optional[Tuple[int, float]] = None
     ari = rr * (1.0 - cfg["eta"] * (u_star if u_star is not None else 0.0))
     ci = max(1.0 - ari, 0.0)   # floor numerik: CI >= 0 (RR<=1 terjamin teoritis)
     detail["mechanical_status"] = mech
-    return ScenarioResult(eid, lam, s_val, rr, u_star, ari, ci, "ok", detail)
+    return ScenarioResult(eid, lam, s_val, rr, u_star, ari, ci, st, detail)
 
 
 # -----------------------------------------------------------------------------
