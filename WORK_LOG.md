@@ -277,3 +277,42 @@ di DEFERRED_FINDINGS.md #010.
 ## Status Gate
 🟢 **GATE 6 COMPLETED (Sprint Mode)** — kerangka visualisasi audit-ready.
 ➡️ Langkah berikutnya (usulan): sesi review Finding #001/#007 dengan teks disertasi, atau Gate 7 (laporan agregat/ Bab Hasil).
+
+---
+
+# WORK LOG — Gate 8: Review Ringan & Perapian
+**Researcher:** Harids Irawan (asisten: eksekusi otomatis)
+**Date:** Sunday, October 11, 2026
+**Status:** 🟢 COMPLETED (Review Ringan) — review manual mendalam dilakukan oleh peneliti
+
+## Actions Taken
+- [x] Audit docstring semua file `examples/`: 9/9 .py punya docstring modul (tujuan/gate/referensi section/dependensi); grep TODO/FIXME = 0; `python -m py_compile examples/*.py` OK. Tidak ada perubahan kode (sesuai kontrak "jangan ubah formula/logika").
+- [x] Verifikasi konsistensi header CSV/JSON antar-artefak + cek silang fine-vs-coarse (0 mismatch >1e-9).
+- [x] Baru: `results/verification/README.md` (isi tiap artefak + timestamp + perintah regenerasi).
+- [x] Baru: `ARCHITECTURE.md` (daftar file AKTUAL + commit hash terakhir per file + status ✅/🟡).
+- [x] Baru: `results/review_prep/disertasi_numbers_audit.md` (Tabel 4.1/4.3/4.11 naskah vs angka aktual dari CSV/solver).
+- [x] Baru: `results/review_prep/review_checklist.md` (checklist A–E siap dicentang saat review manual).
+- [x] Update `DEFERRED_FINDINGS.md`: kolom **Last Checked: 2026-10-11** di semua entri (#001–#011); sub-bab "Evidence from Gate 6 Curves" di #001 (deviasi sistematis, bukan lokal); catatan #002 (uji invariansi TIDAK dijalankan di Gate 6 — terakhir di test_ari.py [4]); verifikasi #009/#010 terhadap definisi operasional critical_lambdas.json; **Finding #012 baru** (sinkronisasi angka naskah↔kode, 🔴 Kritis).
+
+## Verification Results
+| Item | Expected | Actual | Match? |
+|---|---|---|---|
+| Docstring modul semua examples/*.py | 9/9 | 9/9 (termasuk referensi section & dependensi) | ✅ |
+| Dead code / TODO relevan | 0 | 0 | ✅ |
+| py_compile examples/*.py | exit 0 | exit 0 | ✅ |
+| Tabel 4.1 audit (solver rerun) | dev < 5e-4 | ≤1e-6 semua | ✅ |
+| Tabel 4.11 audit (pipeline_output.csv) | rel.err < 1e-6 | ≤3e-8 | ✅ |
+| Tabel 4.3 e3/e4 | RR=1, CI=0 | 1.0, 0.0 | ✅ |
+| Tabel 4.3 e1/e2/e5 | target naskah | 0.8599/0.7066/0.7918 | ❌ → #001 (deferred, tidak didebug) |
+| Fine vs coarse pada λ irisan | identik | 0 mismatch >1e-9 (dari 336 baris) | ✅ |
+| critical_lambdas.json vs definisi #009 | konsisten | spot-check M3-e2 flip@λ=0, margin 0→0.125 | ✅ (catatan kunci: `lambda_guard_flip`) |
+
+## Temuan Baru Gate 8 (untuk review manual)
+1. **Inkonsistensi internal naskah**: baris e1/e2 Tabel 4.3 tidak memenuhi identitas Eq 2.17–2.18 (CI = 1 − RR·(1−η·U*)); e3/e4/e5 konsisten. Didokumentasikan di audit + checklist §A.
+2. **Bukti kurva halus #001**: deviasi sistematis di seluruh domain λ (terbesar di hapus-total), memperkuat hipotesis struktur agregasi b_jc-per-komponen-beban, bukan regularisasi.
+3. **Gate 7 tidak tersedia di workspace ini**: commit `93a824d` yang dikutip peneliti tidak ada di log branch sandbox (HEAD = `677104d`); file agregat Gate 7 tidak ditemukan. Dicatat di ARCHITECTURE.md sebagai 🟡 — perlu sinkronisasi repo sebelum review memakai artefak Gate 7.
+4. Uji invariansi #002 belum dieksekusi ulang di Gate 6 (hanya grid+plot); hasil lama tetap FAIL-asimtotik.
+
+## Status Gate
+🟢 **GATE 8 COMPLETED (Review Ringan)** — artefak siap diperiksa.
+➡️ Selanjutnya: review manual mendalam oleh peneliti menggunakan `results/review_prep/review_checklist.md` dan `disertasi_numbers_audit.md`.

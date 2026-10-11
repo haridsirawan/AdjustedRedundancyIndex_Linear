@@ -6,7 +6,10 @@ ditunda hingga fase detail-after-skeleton. ID = DF-nn, dipetakan ke penomoran Fi
 
 ---
 
+> **Status review Gate 8 (2026-10-11):** Semua entri di bawah telah diverifikasi ulang terhadap kode & artefak saat ini; kolom **Last Checked** ditambahkan per entri. Tidak ada formula/parameter yang diubah.
+
 ## DF-01 (Finding #001) — Deviasi Tabel 4.3 pada e1(AB), e2(BC), e5(AC)
+**Last Checked:** 2026-10-11 (Gate 8) — severity 🔴 Kritis tetap akurat.
 **Status:** 🔴 OPEN (di luar kendali parameter saat ini)
 **Model:** M3_square_one_diagonal, skenario hapus-total (λ=0).
 
@@ -51,6 +54,19 @@ ditunda hingga fase detail-after-skeleton. ID = DF-nn, dipetakan ke penomoran Fi
 **Tindakan sprint:** deviasi di-flag `DEVIASI-DEFERRED`, tidak memblokir gate.
 Kasus KRITIS penerimaan (e3/e4: rank turun tapi CI≈0) sudah PASS.
 
+### Evidence from Gate 6 Curves (dibekukan Gate 8, 2026-10-11)
+Rujukan visual: `results/verification/plots/curve_M3_square_one_diag.pdf`
+(data mentah: `results/verification/fine_grid_output.csv`, Δλ=0.05).
+Pola RR(λ) kode utk edge yang berdeviasi (id0=e1, id1=e2, id4=e5):
+- e1/id0: 1.00→1.0000, 0.50→0.9547, 0.00→0.8599 — kurva landai, cekung; target tabel hanya 0.9832 @λ=0 (geser ±0.12 di ujung, ~0.02 di tengah).
+- e2/id1: hampir LINEAR (RR ≈ λ·0.2933+0.7066); deviasi thd target 0.9647 membesar monoton dgn penurunan λ → **sistematis**, bukan lokal.
+- e5/id4: plateau RR=0.7918 utk λ≤0.5 (#004a); deviasi +0.074 konstan di seluruh plateau → **sistematis**.
+Kesimpulan visual: deviasi #001 TIDAK terlokalisasi pada satu λ — selisih muncul di
+seluruh domain (paling besar di hapus-total), mengindikasikan perbedaan STRUKTUR
+agregasi bobot (a_ic/b_jc/π_c), bukan regularisasi atau titik numerik tunggal.
+Temuan tambahan Gate 8: baris e1/e2 naskah juga TIDAK konsisten identitas internal
+CI = 1 − RR·(1−η·U*) (lihat `results/review_prep/disertasi_numbers_audit.md`).
+
 **Update hipotesis (Gate 5, 2026-10-11):** Dugaan kuat: kesalahan
 perhitungan bobot tumpuan (b_jc) **per komponen beban (c)** pada model
 asimetris — bukan error regularisasi ε. Bukti pendukung parsial: b_map
@@ -64,6 +80,7 @@ hipotesis yang dicatat. Investigasi lanjutan dilakukan terpisah.
 ---
 
 ## DF-02 (Finding #004a) — Rank-deficiency state terdisrupsi vs skor murni-graf
+**Last Checked:** 2026-10-11 (Gate 8) — masih relevan; status `ok_with_rank_deficiency` terkonfirmasi di pipeline_output.csv.
 **Status:** 🟡 DOCUMENTED (keputusan implementasi)
 Pada hapus-total M3, SEMUA skenario e0–e4 membuat K_ff rank-deficient
 (mekanisme; node 3 lepas / rotasi bebas). Solver Gate 1 menolak tanpa
@@ -76,6 +93,7 @@ dijelaskan di bab diskusi (konsisten dgn narasi batas representasi e3/e4).
 ---
 
 ## DF-03 (Finding #002) — Invariansi penskalaan: bentuk asimtotik, bukan eksak
+**Last Checked:** 2026-10-11 (Gate 8) — severity 🟡 Medium akurat. CATATAN: Gate 6 TIDAK menjalankan uji invariansi (hanya grid halus & plotting); uji x10-serentak terakhir dieksekusi di test_ari.py [4] (FAIL, ΔARI maks 4.9e-2). Perlu diputuskan apakah klaim invariansi §2.6 direvisi.
 **Status:** 🟡 PARTIAL PASS (ambang longgar 5e-3; murni-x10 gagal)
 Temuan:
 - x10 HANYA (s_k,s_R): ΔARI hingga O(1e0) → jelas TIDAK invarian.
@@ -90,6 +108,7 @@ Temuan:
 ---
 
 ## DF-04 (Finding #004b) — Kontrol utuh (tanpa edge-id) tidak punya U*_e
+**Last Checked:** 2026-10-11 (Gate 8) — tetap dokumentasi; kontrol per-edge kini standar di pipeline.
 **Status:** 🟢 RESOLVED (konvensi)
 Baris "intact control" Tabel 4.11 (ARI=3/4, CI=1/4) mensyaratkan penalti
 U* = 0.5 = Umax model. Untuk skenario edge-less, `compute_ari(disruption=None)`
@@ -101,6 +120,7 @@ dan lewat RR×(1−η·Umax_intact) di test. Kontrak "kontrol λ=1: CI=η·U*_e
 ---
 
 ## DF-05 (Finding #004c) — Skrining grid penuh 64+16 & temuan turunannya
+**Last Checked:** 2026-10-11 (Gate 8) — CLOSED; artefak ari_screening_full.csv + pipeline_output.csv ada.
 **Status:** 🟢 CLOSED (dieksekusi 2026-10-11; temuan baru dicatat sbg #004)
 Grid penuh λ∈{1,0.75,0.5,0.25,0} × 16 edge = 80 run selesai (<2 dtk).
 Audit check: RR(λ=1)=1 eksak semua edge; tidak ada CI<0; monotonisitas RR
@@ -111,6 +131,7 @@ edge×λ yang relevan untuk tabel perbandingan).
 ---
 
 ## DF-06 (Finding #004d) — Greedy vs exhaustive (Section 4.8.6)
+**Last Checked:** 2026-10-11 (Gate 8) — confirmed; tak ada jalur greedy di kode.
 **Status:** 🟢 NO ISSUE
 Enumerasi EKSHAUSTIF semua kombinasi jalur edge-disjoint |P|≤K; status
 `certified/uncertified` via budget DFS (500k node). Tidak pernah mengembalikan
@@ -119,6 +140,7 @@ angka bila pencarian tidak selesai (status uncertified ⇒ RR/ARI/CI = None).
 ---
 
 ## Finding #003 — Batas representasi e3/e4 (rujukan ringkas)
+**Last Checked:** 2026-10-11 (Gate 8) — terkonfirmasi ulang di fine grid: RR=1, CI=0 utk SEMUA λ>0 pada M3 id2/id3.
 Terkonfirmasi lewat kode: lihat DF-01 (baris e3/e4 PASS eksak RR=1, CI=0) dan
 DF-02. Narasi resmi: "e3 dan e4 membawa gaya awal nol di bawah beban yang
 diberikan, dan penghapusannya tidak mengubah skor jalur optimal untuk K=2.
@@ -127,6 +149,7 @@ Ini adalah batas representasi ARI, bukan bug." → masuk Gate 3 (Kinematic Guard
 ---
 
 ## Finding #004 — Temuan tambahan selama eksekusi grid penuh
+**Last Checked:** 2026-10-11 (Gate 8) — sub-item a–d tetap akurat.
 **(a) Plateau λ (M3-e4/M3-e5 penamaan internal):** RR konstan 0.791758 untuk
 λ∈{0.5,0.25,0}. Analisis: setelah w_e^M·λ turun di bawah bobot jalur pesaing,
 kombinasi jalur optimal berpindah permanen ke set alternatif → skor tidak lagi
@@ -146,6 +169,7 @@ bukan safety assessment' wajib ada di bab diskusi disertasi.
 ---
 
 ## Finding #005 (Gate 3) — Penomoran edge: "e1..e5" pada Tabel 4.3 = 1-based vs `id` JSON 0-based
+**Last Checked:** 2026-10-11 (Gate 8) — pemetaan dipakai konsisten di audit review_prep.
 
 **Status**: BARU (ditemukan saat self-test Gate 3, 2026-10-11). Relevan utk Finding #001.
 
@@ -159,12 +183,14 @@ bukan safety assessment' wajib ada di bab diskusi disertasi.
 ---
 
 ## Finding #006 (Gate 3) — Kinematic Guard terpasang; klasifikasi observasional
+**Last Checked:** 2026-10-11 (Gate 8) — guard_decision mengalir ke pipeline/fine CSV; ambang GRAPH_BLIND CI<0.01 perlu keputusan naskah.
 
 Guard menambahkan kolom audit `kinematic` (intact_rank→disrupted_rank, rank_drop, solvable, min/max eig) dan `guard_label` ∈ {CONSISTENT, MECHANISM, GRAPH_BLIND} TANPA mengubah RR/ARI/CI (sanity [4] PASS eksak 1e-12). Kontrol λ=1 per-edge kini membawa snapshot kinematik INTAK di audit trail. Hasil skrining λ=0 (16 skenario): 8 CONSISTENT, 6 MECHANISM, 2 GRAPH_BLIND (M3 id2, id3). Ambang GRAPH_BLIND: CI < 0.01 & rank_drop > 0 (`CI_BLIND_TOL`).
 
 ---
 
 ## Finding #007 (Gate 4) — Mekanisme terdeteksi pada parsial λ>0 di M2 (bukan hanya hapus-total)
+**Last Checked:** 2026-10-11 (Gate 8) — REVISI TERKONFIRMASI oleh fine grid: semua rank-deficient/flip HANYA di λ=0. Klaim parsial JANGAN masuk naskah sebelum cek toleransi eigvals.
 
 **Status**: BARU (pipeline grid penuh λ∈{1,0.75,0.5,0.25,0}, 2026-10-11).
 
@@ -181,6 +207,7 @@ RR(λ) dapat berpotongan dengan batas solvabilitas mekanik sebelum λ=0.
 ---
 
 ## Finding #008 (Gate 4) — Perpanjangan plateau RR(λ): konsistensi lintas-lapisan & monotonisitas global
+**Last Checked:** 2026-10-11 (Gate 8) — 0 pelanggaran monotonisitas di coarse & fine grid.
 
 **Status**: INFO (tidak ada pelanggaran; keputusan verifikasi Gate 4).
 
@@ -197,6 +224,7 @@ CI=1.11e-16 pada M3-id2 saat λ=0 mengonfirmasi floor numerik max(1−ARI,0).
 ---
 
 ## Finding #009 (Gate 5) — Kebutuhan ekstraksi kurva RR(λ) & λ_kritis utk analisis sensitivitas per edge
+**Last Checked:** 2026-10-11 (Gate 8) — output critical_lambdas.json konsisten definisi; CATATAN kunci JSON = `lambda_guard_flip` (bukan `lambda_crit_guard_flip`); nilai curam pakai konvensi upper-bound zona kritis.
 
 **Status**: INFO (kebutuhan terpenuhi oleh `examples/curve_extractor.py`, 2026-10-11).
 
@@ -237,6 +265,7 @@ guard sering TIDAK berimpit; rekomendasi grid λ lebih halus (mis. 0.05)
 atau definisi formal m_e(λ) diperlukan sebelum klaim numerik dibuat.
 
 ## Finding #010 (Gate 6) — Kurva halus Δλ=0.05 & visualisasi RR(λ)/CI(λ)
+**Last Checked:** 2026-10-11 (Gate 8) — 4 PDF terbentuk; kontrak baris definitif 336 (16 edge), angka 420 di spektra salah asumsi 5 edge/model.
 
 **Status**: INFO (kebutuhan terpenuhi oleh `examples/fine_grid_runner.py` +
 `examples/plot_curves.py`, 2026-10-11). Sprint mode — tidak ada formula/
@@ -280,3 +309,13 @@ parameter ARI yang diubah; murni eksekusi grid lebih halus + visualisasi.
 4. Konsistensi numerik fine vs coarse grid: nilai RR/CI pada λ irisan
    {1, 0.75, 0.5, 0.25, 0} identik dengan pipeline_output.csv Gate 5
    (regresi gate 1–5 tetap exit 0 semua).
+
+---
+
+## Finding #012 (Gate 8) — Sinkronisasi angka naskah disertasi ↔ artefak kode
+* **Gate**: Gate 8 (Review Ringan & Perapian)
+* **File**: `results/review_prep/disertasi_numbers_audit.md`, `results/review_prep/review_checklist.md`
+* **Tipe**: Dokumentasi
+* **Deskripsi**: Seluruh angka yang akan dikutip di naskah (Tabel 4.1, 4.3, 4.11, kurva Bab Hasil) wajib dibandingkan satu-per-satu dengan output CSV/JSON aktual sebelum submit. Audit awal Gate 8 sudah menghasilkan tiga kelas temuan: (a) cocok penuh (Tabel 4.1, Tabel 4.11, e3/e4 Tabel 4.3); (b) deviasi terdokumentasi (#001: e1/e2/e5); (c) INKONSISTENSI INTERNAL NASKAH baru ditemukan — baris e1/e2 Tabel 4.3 tidak memenuhi identitas Eq 2.17–2.18 (CI = 1 − RR·(1−η·U*)).
+* **Severity**: 🔴 Kritis (angka publikasi harus traceable ke artefak).
+* **Aksi saat Review**: Bandingkan setiap angka di naskah dengan output CSV/JSON; catat selisih > 1e-6; putuskan sumber kebenaran (naskah dihitung ulang vs artefak); jangan menyalin angka dari log sprint tanpa cek file final.
