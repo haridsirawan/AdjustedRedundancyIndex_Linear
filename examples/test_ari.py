@@ -72,7 +72,11 @@ def main() -> int:
     print("=" * 78)
 
     # Full screening: 4 kontrol utuh + skenario hapus-total (lambda=0) per edge
-    report = ac.run_full_screening(models, lambdas=(0.0,), verbose=True)
+    # Grid penuh (DF-05 ditutup): 16 edge x {0.75,0.5,0.25,0} = 64 skenario
+    # disrupsi + 16 kontrol (lam=1 per-edge di blok [5]; lam=0 utk e3/e4 M3
+    # dan seluruh edge M4 juga terdeteksi rank-deficient -> ok_with_rank_deficiency).
+    report = ac.run_full_screening(
+        models, lambdas=(0.75, 0.5, 0.25, 0.0), verbose=True)
 
     # ---- (1) Two Parallel Bars vs Tabel 4.11 ------------------------------
     print("\n--- [1] Two Parallel Bars vs TABEL 4.11 (limit eps->0) ---")

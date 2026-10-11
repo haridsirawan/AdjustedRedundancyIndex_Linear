@@ -2,11 +2,11 @@
 **Project:** ARI Disertasi — Adjusted Redundancy Index
 **Date:** Sunday, October 11, 2026
 **Konvensi:** Setiap temuan dicatat lengkap dengan bukti numerik; perbaikan
-ditunda hingga fase detail-after-skeleton. ID = DF-nn.
+ditunda hingga fase detail-after-skeleton. ID = DF-nn, dipetakan ke penomoran Finding #nnn sesuai instruksi peneliti.
 
 ---
 
-## DF-01 — Deviasi Tabel 4.3 pada e1(AB), e2(BC), e5(AC)
+## DF-01 (Finding #001) — Deviasi Tabel 4.3 pada e1(AB), e2(BC), e5(AC)
 **Status:** 🔴 OPEN (di luar kendali parameter saat ini)
 **Model:** M3_square_one_diagonal, skenario hapus-total (λ=0).
 
@@ -14,8 +14,8 @@ ditunda hingga fase detail-after-skeleton. ID = DF-nn.
 |---|---|---|---|---|
 | e1 (AB) | 0.859874 | 0.983152 | 0.140126 | 0.016848 |
 | e2 (BC) | 0.706600 | 0.964724 | 0.425887 | 0.216162 |
-| e3 (CD) | 1.000000 ✅ | 1.000000 | 0.000000 ✅ | 0.000000 |
-| e4 (DA) | 1.000000 ✅ | 1.000000 | 0.000000 ✅ | 0.000000 |
+| e3 (CD) | 1.000000 ✅ (→ Finding #003) | 1.000000 | 0.000000 ✅ | 0.000000 |
+| e4 (DA) | 1.000000 ✅ (→ Finding #003) | 1.000000 | 0.000000 ✅ | 0.000000 |
 | e5 (AC) | 0.791758 | 0.717285 | 0.418189 | 0.472914 |
 
 **Eksplorasi yang sudah dilakukan (semua TIDAK mereproduksi target):**
@@ -53,7 +53,7 @@ Kasus KRITIS penerimaan (e3/e4: rank turun tapi CI≈0) sudah PASS.
 
 ---
 
-## DF-02 — Rank-deficiency state terdisrupsi vs skor murni-graf
+## DF-02 (Finding #004a) — Rank-deficiency state terdisrupsi vs skor murni-graf
 **Status:** 🟡 DOCUMENTED (keputusan implementasi)
 Pada hapus-total M3, SEMUA skenario e0–e4 membuat K_ff rank-deficient
 (mekanisme; node 3 lepas / rotasi bebas). Solver Gate 1 menolak tanpa
@@ -65,7 +65,7 @@ dijelaskan di bab diskusi (konsisten dgn narasi batas representasi e3/e4).
 
 ---
 
-## DF-03 — Invariansi penskalaan: bentuk asimtotik, bukan eksak
+## DF-03 (Finding #002) — Invariansi penskalaan: bentuk asimtotik, bukan eksak
 **Status:** 🟡 PARTIAL PASS (ambang longgar 5e-3; murni-x10 gagal)
 Temuan:
 - x10 HANYA (s_k,s_R): ΔARI hingga O(1e0) → jelas TIDAK invarian.
@@ -79,7 +79,7 @@ Temuan:
 
 ---
 
-## DF-04 — Kontrol utuh (tanpa edge-id) tidak punya U*_e
+## DF-04 (Finding #004b) — Kontrol utuh (tanpa edge-id) tidak punya U*_e
 **Status:** 🟢 RESOLVED (konvensi)
 Baris "intact control" Tabel 4.11 (ARI=3/4, CI=1/4) mensyaratkan penalti
 U* = 0.5 = Umax model. Untuk skenario edge-less, `compute_ari(disruption=None)`
@@ -90,17 +90,45 @@ dan lewat RR×(1−η·Umax_intact) di test. Kontrak "kontrol λ=1: CI=η·U*_e
 
 ---
 
-## DF-05 — Cakupan skrining: 64 skenario + 16 kontrol belum dijalankan penuh
-**Status:** 🟡 DEFERRED (sprint mode)
-Test saat ini menjalankan λ∈{0} (20 baris CSV). Grid penuh λ∈{0,0.25,0.5,0.75,1}
-× 16 edge = 80 run ≈ trivial secara komputasi (path search exhaustif pada
-graf ≤6 node selesai <10 ms/scenario); akan diaktifkan saat finalisasi Gate 2.
-Blok monotonisitas sudah membuktikan lintasan λ tengah berfungsi benar.
+## DF-05 (Finding #004c) — Skrining grid penuh 64+16 & temuan turunannya
+**Status:** 🟢 CLOSED (dieksekusi 2026-10-11; temuan baru dicatat sbg #004)
+Grid penuh λ∈{1,0.75,0.5,0.25,0} × 16 edge = 80 run selesai (<2 dtk).
+Audit check: RR(λ=1)=1 eksak semua edge; tidak ada CI<0; monotonisitas RR
+menurun terhadap λ: 0 pelanggaran pada seluruh 16 edge × 4 model.
+CSV audit kini memuat 68 baris (kontrol per-model + seluruh kombinasi
+edge×λ yang relevan untuk tabel perbandingan).
 
 ---
 
-## DF-06 — Greedy vs exhaustive (Section 4.8.6)
+## DF-06 (Finding #004d) — Greedy vs exhaustive (Section 4.8.6)
 **Status:** 🟢 NO ISSUE
 Enumerasi EKSHAUSTIF semua kombinasi jalur edge-disjoint |P|≤K; status
 `certified/uncertified` via budget DFS (500k node). Tidak pernah mengembalikan
 angka bila pencarian tidak selesai (status uncertified ⇒ RR/ARI/CI = None).
+
+---
+
+## Finding #003 — Batas representasi e3/e4 (rujukan ringkas)
+Terkonfirmasi lewat kode: lihat DF-01 (baris e3/e4 PASS eksak RR=1, CI=0) dan
+DF-02. Narasi resmi: "e3 dan e4 membawa gaya awal nol di bawah beban yang
+diberikan, dan penghapusannya tidak mengubah skor jalur optimal untuk K=2.
+Ini adalah batas representasi ARI, bukan bug." → masuk Gate 3 (Kinematic Guard).
+
+---
+
+## Finding #004 — Temuan tambahan selama eksekusi grid penuh
+**(a) Plateau λ (M3-e4/M3-e5 penamaan internal):** RR konstan 0.791758 untuk
+λ∈{0.5,0.25,0}. Analisis: setelah w_e^M·λ turun di bawah bobot jalur pesaing,
+kombinasi jalur optimal berpindah permanen ke set alternatif → skor tidak lagi
+peka λ. Bukan diskontinuitas bug; sifat max-over-paths. Perlu dicek apakah
+disertasi mengharapkan kelancaran kurva RR(λ) (Gate 3/4).
+**(b) Status rank-deficient meluas ke M4:** pada hapus-total SEMUA edge M4
+(two diagonals) menghasilkan K_ff rank-deficient (chord tepi hilang → node
+lepas), namun skor murni-graf tetap dihitung (`ok_with_rank_deficiency`,
+DF-02). Konsisten dgn perlakuan Tabel 4.3 utk M3 e3/e4.
+**(c) Kontrol utuh edge-less vs kontrol per-edge:** dikunci konvensi DF-04 —
+laporkan keduanya; angka Tabel 4.11 (ARI=3/4) direproduksi oleh kontrol
+per-edge λ=1, BUKAN oleh kontrol edge-less (CI=0). Harus eksplisit di naskah.
+**(d) Peringatan reviewer potensial:** karena (a)+(b), CI kecil dapat muncul
+pada struktur yang secara mekanis sudah mekanisme — narasi 'screening-only,
+bukan safety assessment' wajib ada di bab diskusi disertasi.

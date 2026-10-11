@@ -39,3 +39,47 @@ Deviasi maksimum aktual: Δumax = 4.98e-07 mm (Triangle), ΔUmax = 4.79e-07 (2-D
 
 ## Status Gate
 🟢 **GATE 1 PASSED** — Menunggu persetujuan untuk lanjut ke Gate 2 (ARI Core).
+
+
+---
+
+# WORK LOG — Gate 2: ARI Core Implementation (SPRINT MODE)
+**Researcher:** Harids Irawan
+**Date:** Sunday, October 11, 2026
+**Gate:** Gate 2 — ARI Core Implementation
+**Status:** 🟢 COMPLETED (Sprint Mode — lanjut ke Gate 3 tanpa menunggu review)
+
+## Actions Taken
+- [x] `examples/ari_core.py` difinalisasi — 9 fungsi kontrak disertasi lengkap & terdokumentasi (Eq 2.5–2.18): compute_edge_weights, enumerate_simple_paths (DFS, node tak berulang, edge-ID dipertahankan utk multigraph), enumerate_edge_disjoint_combinations (EKSHAUSTIF — bukan greedy, §4.8.6), compute_pair_score, compute_node_weights (b_jc dari reaksi INTAK, tanpa renormalisasi), compute_graph_score, apply_disruption (λ, TANPA renormalisasi, §4.8.4), compute_ari, run_full_screening + audit trail.
+- [x] `examples/test_ari.py` difinalisasi — diagnostik blok [1]–[6] + CSV; grid penuh λ∈{1,0.75,0.5,0.25,0} × 16 edge = 80 run dieksekusi (DF-05 ditutup).
+- [x] `DEFERRED_FINDINGS.md` dibuat/diperbarui — Finding #001–#004 (penomoran sesuai instruksi peneliti, dipetakan ke DF-nn).
+- [x] Konfigurasi default terkunci & diverifikasi di kode: α_k=α_R=0.5, q_e=1, K=2, γ=1, η=0.5, β=0.1; ε_w=ε_d=1e-9, ε_R=1e-6 kN, baseline_tol=1e-12; skala tetap per model sesuai §4.1.2 (M1: s_k=15, s_R=30; M2: 20/40; M3,M4: 20/80). Konvensi λ=0 = hapus edge fisik; uncertified ⇒ abstain (RR/ARI/CI=None).
+
+## Verification Results (ringkasan — detail & bukti di DEFERRED_FINDINGS.md)
+| Kasus | Expected | Actual | Match? |
+|---|---|---|---|
+| Tabel 4.11 — kontrol utuh (per-edge λ=1) | RR=1, CI=η·U*=0.25 | RR=1 eksak, CI=0.25 | ✅ (rel.tol 1e-6) |
+| Tabel 4.11 — remove bar 0 | RR=7/17, ARI=21/68, CI=47/68 | 0.411765 / 0.308824 / 0.691176 | ✅ |
+| Tabel 4.11 — remove bar 1 | RR=10/17, ARI=15/34, CI=19/34 | 0.588235 / 0.441176 / 0.558824 | ✅ |
+| Tabel 4.3 — e3(CD), e4(DA) [KRITIS] | RR=1.0, CI=0.0 | 1.000000 / 0.000000 | ✅ batas representasi |
+| Tabel 4.3 — e1(AB) | RR≈0.983152 | 0.859874 | ❌ → Finding #001 |
+| Tabel 4.3 — e2(BC) | RR≈0.964724 | 0.706600 | ❌ → Finding #001 |
+| Tabel 4.3 — e5(AC) | RR≈0.717285 | 0.791758 | ❌ → Finding #001 |
+| Monotonisitas S(λ) M3-e5, M4-e5 (+semua 16 edge) | S tidak naik saat λ turun | PASS; 0 pelanggaran RR-monotonic | ✅ |
+| Invariansi skala-serentak ×10 semua parameter bertaraf | ARI tak berubah | ΔARI maks 4.9e-2 → bentuk asimtotik | ⚠️ → Finding #002 |
+| Grid penuh skrining | 64 skenario + 16 kontrol | 80 run selesai, tanpa anomali (RR(1)=1 eksak, CI≥0) | ✅ |
+
+## Deferred Findings (referensi untuk review nanti)
+- **Finding #001** (DF-01): deviasi >10% RR e1/e2/e5 Square-One-Diagonal vs Tabel 4.3 — sudah dibuktikan BUKAN artefak ε/skala (sweep identik eksak); hipotesis H1–H3 butuh teks disertasi. Sprint mode: dicatat, TIDAK didebug, formula/parameter TIDAK diubah.
+- **Finding #002** (DF-03): invariansi hanya berlaku jika SEMUA parameter bertaraf (s_k, s_R, ε_w, ε_d, ε_R, ε_removed) diskalakan serentak, dan itu pun dalam limit ε→0 (asimtotik, bukan eksak). Keputusan formulasi untuk didokumentasikan.
+- **Finding #003**: e3/e4 zero-initial-force → CI≈0 saat rank turun 5→4. Batas representasi ARI (skor jalur murni-graf, bukan kendala kinematik) — BUKAN bug. Motivasi Gate 3 (Kinematic Guard).
+- **Finding #004** (DF-02/04/05/06): temuan tambahan — plateau RR(λ) pada λ≤0.5 (sifat max-over-paths), rank-deficiency meluas ke seluruh edge M4 saat hapus-total, konvensi kontrol edge-less vs per-edge, exhaustive search tersertifikasi budget.
+
+## Notes for Review
+- Regresi Gate 1 dicek ulang setelah perubahan ari_core: solver tetap cocok Tabel 4.1 (Δ < 5e-4, exit 0).
+- Audit trail: `results/verification/ari_screening.csv` (68 baris: status mekanik, S_baseline, S_scenario, RR, U*, ARI, CI per skenario).
+- Cara menjalankan: `python examples/test_ari.py` (exit 0 = sprint-mode OK; flag DEVIASI-DEFERRED diharapkan).
+
+## Status Gate
+🟢 **GATE 2 COMPLETED (Sprint Mode)** — kerangka utuh, semua temuan tercatat.
+➡️ Langkah berikutnya: **Gate 3 — Kinematic Guard** (tanpa menunggu review), menutup Finding #003/#004 dengan deteksi mekanisme/rank-diagnostik di sisi ARI.
