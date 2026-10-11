@@ -235,3 +235,48 @@ dan untuk bab analisis sensitivitas disertasi. Gate 5 menambahkan:
 Implikasi utk naskah: pada grid coarse, λ_kritis berbasis-CI dan berbasis-
 guard sering TIDAK berimpit; rekomendasi grid λ lebih halus (mis. 0.05)
 atau definisi formal m_e(λ) diperlukan sebelum klaim numerik dibuat.
+
+## Finding #010 (Gate 6) — Kurva halus Δλ=0.05 & visualisasi RR(λ)/CI(λ)
+
+**Status**: INFO (kebutuhan terpenuhi oleh `examples/fine_grid_runner.py` +
+`examples/plot_curves.py`, 2026-10-11). Sprint mode — tidak ada formula/
+parameter ARI yang diubah; murni eksekusi grid lebih halus + visualisasi.
+
+* **Gate**: Gate 6
+* **File**: `examples/fine_grid_runner.py`, `examples/plot_curves.py`
+* **Tipe**: Visualisasi
+* **Deskripsi**: Kurva halus Δλ=0.05 diperlukan untuk analisis visual
+  plateau, guard-flip, dan pola deviasi #001. Output:
+  `results/verification/fine_grid_output.csv` (schema identik
+  pipeline_output.csv Gate 5) dan 4 PDF di
+  `results/verification/plots/` (curve_M1_parallel_bars.pdf,
+  curve_M2_triangle.pdf, curve_M3_square_one_diag.pdf,
+  curve_M4_square_two_diag.pdf) — subplot RR di atas, CI di bawah, garis
+  referensi RR=1 / CI=0 / λ=0.5, marker 'x' merah = rank_deficient, '*'
+  oranye = guard-flip Clear→Forward.
+* **Severity**: 🟢 Minor
+* **Hipotesis**: Kurva halus akan memperlihatkan apakah deviasi #001
+  bersifat sistematis (seluruh kurva bergeser) atau lokal (hanya di λ
+  tertentu).
+* **Aksi saat Review**: Bandingkan visual kurva M3 dengan perhitungan
+  manual dari Section 4.8 disertasi.
+
+**Temuan aktual grid halus (336 baris per-edge; catatan penting):**
+1. Kontrak baris: model kanonik memiliki 2+3+5+6 = 16 edge →
+   16 × 21 titik = **336 baris**, BUKAN 420 seperti tertulis di spektra
+   Gate 6 ("4 × 5 × 21"). Angka 420 mengasumsikan 5 edge/model; M1 punya 2,
+   M2 punya 3, M4 punya 6. Tidak ada edge abstain (NaN = 0), jadi 336
+   adalah jumlah definitif. Perlu dikoreksi di naskah/spektra.
+2. Pada Δλ=0.05, SEMUA guard-flip (Clear→Forward) dan seluruh
+   rank-deficiency terjadi TEPAT di λ=0.0 — tidak ada flip parsial pada
+   (0,1). Ini MEMPERLEBAR penemuan #007 versi coarse-grid (yang sempat
+   melaporkan mekanisme M2 pada λ=0.5/0.25): pada fine grid statusnya ok
+   sampai λ=0.05. Kemungkinan besar laporan #007 berasal dari artefak
+   pembulatan/pemetaan nilai λ pada grid coarse — perlu dicek ulang saat
+   review sebelum klaim "mekanisme muncul pada degradasi parsial" dibuat.
+3. Plateau RR terkonfirmasi visual: M3-e2/e3 (kasus kritis #003) datar
+   RR=1, CI=0 di SELURUH rentang λ∈(0,1], baru berubah status kinematik
+   (bukan skor) di λ=0 — persis batas representasi yang didokumentasikan.
+4. Konsistensi numerik fine vs coarse grid: nilai RR/CI pada λ irisan
+   {1, 0.75, 0.5, 0.25, 0} identik dengan pipeline_output.csv Gate 5
+   (regresi gate 1–5 tetap exit 0 semua).
