@@ -83,3 +83,36 @@ Deviasi maksimum aktual: Δumax = 4.98e-07 mm (Triangle), ΔUmax = 4.79e-07 (2-D
 ## Status Gate
 🟢 **GATE 2 COMPLETED (Sprint Mode)** — kerangka utuh, semua temuan tercatat.
 ➡️ Langkah berikutnya: **Gate 3 — Kinematic Guard** (tanpa menunggu review), menutup Finding #003/#004 dengan deteksi mekanisme/rank-diagnostik di sisi ARI.
+
+---
+
+# Gate 3 — Kinematic Guard
+**Date:** Sunday, October 11, 2026
+**Status:** 🟢 PASSED (self-test exit 0; regresi Gate 1 & Gate 2 tetap hijau)
+
+## Actions Taken
+- [x] `examples/kinematic_guard.py` dibuat: `kinetic_snapshot`, `guard_scenario`, `classify`, `annotate_screening` + self-test CLI. Guard bersifat OBSERVASIONAL — RR/ARI/CI tidak diubah (sanity PASS eksak 1e-12).
+- [x] `examples/ari_core.py`: ditambahkan `kinetic_snapshot` & `guard_diagnostic` (rank-check via solver Gate 1, eigvals tol relatif 1e-10, tanpa pseudoinverse); kontrol λ=1 per-edge kini membawa snapshot kinematik INTAK di audit trail.
+- [x] `DEFERRED_FINDINGS.md`: Finding #005 (penomoran edge Tabel 4.3 = 1-based vs id JSON 0-based → "e3,e4" ≡ id2(CD),id3(DA)) dan #006 (hasil klasifikasi guard).
+- [x] Regresi: `test_truss_reference.py` exit 0 (Tabel 4.1), `test_ari.py` exit 0 (Tabel 4.11 LULUS; #001/#002 tetap terdokumentasi).
+
+## Hasil Self-Test (λ=0 hapus-total, 16 skenario)
+| Model | Edge | RR | CI_ARI | rank intact→disrupted | Label guard |
+|---|---|---|---|---|---|
+| M1 | e0,e1 | 0.411765 / 0.588235 | 0.691176 / 0.558824 | 1→1 | CONSISTENT |
+| M2 | e0,e1,e2 | 0.500000/0.500000/0.668277 | >0.4 | 3→2 | MECHANISM |
+| M3 | id0(AB) | 0.859874 | 0.140126 | 5→4 | MECHANISM |
+| M3 | id1(BC) | 0.706600 | 0.425887 | 5→4 | MECHANISM |
+| M3 | **id2(CD)** | **1.000000** | **0.000000** | 5→4 | **GRAPH_BLIND** ← Finding #003 |
+| M3 | **id3(DA)** | **1.000000** | **0.000000** | 5→4 | **GRAPH_BLIND** ← Finding #003 |
+| M3 | id4(AC) | 0.791758 | 0.418189 | 5→4 | MECHANISM |
+| M4 | semua e0–e5 | 0.834–1.000 | 0.074–0.300 | 5→5 | CONSISTENT |
+
+Ringkasan: 8 CONSISTENT, 6 MECHANISM, 2 GRAPH_BLIND. Kasus kritis Finding #003 kini TERDETEKSI oleh guard (label GRAPH_BLIND saat CI<0.01 & rank_drop>0), menutup gap representasi ARI murni-graf.
+
+## Temuan Penting
+- **Finding #005**: label "e3/e4" pada narasi disertasi ternyata 1-based; dua zero-force member (CD, DA) = id JSON 2,3. Bukti independen dari sisi kinematik — memperkuat hipotesis H2 utk deviasi Tabel 4.3 (#001), namun konfirmasi naskah tetap diperlukan.
+- M2 kehilangan elemen tunggal apa pun → mekanisme (rank-deficient): redundansi M2 adalah redundansi beban-jalur, bukan redundansi stabilitas.
+
+## Langkah Selanjutnya
+➡️ Gate 4: integrasi pipeline penuh (screening grid λ × guard × CSV berkolom kinematik) & review session utk #001/#002/#005.
