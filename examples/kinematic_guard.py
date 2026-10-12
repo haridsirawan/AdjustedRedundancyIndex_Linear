@@ -128,6 +128,41 @@ def classify(diag: dict, ci_ari: Optional[float]) -> str:
     return "CONSISTENT"
 
 
+class GuardCache:
+    """Public getter cache diagnostik kinematik (Gate 3) — TANPA perubahan logika.
+
+    Ditambahkan pada Gate Pre-Analysis (§4.5, Eq 4.9): modul
+    ``bound_enhancement.BoundCache`` MENGCOMPOSE kelas ini (bukan mereimplementasi
+    deteksi rank/SVD-guard) untuk memperoleh h_e = fraksi energi regangan edge e
+    pada state INTAK, dan m_e(lambda) = 1 - (1-lambda)*h_e.
+
+    Cache dibangun sekali per model parent (satu panggilan solver intak);
+    lookup thereafter adalah O(1). Ini adalah strategi reuse yang diminta
+    Section 4.5: satu faktorisasi state intak meng-amortisasi seluruh skenario.
+    """
+
+    def __init__(self, model: dict):
+        self.model = model
+        self._intact = kinetic_snapshot(model)          # 1x solve_model (intak)
+        self._scenario_cache: Dict[tuple, dict] = {}
+
+    def intact_snapshot(self) -> dict:
+        """Vektor diagnostik state INTAK (rank, ndof, eigenvalue ekstrem)."""
+        return dict(self._intact)
+
+    def scenario(self, edge_id: int, lambda_: float) -> dict:
+        """Diagnostik kinematik state M_{e,lambda} (di-cache per (eid, lam)).
+
+        Return sama dengan guard_scenario(): disrupted_status, disrupted_rank,
+        intact_rank, solvable, min_eig, max_eig, rank_drop.
+        """
+        key = (int(edge_id), float(lambda_))
+        if key not in self._scenario_cache:
+            self._scenario_cache[key] = guard_scenario(
+                self.model, key[0], key[1], self._intact)
+        return dict(self._scenario_cache[key])
+
+
 def annotate_screening(report: dict, models_by_id: Dict[str, dict],
                        lambdas: tuple = (0.0,), verbose: bool = False) -> dict:
     """Perkaya report run_full_screening() dgn kolom kinematik (non-destruktif).
