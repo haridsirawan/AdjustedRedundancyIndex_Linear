@@ -1,4 +1,6 @@
 # ARCHITECTURE — Implementasi Disertasi ARI
+> **Catatan lokasi (2026-10-13):** seluruh suite verifikasi kini berada di folder `AutoClaw/`. Path yang disebut di dokumen ini (mis. `examples/…`, `results/…`) relatif terhadap folder `AutoClaw/`.
+
 **Status snapshot:** 2026-10-11 (Gate 8). Daftar file AKTUAL yang ada di repo (bukan rencana), dengan commit terakhir per file dan status.
 
 ## Pipeline 3-lapisan

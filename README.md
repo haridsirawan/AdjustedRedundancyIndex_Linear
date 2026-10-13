@@ -12,30 +12,16 @@ Repositori penelitian disertasi **Adjusted Redundancy Index (ARI)** — indeks r
 | `Report/`, `Final Report/` | Draf dan laporan akhir |
 | `Presentation/` | Materi presentasi |
 | `VOSviewer/` | Data & hasil analisis bibliometrik (SLR/PRISMA, jaringan jurnal) |
-| `examples/` | Kode implementasi & verifikasi model ARI |
-| `results/` | Keluaran pipeline verifikasi (CSV, JSON, PDF) |
-| `ARCHITECTURE.md` | Arsitektur pipeline 3-lapisan verifikasi |
-| `WORK_LOG.md` | Log progres verifikasi Gate 1–8 |
-| `DEFERRED_FINDINGS.md` | Temuan yang ditunda beserta statusnya |
+| `AutoClaw/` | Suite verifikasi model ARI (lihat `AutoClaw/README.md`) |
+| `LICENSE` | Apache 2.0 |
 
 Folder ini sekaligus merupakan **Obsidian vault** — buka dengan Obsidian untuk menjelajahi catatan (`Notes/`).
 
-## Verifikasi model (pipeline ARI)
+## Suite verifikasi model
 
-Pipeline 3-lapisan untuk memverifikasi mesin ARI terhadap tabel referensi disertasi:
-
-```
-verification_models.json → truss_reference.py (L1: solver FE)
-                        → ari_core.py          (L2: mesin ARI, Eq 2.5–2.18)
-                        → kinematic_guard.py   (L3: guard rank/margin)
-                        → run_pipeline.py / fine_grid_runner.py → CSV/JSON/PDF
-```
-
-Jalankan dari folder `examples/`. Detail gate, status verifikasi, dan daftar file aktual ada di `ARCHITECTURE.md` dan `WORK_LOG.md`.
+Implementasi dan verifikasi komputasi model ARI (pipeline 3-lapisan, verifikasi Gate 1–8) berada di folder [`AutoClaw/`](AutoClaw/) — arsitektur, log progres, dan cara menjalankannya dijelaskan di `AutoClaw/README.md`, `AutoClaw/ARCHITECTURE.md`, dan `AutoClaw/WORK_LOG.md`.
 
 ## Catatan
 
 - `VOSviewer/VOSviewer.app/` sengaja tidak dilacak (biner aplikasi ±65 MB).
 - File yang masih berupa placeholder iCloud (`*.icloud`) tidak ikut tercommit; unduh dulu isinya dari iCloud agar masuk git.
-- `Presentation/` kosong dipertahankan lewat `.gitkeep` agar struktur folder utuh saat di-clone.
-- Lisensi: Apache 2.0 — lihat `LICENSE`.
