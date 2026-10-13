@@ -34,7 +34,7 @@ verification_models.json ──► truss_reference.py (L1 Solver FE)
 | plot_curves.py | 6 | 4 PDF kurva RR/CI (Agg; marker x merah rank_deficient, * oranye guard-flip) | df28ade | ✅ selesai (flip-fix Gate 7) |
 | mechanical_guard.py | 9 | h_e = k_e·a_e·K₀⁻¹·a_eᵀ via SVD (Eq 4.1); m_e(λ); batas kondisi Eq 4.4; identitas Eq 4.7 | (Gate 9) | ✅ selesai |
 | run_verification.py | 9 | Runner verifikasi kanonik → baseline/scenarios/checks.csv, manifest.json, Tabel.tex, models.pdf, ci_by_damage.pdf (Tabel 4.8) | (Gate 9) | ✅ selesai |
-| run_guard_verification.py | 9 | Paket verifikasi pengaman §4.2/§4.5.11 → guard_verification.json (parametrik §4.2.4: pending material) | (Gate 9) | ✅ selesai |
+| run_guard_verification.py | 9/9.2 | Paket verifikasi pengaman §4.2/§4.5.11 + diagnostik parametrik §4.2.4 (272 skenario; dua konvensi kritikalitas; decisions.csv + remaining_misses.csv) → guard_verification.json | (Gate 9.2) | ✅ selesai |
 | ari_tutorial.py | 9 | Tutorial rantai ARI contoh dua batang (urutan reproduksi Kode 4.2) | (Gate 9) | ✅ selesai |
 
 **Gate 9 (2026-10-13) — penyelarasan penuh dengan naskah:** b_jc per komponen reaksi (Eq 2.12) menutup DF-01 (Tabel 4.3 ≤ 4e-7); h_e SVD (Eq 4.1) menggantikan fraksi-energi di bound_enhancement (Tabel 4.4); λ=0 dihapus eksak; π_c ternormalisasi; status Tabel 4.7. Bukti: run_verification.py 65/65 LULUS + `results/review_prep/penyelarasan_disertasi_gate9.md`.
@@ -52,7 +52,8 @@ Catatan: gate 7 (agregasi laporan) dilaporkan selesai oleh peneliti (commit 93a8
 | results/verification/plots/curve_M{1..4}_*.pdf | visualisasi kurva halus | ✅ |
 | results/verification/README.md | penjelasan tiap file + timestamp | ✅ (Gate 8) |
 | results/verification/baseline.csv, scenarios.csv, checks.csv, manifest.json, Tabel.tex, models.pdf, ci_by_damage.pdf | keluaran kontrak Tabel 4.8 (Gate 9) | ✅ |
-| results/verification/guard_verification.json | verifikasi paket pengaman §4.2 (Gate 9) | ✅ |
+| results/verification/guard_verification.json | verifikasi paket pengaman §4.2 + diagnostik parametrik §4.2.4 (Gate 9/9.2) | ✅ |
+| results/revision/{models.json, decisions.csv, remaining_misses.csv} | paket parametrik 16 model (272 skenario); keputusan (+sha256) & kasus terlewat; bandingan draf A/B di guard_verification.json | ✅ (Gate 9.2) |
 | results/review_prep/disertasi_numbers_audit.md | audit angka naskah vs kode | ✅ (Gate 8; dikoreksi Gate 9) |
 | results/review_prep/review_checklist.md | checklist review manual | ✅ (Gate 8) |
 

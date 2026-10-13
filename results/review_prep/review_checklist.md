@@ -43,7 +43,7 @@ Cara pakai: [x] = sudah terverifikasi otomatis oleh kode (bukti: `results/verifi
 - [x] Artefak visual: 4 PDF kurva Δλ=0.05 + `models.pdf` + `ci_by_damage.pdf`
 - [x] Keluaran kontrak Tabel 4.8: `baseline.csv`, `scenarios.csv`, `checks.csv`, `manifest.json`, `Tabel.tex`
 - [x] Laporan penyelarasan: `results/review_prep/penyelarasan_disertasi_gate9.md`
-- [ ] Paket parametrik §4.2.4 (272 skenario) — MENUNGGU `results/revision/models.json`
+- [x] Paket parametrik §4.2.4 terimplementasi (Gate 9.2): `results/revision/models.json` + runner → struktur cocok penuh (N=272, rank 32, pengaman 32); kritis 71/39 cocok pada varian B — [ ] keputusan peneliti: konvensi mana untuk angka final (lihat `results/revision/README.md`)
 - [x] Regresi hijau penuh: test_truss_reference, test_ari, mechanical_guard, kinematic_guard, run_pipeline, fine_grid_runner, curve_extractor, plot_curves, run_verification (65/65), run_guard_verification (33/33), ari_tutorial (exit 0)
 
 ## F. Urutan Reproduksi (Kode 4.2 / 4.5.9)

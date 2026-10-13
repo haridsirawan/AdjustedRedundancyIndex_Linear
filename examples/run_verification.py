@@ -204,7 +204,6 @@ def main() -> int:
     print("\n[3] Diagnostik kanonik (Tabel 4.2 & 4.5):")
     diag = dict(rank_lost=0, critical=0, ari_fwd=0, guard_fwd=0, comb_fwd=0,
                 ari_missed=0, guard_missed=0, comb_missed=0)
-    eps = 1e-12
     for mid, m in by_id.items():
         am = engines[mid]
         s_b, st_b = baselines[mid]
@@ -221,8 +220,12 @@ def main() -> int:
                 rank_lost = (res.status != "ok")
                 u_over = d_over = False
                 if not rank_lost:
-                    u_over = bool(res.Umax > 1.0 + eps)
-                    d_over = bool(res.umax > 2.0 * u0 + eps)
+                    # Kriteria diagnostik (4.2.4): utilisasi maksimum RESPONS
+                    # TERDISRUPSI vs kapasitas state saat itu (target bar x
+                    # lambda, Bagian 4.1.5) melampaui 1, atau perpindahan
+                    # maksimum melampaui 2xd0 — ketidaksamaan TEGAS polos.
+                    u_over = bool(res.Umax > 1.0)
+                    d_over = bool(res.umax > 2.0 * u0)
                 diag["rank_lost"] += int(rank_lost)
                 # "Diteruskan" dihitung atas SELURUH 64 gangguan (Tabel 4.5)
                 ari_f = (r.CI is not None) and (r.CI >= TAU_CI)

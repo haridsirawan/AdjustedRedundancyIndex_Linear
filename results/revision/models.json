@@ -1,0 +1,171 @@
+{
+  "meta": {
+    "title": "16 Model Parametrik — Diagnostik Pengembangan (Disertasi Bagian 4.2.4)",
+    "description": "Empat grup bentuk (segitiga, persegi 1 diagonal, persegi 2 diagonal, tripod) x 4 konfigurasi deterministik. 68 elemen x 4 faktor gangguan (lambda in {0, 0.25, 0.50, 0.75}) = 272 gangguan.",
+    "source": "Spesifikasi diberikan peneliti (Harids Irawan), 2026-10-13. Angka target diagnostik = Tabel 4.5 paruh Parametrik.",
+    "units": {"force": "kN", "length": "mm", "area": "mm^2", "stress_capacity": "kN"},
+    "default_material": {"E": 200.0, "E_MPa_units": "kN/mm^2"},
+    "supports_convention": "Simpul kiri bawah terkunci (x,y); simpul kanan bawah terkunci (y). Tripod: ketiga simpul tumpuan terkunci (x,y).",
+    "targets_tabel_45": {
+      "N": 272,
+      "rank_kurang": 32,
+      "kritis_tambahan": 39,
+      "kritis_total": 71,
+      "ari_diteruskan": 17,
+      "pengaman_diteruskan": 32,
+      "gabungan_diteruskan": 41,
+      "ari_rank_terlewat": 24,
+      "pengaman_rank_terlewat": 0,
+      "gabungan_rank_terlewat": 0,
+      "ari_kritis_terlewat": 54,
+      "pengaman_kritis_terlewat": 39,
+      "gabungan_kritis_terlewat": 30
+    }
+  },
+  "models": [
+    {
+      "id": "P01_triangle_500x600", "group": "A_segitiga", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1000.0, 0.0]}, {"id": 2, "coords": [500.0, 600.0]}],
+      "elements": [{"id": 0, "nodes": [0, 1], "area": 100.0}, {"id": 1, "nodes": [1, 2], "area": 100.0}, {"id": 2, "nodes": [0, 2], "area": 100.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 40.0, "1": 40.0, "2": 40.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"uy": 0.0}},
+      "loads": [{"node": 2, "components": {"ux": 0.0, "uy": -40.0}}],
+      "scales": {"s_k": 20.0, "s_R": 40.0}
+    },
+    {
+      "id": "P02_triangle_600x800", "group": "A_segitiga", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1000.0, 0.0]}, {"id": 2, "coords": [600.0, 800.0]}],
+      "elements": [{"id": 0, "nodes": [0, 1], "area": 120.0}, {"id": 1, "nodes": [1, 2], "area": 80.0}, {"id": 2, "nodes": [0, 2], "area": 80.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 50.0, "1": 50.0, "2": 50.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"uy": 0.0}},
+      "loads": [{"node": 2, "components": {"ux": 0.0, "uy": -35.0}}],
+      "scales": {"s_k": 20.0, "s_R": 40.0}
+    },
+    {
+      "id": "P03_triangle_400x700", "group": "A_segitiga", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1000.0, 0.0]}, {"id": 2, "coords": [400.0, 700.0]}],
+      "elements": [{"id": 0, "nodes": [0, 1], "area": 120.0}, {"id": 1, "nodes": [1, 2], "area": 120.0}, {"id": 2, "nodes": [0, 2], "area": 120.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 50.0, "1": 50.0, "2": 50.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"uy": 0.0}},
+      "loads": [{"node": 2, "components": {"ux": 0.0, "uy": -50.0}}],
+      "scales": {"s_k": 20.0, "s_R": 40.0}
+    },
+    {
+      "id": "P04_triangle_500x900", "group": "A_segitiga", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1000.0, 0.0]}, {"id": 2, "coords": [500.0, 900.0]}],
+      "elements": [{"id": 0, "nodes": [0, 1], "area": 90.0}, {"id": 1, "nodes": [1, 2], "area": 90.0}, {"id": 2, "nodes": [0, 2], "area": 90.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 30.0, "1": 30.0, "2": 30.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"uy": 0.0}},
+      "loads": [{"node": 2, "components": {"ux": 0.0, "uy": -25.0}}],
+      "scales": {"s_k": 20.0, "s_R": 40.0}
+    },
+    {
+      "id": "P05_sq1d_1000x1000", "group": "B_persegi1diag", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1000.0, 0.0]}, {"id": 2, "coords": [1000.0, 1000.0]}, {"id": 3, "coords": [0.0, 1000.0]}],
+      "elements": [{"id": 0, "nodes": [0, 1], "area": 100.0}, {"id": 1, "nodes": [1, 2], "area": 100.0}, {"id": 2, "nodes": [2, 3], "area": 100.0}, {"id": 3, "nodes": [3, 0], "area": 100.0}, {"id": 4, "nodes": [0, 2], "area": 100.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 80.0, "1": 80.0, "2": 80.0, "3": 80.0, "4": 80.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"uy": 0.0}},
+      "loads": [{"node": 2, "components": {"ux": 30.0, "uy": 0.0}}],
+      "scales": {"s_k": 20.0, "s_R": 80.0}
+    },
+    {
+      "id": "P06_sq1d_1200x800", "group": "B_persegi1diag", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1200.0, 0.0]}, {"id": 2, "coords": [1200.0, 800.0]}, {"id": 3, "coords": [0.0, 800.0]}],
+      "elements": [{"id": 0, "nodes": [0, 1], "area": 80.0}, {"id": 1, "nodes": [1, 2], "area": 80.0}, {"id": 2, "nodes": [2, 3], "area": 80.0}, {"id": 3, "nodes": [3, 0], "area": 80.0}, {"id": 4, "nodes": [0, 2], "area": 80.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 60.0, "1": 60.0, "2": 60.0, "3": 60.0, "4": 60.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"uy": 0.0}},
+      "loads": [{"node": 2, "components": {"ux": 40.0, "uy": 0.0}}],
+      "scales": {"s_k": 20.0, "s_R": 80.0}
+    },
+    {
+      "id": "P07_sq1d_800x1200", "group": "B_persegi1diag", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [800.0, 0.0]}, {"id": 2, "coords": [800.0, 1200.0]}, {"id": 3, "coords": [0.0, 1200.0]}],
+      "elements": [{"id": 0, "nodes": [0, 1], "area": 120.0}, {"id": 1, "nodes": [1, 2], "area": 120.0}, {"id": 2, "nodes": [2, 3], "area": 120.0}, {"id": 3, "nodes": [3, 0], "area": 120.0}, {"id": 4, "nodes": [0, 2], "area": 120.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 100.0, "1": 100.0, "2": 100.0, "3": 100.0, "4": 100.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"uy": 0.0}},
+      "loads": [{"node": 2, "components": {"ux": 50.0, "uy": 0.0}}],
+      "scales": {"s_k": 20.0, "s_R": 80.0}
+    },
+    {
+      "id": "P08_sq1d_1000x1000_two_loads", "group": "B_persegi1diag", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1000.0, 0.0]}, {"id": 2, "coords": [1000.0, 1000.0]}, {"id": 3, "coords": [0.0, 1000.0]}],
+      "elements": [{"id": 0, "nodes": [0, 1], "area": 90.0}, {"id": 1, "nodes": [1, 2], "area": 90.0}, {"id": 2, "nodes": [2, 3], "area": 90.0}, {"id": 3, "nodes": [3, 0], "area": 90.0}, {"id": 4, "nodes": [0, 2], "area": 90.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 70.0, "1": 70.0, "2": 70.0, "3": 70.0, "4": 70.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"uy": 0.0}},
+      "loads": [{"node": 2, "components": {"ux": 35.0}}, {"node": 3, "components": {"uy": -20.0}}],
+      "scales": {"s_k": 20.0, "s_R": 80.0}
+    },
+    {
+      "id": "P09_sq2d_1000x1000", "group": "C_persegi2diag", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1000.0, 0.0]}, {"id": 2, "coords": [1000.0, 1000.0]}, {"id": 3, "coords": [0.0, 1000.0]}],
+      "elements": [{"id": 0, "nodes": [0, 1], "area": 100.0}, {"id": 1, "nodes": [1, 2], "area": 100.0}, {"id": 2, "nodes": [2, 3], "area": 100.0}, {"id": 3, "nodes": [3, 0], "area": 100.0}, {"id": 4, "nodes": [0, 2], "area": 100.0}, {"id": 5, "nodes": [1, 3], "area": 100.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 80.0, "1": 80.0, "2": 80.0, "3": 80.0, "4": 80.0, "5": 80.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"uy": 0.0}},
+      "loads": [{"node": 2, "components": {"ux": 30.0, "uy": 0.0}}],
+      "scales": {"s_k": 20.0, "s_R": 80.0}
+    },
+    {
+      "id": "P10_sq2d_1200x800", "group": "C_persegi2diag", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1200.0, 0.0]}, {"id": 2, "coords": [1200.0, 800.0]}, {"id": 3, "coords": [0.0, 800.0]}],
+      "elements": [{"id": 0, "nodes": [0, 1], "area": 80.0}, {"id": 1, "nodes": [1, 2], "area": 80.0}, {"id": 2, "nodes": [2, 3], "area": 80.0}, {"id": 3, "nodes": [3, 0], "area": 80.0}, {"id": 4, "nodes": [0, 2], "area": 80.0}, {"id": 5, "nodes": [1, 3], "area": 80.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 60.0, "1": 60.0, "2": 60.0, "3": 60.0, "4": 60.0, "5": 60.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"uy": 0.0}},
+      "loads": [{"node": 2, "components": {"ux": 40.0, "uy": 0.0}}],
+      "scales": {"s_k": 20.0, "s_R": 80.0}
+    },
+    {
+      "id": "P11_sq2d_800x1200", "group": "C_persegi2diag", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [800.0, 0.0]}, {"id": 2, "coords": [800.0, 1200.0]}, {"id": 3, "coords": [0.0, 1200.0]}],
+      "elements": [{"id": 0, "nodes": [0, 1], "area": 120.0}, {"id": 1, "nodes": [1, 2], "area": 120.0}, {"id": 2, "nodes": [2, 3], "area": 120.0}, {"id": 3, "nodes": [3, 0], "area": 120.0}, {"id": 4, "nodes": [0, 2], "area": 120.0}, {"id": 5, "nodes": [1, 3], "area": 120.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 100.0, "1": 100.0, "2": 100.0, "3": 100.0, "4": 100.0, "5": 100.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"uy": 0.0}},
+      "loads": [{"node": 2, "components": {"ux": 50.0, "uy": 0.0}}],
+      "scales": {"s_k": 20.0, "s_R": 80.0}
+    },
+    {
+      "id": "P12_sq2d_1000x1000_two_loads", "group": "C_persegi2diag", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1000.0, 0.0]}, {"id": 2, "coords": [1000.0, 1000.0]}, {"id": 3, "coords": [0.0, 1000.0]}],
+      "elements": [{"id": 0, "nodes": [0, 1], "area": 90.0}, {"id": 1, "nodes": [1, 2], "area": 90.0}, {"id": 2, "nodes": [2, 3], "area": 90.0}, {"id": 3, "nodes": [3, 0], "area": 90.0}, {"id": 4, "nodes": [0, 2], "area": 90.0}, {"id": 5, "nodes": [1, 3], "area": 90.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 70.0, "1": 70.0, "2": 70.0, "3": 70.0, "4": 70.0, "5": 70.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"uy": 0.0}},
+      "loads": [{"node": 2, "components": {"ux": 35.0}}, {"node": 3, "components": {"uy": -20.0}}],
+      "scales": {"s_k": 20.0, "s_R": 80.0}
+    },
+    {
+      "id": "P13_tripod_1000x1000", "group": "D_tripod", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1000.0, 0.0]}, {"id": 2, "coords": [500.0, 1000.0]}, {"id": 3, "coords": [500.0, 500.0]}],
+      "elements": [{"id": 0, "nodes": [0, 3], "area": 100.0}, {"id": 1, "nodes": [1, 3], "area": 100.0}, {"id": 2, "nodes": [2, 3], "area": 100.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 40.0, "1": 40.0, "2": 40.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"ux": 0.0, "uy": 0.0}, "node_2": {"ux": 0.0, "uy": 0.0}},
+      "loads": [{"node": 3, "components": {"ux": 0.0, "uy": -30.0}}],
+      "scales": {"s_k": 20.0, "s_R": 40.0}
+    },
+    {
+      "id": "P14_tripod_1200x800", "group": "D_tripod", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1200.0, 0.0]}, {"id": 2, "coords": [600.0, 800.0]}, {"id": 3, "coords": [600.0, 400.0]}],
+      "elements": [{"id": 0, "nodes": [0, 3], "area": 80.0}, {"id": 1, "nodes": [1, 3], "area": 80.0}, {"id": 2, "nodes": [2, 3], "area": 80.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 35.0, "1": 35.0, "2": 35.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"ux": 0.0, "uy": 0.0}, "node_2": {"ux": 0.0, "uy": 0.0}},
+      "loads": [{"node": 3, "components": {"ux": 0.0, "uy": -40.0}}],
+      "scales": {"s_k": 20.0, "s_R": 40.0}
+    },
+    {
+      "id": "P15_tripod_800x1200", "group": "D_tripod", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [800.0, 0.0]}, {"id": 2, "coords": [400.0, 1200.0]}, {"id": 3, "coords": [400.0, 600.0]}],
+      "elements": [{"id": 0, "nodes": [0, 3], "area": 120.0}, {"id": 1, "nodes": [1, 3], "area": 120.0}, {"id": 2, "nodes": [2, 3], "area": 120.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 50.0, "1": 50.0, "2": 50.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"ux": 0.0, "uy": 0.0}, "node_2": {"ux": 0.0, "uy": 0.0}},
+      "loads": [{"node": 3, "components": {"ux": 0.0, "uy": -50.0}}],
+      "scales": {"s_k": 20.0, "s_R": 40.0}
+    },
+    {
+      "id": "P16_tripod_1000x1000_two_loads", "group": "D_tripod", "dimension": 2,
+      "nodes": [{"id": 0, "coords": [0.0, 0.0]}, {"id": 1, "coords": [1000.0, 0.0]}, {"id": 2, "coords": [500.0, 1000.0]}, {"id": 3, "coords": [500.0, 500.0]}],
+      "elements": [{"id": 0, "nodes": [0, 3], "area": 90.0}, {"id": 1, "nodes": [1, 3], "area": 90.0}, {"id": 2, "nodes": [2, 3], "area": 90.0}],
+      "material": {"E": 200.0}, "capacities": {"0": 30.0, "1": 30.0, "2": 30.0},
+      "boundary_conditions": {"node_0": {"ux": 0.0, "uy": 0.0}, "node_1": {"ux": 0.0, "uy": 0.0}, "node_2": {"ux": 0.0, "uy": 0.0}},
+      "loads": [{"node": 3, "components": {"ux": 10.0, "uy": -25.0}}],
+      "scales": {"s_k": 20.0, "s_R": 40.0}
+    }
+  ]
+}

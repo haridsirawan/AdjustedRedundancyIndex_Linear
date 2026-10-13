@@ -354,3 +354,10 @@ di DEFERRED_FINDINGS.md #010.
 - [x] `review_checklist.md` & `results/verification/README.md` diperbarui mengikuti status Gate 9.
 
 🟢 **GATE 9.1 COMPLETED** — urutan reproduksi Kode 4.2 kini lengkap (ari_tutorial → run_verification → run_guard_verification).
+
+## Gate 9.2 — Paket parametrik §4.2.4 (16 model) terimplementasi
+- [x] `results/revision/models.json` dibuat dari spesifikasi peneliti: 4 grup × 4 konfigurasi = 16 model, 272 gangguan; verifikasi struktur: N=272 ✓, rank-kurang=32 ✓ (12 segitiga + 20 persegi-1-diagonal, semua di λ=0) ✓.
+- [x] `run_guard_verification.py` bagian [D]: dua konvensi kritikalitas dilaporkan berdampingan — A (kapasitas state saat itu; konsisten tabel kanonik) dan B (kapasitas asli); `decisions.csv` (+sha256; urutan audit §4.2.3) & `remaining_misses.csv` (§4.2.5).
+- [x] Hasil: pengaman diteruskan = 32 ✓; kritis 71/39 **cocok persis draf pada varian B**; hitungan ARI-forward berbeda dari draf (30 vs 17) — angka final diregenerasi dari kode tervalidasi; revisi akhir oleh peneliti.
+
+🟢 **GATE 9.2 COMPLETED** — paket parametrik tersedia lengkap; tidak ada lagi item `pending_material`.

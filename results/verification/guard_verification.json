@@ -1,14 +1,163 @@
 {
-  "generated": "2026-10-13T06:01:03.072664+00:00",
+  "generated": "2026-10-13T06:23:49.413942+00:00",
   "generator": "examples/run_guard_verification.py (Bagian 4.2 / 4.5.11)",
   "groups": {
     "A_analitis": true,
     "B_regresi": true,
     "C_diagnostik": true,
     "D_parametrik": {
-      "status": "pending_material",
-      "expected_path": "results/revision/models.json",
-      "note": "Berkas model parametrik \u00a74.2.4 belum ada di repo; Tabel 4.5 paruh parametrik (272 skenario) menunggu bahan ini."
+      "status": "available",
+      "counts": {
+        "n": 272,
+        "rank_lost": 32,
+        "critical": 94,
+        "add_critical": 62,
+        "ari_fwd": 30,
+        "guard_fwd": 32,
+        "comb_fwd": 52,
+        "ari_missed": 67,
+        "guard_missed": 62,
+        "comb_missed": 45,
+        "ari_rank_missed": 22,
+        "guard_rank_missed": 0,
+        "comb_rank_missed": 0
+      },
+      "counts_alt_B": {
+        "n": 272,
+        "rank_lost": 32,
+        "critical": 71,
+        "add_critical": 39,
+        "ari_fwd": 30,
+        "guard_fwd": 32,
+        "comb_fwd": 52,
+        "ari_missed": 50,
+        "guard_missed": 39,
+        "comb_missed": 28,
+        "ari_rank_missed": 22,
+        "guard_rank_missed": 0,
+        "comb_rank_missed": 0
+      },
+      "decisions_csv": "results/revision/decisions.csv",
+      "decisions_sha256": "10efaf3cb53b9cee16206ad5e27cd80beaabff63cd03df1374ae93c787696be2",
+      "remaining_misses_csv": "results/revision/remaining_misses.csv",
+      "n_misses": 28,
+      "comparison_vs_draft": [
+        {
+          "metric": "N",
+          "draft": 272,
+          "aktual_A": 272,
+          "aktual_B": 272,
+          "cocok": "A+B"
+        },
+        {
+          "metric": "rank_kurang",
+          "draft": 32,
+          "aktual_A": 32,
+          "aktual_B": 32,
+          "cocok": "A+B"
+        },
+        {
+          "metric": "kritis_total",
+          "draft": 71,
+          "aktual_A": 94,
+          "aktual_B": 71,
+          "cocok": "B"
+        },
+        {
+          "metric": "kritis_tambahan",
+          "draft": 39,
+          "aktual_A": 62,
+          "aktual_B": 39,
+          "cocok": "B"
+        },
+        {
+          "metric": "ari_diteruskan",
+          "draft": 17,
+          "aktual_A": 30,
+          "aktual_B": 30,
+          "cocok": "-"
+        },
+        {
+          "metric": "pengaman_diteruskan",
+          "draft": 32,
+          "aktual_A": 32,
+          "aktual_B": 32,
+          "cocok": "A+B"
+        },
+        {
+          "metric": "gabungan_diteruskan",
+          "draft": 41,
+          "aktual_A": 52,
+          "aktual_B": 52,
+          "cocok": "-"
+        },
+        {
+          "metric": "ari_rank_terlewat",
+          "draft": 24,
+          "aktual_A": 22,
+          "aktual_B": 22,
+          "cocok": "-"
+        },
+        {
+          "metric": "pengaman_rank_terlewat",
+          "draft": 0,
+          "aktual_A": 0,
+          "aktual_B": 0,
+          "cocok": "A+B"
+        },
+        {
+          "metric": "gabungan_rank_terlewat",
+          "draft": 0,
+          "aktual_A": 0,
+          "aktual_B": 0,
+          "cocok": "A+B"
+        },
+        {
+          "metric": "ari_kritis_terlewat",
+          "draft": 54,
+          "aktual_A": 67,
+          "aktual_B": 50,
+          "cocok": "-"
+        },
+        {
+          "metric": "pengaman_kritis_terlewat",
+          "draft": 39,
+          "aktual_A": 62,
+          "aktual_B": 39,
+          "cocok": "B"
+        },
+        {
+          "metric": "gabungan_kritis_terlewat",
+          "draft": 30,
+          "aktual_A": 45,
+          "aktual_B": 28,
+          "cocok": "-"
+        }
+      ],
+      "cocok_A": [
+        "N",
+        "rank_kurang",
+        "pengaman_diteruskan",
+        "pengaman_rank_terlewat",
+        "gabungan_rank_terlewat"
+      ],
+      "cocok_B": [
+        "N",
+        "rank_kurang",
+        "kritis_total",
+        "kritis_tambahan",
+        "pengaman_diteruskan",
+        "pengaman_rank_terlewat",
+        "gabungan_rank_terlewat",
+        "pengaman_kritis_terlewat"
+      ],
+      "selisih": [
+        "ari_diteruskan",
+        "gabungan_diteruskan",
+        "ari_rank_terlewat",
+        "ari_kritis_terlewat",
+        "gabungan_kritis_terlewat"
+      ]
     }
   },
   "checks_total": 33,

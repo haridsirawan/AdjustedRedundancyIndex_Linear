@@ -89,3 +89,17 @@ Regresi lain: `test_ari.py` (semua blok PASS), `run_pipeline.py` (PASS),
    hanya agar berkas konfigurasi lama tetap dapat dimuat.
 5. `bound_enhancement.py` (§4.4, bound praanalisis) kini memakai h_e SVD yang benar;
    angka diagnostik kanonik (Tabel 4.5) sudah konsisten dengan definisi baru ini.
+
+## 6. Addendum Gate 9.2 (2026-10-13) — Paket parametrik §4.2.4 terimplementasi
+
+Spesifikasi 16 model parametrik dari peneliti diterima dan diimplementasikan:
+`results/revision/models.json` + bagian [D] `run_guard_verification.py`
+(`decisions.csv` + sha256 sesuai urutan audit §4.2.3; `remaining_misses.csv` §4.2.5).
+
+Hasil aktual vs draf Tabel 4.5 (rincian: `results/revision/README.md`, JSON §D):
+- **Cocok penuh:** N=272; rank-kurang=32; pengaman diteruskan=32; rank-terlewat
+  pengaman/gabungan = 0; kritis 71 & tambahan 39 (varian B, kapasitas asli).
+- **Selisih:** hitungan ARI-forward (30 vs 17) dan turunannya — draf kemungkinan
+  akuntansi lama; angka final diregenerasi dari kode tervalidasi dan direvisi
+  peneliti di akhir (sesuai arahan).
+- Kanonik tetap stabil: Tabel 4.1–4.5/4.11 terverifikasi 65/65 + guard 33/33.

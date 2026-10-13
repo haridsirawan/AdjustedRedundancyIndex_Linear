@@ -1,6 +1,6 @@
 {
   "title": "Verifikasi kanonik ARI \u2014 keluaran terbangkitkan",
-  "generated": "2026-10-13T04:30:28.220903+00:00",
+  "generated": "2026-10-13T06:23:15.253672+00:00",
   "generator": "examples/run_verification.py",
   "python": "3.9.6",
   "numpy": "2.0.2",
@@ -47,6 +47,7 @@
   },
   "hashes": {
     "ari_core.py": "ca03957439ef86f88796a5aaded26011e0d7d88993f20625bb0a83373d0ea356",
+    "ari_tutorial.py": "30cdbaf2ae560c97fa49661b1b6095cad10b0ddb19571a0cf862cc5701c1a96b",
     "bound_enhancement.py": "a275c58198ddfc75c23466eb07ec18004bfbcfa5cd1710ff8dd9b579087d9b5e",
     "curve_extractor.py": "2acca2fc1a331430988f3b99772891b1cd041974f64d757e7854b077141670b7",
     "fine_grid_runner.py": "73801360a50c1bb825a3669bb221cbd8948834484fe6e201ae92ad3bfcc6c432",
@@ -55,8 +56,9 @@
     "mechanical_guard.py": "36bc05809e7222bac31c753af23e0d82de3e7223df86fb2b708a28d0c27f446c",
     "plot_curves.py": "953b0bc55484904ae8132e5c50321d1ce87be4af2b4b37bfbf60f4b05a9ce8f0",
     "run_ablation_bounds.py": "cecc0aef525e61746a8f8619d49e467bc02238172383dd479528c05d81018f0a",
+    "run_guard_verification.py": "6aa8789bad9b8f517460169ef180701801a7aa12792d7e6376b5242d33dd41e9",
     "run_pipeline.py": "b55ba6a9d8153f8dadeac5b3850202b9859a2076e5416712b13c5ecf642b496f",
-    "run_verification.py": "d1c6c1e41af0573d49c2f88c62626090d6b757c791bf6c4f68dd103d164304bc",
+    "run_verification.py": "5f797ec37dfbab3a18f0c21a47fc482dc1d0a4b24d3d482371fe7a3cc262cc39",
     "test_ari.py": "bc8eb54e84dceca2c7ab94922c486f359e65e3998ffeffd45f82bd760c12a786",
     "test_bound_enhancement.py": "7034ba0461e2a084d2a49261a0cb11b3daba9e1ec0ce04c795fce6558dc3df2f",
     "test_leakage_audit.py": "5985be74c7542c37300160ba43671da763d1ec8efaef376f7c1b62bced0d10c7",
