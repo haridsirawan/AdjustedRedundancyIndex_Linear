@@ -81,7 +81,7 @@ Seluruh rel.err ≤ 3e-8 ≪ 1e-6. Kontrol λ=1: RR=1 eksak, CI=η·U*=0.25 (buk
 
 Bukti lengkap: `results/review_prep/penyelarasan_disertasi_gate9.md` + `results/verification/checks.csv` (65/65 LULUS).
 
-## Ringkasan status angka
-- **Cocok dengan naskah:** semua Tabel 4.1; semua Tabel 4.11; kasus kritis e3/e4 Tabel 4.3.
-- **Tidak cocok / perlu keputusan peneliti:** e1, e2, e5 Tabel 4.3 (#001 — hipotesis kuat: bobot tumpuan b_jc per komponen beban c pada model asimetris); inkonsistensi internal baris e1/e2 naskah thd identitas Eq 2.17–2.18 (baru ditemukan Gate 8).
+## Ringkasan status angka (diperbarui Gate 9, 2026-10-13)
+- **Cocok dengan naskah (terverifikasi otomatis, checks.csv 65/65):** semua Tabel 4.1 (+kolom W); SELURUH baris Tabel 4.3 (e1/e2/e5 kini ≤ 4e-7); semua Tabel 4.11; Tabel 4.4; diagnostik Tabel 4.2/4.5 kanonik (ARI 5 / pengaman 8 / gabungan 11; terlewat 14/9/8).
+- **Menunggu bahan:** paket parametrik §4.2.4 (272 skenario) — butuh `results/revision/models.json`.
 - Tidak ada angka yang diubah/diimputasi di file ini — semuanya disalin dari artefak hasil eksekusi aktual.

@@ -346,3 +346,11 @@ di DEFERRED_FINDINGS.md #010.
 ## Status Gate
 🟢 **GATE 9 COMPLETED** — kode selaras dengan naskah pada seluruh tingkat kanonik.
 ➡️ Selanjutnya: regenerasi Tabel.tex ke naskah; paket parametrik §4.2.4 (272 skenario) bila `results/revision/models.json` tersedia.
+
+## Gate 9.1 — Pelengkap paket prototipe (hari yang sama)
+- [x] `examples/ari_tutorial.py` (urutan reproduksi Kode 4.2): tutorial rantai penuh contoh dua batang; verifikasi Tabel 4.11 — PASS.
+- [x] `examples/run_guard_verification.py` (§4.5.11): uji analitis Eq 4.7 + regresi Tabel 4.3/4.4/4.11 + diagnostik Tabel 4.2/4.5 kanonik → `results/verification/guard_verification.json` (33/33 LULUS).
+- [x] Paket parametrik §4.2.4 ditandai `pending_material` (butuh `results/revision/models.json`) — bukan kegagalan.
+- [x] `review_checklist.md` & `results/verification/README.md` diperbarui mengikuti status Gate 9.
+
+🟢 **GATE 9.1 COMPLETED** — urutan reproduksi Kode 4.2 kini lengkap (ari_tutorial → run_verification → run_guard_verification).

@@ -1,45 +1,56 @@
-# Checklist Review Manual Disertasi
+# Checklist Review Manual Disertasi — Diperbarui Gate 9
 **Disertasi:** "Adjusted Redundancy Index (ARI) for Mechanics-Based Screening"
-**Disiapkan:** Gate 8 (2026-10-11) — untuk review mendalam oleh peneliti (Harids Irawan).
-Cara pakai: centang [ ] → [x] saat item diverifikasi terhadap naskah.
+**Status per:** 2026-10-13 (Gate 9 — seluruh tingkat kanonik terselaras & terverifikasi otomatis).
+Cara pakai: [x] = sudah terverifikasi otomatis oleh kode (bukti: `results/verification/checks.csv`, `results/review_prep/penyelarasan_disertasi_gate9.md`); [ ] = keputusan penulisan peneliti.
 
 ## A. Konsistensi Numerik
-- [ ] Tabel 4.1 cocok dengan output solver Gate 1 (`examples/test_truss_reference.py`, deviasi < 5e-4; lihat `disertasi_numbers_audit.md` §Tabel 4.1 — semua ✅ di kode)
-- [ ] Tabel 4.3 cocok dengan `results/verification/pipeline_output.csv` λ=0 (tol 1e-6) — ⚠️ e1/e2/e5 DEVIASI (#001), e3/e4 PASS
-- [ ] Tabel 4.11 cocok dengan `results/verification/ari_screening.csv` / pipeline_output.csv (rel. tol 1e-6) — ✅ PASS semua
-- [ ] Tidak ada angka yang "dibulatkan" di naskah tanpa catatan
-- [ ] Putuskan: baris e1/e2 Tabel 4.3 naskah tidak konsisten identitas Eq 2.17–2.18 (CI = 1 − RR·(1−η·U*)) — lihat audit §Catatan internal-naskah
+- [x] Tabel 4.1 cocok dengan solver (`run_verification.py`; Δ < 5e-4; termasuk kolom W = 15.000000/16.956287/86.139610/51.989854)
+- [x] Tabel 4.3 cocok SEMUA baris (e1 0.983152316; e2 0.964723707; e5 0.717284621; e3/e4 eksak) — **DF-01 DITUTUP**
+- [x] Tabel 4.11 cocok (7/17, 10/17, 21/68, 15/34, kontrol 3/4 & 1/4)
+- [x] Tabel 4.2/4.4/4.5 (kanonik) cocok persis — ARI 5 / pengaman 8 / gabungan 11; kritis 17; terlewat 14/9/8
+- [x] Identitas Eq 2.17–2.18 terpenuhi untuk SELURUH baris Tabel 4.3 (koreksi: laporan lama "e1/e2 inkonsisten" keliru — U* e1 = 0; e2 = 0.375)
+- [ ] Penulisan: salin Tabel.tex regenerasi ke naskah / pastikan tabel manual identik dengan `results/verification/Tabel.tex`
 
 ## B. Konsistensi Formula
-- [ ] Eq 2.5–2.7 (normalisasi x̂ = x/(x+s), w_e^M = q_e(α_k·k̂ + α_R·R̂)) terimplementasi di `ari_core.compute_edge_weights`
-- [ ] Eq 2.8–2.10 (pair score Φ^(K), ranking ω_r) menggunakan EXHAUSTIVE enumeration (`enumerate_edge_disjoint_combinations`; JANGAN greedy — §4.8.6)
-- [ ] Eq 2.11–2.13 (agregasi S(G); a_ic dari F_c, b_jc dari reaksi INTAK, β=0.1) — ⚠️ UJI HIPOTESIS #001: apakah b_jc harus dihitung PER KOMPONEN BEBAN c pada model asimetris?
-- [ ] Eq 2.14–2.18 (disrupsi TANPA renormalisasi; RR, ARI, CI) terverifikasi via Tabel 4.11
-- [ ] Guard margin m_e(λ): definisi kode = rank_drop/ndof_free (proxy eigenvalue-solver); naskah menyebut SVD — sinkronkan definisi & tulis di metode
+- [x] Eq 2.5–2.7 (`compute_edge_weights` / `base_weights_of`) — juga didemonstrasikan di `ari_tutorial.py`
+- [x] Eq 2.8–2.10 enumerasi ekshaustif (`enumerate_edge_disjoint_paths`; non-greedy §4.8.6)
+- [x] Eq 2.11–2.13 — **hipotesis #001 terbukti**: b_jc = komponen reaksi searah kasus beban (Eq 2.12); π_c ternormalisasi (Eq 2.11); a_ic dari F_c
+- [x] Eq 2.14–2.18 — λ=0 = penghapusan sisi (eksak); 0<λ≤1 tanpa renormalisasi; terverifikasi Tabel 4.3/4.11
+- [x] Guard kinematik — `mechanical_guard.py` sesuai Eq 4.1–4.4 (h_e SVD, m_e(λ), batas κ ≥ m·ρ0, identitas Eq 4.7); Tabel 4.4 tereproduksi — [ ] sinkronkan deskripsi metode naskah (istilah h_e/m_e, bukan proxy rank)
 
 ## C. Konsistensi Konfigurasi
-- [ ] α_k = α_R = 0.5 ; q_e = 1 (semua kasus kanonik)
-- [ ] K = 2, γ = 1 (ω_r seragam)
-- [ ] η = 0.5, β = 0.1
-- [ ] ε_w = ε_d = 1e-9, ε_R = 1e-6 kN, baseline_tol = 1e-12
-- [ ] ε_removed (konvensi hapus-total λ=0) = 1e-8 — TULISKAN di naskah sebagai parameter
-- [ ] Skala per model sesuai Section 4.1.2: M1 s_k=15/s_R=30; M2 20/40; M3 & M4 20/80
+- [x] α_k=α_R=0.5; q_e=1; K=2; γ=1; η=0.5; β=0.1 — cocok §4.1.2 (naskah hal. 112–113)
+- [x] ε_w=ε_d=1e-9; ε_R=1e-6 kN; baseline_tol=1e-12; batas pencarian **200.000** keadaan (4.1.2)
+- [x] Skala per model: M1 15/30; M2 20/40; M3 & M4 20/80 (4.1.2)
+- [x] ε_removed = DEPRECATED (tidak dipakai skor) — [ ] tuliskan di naskah: λ=0 dihapus eksak, tanpa regularisasi hapus-total
+- [x] Pelemahan fisik = luas DAN kapasitas ×λ (4.1.5) — [ ] cek kalimat metode
 
-## D. Deferred Findings yang Perlu Diputuskan
-- [ ] #001: Deviasi Tabel 4.3 e1/e2/e5 — bug vs perbedaan interpretasi? (bukti kurva halus: sistematis; hipotesis kuat: b_jc per komponen beban)
-- [ ] #002: Invariansi hanya asimtotik & butuh penskalaan SERENTAK semua parameter bertaraf — dokumentasikan sebagai batasan/formulasi, atau klaim ulang di §2.6?
-- [ ] #003: Kasus e3/e4 CI≈0 saat rank turun — sudah dijelaskan sbg batas representasi; pastikan narasi masuk bab diskusi
-- [ ] #004a-d: Plateau RR(λ≤0.5), rank-deficiency M4, konvensi kontrol edge-less vs per-edge, exhaustive confirmed — mana yang masuk naskah?
-- [ ] #005/#006: Penomoran edge 1-based (naskah) vs 0-based (kode) — tetapkan satu konvensi dan pakai konsisten; klasifikasi guard observasional
-- [ ] #007: REVISI — grid halus menunjukkan SEMUA mekanisme/guard-flip HANYA di λ=0; jangan klaim parsial tanpa cek ulang toleransi eigvals
-- [ ] #008: Monotonisitas global 0 pelanggaran — layak dikutip sebagai properti numerik
-- [ ] #009–#011: Kurva RR/CI, λ_kritis, agregat Gate 7 — apakah masuk Bab Hasil? (catat juga kontrak baris 336 bukan 420, dan kunci JSON `lambda_guard_flip`)
-- [ ] #012: Sinkronisasi SELURUH angka naskah ↔ artefak kode (gunakan `disertasi_numbers_audit.md`; selisih > 1e-6 wajib dicatat)
+## D. Deferred Findings
+- [x] #001 (DF-01): SELESAI — b_jc per komponen; tabel tereproduksi ≤ 4e-7 — [ ] tulis paragraf metode + evidence di bab hasil
+- [x] #002 (DF-03): SELESAI — invariansi = konversi satuan kN-mm→N-m (4.1.3), ΔARI = 0 — [ ] perbarui klaim §2.6 agar menyebut konversi satuan
+- [ ] #003: narasi batas representasi e3/e4 (sudah didukung guard + Tabel 4.4) — pastikan masuk bab diskusi
+- [ ] #004a–d: pilih yang masuk naskah (plateau RR; konvensi kontrol; reklasifikasi #007)
+- [ ] #005/#006: tetapkan konvensi penomoran (disarankan: naskah 1-based e1..e5/e6; kode id 0-based didokumentasikan di ARCHITECTURE)
+- [x] #007: revisi terkonfirmasi — grid halus: semua mekanisme/guard-flip HANYA di λ=0 — [ ] tulis
+- [ ] #009–#011: keputusan masuk Bab Hasil (kontrak 336 baris; kunci `lambda_guard_flip`)
+- [x] #012: sinkronisasi angka ✅ (`checks.csv` 65/65; koreksi klaim identitas dilakukan)
 
 ## E. Bahan Penulisan yang Sudah Siap
-- [ ] Struktur folder lengkap (`examples/`, `results/verification/`, `results/review_prep/`)
-- [ ] Dokumentasi per file (docstring modul: tujuan, gate, referensi section, dependensi)
-- [ ] Audit angka naskah vs kode (`results/review_prep/disertasi_numbers_audit.md`)
-- [ ] Daftar deferred findings dengan severity + kolom Last Checked (`DEFERRED_FINDINGS.md`)
-- [ ] Artefak visual: 4 PDF kurva halus Δλ=0.05 (`results/verification/plots/`)
-- [ ] Regresi hijau: test_truss_reference, test_ari, kinematic_guard self-test, run_pipeline, fine_grid_runner, plot_curves, curve_extractor (exit 0)
+- [x] Struktur folder lengkap (`examples/`, `results/verification/`, `results/review_prep/`)
+- [x] Dokumentasi per file (docstring: tujuan, section, dependensi)
+- [x] Audit angka naskah vs kode (`disertasi_numbers_audit.md` + koreksi Gate 9)
+- [x] Deferred findings dengan status (semua kanonik ditutup)
+- [x] Artefak visual: 4 PDF kurva Δλ=0.05 + `models.pdf` + `ci_by_damage.pdf`
+- [x] Keluaran kontrak Tabel 4.8: `baseline.csv`, `scenarios.csv`, `checks.csv`, `manifest.json`, `Tabel.tex`
+- [x] Laporan penyelarasan: `results/review_prep/penyelarasan_disertasi_gate9.md`
+- [ ] Paket parametrik §4.2.4 (272 skenario) — MENUNGGU `results/revision/models.json`
+- [x] Regresi hijau penuh: test_truss_reference, test_ari, mechanical_guard, kinematic_guard, run_pipeline, fine_grid_runner, curve_extractor, plot_curves, run_verification (65/65), run_guard_verification (33/33), ari_tutorial (exit 0)
+
+## F. Urutan Reproduksi (Kode 4.2 / 4.5.9)
+```bash
+cd examples
+python3 ari_tutorial.py           # tutorial dua batang (analitis Tabel 4.11)
+python3 run_verification.py       # verifikasi kanonik penuh (Tabel 4.1–4.5/4.11)
+python3 run_guard_verification.py # paket pengaman §4.2 (analitis + regresi + diagnostik)
+# lalu: kompilasi naskah (latexmk) di proyek LaTeX Anda memakai Tabel.tex
+```
