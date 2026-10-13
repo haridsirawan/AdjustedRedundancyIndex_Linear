@@ -1,0 +1,655 @@
+{
+  "generated_by": "examples/curve_extractor.py (Gate 5)",
+  "date": "2026-10-11",
+  "source_csv": "results/verification/pipeline_output.csv",
+  "ci_threshold": 0.5,
+  "lambda_grid": [
+    1.0,
+    0.75,
+    0.5,
+    0.25,
+    0.0
+  ],
+  "convention": "lambda_crit_d_CI = upper bound of the critical zone (largest lambda at which CI is still below threshold); continuous interpolated value kept in lambda_crit_note",
+  "models": {
+    "M1_parallel_bars_1d": {
+      "e0": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.4999999875,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 0.852941177,
+          "0.50": 0.705882354,
+          "0.25": 0.55882353,
+          "0.00": 0.411764716
+        },
+        "curve_CI": {
+          "1.00": 0.249999994,
+          "0.75": 0.360294112,
+          "0.50": 0.47058823,
+          "0.25": 0.580882349,
+          "0.00": 0.69117646
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Clear"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.0
+        },
+        "lambda_crit_d_CI": 0.25,
+        "lambda_crit_note": "interpolated_continuous=0.433333; reported=upper bound of critical zone",
+        "lambda_guard_flip": null,
+        "lambda_guard_note": "no_flip_on_grid",
+        "ci_threshold": 0.5
+      },
+      "e1": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.499999975,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 0.897058824,
+          "0.50": 0.794117648,
+          "0.25": 0.691176471,
+          "0.00": 0.588235304
+        },
+        "curve_CI": {
+          "1.00": 0.249999987,
+          "0.75": 0.327205871,
+          "0.50": 0.404411754,
+          "0.25": 0.481617638,
+          "0.00": 0.558823515
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Clear"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.0
+        },
+        "lambda_crit_d_CI": 0.0,
+        "lambda_crit_note": "interpolated_continuous=0.190476; reported=upper bound of critical zone",
+        "lambda_guard_flip": null,
+        "lambda_guard_note": "no_flip_on_grid",
+        "ci_threshold": 0.5
+      }
+    },
+    "M2_planar_triangle": {
+      "e0": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.44221785451,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 0.892917843,
+          "0.50": 0.777910669,
+          "0.25": 0.650168235,
+          "0.00": 0.500000013
+        },
+        "curve_CI": {
+          "1.00": 0.221108927,
+          "0.75": 0.304514264,
+          "0.50": 0.394092324,
+          "0.25": 0.493589766,
+          "0.00": 0.610554453
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Forward"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.166667
+        },
+        "lambda_crit_d_CI": 0.0,
+        "lambda_crit_note": "interpolated_continuous=0.236299; reported=upper bound of critical zone",
+        "lambda_guard_flip": 0.0,
+        "lambda_guard_note": "detected_on_grid",
+        "ci_threshold": 0.5
+      },
+      "e1": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.44221785451,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 0.892917843,
+          "0.50": 0.777910669,
+          "0.25": 0.650168235,
+          "0.00": 0.500000013
+        },
+        "curve_CI": {
+          "1.00": 0.221108927,
+          "0.75": 0.304514264,
+          "0.50": 0.394092324,
+          "0.25": 0.493589766,
+          "0.00": 0.610554453
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Forward"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.166667
+        },
+        "lambda_crit_d_CI": 0.0,
+        "lambda_crit_note": "interpolated_continuous=0.236299; reported=upper bound of critical zone",
+        "lambda_guard_flip": 0.0,
+        "lambda_guard_note": "detected_on_grid",
+        "ci_threshold": 0.5
+      },
+      "e2": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.234374994141,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 0.952317669,
+          "0.50": 0.88889405,
+          "0.25": 0.800393137,
+          "0.00": 0.668276931
+        },
+        "curve_CI": {
+          "1.00": 0.117187497,
+          "0.75": 0.159282055,
+          "0.50": 0.215273219,
+          "0.25": 0.293402932,
+          "0.00": 0.41003677
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Forward"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.166667
+        },
+        "lambda_crit_d_CI": null,
+        "lambda_crit_note": "not_reached_on_grid",
+        "lambda_guard_flip": 0.0,
+        "lambda_guard_note": "detected_on_grid",
+        "ci_threshold": 0.5
+      }
+    },
+    "M3_square_one_diagonal": {
+      "e0": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.0,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 0.980755972,
+          "0.50": 0.954708152,
+          "0.25": 0.917473459,
+          "0.00": 0.859874441
+        },
+        "curve_CI": {
+          "1.00": 0.0,
+          "0.75": 0.019244028,
+          "0.50": 0.045291848,
+          "0.25": 0.082526541,
+          "0.00": 0.140125559
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Forward"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.125
+        },
+        "lambda_crit_d_CI": null,
+        "lambda_crit_note": "not_reached_on_grid",
+        "lambda_guard_flip": 0.0,
+        "lambda_guard_note": "detected_on_grid",
+        "ci_threshold": 0.5
+      },
+      "e1": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.374999995312,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 0.926650001,
+          "0.50": 0.853300002,
+          "0.25": 0.779950003,
+          "0.00": 0.706600009
+        },
+        "curve_CI": {
+          "1.00": 0.187499998,
+          "0.75": 0.247096872,
+          "0.50": 0.306693747,
+          "0.25": 0.366290621,
+          "0.00": 0.425887491
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Forward"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.125
+        },
+        "lambda_crit_d_CI": null,
+        "lambda_crit_note": "not_reached_on_grid",
+        "lambda_guard_flip": 0.0,
+        "lambda_guard_note": "detected_on_grid",
+        "ci_threshold": 0.5
+      },
+      "e2": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.0,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 1.0,
+          "0.50": 1.0,
+          "0.25": 1.0,
+          "0.00": 1.0
+        },
+        "curve_CI": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.0
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Forward"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.125
+        },
+        "lambda_crit_d_CI": null,
+        "lambda_crit_note": "not_reached_on_grid",
+        "lambda_guard_flip": 0.0,
+        "lambda_guard_note": "detected_on_grid",
+        "ci_threshold": 0.5
+      },
+      "e3": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.0,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 1.0,
+          "0.50": 1.0,
+          "0.25": 1.0,
+          "0.00": 1.0
+        },
+        "curve_CI": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.0
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Forward"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.125
+        },
+        "lambda_crit_d_CI": null,
+        "lambda_crit_note": "not_reached_on_grid",
+        "lambda_guard_flip": 0.0,
+        "lambda_guard_note": "detected_on_grid",
+        "ci_threshold": 0.5
+      },
+      "e4": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.530330079261,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 0.887669129,
+          "0.50": 0.791757913,
+          "0.25": 0.791757913,
+          "0.00": 0.791757913
+        },
+        "curve_CI": {
+          "1.00": 0.26516504,
+          "0.75": 0.34770969,
+          "0.50": 0.418188606,
+          "0.25": 0.418188606,
+          "0.00": 0.418188606
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Forward"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.125
+        },
+        "lambda_crit_d_CI": null,
+        "lambda_crit_note": "not_reached_on_grid",
+        "lambda_guard_flip": 0.0,
+        "lambda_guard_note": "detected_on_grid",
+        "ci_threshold": 0.5
+      }
+    },
+    "M4_square_two_diagonals": {
+      "e0": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.148667476669,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 1.0,
+          "0.50": 1.0,
+          "0.25": 1.0,
+          "0.00": 1.0
+        },
+        "curve_CI": {
+          "1.00": 0.074333738,
+          "0.75": 0.074333738,
+          "0.50": 0.074333738,
+          "0.25": 0.074333738,
+          "0.00": 0.074333738
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Clear"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.0
+        },
+        "lambda_crit_d_CI": null,
+        "lambda_crit_note": "not_reached_on_grid",
+        "lambda_guard_flip": null,
+        "lambda_guard_note": "no_flip_on_grid",
+        "ci_threshold": 0.5
+      },
+      "e1": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.226332518643,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 0.926650001,
+          "0.50": 0.853300002,
+          "0.25": 0.846725568,
+          "0.00": 0.846725568
+        },
+        "curve_CI": {
+          "1.00": 0.113166259,
+          "0.75": 0.178215513,
+          "0.50": 0.243264768,
+          "0.25": 0.249095197,
+          "0.00": 0.249095197
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Clear"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.0
+        },
+        "lambda_crit_d_CI": null,
+        "lambda_crit_note": "not_reached_on_grid",
+        "lambda_guard_flip": null,
+        "lambda_guard_note": "no_flip_on_grid",
+        "ci_threshold": 0.5
+      },
+      "e2": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.148667476669,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 1.0,
+          "0.50": 1.0,
+          "0.25": 1.0,
+          "0.00": 1.0
+        },
+        "curve_CI": {
+          "1.00": 0.074333738,
+          "0.75": 0.074333738,
+          "0.50": 0.074333738,
+          "0.25": 0.074333738,
+          "0.00": 0.074333738
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Clear"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.0
+        },
+        "lambda_crit_d_CI": null,
+        "lambda_crit_note": "not_reached_on_grid",
+        "lambda_guard_flip": null,
+        "lambda_guard_note": "no_flip_on_grid",
+        "ci_threshold": 0.5
+      },
+      "e3": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.148667476669,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 1.0,
+          "0.50": 1.0,
+          "0.25": 1.0,
+          "0.00": 1.0
+        },
+        "curve_CI": {
+          "1.00": 0.074333738,
+          "0.75": 0.074333738,
+          "0.50": 0.074333738,
+          "0.25": 0.074333738,
+          "0.00": 0.074333738
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Clear"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.0
+        },
+        "lambda_crit_d_CI": null,
+        "lambda_crit_note": "not_reached_on_grid",
+        "lambda_guard_flip": null,
+        "lambda_guard_note": "no_flip_on_grid",
+        "ci_threshold": 0.5
+      },
+      "e4": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.320082517471,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 0.90845113,
+          "0.50": 0.834083479,
+          "0.25": 0.834083479,
+          "0.00": 0.834083479
+        },
+        "curve_CI": {
+          "1.00": 0.160041259,
+          "0.75": 0.236938532,
+          "0.50": 0.299404291,
+          "0.25": 0.299404291,
+          "0.00": 0.299404291
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Clear"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.0
+        },
+        "lambda_crit_d_CI": null,
+        "lambda_crit_note": "not_reached_on_grid",
+        "lambda_guard_flip": null,
+        "lambda_guard_note": "no_flip_on_grid",
+        "ci_threshold": 0.5
+      },
+      "e5": {
+        "status": "ok",
+        "intact_rank_status": "ok",
+        "U_star": 0.210247561789,
+        "curve_RR": {
+          "1.00": 1.0,
+          "0.75": 1.0,
+          "0.50": 1.0,
+          "0.25": 1.0,
+          "0.00": 1.0
+        },
+        "curve_CI": {
+          "1.00": 0.105123781,
+          "0.75": 0.105123781,
+          "0.50": 0.105123781,
+          "0.25": 0.105123781,
+          "0.00": 0.105123781
+        },
+        "guard_decisions": {
+          "1.00": "Clear",
+          "0.75": "Clear",
+          "0.50": "Clear",
+          "0.25": "Clear",
+          "0.00": "Clear"
+        },
+        "margins": {
+          "1.00": 0.0,
+          "0.75": 0.0,
+          "0.50": 0.0,
+          "0.25": 0.0,
+          "0.00": 0.0
+        },
+        "lambda_crit_d_CI": null,
+        "lambda_crit_note": "not_reached_on_grid",
+        "lambda_guard_flip": null,
+        "lambda_guard_note": "no_flip_on_grid",
+        "ci_threshold": 0.5
+      }
+    }
+  },
+  "summary": {
+    "n_edges": 16,
+    "n_ok": 16,
+    "n_abstain": 0,
+    "edges_with_guard_flip": [
+      "M2_planar_triangle/e0@lam=0.0",
+      "M2_planar_triangle/e1@lam=0.0",
+      "M2_planar_triangle/e2@lam=0.0",
+      "M3_square_one_diagonal/e0@lam=0.0",
+      "M3_square_one_diagonal/e1@lam=0.0",
+      "M3_square_one_diagonal/e2@lam=0.0",
+      "M3_square_one_diagonal/e3@lam=0.0",
+      "M3_square_one_diagonal/e4@lam=0.0"
+    ],
+    "edges_graph_blind_like": [
+      "M2_planar_triangle/e2 (worst CI=0.410037)",
+      "M3_square_one_diagonal/e0 (worst CI=0.140126)",
+      "M3_square_one_diagonal/e1 (worst CI=0.425887)",
+      "M3_square_one_diagonal/e2 (worst CI=0.000000)",
+      "M3_square_one_diagonal/e3 (worst CI=0.000000)",
+      "M3_square_one_diagonal/e4 (worst CI=0.418189)"
+    ]
+  }
+}

@@ -1,0 +1,138 @@
+{
+  "meta": {
+    "title": "Canonical Verification Models (Disertation Section 4.1.2)",
+    "description": "Four canonical mechanics-based screening models used to validate the Adjusted Redundancy Index (ARI) reference solver.",
+    "units": {
+      "force": "kN",
+      "length": "mm",
+      "area": "mm^2",
+      "stress_capacity": "kN"
+    },
+    "default_material": {
+      "E_MPa_units": "kN/mm^2",
+      "E": 200.0
+    }
+  },
+  "models": [
+    {
+      "id": "M1_parallel_bars_1d",
+      "name": "Two parallel 1D bars",
+      "type": "axial_1d",
+      "dimension": 1,
+      "nodes": [
+        {"id": 0, "coords": [0.0]},
+        {"id": 1, "coords": [1000.0]}
+      ],
+      "elements": [
+        {"id": 0, "nodes": [0, 1], "area": 100.0},
+        {"id": 1, "nodes": [0, 1], "area": 50.0}
+      ],
+      "material": {"E": 200.0},
+      "capacities": {"0": 40.0, "1": 20.0},
+      "boundary_conditions": {
+        "node_0": {"ux": 0.0}
+      },
+      "loads": [
+        {"node": 1, "components": {"ux": 30.0}}
+      ],
+      "expected_results": {
+        "umax_mm": 1.000000,
+        "Umax": 0.500000
+      }
+    },
+    {
+      "id": "M2_planar_triangle",
+      "name": "Planar triangular truss",
+      "type": "truss_2d",
+      "dimension": 2,
+      "nodes": [
+        {"id": 0, "coords": [0.0, 0.0]},
+        {"id": 1, "coords": [1000.0, 0.0]},
+        {"id": 2, "coords": [500.0, 800.0]}
+      ],
+      "elements": [
+        {"id": 0, "nodes": [0, 2], "area": 100.0},
+        {"id": 1, "nodes": [1, 2], "area": 100.0},
+        {"id": 2, "nodes": [0, 1], "area": 100.0}
+      ],
+      "material": {"E": 200.0},
+      "capacities": {"0": 40.0, "1": 40.0, "2": 40.0},
+      "boundary_conditions": {
+        "node_0": {"ux": 0.0, "uy": 0.0},
+        "node_1": {"uy": 0.0}
+      },
+      "loads": [
+        {"node": 2, "components": {"ux": 0.0, "uy": -30.0}}
+      ],
+      "expected_results": {
+        "umax_mm": 1.154460,
+        "Umax": 0.442218
+      }
+    },
+    {
+      "id": "M3_square_one_diagonal",
+      "name": "Square with one diagonal",
+      "type": "truss_2d",
+      "dimension": 2,
+      "nodes": [
+        {"id": 0, "coords": [0.0, 0.0]},
+        {"id": 1, "coords": [1000.0, 0.0]},
+        {"id": 2, "coords": [1000.0, 1000.0]},
+        {"id": 3, "coords": [0.0, 1000.0]}
+      ],
+      "elements": [
+        {"id": 0, "nodes": [0, 1], "area": 100.0},
+        {"id": 1, "nodes": [1, 2], "area": 100.0},
+        {"id": 2, "nodes": [2, 3], "area": 100.0},
+        {"id": 3, "nodes": [3, 0], "area": 100.0},
+        {"id": 4, "nodes": [0, 2], "area": 100.0}
+      ],
+      "material": {"E": 200.0},
+      "capacities": {"0": 80.0, "1": 80.0, "2": 80.0, "3": 80.0, "4": 80.0},
+      "boundary_conditions": {
+        "node_0": {"ux": 0.0, "uy": 0.0},
+        "node_1": {"uy": 0.0}
+      },
+      "loads": [
+        {"node": 2, "components": {"ux": 30.0, "uy": 0.0}}
+      ],
+      "expected_results": {
+        "umax_mm": 5.935311,
+        "Umax": 0.530330
+      }
+    },
+    {
+      "id": "M4_square_two_diagonals",
+      "name": "Square with two diagonals (no shared central joint)",
+      "type": "truss_2d",
+      "dimension": 2,
+      "nodes": [
+        {"id": 0, "coords": [0.0, 0.0]},
+        {"id": 1, "coords": [1000.0, 0.0]},
+        {"id": 2, "coords": [1000.0, 1000.0]},
+        {"id": 3, "coords": [0.0, 1000.0]}
+      ],
+      "elements": [
+        {"id": 0, "nodes": [0, 1], "area": 100.0},
+        {"id": 1, "nodes": [1, 2], "area": 100.0},
+        {"id": 2, "nodes": [2, 3], "area": 100.0},
+        {"id": 3, "nodes": [3, 0], "area": 100.0},
+        {"id": 4, "nodes": [0, 2], "area": 100.0},
+        {"id": 5, "nodes": [1, 3], "area": 100.0}
+      ],
+      "material": {"E": 200.0},
+      "capacities": {"0": 80.0, "1": 80.0, "2": 80.0, "3": 80.0, "4": 80.0, "5": 80.0},
+      "boundary_conditions": {
+        "node_0": {"ux": 0.0, "uy": 0.0},
+        "node_1": {"uy": 0.0}
+      },
+      "loads": [
+        {"node": 2, "components": {"ux": 30.0, "uy": 0.0}}
+      ],
+      "expected_results": {
+        "umax_mm": 3.582277,
+        "Umax": 0.320083
+      }
+    }
+  ]
+}

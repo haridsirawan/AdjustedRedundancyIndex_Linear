@@ -1,0 +1,15 @@
+LEAKAGE AUDIT — Section 4.5.6
+============================================================
+[M1_parallel_bars_1d] (a) strip post_* columns -> identical: True
+[M1_parallel_bars_1d] (b) randomized label column -> unchanged: True
+[M1_parallel_bars_1d] (c) reference-dir denied -> bounds complete: True
+[M1_parallel_bars_1d] (d) hash before==after: True (dec=da44581d1c0b94a7…)
+[M1_parallel_bars_1d] RESULT: PASS
+
+[M3_square_one_diagonal] (a) strip post_* columns -> identical: True
+[M3_square_one_diagonal] (b) randomized label column -> unchanged: True
+[M3_square_one_diagonal] (c) reference-dir denied -> bounds complete: True
+[M3_square_one_diagonal] (d) hash before==after: True (dec=774e525655abcbf3…)
+[M3_square_one_diagonal] RESULT: PASS
+
+OVERALL: PASS
