@@ -2,18 +2,6 @@
 .DS_Store
 ._*
 
-# === Placeholder iCloud (isi asli tersimpan di iCloud, bukan di disk) ===
-*.icloud
-
-# === Aplikasi VOSviewer (biner ~65 MB — unduh ulang dari vosviewer.com bila perlu) ===
-VOSviewer/VOSviewer.app/
-
-# === Obsidian: file sesi kerja yang berubah setiap kali vault dibuka ===
-.obsidian/workspace.json
-.obsidian/workspace-mobile.json
-**/.obsidian/workspace.json
-**/.obsidian/workspace-mobile.json
-
-# === Python (aturan dari cabang verifikasi model) ===
+# === Python ===
 __pycache__/
 *.pyc

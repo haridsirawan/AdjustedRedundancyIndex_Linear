@@ -1,27 +1,47 @@
-# Adjusted Redundancy Index (ARI)
+# Adjusted Redundancy Index — Kode & Verifikasi Model
 
-Repositori penelitian disertasi **Adjusted Redundancy Index (ARI)** — indeks redundansi yang disesuaikan untuk struktur batang/rangka — mencakup studi literatur, analisis bibliometrik, serta implementasi dan verifikasi model komputasinya.
+Repo kode untuk penelitian disertasi **Adjusted Redundancy Index (ARI)**: implementasi komputasi dan verifikasi model terhadap tabel referensi disertasi, dikerjakan berlapis lewat gate verifikasi Gate 1–8.
 
-## Struktur repositori
+> Folder lokal repo ini adalah `Coding/` di dalam folder riset — **materi riset pribadi** (artikel, catatan Obsidian, laporan, data bibliometrik VOSviewer) **berada di luar repo dan tidak dilacak git**.
 
-| Folder / file | Isi |
+## Pipeline 3-lapisan
+
+```
+examples/verification_models.json
+        │
+        ▼
+examples/truss_reference.py    (L1 — solver FE batang: gaya awal, reaksi r^(0), U*, rank)
+        │
+        ▼
+examples/ari_core.py           (L2 — mesin ARI: w_e^M, Φ^K_ij, S(G), RR, ARI, CI; Eq 2.5–2.18)
+        │
+        ▼
+examples/kinematic_guard.py    (L3 — guard kinematik: rank/margin, guard_decision)
+        │
+        ▼
+examples/run_pipeline.py / fine_grid_runner.py → results/ (CSV audit)
+examples/curve_extractor.py / plot_curves.py   → results/ (JSON/PDF kurva)
+```
+
+## Menjalankan
+
+```bash
+cd examples
+python3 test_truss_reference.py   # verifikasi solver vs Tabel 4.1
+python3 run_pipeline.py           # pipeline lengkap + konsistensi antar-lapisan
+```
+
+## Isi repo
+
+| File / folder | Isi |
 |---|---|
-| `Article/` | Artikel rujukan (PDF) |
-| `Books/` | Buku & standar rujukan |
-| `Notes/` | Catatan riset (markdown) |
-| `Report/`, `Final Report/` | Draf dan laporan akhir |
-| `Presentation/` | Materi presentasi |
-| `VOSviewer/` | Data & hasil analisis bibliometrik (SLR/PRISMA, jaringan jurnal) |
-| `AutoClaw/` | Suite verifikasi model ARI (lihat `AutoClaw/README.md`) |
-| `LICENSE` | Apache 2.0 |
+| `examples/` | Kode implementasi & pengujian (mesin ARI, solver referensi, guard, pipeline) |
+| `results/` | Keluaran verifikasi: CSV, JSON, PDF kurva, `review_prep/` |
+| `ARCHITECTURE.md` | Arsitektur pipeline + daftar file aktual & statusnya |
+| `WORK_LOG.md` | Log progres per gate (Gate 1–8) |
+| `DEFERRED_FINDINGS.md` | Temuan yang ditunda beserta statusnya |
+| `debug_archive/`, `unified_debug_gate2.py`, `debug_results.csv` | Diagnostik grid-search Gate 2 |
 
-Folder ini sekaligus merupakan **Obsidian vault** — buka dengan Obsidian untuk menjelajahi catatan (`Notes/`).
+Riwayat lengkap gate, status verifikasi, dan daftar file aktual ada di `ARCHITECTURE.md` dan `WORK_LOG.md`.
 
-## Suite verifikasi model
-
-Implementasi dan verifikasi komputasi model ARI (pipeline 3-lapisan, verifikasi Gate 1–8) berada di folder [`AutoClaw/`](AutoClaw/) — arsitektur, log progres, dan cara menjalankannya dijelaskan di `AutoClaw/README.md`, `AutoClaw/ARCHITECTURE.md`, dan `AutoClaw/WORK_LOG.md`.
-
-## Catatan
-
-- `VOSviewer/VOSviewer.app/` sengaja tidak dilacak (biner aplikasi ±65 MB).
-- File yang masih berupa placeholder iCloud (`*.icloud`) tidak ikut tercommit; unduh dulu isinya dari iCloud agar masuk git.
+Lisensi: Apache 2.0 — lihat `LICENSE`.

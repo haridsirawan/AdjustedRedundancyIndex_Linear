@@ -1,5 +1,5 @@
 # ARCHITECTURE — Implementasi Disertasi ARI
-> **Catatan lokasi (2026-10-13):** seluruh suite verifikasi kini berada di folder `AutoClaw/`. Path yang disebut di dokumen ini (mis. `examples/…`, `results/…`) relatif terhadap folder `AutoClaw/`.
+> **Catatan lokasi (2026-10-13):** akar repo kode berada di folder `Coding/` (lokal), terpisah dari materi riset pribadi. Path yang disebut di dokumen ini (mis. `examples/…`, `results/…`) relatif terhadap akar repo itu.
 
 **Status snapshot:** 2026-10-11 (Gate 8). Daftar file AKTUAL yang ada di repo (bukan rencana), dengan commit terakhir per file dan status.
 
