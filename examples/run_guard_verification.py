@@ -70,7 +70,8 @@ def run_parametric(models_path: Path) -> dict:
     respons terdisrupsi vs kapasitas state saat itu (target x lambda, 4.1.5).
     Varian (B): vs kapasitas ASLI — dilaporkan berdampingan untuk rekonsiliasi
     dengan draf Tabel 4.5 peneliti. Daftar remaining_misses.csv mengikuti
-    varian B (kritis = 71/39, cocok draf peneliti).
+    varian B (kritis = 71/39, cocok draf peneliti); forwarded.csv memuat
+    seluruh skenario yang diteruskan salah satu kebijakan.
     """
     data = json.loads(models_path.read_text(encoding="utf-8"))
     models = data["models"]
@@ -117,6 +118,7 @@ def run_parametric(models_path: Path) -> dict:
                ari_missed=0, guard_missed=0, comb_missed=0,
                ari_rank_missed=0, guard_rank_missed=0, comb_rank_missed=0)
     misses = []
+    fwd_rows = []
     for m in models:
         am, base, cache, g = engines[m["id"]]
         u0 = float(am.result.umax)
@@ -179,12 +181,27 @@ def run_parametric(models_path: Path) -> dict:
                                        lambda_=lam, cause=cause,
                                        CI=("" if r.CI is None
                                            else round(r.CI, 9))))
+                if ari_f or guard_f:
+                    fwd_rows.append(dict(
+                        model=m["id"], edge=lab, lambda_=lam,
+                        CI=("" if r.CI is None else round(r.CI, 9)),
+                        by=("both" if (ari_f and guard_f)
+                            else ("ari" if ari_f else "guard")),
+                        rank_lost=int(rank_lost), crit_A=int(critA),
+                        crit_B=int(critB)))
     miss_path = rev / "remaining_misses.csv"
     with open(miss_path, "w", newline="") as fh:
         wr = csv.DictWriter(fh, fieldnames=["model", "edge", "lambda_",
                                             "cause", "CI"])
         wr.writeheader()
         wr.writerows(misses)
+    fwd_path = rev / "forwarded.csv"
+    with open(fwd_path, "w", newline="") as fh:
+        wr = csv.DictWriter(fh, fieldnames=["model", "edge", "lambda_", "CI",
+                                            "by", "rank_lost", "crit_A",
+                                            "crit_B"])
+        wr.writeheader()
+        wr.writerows(fwd_rows)
 
     draft = data["meta"]["targets_tabel_45"]
     comparison = [
@@ -231,6 +248,7 @@ def run_parametric(models_path: Path) -> dict:
         decisions_csv=str(dec_path.relative_to(ROOT)),
         decisions_sha256=dec_hash,
         remaining_misses_csv=str(miss_path.relative_to(ROOT)),
+        forwarded_csv=str(fwd_path.relative_to(ROOT)),
         n_misses=len(misses),
         comparison_vs_draft=rows,
         cocok_A=cocok_A, cocok_B=cocok_B,
@@ -375,7 +393,8 @@ def main() -> int:
               f"{len(param['cocok_B'])}/{len(param['comparison_vs_draft'])}")
         print(f"    [berkas] {param['decisions_csv']} (sha256 "
               f"{param['decisions_sha256'][:16]}…) + "
-              f"{param['remaining_misses_csv']} ({param['n_misses']} baris)")
+              f"{param['remaining_misses_csv']} ({param['n_misses']} baris) "
+              f"+ {param['forwarded_csv']}")
     else:
         param = dict(status="pending_material",
                      expected_path=str(models_rev.relative_to(ROOT)),

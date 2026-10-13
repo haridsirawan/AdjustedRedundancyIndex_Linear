@@ -1,0 +1,4 @@
+# Dependensi runtime prototipe ARI (Python >= 3.9)
+# Pasang: pip install -r requirements.txt
+numpy>=2.0
+matplotlib>=3.9

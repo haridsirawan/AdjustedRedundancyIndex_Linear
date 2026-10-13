@@ -1,5 +1,5 @@
 {
-  "generated": "2026-10-13T06:23:49.413942+00:00",
+  "generated": "2026-10-13T06:30:48.519286+00:00",
   "generator": "examples/run_guard_verification.py (Bagian 4.2 / 4.5.11)",
   "groups": {
     "A_analitis": true,
@@ -40,6 +40,7 @@
       "decisions_csv": "results/revision/decisions.csv",
       "decisions_sha256": "10efaf3cb53b9cee16206ad5e27cd80beaabff63cd03df1374ae93c787696be2",
       "remaining_misses_csv": "results/revision/remaining_misses.csv",
+      "forwarded_csv": "results/revision/forwarded.csv",
       "n_misses": 28,
       "comparison_vs_draft": [
         {

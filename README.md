@@ -47,7 +47,7 @@ python3 mechanical_guard.py       # pengaman kinematik Eq 4.1–4.4 (h_e SVD, re
 | `examples/ari_tutorial.py` | Tutorial langkah-demi-langkah rantai ARI (contoh dua batang; urutan reproduksi Kode 4.2) |
 | `examples/mechanical_guard.py` | Pengaman kinematik Eq 4.1–4.4 (h_e = k_e·a_e·K₀⁻¹·a_eᵀ via SVD; m_e(λ); batas κ ≥ m·ρ₀) |
 | `results/` | Keluaran verifikasi: CSV, JSON, PDF kurva, `review_prep/` (+ keluaran kontrak Tabel 4.8 Gate 9) |
-| `results/revision/` | Paket parametrik §4.2.4: 16 model (272 skenario) + `decisions.csv` + `remaining_misses.csv` (Gate 9.2) |
+| `results/revision/` | Paket parametrik §4.2.4: 16 model (272 skenario) + `decisions.csv` + `remaining_misses.csv` + `forwarded.csv` (Gate 9.2/9.3) |
 | `ARCHITECTURE.md` | Arsitektur pipeline + daftar file aktual & statusnya |
 | `WORK_LOG.md` | Log progres per gate (Gate 1–9) |
 | `DEFERRED_FINDINGS.md` | Temuan yang ditunda beserta statusnya |

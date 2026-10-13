@@ -64,7 +64,6 @@ from __future__ import annotations
 
 import itertools
 import json
-import math
 import sys
 import time
 from dataclasses import dataclass, field
@@ -470,11 +469,6 @@ def _prepare_cases(am: AriModelData) -> List[dict]:
         c["pi"] = (w / tot) if tot > 0.0 else 0.0
     am.cases = prepared
     return prepared
-
-
-def _mag(comps: Dict[str, float], dim: int) -> float:
-    comps_all = ["ux", "uy", "uz"]
-    return math.sqrt(sum(comps.get(c, 0.0) ** 2 for c in comps_all[:dim]))
 
 
 def base_weights_of(am: AriModelData,

@@ -81,6 +81,22 @@ Seluruh rel.err ≤ 3e-8 ≪ 1e-6. Kontrol λ=1: RR=1 eksak, CI=η·U*=0.25 (buk
 
 Bukti lengkap: `results/review_prep/penyelarasan_disertasi_gate9.md` + `results/verification/checks.csv` (65/65 LULUS).
 
+---
+
+## Tabel 4.5 (Parametrik) — perbandingan draf vs kode (Gate 9.2)
+
+16 model parametrik §4.2.4 (272 skenario) dari spesifikasi peneliti; implementasi: `results/revision/models.json` + `run_guard_verification.py` §D.
+
+| Metrik | Draf | Kode (A: kapasitas state saat itu) | Kode (B: kapasitas asli) |
+|---|---|---|---|
+| N / rank-kurang | 272 / 32 | 272 ✅ / 32 ✅ | sama |
+| Kritis (tambahan) | 71 (39) | 94 (62) | 71 ✅ (39 ✅) |
+| ARI / Pengaman / Gabungan diteruskan | 17 / 32 / 41 | 30 / 32 ✅ / 52 | 30 / 32 / 52 |
+| Rank terlewat ARI/Pengaman/Gabungan | 24 / 0 / 0 | 22 / 0 ✅ / 0 ✅ | 22 / 0 / 0 |
+| Kritis terlewat ARI/Pengaman/Gabungan | 54 / 39 / 30 | 67 / 62 / 45 | 50 / 39 ✅ / 28 |
+
+Catatan: struktur & pengaman cocok penuh; kriteria kritis cocok penuh pada varian B; hitungan sisi-ARI diregenerasi dari kode tervalidasi dan menunggu revisi akhir peneliti (lihat `results/revision/README.md` + `results/review_prep/revision_guide.md`).
+
 ## Ringkasan status angka (diperbarui Gate 9, 2026-10-13)
 - **Cocok dengan naskah (terverifikasi otomatis, checks.csv 65/65):** semua Tabel 4.1 (+kolom W); SELURUH baris Tabel 4.3 (e1/e2/e5 kini ≤ 4e-7); semua Tabel 4.11; Tabel 4.4; diagnostik Tabel 4.2/4.5 kanonik (ARI 5 / pengaman 8 / gabungan 11; terlewat 14/9/8).
 - **Menunggu bahan:** paket parametrik §4.2.4 (272 skenario) — butuh `results/revision/models.json`.

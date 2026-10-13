@@ -77,12 +77,14 @@ CSV_COLS = [
     "margin_m", "guard_decision",
     # --- audit tambahan ---
     "note",
+    # --- Tabel 4.7 (Gate 9.3): kode status kanonik ---
+    "status_code",
 ]
 
 # Schema kanonik pipeline_output.csv (Gate 5 — kontrak curve_extractor):
 PIPE_COLS = ["model_id", "edge_id", "lambda", "S_intact", "S_disrupted",
              "RR", "ARI", "CI", "rank_status", "margin_m",
-             "guard_decision", "U_star"]
+             "guard_decision", "U_star", "status_code"]
 
 
 def _margin_and_decision(diag: Optional[dict], intact: Optional[dict]):
@@ -162,6 +164,7 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
             mech=ctrl.detail.get("mechanical_status", "ok"),
             S_b=s_base, S=ctrl.S, RR=ctrl.RR, ARI=ctrl.ARI, CI=ctrl.CI,
             diag=None, label="?", margin=0.0, decision="Clear",
+            code=ctrl.status_code,
             note="kontrol utuh tanpa edge"))
         n_control_runs += 1
 
@@ -177,6 +180,7 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
                 mech=res1.detail.get("mechanical_status", "ok"),
                 S_b=s_base, S=res1.S, RR=res1.RR, ARI=res1.ARI, CI=res1.CI,
                 diag=None, label="?", margin=0.0, decision="Clear",
+                code=res1.status_code,
                 note="RR eksak 1; CI=eta*U*_e (kontrol Gate 2 blok [5])"))
             n_control_runs += 1
             # Konsistensi-check vs kontrak Gate 2: RR==1 eksak, CI==eta*U*
@@ -203,6 +207,7 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
                     S_b=s_base, S=res.S, RR=res.RR, ARI=res.ARI, CI=res.CI,
                     diag=diag, label=label, margin=margin,
                     decision=decision,
+                    code=res.status_code,
                     note=res.detail.get("note", "")))
                 n_disruption_runs += 1
                 summary["counts"][label] = summary["counts"].get(label, 0) + 1
@@ -333,6 +338,7 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
                 r["label"],
                 r["margin"], r["decision"],
                 r["note"],
+                r["code"],
             ])
     print(f"\n[CSV] {OUT_CSV} ({len(rows)} baris data + header)")
 
@@ -355,6 +361,7 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
                 _num(r["RR"]), _num(r["ARI"]), _num(r["CI"]),
                 rank_status,
                 r["margin"], r["decision"], _num(r["U_star"]),
+                r["code"],
             ])
     print(f"[CSV] {PIPE_CSV} (schema Gate 5: {', '.join(PIPE_COLS)})")
 

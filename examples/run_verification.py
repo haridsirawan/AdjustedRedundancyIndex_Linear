@@ -92,6 +92,27 @@ def edge_label(e: dict) -> str:
     return f"{NODE_LETTERS.get(i, i)}-{NODE_LETTERS.get(j, j)}"
 
 
+def _connected_after(model: dict, removed_eid) -> bool:
+    """Apakah graf tetap terhubung bila sisi `removed_eid` dihapus (Tabel 4.2)."""
+    adj: dict = {}
+    for el in model["elements"]:
+        if removed_eid is not None and int(el["id"]) == int(removed_eid):
+            continue
+        i, j = int(el["nodes"][0]), int(el["nodes"][1])
+        adj.setdefault(i, []).append(j)
+        adj.setdefault(j, []).append(i)
+    nodes = [int(nd["id"]) for nd in model["nodes"]]
+    seen = {nodes[0]}
+    stack = [nodes[0]]
+    while stack:
+        u = stack.pop()
+        for v in adj.get(u, []):
+            if v not in seen:
+                seen.add(v)
+                stack.append(v)
+    return len(seen) == len(nodes)
+
+
 def sha256_of(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -203,21 +224,28 @@ def main() -> int:
     # ------------------------------------------------------------------ 3. diagnostik
     print("\n[3] Diagnostik kanonik (Tabel 4.2 & 4.5):")
     diag = dict(rank_lost=0, critical=0, ari_fwd=0, guard_fwd=0, comb_fwd=0,
-                ari_missed=0, guard_missed=0, comb_missed=0)
+                ari_missed=0, guard_missed=0, comb_missed=0,
+                ari_rank_missed=0, guard_rank_missed=0, comb_rank_missed=0)
+    diag_models: dict = {}
     for mid, m in by_id.items():
         am = engines[mid]
         s_b, st_b = baselines[mid]
         g = guards[mid]
         u0 = float(am.result.umax)
+        dm = diag_models.setdefault(mid, dict(n=0, rank=0, connected=0))
         for e in am.edges:
             eid = e["id"]
             for lam in LAMS_DISR:
+                dm["n"] += 1
                 r = ac.compute_ari(am, (eid, lam), baseline=baselines[mid],
                                    pair_cache=caches[mid])
                 disr = ac._apply_stiffness_multiplier(m, {eid: lam},
                                                       drop_zero=True)
                 res = solve_model(disr)
                 rank_lost = (res.status != "ok")
+                dm["rank"] += int(rank_lost)
+                if _connected_after(m, eid if lam == 0.0 else None):
+                    dm["connected"] += 1
                 u_over = d_over = False
                 if not rank_lost:
                     # Kriteria diagnostik (4.2.4): utilisasi maksimum RESPONS
@@ -240,13 +268,18 @@ def main() -> int:
                 diag["ari_missed"] += int(not ari_f)
                 diag["guard_missed"] += int(not guard_f)
                 diag["comb_missed"] += int(not (ari_f or guard_f))
+                if rank_lost:
+                    diag["ari_rank_missed"] += int(not ari_f)
+                    diag["guard_rank_missed"] += int(not guard_f)
+                    diag["comb_rank_missed"] += int(not (ari_f or guard_f))
     print(f"    rank-turun={diag['rank_lost']} kritis={diag['critical']} | "
           f"ARI fwd={diag['ari_fwd']} pengaman fwd={diag['guard_fwd']} "
           f"gabungan fwd={diag['comb_fwd']}")
     for key, target in (("rank_lost", 8), ("critical", 17), ("ari_fwd", 5),
                         ("guard_fwd", 8), ("comb_fwd", 11),
                         ("ari_missed", 14), ("guard_missed", 9),
-                        ("comb_missed", 8)):
+                        ("comb_missed", 8), ("ari_rank_missed", 6),
+                        ("guard_rank_missed", 0), ("comb_rank_missed", 0)):
         check(f"Tabel 4.2/4.5 kanonik: {key}", target, diag[key], 0.0)
 
     # ------------------------------------------------------------------ 4. regresi
@@ -338,6 +371,72 @@ def main() -> int:
                    f"{int(res.rank)}/{int(res.n_free)} & "
                    f"{'PASS' if ok else 'FAIL'} \\\\")
     tex.append("\\hline\\end{tabular}\\end{table}")
+
+    # --- Tabel 4.2: status gangguan (reproduksi) ---
+    EXPECT_42 = {"M1_parallel_bars_1d": (8, 8, 0, 8),
+                 "M2_planar_triangle": (12, 9, 3, 12),
+                 "M3_square_one_diagonal": (20, 15, 5, 20),
+                 "M4_square_two_diagonals": (24, 24, 0, 24)}
+    tex.append("\n" + r"\begin{table}[htbp]\centering")
+    tex.append(r"\caption{Reproduksi Tabel 4.2 (status gangguan; kontrol "
+               r"tidak masuk jumlah gangguan).}")
+    tex.append(r"\label{tab:repro42}")
+    tex.append(r"\begin{tabular}{lcccc}\hline")
+    tex.append("Model & Gangguan & Solusi unik & Rank kurang & Terhubung "
+               r"\\" + r"\hline")
+    for m_ in models:
+        mid_ = str(m_["id"])
+        dm_ = diag_models[mid_]
+        uniq = dm_["n"] - dm_["rank"]
+        cek = ("PASS" if (dm_["n"], uniq, dm_["rank"], dm_["connected"])
+               == EXPECT_42[mid_] else "CEK")
+        tex.append(f"{mid_} & {dm_['n']} & {uniq} & {dm_['rank']} & "
+                   f"{dm_['connected']} ({cek}) " + r"\\")
+    tex.append(r"\hline\end{tabular}\end{table}" + "\n")
+
+    # --- Tabel 4.4: regresi e3/e4 (reproduksi) ---
+    g3_ = guards["M3_square_one_diagonal"]
+    tex.append(r"\begin{table}[htbp]\centering")
+    tex.append(r"\caption{Reproduksi Tabel 4.4 (dua kehilangan elemen "
+               r"bergaya awal nol).}")
+    tex.append(r"\label{tab:repro44}")
+    tex.append(r"\begin{tabular}{lccccc}\hline")
+    tex.append("Elemen & CI & $h_e$ & $m_e(0)$ & Rank & Gabungan "
+               r"\\")
+    tex.append(r"\hline")
+    for eid_ in (2, 3):
+        r_ = ac.compute_ari(engines["M3_square_one_diagonal"], (eid_, 0.0),
+                            baseline=baselines["M3_square_one_diagonal"],
+                            pair_cache=caches["M3_square_one_diagonal"])
+        disr_ = ac._apply_stiffness_multiplier(
+            by_id["M3_square_one_diagonal"], {eid_: 0.0}, drop_zero=True)
+        res_ = solve_model(disr_)
+        gard = ("Teruskan" if g3_.guard_flag(eid_, 0.0) == 1 else "Tidak")
+        tex.append(f"$e_{eid_ + 1}$ & {r_.CI:.2e} & {g3_.h[eid_]:.6f} & "
+                   f"{g3_.m_e(eid_, 0.0):.2e} & "
+                   f"{int(res_.rank)}/{int(res_.n_free)} & {gard} "
+                   + r"\\")
+    tex.append(r"\hline\end{tabular}\end{table}" + "\n")
+
+    # --- Tabel 4.5 (paruh kanonik): diagnostik (reproduksi) ---
+    tex.append(r"\begin{table}[htbp]\centering")
+    tex.append(r"\caption{Reproduksi Tabel 4.5 (paruh kanonik; ambang "
+               r"$\tau=0.5$, kontrol tidak dihitung).}")
+    tex.append(r"\label{tab:repro45}")
+    tex.append(r"\begin{tabular}{lcccc}\hline")
+    tex.append("Kebijakan & $N$ & Diteruskan & Rank terlewat & Kritis "
+               r"terlewat \\")
+    tex.append(r"\hline")
+    tex.append(f"ARI & 64 & {diag['ari_fwd']} & "
+               f"{diag['ari_rank_missed']}/{diag['rank_lost']} & "
+               f"{diag['ari_missed']}/{diag['critical']} " + r"\\")
+    tex.append(f"Pengaman & 64 & {diag['guard_fwd']} & "
+               f"{diag['guard_rank_missed']}/{diag['rank_lost']} & "
+               f"{diag['guard_missed']}/{diag['critical']} " + r"\\")
+    tex.append(f"Gabungan & 64 & {diag['comb_fwd']} & "
+               f"{diag['comb_rank_missed']}/{diag['rank_lost']} & "
+               f"{diag['comb_missed']}/{diag['critical']} " + r"\\")
+    tex.append(r"\hline\end{tabular}\end{table}")
     (OUT / "Tabel.tex").write_text("\n".join(tex) + "\n", encoding="utf-8")
 
     # ------------------------------------------------------------------ 6. figur

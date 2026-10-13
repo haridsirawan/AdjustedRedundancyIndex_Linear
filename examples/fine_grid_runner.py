@@ -56,10 +56,10 @@ assert LAMBDAS_FINE[0] == 1.0 and LAMBDAS_FINE[-1] == 0.0 and len(LAMBDAS_FINE) 
 
 OUT_CSV = ROOT / "results" / "verification" / "fine_grid_output.csv"
 
-# Schema KANONIK Gate 5 — kolom sama persis dgn pipeline_output.csv
+# Schema KANONIK Gate 5 — kolom sama persis dgn pipeline_output.csv (+status_code Gate 9.3)
 CSV_COLS = ["model_id", "edge_id", "lambda", "S_intact", "S_disrupted",
             "RR", "ARI", "CI", "rank_status", "margin_m",
-            "guard_decision", "U_star"]
+            "guard_decision", "U_star", "status_code"]
 
 
 def _num(x: Optional[float], nd: int = 12) -> object:
@@ -143,7 +143,7 @@ def run_fine_grid(models_dir: Path = ROOT / "examples") -> dict:
                              _num(s_base, 9), _num(res.S, 9),
                              _num(res.RR), _num(res.ARI), _num(res.CI),
                              rank_status, margin, decision,
-                             _num(res.U_star)])
+                             _num(res.U_star), res.status_code])
 
         n_edge = len(am.edges)
         got = sum(1 for r in rows if r[0] == mid)

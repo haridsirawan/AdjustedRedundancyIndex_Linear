@@ -44,7 +44,7 @@ Catatan: gate 7 (agregasi laporan) dilaporkan selesai oleh peneliti (commit 93a8
 ## Artefak hasil (results/)
 | Path | Isi | Status |
 |---|---|---|
-| results/verification/pipeline_output.csv | 80 baris skema kanonik [model_id, edge_id, lambda, S_intact, S_disrupted, RR, ARI, CI, rank_status, margin_m, guard_decision, U_star] | ✅ |
+| results/verification/pipeline_output.csv | 80 baris skema kanonik [model_id, edge_id, lambda, S_intact, S_disrupted, RR, ARI, CI, rank_status, margin_m, guard_decision, U_star, status_code] | ✅ |
 | results/verification/fine_grid_output.csv | 336 baris grid halus Δλ=0.05, kolom identik | ✅ |
 | results/verification/ari_screening.csv | diagnostik Gate 2 (test_ari.py) | ✅ |
 | results/verification/ari_screening_full.csv + screening_report.json | audit Gate 4 (84 run) | ✅ |
@@ -53,7 +53,7 @@ Catatan: gate 7 (agregasi laporan) dilaporkan selesai oleh peneliti (commit 93a8
 | results/verification/README.md | penjelasan tiap file + timestamp | ✅ (Gate 8) |
 | results/verification/baseline.csv, scenarios.csv, checks.csv, manifest.json, Tabel.tex, models.pdf, ci_by_damage.pdf | keluaran kontrak Tabel 4.8 (Gate 9) | ✅ |
 | results/verification/guard_verification.json | verifikasi paket pengaman §4.2 + diagnostik parametrik §4.2.4 (Gate 9/9.2) | ✅ |
-| results/revision/{models.json, decisions.csv, remaining_misses.csv} | paket parametrik 16 model (272 skenario); keputusan (+sha256) & kasus terlewat; bandingan draf A/B di guard_verification.json | ✅ (Gate 9.2) |
+| results/revision/{models.json, decisions.csv, remaining_misses.csv, forwarded.csv} | paket parametrik 16 model (272 skenario); keputusan (+sha256), kasus terlewat & daftar diteruskan; bandingan draf A/B di guard_verification.json | ✅ (Gate 9.2/9.3) |
 | results/review_prep/disertasi_numbers_audit.md | audit angka naskah vs kode | ✅ (Gate 8; dikoreksi Gate 9) |
 | results/review_prep/review_checklist.md | checklist review manual | ✅ (Gate 8) |
 
