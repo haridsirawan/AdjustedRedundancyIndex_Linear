@@ -259,7 +259,7 @@ def main(argv: List[str]) -> int:
         return 1
 
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
-    Path(args.out).write_text(json.dumps(result, indent=2, default=str))
+    Path(args.out).write_text(json.dumps(result, indent=2, default=str) + "\n")
 
     print("=" * 78)
     print("GATE 5 — CURVE EXTRACTION & CRITICAL LAMBDA")

@@ -534,7 +534,7 @@ def main() -> int:
         diagnostik=diag,
     )
     (OUT / "manifest.json").write_text(json.dumps(manifest, indent=2,
-                                                  default=str),
+                                                  default=str) + "\n",
                                        encoding="utf-8")
 
     print(f"\n[berkas] baseline.csv ({len(base_rows)}), "

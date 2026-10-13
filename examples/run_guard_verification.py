@@ -412,7 +412,7 @@ def main() -> int:
         checks_total=len(CHECKS), checks_pass=n_pass, checks_fail=n_fail,
         checks=CHECKS,
     )
-    OUT.write_text(json.dumps(result, indent=2, default=str),
+    OUT.write_text(json.dumps(result, indent=2, default=str) + "\n",
                    encoding="utf-8")
     print(f"\n[berkas] {OUT.relative_to(ROOT)} "
           f"({n_pass}/{len(CHECKS)} LULUS)")

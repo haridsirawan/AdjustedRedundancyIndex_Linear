@@ -382,7 +382,7 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
                        "Finding #005 penamaan edge 1-based (tabel disertasi)",
                        "Finding #012 dikoreksi: identitas CI=1-RR(1-eta U*) terpenuhi"],
     )
-    OUT_JSON.write_text(json.dumps(report, indent=2, default=str))
+    OUT_JSON.write_text(json.dumps(report, indent=2, default=str) + "\n")
     print(f"[JSON] {OUT_JSON}")
 
     return report
