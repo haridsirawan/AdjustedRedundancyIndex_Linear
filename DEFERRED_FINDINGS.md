@@ -7,10 +7,12 @@ ditunda hingga fase detail-after-skeleton. ID = DF-nn, dipetakan ke penomoran Fi
 ---
 
 > **Status review Gate 8 (2026-10-11):** Semua entri di bawah telah diverifikasi ulang terhadap kode & artefak saat ini; kolom **Last Checked** ditambahkan per entri. Tidak ada formula/parameter yang diubah.
+>
+> **Status Gate 9 (2026-10-13):** DF-01 **DITUTUP** (b_jc = komponen reaksi searah kasus beban, Eq 2.12; Tabel 4.3 tereproduksi ≤ 4e-7). DF-03 **DITUTUP** (uji invariansi lama digantikan uji konversi satuan §4.1.3 — lulus eksak). Finding #012 **DIKOREKSI** (baris e1/e2 MEMENUHI identitas Eq 2.17–2.18 dengan U* benar: e1 U*=0; e2 U*=0.375). Tabel 4.5 kanonik tereproduksi persis. Rincian: `results/review_prep/penyelarasan_disertasi_gate9.md`.
 
 ## DF-01 (Finding #001) — Deviasi Tabel 4.3 pada e1(AB), e2(BC), e5(AC)
 **Last Checked:** 2026-10-11 (Gate 8) — severity 🔴 Kritis tetap akurat.
-**Status:** 🔴 OPEN (di luar kendali parameter saat ini)
+**Status:** 🟢 RESOLVED (Gate 9, 2026-10-13) — akar masalah dari naskah: b_jc memakai **komponen reaksi searah kasus beban** (Eq 2.12), bukan magnitudo vektor reaksi gabungan. Kode lama b={0.577219, 0.422781}; kode benar b={A: 0.95, B: 0.05}. Reproduksi: e1 0.983152316; e2 0.964723707; e5 0.717284621 (Δ ≤ 4e-7 vs naskah). Rincian: `results/review_prep/penyelarasan_disertasi_gate9.md`.
 **Model:** M3_square_one_diagonal, skenario hapus-total (λ=0).
 
 | Edge (Tabel 4.3) | RR kode | RR disertasi | CI kode | CI disertasi |
@@ -94,7 +96,7 @@ dijelaskan di bab diskusi (konsisten dgn narasi batas representasi e3/e4).
 
 ## DF-03 (Finding #002) — Invariansi penskalaan: bentuk asimtotik, bukan eksak
 **Last Checked:** 2026-10-11 (Gate 8) — severity 🟡 Medium akurat. CATATAN: Gate 6 TIDAK menjalankan uji invariansi (hanya grid halus & plotting); uji x10-serentak terakhir dieksekusi di test_ari.py [4] (FAIL, ΔARI maks 4.9e-2). Perlu diputuskan apakah klaim invariansi §2.6 direvisi.
-**Status:** 🟡 PARTIAL PASS (ambang longgar 5e-3; murni-x10 gagal)
+**Status:** 🟢 RESOLVED (Gate 9, 2026-10-13) — uji lama (x10 pada s saja, tanpa konversi atribut fisik) bukan uji invariansi formula; digantikan uji KONVERSI SATUAN menyeluruh kN-mm → N-m (4.1.3): ΔARI = 0 (M1) / 2.2e-16 (M3). Catatan lama di bawah dipertahankan sebagai riwayat.
 Temuan:
 - x10 HANYA (s_k,s_R): ΔARI hingga O(1e0) → jelas TIDAK invarian.
 - x10 SERENTAK (s_k,s_R,ε_w,ε_d,ε_R,ε_removed): ΔARI terukur 4.86e-02 (M1),
@@ -319,3 +321,4 @@ parameter ARI yang diubah; murni eksekusi grid lebih halus + visualisasi.
 * **Deskripsi**: Seluruh angka yang akan dikutip di naskah (Tabel 4.1, 4.3, 4.11, kurva Bab Hasil) wajib dibandingkan satu-per-satu dengan output CSV/JSON aktual sebelum submit. Audit awal Gate 8 sudah menghasilkan tiga kelas temuan: (a) cocok penuh (Tabel 4.1, Tabel 4.11, e3/e4 Tabel 4.3); (b) deviasi terdokumentasi (#001: e1/e2/e5); (c) INKONSISTENSI INTERNAL NASKAH baru ditemukan — baris e1/e2 Tabel 4.3 tidak memenuhi identitas Eq 2.17–2.18 (CI = 1 − RR·(1−η·U*)).
 * **Severity**: 🔴 Kritis (angka publikasi harus traceable ke artefak).
 * **Aksi saat Review**: Bandingkan setiap angka di naskah dengan output CSV/JSON; catat selisih > 1e-6; putuskan sumber kebenaran (naskah dihitung ulang vs artefak); jangan menyalin angka dari log sprint tanpa cek file final.
+* **KOREKSI Gate 9 (2026-10-13):** tuduhan "inkonsistensi internal e1/e2" TIDAK terbukti — dengan definisi U* yang benar (e1: D_e≈0 → U*=0; e2: 30/80=0.375; e5: 0.530330), identitas Eq 2.17–2.18 terpenuhi untuk SELURUH baris Tabel 4.3. Seluruh angka naskah Tabel 4.1/4.3/4.11 kini tereproduksi oleh kode (checks.csv 65/65 LULUS).

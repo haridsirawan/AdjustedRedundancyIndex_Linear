@@ -316,3 +316,33 @@ di DEFERRED_FINDINGS.md #010.
 ## Status Gate
 🟢 **GATE 8 COMPLETED (Review Ringan)** — artefak siap diperiksa.
 ➡️ Selanjutnya: review manual mendalam oleh peneliti menggunakan `results/review_prep/review_checklist.md` dan `disertasi_numbers_audit.md`.
+
+---
+
+# Gate 9 — Penyelarasan dengan Naskah Disertasi (b_jc per komponen; guard SVD)
+**Researcher:** Harids Irawan (dieksekusi oleh AutoClaw)
+**Date:** Tuesday, October 13, 2026
+**Status:** 🟢 COMPLETED (seluruh runner exit 0; checks.csv 65/65 LULUS)
+
+## Actions Taken
+- [x] Verifikasi langsung ke naskah (PDF 222 hal.): formulasi Bagian 2.5–2.9, 4.1.2/4.1.5, 4.2.2, 4.4.3–4.4.5, 4.5.3–4.5.10; Tabel 4.1–4.5, 4.7, 4.8, 4.11–4.13.
+- [x] `examples/ari_core.py`: b_jc per KOMPONEN reaksi searah kasus beban (Eq 2.12); kasus beban per arah + π_c ternormalisasi (Eq 2.11); λ=0 = penghapusan eksak dari graf (Bagian 2.8); lintasan kosong ω₁/ε_d utk i==j (Kode 4.1); luas & kapasitas ×λ (4.1.5); batas pencarian 200.000 (4.1.2); status Tabel 4.7 (`status_code` + `solver_status` terpisah); validasi `invalid_input`.
+- [x] Modul BARU `examples/mechanical_guard.py` (Eq 4.1–4.4: h_e SVD, m_e(λ), batas kondisi κ ≥ m·ρ0, identitas Eq 4.7).
+- [x] `examples/bound_enhancement.py`: h_e diganti dari fraksi-energi (LAMA) ke SVD (Eq 4.1) — sesuai Tabel 4.4 (batang nol-gaya tetap h_e=1.000000).
+- [x] Runner BARU `examples/run_verification.py`: baseline.csv, scenarios.csv, checks.csv, manifest.json, Tabel.tex, models.pdf, ci_by_damage.pdf (kontrak Tabel 4.8).
+- [x] `examples/test_ari.py`: uji invariansi digantikan uji KONVERSI SATUAN kN-mm → N-m (4.1.3).
+- [x] Seluruh artefak `results/` diregenerasi; dokumentasi (DEFERRED_FINDINGS, audit angka, ARCHITECTURE) diperbarui.
+
+## Verification Results
+| Uji | Hasil |
+|---|---|
+| Tabel 4.3 (e1..e5, RR & CI) | ✅ ≤ 4e-7 — **DF-01 DITUTUP** |
+| Tabel 4.1 (+kolom W) / 4.2 / 4.4 / 4.11 | ✅ semua cocok |
+| Tabel 4.5 kanonik (ARI 5 / pengaman 8 / gabungan 11; kritis 17; terlewat 14/9/8) | ✅ **cocok persis** |
+| run_verification.py checks.csv | ✅ 65/65 |
+| mechanical_guard self-test (h_e, Eq 4.4 grid 80/80, Eq 4.7 residual < 3e-14) | ✅ ALL PASS |
+| Invariansi konversi satuan (4.1.3) | ✅ ΔARI = 0 (M1) / 2.2e-16 (M3) |
+
+## Status Gate
+🟢 **GATE 9 COMPLETED** — kode selaras dengan naskah pada seluruh tingkat kanonik.
+➡️ Selanjutnya: regenerasi Tabel.tex ke naskah; paket parametrik §4.2.4 (272 skenario) bila `results/revision/models.json` tersedia.

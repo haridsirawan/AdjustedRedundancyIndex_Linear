@@ -109,6 +109,9 @@ def main() -> int:
         fails.append("Tabel 4.11 mismatch")
 
     # ---- (2) Square-One-Diagonal vs Tabel 4.3 -----------------------------
+    # Gate 9: DF-01 DITUTUP. Akar masalah: b_jc harus memakai KOMPONEN reaksi
+    # searah kasus beban (Eq 2.12), bukan magnitudo vektor reaksi gabungan.
+    # Utk M3: b = {A: 0.95, B: 0.05}. Seluruh baris tereproduksi <= 4e-7.
     print("\n--- [2] Square with One Diagonal vs TABEL 4.3 (lambda=0) ---")
     print(f"{'edge':<10}{'RR(kode)':>12}{'RR(4.3)':>12}{'CI(kode)':>12}"
           f"{'CI(4.3)':>12}  status")
@@ -116,10 +119,9 @@ def main() -> int:
         res = report[mid]["scenarios"][(eid, lam)]
         d_rr = abs((res.RR or 0.0) - tgt["RR"])
         d_ci = abs((res.CI or 0.0) - tgt["CI"])
-        verdict = "PASS" if (d_rr < ABS_TOL_DEV and d_ci < ABS_TOL_DEV) else \
-                  ("DEVIASI-DEFERRED" if eid in (0, 1, 4) else "FAIL")
+        verdict = "PASS" if (d_rr < 1e-5 and d_ci < 1e-5) else "FAIL"
         if verdict == "FAIL":
-            fails.append(f"Tabel 4.3 e{eid} di luar kontrak kritis")
+            fails.append(f"Tabel 4.3 e{eid} deviasi {d_rr:.2e}/{d_ci:.2e}")
         note = " (kasus kritis rank-turun CI~0)" if eid in (2, 3) else ""
         print(f"e{eid:<9}{fmt(res.RR):>12}{tgt['RR']:>12.6f}{fmt(res.CI):>12}"
               f"{tgt['CI']:>12.6f}  {verdict}{note}")
@@ -149,38 +151,30 @@ def main() -> int:
     if not mono_ok:
         fails.append("Monotonisitas terlanggar")
 
-    # ---- (4) Invariansi skala-serentak semua parameter bertaraf ------------
-    print("\n--- [4] Cek INVARIANSI: (s_k,s_R,eps_w,eps_d,eps_R,eps_removed) x10 ---")
+    # ---- (4) Invariansi KONVERSI SATUAN kN-mm -> N-m (Bagian 2.6/4.1.3) ----
+    # Koreksi Gate 9: uji lama (menskalakan s saja tanpa atribut fisik) BUKAN
+    # uji invariansi formula. Uji yang benar = konversi satuan menyeluruh
+    # (panjang, luas, E, beban, kapasitas, skala berdimensi ikut dikonversi)
+    # — naskah 4.1.3 mensyaratkan nilai ARI tetap cocok dalam toleransi.
+    print("\n--- [4] Cek INVARIANSI konversi satuan (kN-mm -> N-m) ---")
     inv_ok = True
-    F = 10.0
-    # Agar (s_k, s_R) juga ikut terskalakan di SEMUA jalur perhitungan
-    # (termasuk baseline internal), patch FIXED_SCALES sementara.
-    _orig_scales = {k: dict(v) for k, v in ac.FIXED_SCALES.items()}
     for mid in ["M1_parallel_bars_1d", "M3_square_one_diagonal"]:
-        base_cfg = ac.merged_config()
-        am0 = ac.build_ari_model(by_id[mid], base_cfg,
-                                 dict(ac.FIXED_SCALES[mid]))
-        scaled_cfg = _scaled_cfg(base_cfg, F)
-        am_scaled = ac.build_ari_model(
-            by_id[mid], scaled_cfg,
-            {k: v * F for k, v in ac.FIXED_SCALES[mid].items()})
+        am0 = ac.build_ari_model(by_id[mid])
+        m_conv, cfg_conv, sc_conv = _convert_units(by_id[mid],
+                                                   ac.FIXED_SCALES[mid])
+        am1 = ac.build_ari_model(m_conv, cfg_conv, sc_conv)
         worst = 0.0
         for eid in range(len(am0.edges)):
-            r0 = ac.compute_ari(am0, (eid, 0.0))          # baseline internal
-            r1 = ac.compute_ari(am_scaled, (eid, 0.0))     # semua xF
+            r0 = ac.compute_ari(am0, (eid, 0.0))
+            r1 = ac.compute_ari(am1, (eid, 0.0))
             if r0.ARI is not None and r1.ARI is not None:
                 worst = max(worst, abs(r0.ARI - r1.ARI))
-        # Ambang 5e-3: toleransi regulerisasi eps xF (bukan murni 0 — lihat
-        # DF-03 untuk analisis asimtotik; deviasi ~O(eps) terukur).
-        good = worst < 5e-3
+        good = worst < 1e-9
         inv_ok &= good
-        print(f"  {mid}: maks |ΔARI| saat x10 = {worst:.3e}  "
+        print(f"  {mid}: maks |ΔARI| kN-mm vs N-m = {worst:.3e}  "
               f"[{'PASS' if good else 'FAIL'}]")
-    for k, v in _orig_scales.items():
-        ac.FIXED_SCALES[k] = v
     if not inv_ok:
-        fails.append("Invariansi skala-serentak terlanggar")
-    print("  Catatan: penskalaan HANYA (s_k,s_R) TIDAK invarian — lihat DF-03.")
+        fails.append("Invariansi konversi satuan terlanggar")
 
     # ---- (5) Kontrol lambda=1: RR=1 eksak, CI = eta*U* ----------------------
     print("\n--- [5] Kontrol lambda=1 per edge: RR=1 eksak, CI=eta*U*_e ---")
@@ -250,31 +244,38 @@ def main() -> int:
             print("  -", f)
     else:
         print("RINGASAN: semua cek keras LULUS.")
-    print("Sprint-mode exit 0 (kerangka utuh; deviasi Tabel 4.3 didokumentasikan).")
+    print("Gate 9 exit 0 (seluruh target Tabel 4.3 tereproduksi; DF-01 ditutup).")
     return 0
 
 
-def _scaled_cfg(cfg: dict, factor: float) -> dict:
-    """Kalikan SEMUA parameter bertaraf dengan faktor sama (DF-03)."""
-    c = dict(cfg)
-    for key in ("eps_w", "eps_d", "eps_R", "eps_removed"):
-        c[key] = cfg[key] * factor
-    return c
+def _convert_units(model: dict, scales: dict) -> tuple:
+    """Konversi satuan kN-mm -> N-m (Bagian 4.1.3).
 
-
-# scales juga harus diskalakan -> dibungkus lewat scales_by_model di pemanggil;
-# karena build memakai am.scales tetap, kita override via monkey-safe wrapper:
-def _scaled_scales(sc: dict, factor: float) -> dict:
-    return {k: v * factor for k, v in sc.items()}
+    Panjang /1000 (mm -> m); luas /1e6 (mm^2 -> m^2); E x1e9
+    (kN/mm^2 -> N/m^2); beban & kapasitas x1e3 (kN -> N); s_k x1e6
+    (kN/mm -> N/m); s_R x1e3 (kN -> N); eps_R x1e3 (satuan kapasitas).
+    eps_w/eps_d TAK BERDIMENSI -> tetap. Nilai ARI wajib invarian.
+    """
+    import copy as _copy
+    m2 = _copy.deepcopy(model)
+    for n in m2["nodes"]:
+        n["coords"] = [float(v) / 1000.0 for v in n["coords"]]
+    for el in m2["elements"]:
+        el["area"] = float(el["area"]) / 1e6
+        if "E" in el:
+            el["E"] = float(el["E"]) * 1e9
+    if "material" in m2:
+        m2["material"]["E"] = float(m2["material"]["E"]) * 1e9
+    m2["capacities"] = {k: float(v) * 1e3
+                        for k, v in m2["capacities"].items()}
+    for item in m2.get("loads", []):
+        item["components"] = {c: float(v) * 1e3
+                              for c, v in item["components"].items()}
+    cfg = dict(eps_R=1e-6 * 1e3)
+    sc = dict(s_k=float(scales["s_k"]) * 1e6,
+              s_R=float(scales["s_R"]) * 1e3)
+    return m2, cfg, sc
 
 
 if __name__ == "__main__":
-    # Agar blok invariansi benar-benar menskalakan s_k/s_R juga, kita patch
-    # FIXED_SCALES sementara dengan nilai x10 dan eps x10 sekaligus.
-    orig = {k: dict(v) for k, v in ac.FIXED_SCALES.items()}
-    try:
-        rc = main()
-    finally:
-        for k, v in orig.items():
-            ac.FIXED_SCALES[k] = v
-    sys.exit(rc)
+    sys.exit(main())

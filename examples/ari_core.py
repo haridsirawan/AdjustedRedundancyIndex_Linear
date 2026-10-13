@@ -20,21 +20,37 @@ B. Enumerasi & optimasi jalur (Eq 2.8-2.10)
      Phi^K_ij = max_{P edge-disjoint, |P|<=K} sum_r omega_r/(d^M(p^(r)) + eps_d)
      omega_r = gamma^(r-1) / sum_t gamma^(t-1)   (gamma = 1 -> rata-rata K jalur)
      ENUMERASI EKSHAUSTIF (bukan greedy; Section 4.8.6).
-C. Agregasi skor graf (Eq 2.11-2.13)
-     F_c = sum_i |f_ic| ; a_ic = |f_ic| / F_c
-     B_c = sum_j |r_jc^(0)| ; b_jc = beta/|V_T| + (1-beta)*|r_jc^(0)|/B_c
+     Kasus i == j (simpul sekaligus dibebani dan ditumpu): satu lintasan kosong
+     berbiaya nol -> Phi = omega_1 / eps_d (Bagian 2.7; pseudocode Kode 4.1).
+C. Agregasi skor graf (Eq 2.11-2.13) — PER KOMPONEN BEBAN c in D
+     F_c = sum_i |f_ic|                (i atas seluruh simpul beban, arah c)
+     a_ic = |f_ic| / F_c ;  pi_c = (F_c/f_c,ref) / sum_h (F_h/f_h,ref)  (Eq 2.11)
+     B_c = sum_j |r_jc^(0)| ; b_jc = beta/|V_T| + (1-beta)*|r_jc^(0)|/B_c  (B_c>0)
+                            ; b_jc = 1/|V_T|                               (B_c=0)
+     r_jc^(0) = KOMPONEN reaksi tumpuan j SEARAH komponen beban c, dari solve
+     kasus-c SENDIRI pada model utuh (Eq 2.12 — bukan magnitudo vektor gabungan).
      S(G) = sum_c pi_c * sum_i a_ic * sum_j b_jc * Phi^K_ij
 D. Disrupsi & ARI (Eq 2.14-2.18)
-     s = (e, lambda): w_e -> lambda * w_e  (TANPA renormalisasi; Section 4.8.4)
+     s = (e, lambda): 0 < lambda <= 1 -> w_e -> lambda * w_e (TANPA renormalisasi,
+     Section 4.8.4); lambda = 0 -> edge DIHAPUS dari graf skor (Bagian 2.8:
+     "kehilangan lengkap ... dilakukan dengan menghapus sisi").
      RR_e(lambda) = S(G_{M_e,lambda}) / S(G_M)
      U*_e = min(D_e / (R_e + eps_R), 1)
      ARI_e = RR_e * (1 - eta * U*_e) ; CI_e = 1 - ARI_e
      Baseline tolerance 1e-12: jika S(G_M) < tol -> semua skenario "abstain".
 
+Status (Tabel 4.7): status skor kanonik via properti `status_code`
+(scored | invalid_baseline | search_timeout | uncertified); status solver
+disimpan TERPISAH pada field `solver_status` (ok | rank_deficient).
+
 Konvensi implementasi (disepakati pada verifikasi Gate 2):
-* State terdisrupsi M_{e,lambda}: kekakuan edge diskala EA_e -> lambda*EA_e.
-  Edge e dipertahankan dalam graf dengan bobot w_e -> lambda*w_e (edge-id tetap
-  ada; multigraph: edge ID berbeda = edge fisik berbeda).
+* State terdisrupsi M_{e,lambda} (Bagian 4.1.5): pelemahan fisik mengalikan
+  LUAS dan KAPASITAS elemen dengan lambda (kekakuan aksial EA_e -> lambda*EA_e);
+  lambda = 0 diperlakukan sebagai penghapusan fisik. Besaran utilisasi (D_e, U*)
+  tetap dievaluasi pada state INTAK.
+* Graf skor: 0 < lambda <= 1 -> bobot edge w_e -> lambda*w_e TANPA renormalisasi
+  (Section 4.8.4; multigraph: edge ID berbeda = edge fisik berbeda);
+  lambda = 0 -> edge DIHAPUS dari enumerasi lintasan (Bagian 2.8).
 * Semua besaran mekanik (gaya awal, reaksi awal r^(0), utilisasi D_e) dievaluasi
   pada state INTAK; hanya bobot/cost graf yang berubah saat disrupsi.
 * Jika state terdisrupsi rank-deficient (mekanisme) -> solver Gate 1 menolak
@@ -50,6 +66,7 @@ import itertools
 import json
 import math
 import sys
+import time
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Dict, List, Optional, Tuple
@@ -66,7 +83,8 @@ EPS_W = 1e-9          # regularisasi biaya edge
 EPS_D = 1e-9          # regularisasi denominator skor jalur
 EPS_R = 1e-6          # kN, pengaman kapasitas pada U*
 BASELINE_TOL = 1e-12  # toleransi baseline score
-MAX_SEARCH_NODES = 500_000  # batas DFS -> status "uncertified"
+MAX_SEARCH_NODES = 200_000  # batas state DFS (Bagian 4.1.2: "200.000 keadaan")
+MAX_SEARCH_TIME_S = None    # batas waktu pencarian opsional (Bagian 4.1.2)
 
 DEFAULT_CONFIG = dict(
     alpha_k=0.5,      # bobot kekakuan ternormalisasi
@@ -79,11 +97,12 @@ DEFAULT_CONFIG = dict(
     eps_d=EPS_D,
     eps_R=EPS_R,
     baseline_tol=BASELINE_TOL,
-    # epsilon efektif untuk skenario penghapusan total (lambda = 0):
-    # w_e -> lambda*w_e menjadi tepat nol sehingga cost tak hingga dan skor
-    # runtuh ke nol untuk SEMUA edge. Tabel 4.3/4.11 disertasi menggunakan
-    # regularisasi eps_eff = 1e-8 pada limit hapus-total (masih dalam rezim
-    # "limit eps->0": hasil konvergen terhadap nilai tabel saat eps dikecilkan).
+    # skala f_c,ref per arah utk pi_c (Eq 2.11); None -> 1.0 (gaya sejenis).
+    f_ref=None,
+    max_search_time_s=MAX_SEARCH_TIME_S,
+    # DEPRECATED (Gate 9): lambda = 0 kini DIHAPUS eksak dari graf skor
+    # (Bagian 2.8), jadi regularisasi hapus-total tidak lagi dipakai. Kunci
+    # dipertahankan hanya utk kompatibilitas konfigurasi lama.
     eps_removed=1e-8,
 )
 
@@ -121,6 +140,7 @@ class AriModelData:
     support_nodes: List[int]           # V_T
     dim: int
     audit: dict = field(default_factory=dict)
+    cases: List[dict] = field(default_factory=list)   # kasus beban c (Eq 2.11-2.12)
 
 
 @dataclass
@@ -132,8 +152,19 @@ class ScenarioResult:
     U_star: Optional[float]
     ARI: Optional[float]
     CI: Optional[float]
-    status: str                        # ok | rank_deficient | abstain | uncertified
+    status: str                        # ok | ok_with_rank_deficiency | abstain |
+                                       # uncertified | search_timeout | rank_deficient
     detail: dict = field(default_factory=dict)
+    solver_status: str = "ok"          # ok | rank_deficient (kolom TERPISAH, Tabel 4.7)
+
+    @property
+    def status_code(self) -> str:
+        """Kode status operasional kanonik (Tabel 4.7 disertasi)."""
+        if self.status in ("ok", "ok_with_rank_deficiency"):
+            return "scored"
+        if self.status == "abstain":
+            return "invalid_baseline"
+        return self.status
 
 
 # -----------------------------------------------------------------------------
@@ -199,20 +230,25 @@ class Multigraph:
 
 def enumerate_edge_disjoint_paths(graph: Multigraph, source: int, target: int,
                                   K: int,
-                                  max_nodes: int = MAX_SEARCH_NODES
+                                  max_nodes: int = MAX_SEARCH_NODES,
+                                  max_time_s: Optional[float] = None
                                   ) -> Tuple[List[List[Tuple[int, ...]]], str]:
     """Enumerasi EKSHAUSTIF semua kombinasi <=K jalur edge-disjoint source->target.
 
-    Bukan greedy (Section 4.8.6). Return (kombinasi, status) dengan
-    status "certified" atau "uncertified" (batas pencarian terlampaui ->
-    caller WAJIB menganggap hasil tidak bersertifikat, bukan angka sembarang).
+    Bukan greedy (Section 4.8.6). Return (kombinasi, status) dengan status
+    "certified" atau "search_timeout" (batas state/waktu terlampaui -> caller
+    WAJIB abstain, bukan memakai angka sementara; Tabel 4.7).
     """
     paths: List[Tuple[int, ...]] = []
     budget = {"n": 0}
+    t0 = time.monotonic()
 
     def dfs(node, used_edges, used_nodes, path) -> bool:
         budget["n"] += 1
         if budget["n"] > max_nodes:
+            return False
+        if (max_time_s is not None and (budget["n"] & 0x3FF) == 0
+                and (time.monotonic() - t0) > float(max_time_s)):
             return False
         if node == target and path:
             paths.append(tuple(path))
@@ -236,7 +272,7 @@ def enumerate_edge_disjoint_paths(graph: Multigraph, source: int, target: int,
 
     certified = dfs(source, set(), {source}, [])
     if not certified:
-        return [], "uncertified"
+        return [], "search_timeout"
 
     combos: List[List[Tuple[int, ...]]] = []
     for r in range(1, K + 1):
@@ -274,7 +310,13 @@ def compute_pair_score(graph: Multigraph, source: int, target: int,
     cfg = config if "eps_d" in config else merged_config(**config)
     K = int(cfg["K"])
     eps_d = cfg["eps_d"]
-    combos, status = enumerate_edge_disjoint_paths(graph, source, target, K)
+    if source == target:
+        # Bagian 2.7 / Kode 4.1: simpul sekaligus dibebani & ditumpu memakai
+        # satu lintasan kosong berbiaya nol -> kontribusi omega_1 / eps_d.
+        return rank_weights(K, cfg["gamma"])[0] / eps_d, "certified"
+    combos, status = enumerate_edge_disjoint_paths(
+        graph, source, target, K,
+        max_time_s=cfg.get("max_search_time_s"))
     if status != "certified":
         return float("nan"), status
     om = rank_weights(K, cfg["gamma"])
@@ -294,7 +336,29 @@ def compute_pair_score(graph: Multigraph, source: int, target: int,
 # -----------------------------------------------------------------------------
 def build_ari_model(model: dict, config: Optional[dict] = None,
                     scales: Optional[dict] = None) -> AriModelData:
-    """Jalankan solver Gate 1 (state INTAK), kumpulkan beban & reaksi awal."""
+    """Jalankan solver Gate 1 (state INTAK), kumpulkan beban & reaksi awal.
+
+    Validasi masukan (Tabel 4.7: invalid_input) menolak model cacat sebelum
+    komputasi apa pun.
+    """
+    node_ids = {int(n["id"]) for n in model["nodes"]}
+    for el in model.get("elements", []):
+        i, j = (int(x) for x in el["nodes"])
+        if i not in node_ids or j not in node_ids or i == j:
+            raise ValueError(
+                f"invalid_input: elemen {el.get('id')} mengacu simpul tidak "
+                f"sah {i}-{j}")
+    caps_in = model.get("capacities", {})
+    for el in model.get("elements", []):
+        cap = float(caps_in.get(str(int(el["id"])), 0.0))
+        if cap <= 0.0:
+            raise ValueError(
+                f"invalid_input: kapasitas elemen {el['id']} tidak positif")
+    for item in model.get("loads", []):
+        if int(item["node"]) not in node_ids:
+            raise ValueError(
+                f"invalid_input: beban pada simpul tidak dikenal "
+                f"{item['node']}")
     cfg = merged_config(**(config or {}))
     res = solve_model(model)
     if res.status != "ok":
@@ -325,13 +389,87 @@ def build_ari_model(model: dict, config: Optional[dict] = None,
 
 
 def _load_cases(am: AriModelData) -> List[dict]:
-    """Satu load case per arah beban diskret; pi_c = 1 (beban kanonik uniarah)."""
-    cases = []
-    for nid, comps in sorted(am.loads.items()):
+    """Kasus beban c in D = KOMPONEN ARAH aktif (Bagian 2.7).
+
+    Dikelompokkan per arah (ux, uy, uz) atas SELURUH simpul beban:
+    F_c = sum_i |f_ic|. Beban kanonik uniarah -> satu kasus.
+    """
+    order = ["ux", "uy", "uz"]
+    got: Dict[str, Dict[int, float]] = {}
+    for nid, comps in am.loads.items():
         for comp, val in comps.items():
             if abs(val) > 0.0:
-                cases.append(dict(name=f"{comp}@{nid}", f={nid: {comp: val}}))
+                got.setdefault(comp, {})[nid] = (
+                    got.get(comp, {}).get(nid, 0.0) + float(val))
+    cases = []
+    for comp in order:
+        vals = {nid: v for nid, v in got.get(comp, {}).items() if abs(v) > 0.0}
+        if not vals:
+            continue
+        cases.append(dict(name=f"c:{comp}", direction=comp,
+                          F=sum(abs(v) for v in vals.values()),
+                          f={nid: {comp: v} for nid, v in sorted(vals.items())}))
     return cases
+
+
+def _case_reaction_component(am: AriModelData, case: dict,
+                             single_case: bool) -> Dict[int, float]:
+    """Komponen reaksi tumpuan searah kasus c: r_jc^(0) (Eq 2.12).
+
+    r_jc^(0) = komponen arah-c dari reaksi tumpuan j pada model utuh akibat
+    beban kasus c SENDIRI (BUKAN magnitudo vektor reaksi gabungan). Model
+    satu-kasus memakai hasil solve utuh (superposisi linear).
+    """
+    d = case["direction"]
+    idx = ["ux", "uy", "uz"].index(d)
+    if single_case:
+        return {nid: float(am.reactions.get(nid, {}).get(d, 0.0))
+                for nid in am.support_nodes}
+    m2 = json.loads(json.dumps(am.model))
+    m2["loads"] = [{"node": nid, "components": dict(comps)}
+                   for nid, comps in sorted(case["f"].items())]
+    try:
+        res = solve_model(m2)
+    except Exception:
+        res = None
+    out: Dict[int, float] = {}
+    for nid in am.support_nodes:
+        val = 0.0
+        if res is not None and res.status == "ok":
+            dof = am.dim * nid + idx
+            val = float(res.reactions.get(dof, 0.0))
+        out[nid] = val
+    return out
+
+
+def _prepare_cases(am: AriModelData) -> List[dict]:
+    """Bobot agregasi per kasus: F_c, a_ic, r_jc, B_c, b_jc, pi_c (Eq 2.11-2.12)."""
+    cfg = am.config
+    vt = len(am.support_nodes) or 1
+    cases = _load_cases(am)
+    single = (len(cases) == 1)
+    frefs = cfg.get("f_ref") or {}
+    prepared: List[dict] = []
+    raw_pi: List[float] = []
+    for case in cases:
+        d, F = case["direction"], case["F"]
+        a = {nid: abs(next(iter(comps.values()))) / F
+             for nid, comps in case["f"].items()}
+        r = _case_reaction_component(am, case, single)
+        B = sum(abs(v) for v in r.values())
+        if B > 0.0:
+            b = {nid: cfg["beta"] / vt
+                 + (1.0 - cfg["beta"]) * abs(r[nid]) / B for nid in r}
+        else:
+            b = {nid: 1.0 / vt for nid in r}      # Eq 2.12 kasus B_c = 0
+        raw_pi.append(F / max(float(frefs.get(d, 1.0)), 1e-300))
+        prepared.append(dict(name=case["name"], direction=d, F=F, a=a, r=r,
+                             B=B, b=b))
+    tot = sum(raw_pi)
+    for c, w in zip(prepared, raw_pi):
+        c["pi"] = (w / tot) if tot > 0.0 else 0.0
+    am.cases = prepared
+    return prepared
 
 
 def _mag(comps: Dict[str, float], dim: int) -> float:
@@ -362,24 +500,26 @@ def compute_graph_score(am: AriModelData,
                         pair_cache: Optional[dict] = None,
                         audit: Optional[dict] = None,
                         scales: Optional[dict] = None) -> Tuple[float, str]:
-    """S(G) untuk state saat ini. weight_mult = pengali lambda per edge TANPA
-    renormalisasi (Section 4.8.4).
+    """S(G) untuk state saat ini (Eq 2.8-2.13).
 
-    Integritas mekanik state terdisrupsi diverifikasi dengan solver Gate 1
-    (EA_e -> lambda*EA_e). Rank-deficient -> status "rank_deficient", S nan.
+    weight_mult = pengali lambda per edge: 0 < lambda <= 1 diskala tanpa
+    renormalisasi (Section 4.8.4); lambda = 0 -> edge DIHAPUS dari enumerasi
+    lintasan (Bagian 2.8). Integritas mekanik state terdisrupsi diverifikasi
+    dengan solver Gate 1 (luas & kapasitas x lambda, Bagian 4.1.5);
+    rank-deficient dicatat pada audit (skor graf tetap dihitung, DF-02).
     """
     cfg = am.config
     wm = weight_mult or {}
     base_w = base_weights_of(am, scales)
     weights = {eid: w * wm.get(eid, 1.0) for eid, w in base_w.items()}
 
-    graph = Multigraph([int(n["id"]) for n in am.model["nodes"]], am.edges)
+    # lambda = 0 -> edge DIHAPUS dari graf skor (Bagian 2.8: "kehilangan
+    # lengkap ... dilakukan dengan menghapus sisi").
+    removed = {eid for eid, w in weights.items() if float(w) == 0.0}
+    graph_edges = [e for e in am.edges if int(e["id"]) not in removed]
+    graph = Multigraph([int(n["id"]) for n in am.model["nodes"]], graph_edges)
 
     # --- Verifikasi mekanik state terdisrupsi (tanpa pseudoinverse) ----------
-    # Edge lambda=0 diperlakukan sebagai penghapusan fisik pada model FE; jika
-    # struktur menjadi mekanisme -> status "rank_deficient" dicatat pada audit.
-    # Skor graf tetap dihitung murni-graf (konvensi Tabel 4.3/4.11): edge yang
-    # dihapus memperoleh cost regularisasi c := 1/eps_removed (limit eps->0).
     disrupted = _apply_stiffness_multiplier(am.model, wm, drop_zero=True)
     mech_status = "ok"
     try:
@@ -388,35 +528,21 @@ def compute_graph_score(am: AriModelData,
     except Exception:
         mech_status = "rank_deficient"
 
-    # --- Cost edge dengan regularisasi hapus-total ----------------------------
-    def _cost(w):
-        if w == 0.0:
-            return 1.0 / cfg["eps_removed"]
-        return 1.0 / (w + cfg["eps_w"])
-    edge_cost = {eid: _cost(w) for eid, w in weights.items()}
+    # --- Cost edge (edge terhapus tidak masuk enumerasi) ----------------------
+    edge_cost = {eid: 1.0 / (w + cfg["eps_w"])
+                 for eid, w in weights.items() if eid not in removed}
 
-    # --- Bobot simpul tumpuan b_jc --------------------------------------------
-    # r^(0) = reaksi state INTAK (konvensi: superscript (0) = initial/intact).
-    # Tidak direnormalisasi terhadap state terdisrupsi (Section 4.8.4).
-    bc = sum(_mag(rc, am.dim) for rc in am.reactions.values())
-    vt = len(am.support_nodes)
-    b_map = {}
-    for nid in am.support_nodes:
-        mag = _mag(am.reactions.get(nid, {}), am.dim)
-        b_map[nid] = (cfg["beta"] / vt
-                      + (1.0 - cfg["beta"]) * (mag / bc if bc > 0 else 0.0))
+    # --- Kasus beban c: bobot a_ic, b_jc, pi_c (Eq 2.11-2.12) -----------------
+    cases = am.cases or _prepare_cases(am)
 
     total = 0.0
     case_records = []
-    for case in _load_cases(am):
-        fc = sum(abs(v) for comps in case["f"].values() for v in comps.values())
-        if fc <= 0.0:
-            continue
-        ai = {nid: _mag(comps, am.dim) / fc for nid, comps in case["f"].items()}
+    empty_path_used = False
+    for c in cases:
         inner = 0.0
         pair_records = []
-        for i_node, a_w in ai.items():
-            for j_node, b_w in b_map.items():
+        for i_node, a_w in c["a"].items():
+            for j_node, b_w in c["b"].items():
                 key = (i_node, j_node, tuple(sorted(edge_cost.items())))
                 if pair_cache is not None and key in pair_cache:
                     phi, st = pair_cache[key]
@@ -427,16 +553,21 @@ def compute_graph_score(am: AriModelData,
                         pair_cache[key] = (phi, st)
                 if st != "certified":
                     return float("nan"), st
+                if i_node == j_node:
+                    empty_path_used = True
                 inner += a_w * b_w * phi
                 pair_records.append(dict(i=i_node, j=j_node, a=a_w, b=b_w,
                                          phi=phi))
-        total += 1.0 * inner  # pi_c = 1
-        case_records.append(dict(case=case["name"], pairs=pair_records))
+        total += c["pi"] * inner
+        case_records.append(dict(case=c["name"], pi=c["pi"],
+                                 b_map=dict(c["b"]), pairs=pair_records))
     if audit is not None:
         audit["weights"] = dict(weights)
-        audit["b_map"] = dict(b_map)
+        audit["removed_edges"] = sorted(removed)
         audit["mechanical_status"] = mech_status
         audit["cases"] = case_records
+        if empty_path_used:
+            audit["empty_path_used"] = True
     return total, "ok"
 
 
@@ -484,14 +615,15 @@ def guard_diagnostic(model: dict, weight_mult: Dict[int, float]) -> dict:
 
 def _apply_stiffness_multiplier(model: dict, mult: Dict[int, float],
                                 drop_zero: bool = False) -> dict:
-    """State terdisrupsi M_{e,lambda}: EA_e -> lambda*EA_e (kapasitas & atribut
-    lain TIDAK diubah; tanpa renormalisasi).
+    """State terdisrupsi M_{e,lambda} (Bagian 4.1.5): luas DAN kapasitas
+    dikalikan lambda (kekakuan aksial EA_e -> lambda*EA_e; tanpa renormalisasi).
 
     drop_zero=True: edge dengan lambda == 0 dihapus fisik dari model FE
     (penghapusan total). Untuk lambda > 0 edge tetap ada dengan EA diskala.
     """
     m2 = json.loads(json.dumps(model))
     by_id = {int(el["id"]): el for el in m2["elements"]}
+    caps2 = m2.get("capacities", {})
     for eid, lam in mult.items():
         if drop_zero and float(lam) == 0.0:
             m2["elements"] = [el for el in m2["elements"]
@@ -499,6 +631,11 @@ def _apply_stiffness_multiplier(model: dict, mult: Dict[int, float],
             continue
         el = by_id[eid]
         el["area"] = float(el["area"]) * float(lam)
+        # Bagian 4.1.5: pelemahan fisik mengalikan LUAS dan KAPASITAS dengan
+        # lambda (respons terdisrupsi); U*/D_e skor tetap dari state INTAK.
+        key = str(int(eid))
+        if key in caps2:
+            caps2[key] = float(caps2[key]) * float(lam)
     return m2
 
 
@@ -561,7 +698,7 @@ def compute_ari(am: AriModelData, disruption: Optional[Tuple[int, float]] = None
         return ScenarioResult(eid, lam, s_base, 1.0, u_star,
                               1.0 - cfg["eta"] * u_star,
                               max(cfg["eta"] * u_star, 0.0), ctrl_status,
-                              ctrl_audit)
+                              ctrl_audit, solver_status="ok")
     if eid is None:
         # Kontrol utuh (tanpa edge): tidak ada U*_e -> ARI = RR = 1, CI = 0
         rr = 1.0
@@ -576,30 +713,33 @@ def compute_ari(am: AriModelData, disruption: Optional[Tuple[int, float]] = None
 
     detail = dict(S_baseline=s_base, mechanical_status=mech)
 
-    if st == "uncertified":
-        # Pencarian tidak selesai -> BUKAN angka sembarang
+    if st in ("uncertified", "search_timeout"):
+        # Pencarian tidak selesai -> BUKAN angka sembarang (Tabel 4.7)
         return ScenarioResult(eid, lam, float("nan"), None, u_star, None, None,
-                              "uncertified", detail)
-    if st == "rank_deficient":
-        # Peringatan audit (Layer-3): pada skenario hapus-total, struktur FE
-        # dapat menjadi mekanisme (rank K_ff turun; Gate 1 menolak WITHOUT
-        # pseudoinverse). Tabel 4.3 disertasi TIDAK meng-abstain kasus ini:
-        # skor jalur tetap dihitung murni-graf pada topologi terdisrupsi.
-        # Status dicatat sebagai "ok_with_rank_deficiency" agar reviewer dapat
-        # melihat degradasi kinematik yang tidak tercermin dalam RR/CI.
-        detail["note"] = ("FE rank-deficient (mekanisme) pada state terdisrupsi;"
-                          " skor graf tetap dihitung murni-graf sesuai kontrak"
-                          " Tabel 4.3 — lihat DEFERRED_FINDINGS DF-02")
-        st = "ok_with_rank_deficiency"
+                              st, detail)
     if st not in ("ok", "ok_with_rank_deficiency"):
         return ScenarioResult(eid, lam, s_val, None, u_star, None, None, st,
                               detail)
+
+    # Status solver TERPISAH dari status skor (Tabel 4.7): pada skenario
+    # hapus-total struktur FE dapat menjadi mekanisme (rank K_ff turun; solver
+    # menolak tanpa pseudoinverse). Tabel 4.3 disertasi TIDAK meng-abstain
+    # kasus ini: skor jalur tetap dihitung murni-graf pada topologi terdisrupsi
+    # (lihat DEFERRED_FINDINGS DF-02).
+    solver_status = "rank_deficient" if str(mech) == "rank_deficient" else "ok"
+    if solver_status == "rank_deficient":
+        detail["note"] = ("FE rank-deficient (mekanisme) pada state terdisrupsi;"
+                          " skor graf tetap dihitung murni-graf sesuai kontrak"
+                          " Tabel 4.3 — lihat DEFERRED_FINDINGS DF-02")
+    status = ("ok_with_rank_deficiency" if solver_status == "rank_deficient"
+              else "ok")
 
     rr = s_val / s_base
     ari = rr * (1.0 - cfg["eta"] * (u_star if u_star is not None else 0.0))
     ci = max(1.0 - ari, 0.0)   # floor numerik: CI >= 0 (RR<=1 terjamin teoritis)
     detail["mechanical_status"] = mech
-    return ScenarioResult(eid, lam, s_val, rr, u_star, ari, ci, st, detail)
+    return ScenarioResult(eid, lam, s_val, rr, u_star, ari, ci, status, detail,
+                          solver_status=solver_status)
 
 
 # -----------------------------------------------------------------------------

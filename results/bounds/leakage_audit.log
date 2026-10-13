@@ -9,7 +9,7 @@ LEAKAGE AUDIT — Section 4.5.6
 [M3_square_one_diagonal] (a) strip post_* columns -> identical: True
 [M3_square_one_diagonal] (b) randomized label column -> unchanged: True
 [M3_square_one_diagonal] (c) reference-dir denied -> bounds complete: True
-[M3_square_one_diagonal] (d) hash before==after: True (dec=774e525655abcbf3…)
+[M3_square_one_diagonal] (d) hash before==after: True (dec=f8ad45b4c504be80…)
 [M3_square_one_diagonal] RESULT: PASS
 
 OVERALL: PASS

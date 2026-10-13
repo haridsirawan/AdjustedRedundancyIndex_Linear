@@ -1,6 +1,6 @@
 {
-  "generated": "Gate 4 pipeline (run_pipeline.py)",
-  "date": "2026-10-11",
+  "generated": "Gate 9 pipeline (run_pipeline.py)",
+  "date": "2026-10-13",
   "config": {
     "alpha_k": 0.5,
     "alpha_R": 0.5,
@@ -72,7 +72,7 @@
     },
     "M3_square_one_diagonal": {
       "model": "M3_square_one_diagonal",
-      "S_baseline": 0.360252395,
+      "S_baseline": 0.354345625,
       "baseline_status": "ok",
       "intact": {
         "rank": 5,
@@ -112,7 +112,7 @@
     },
     "M4_square_two_diagonals": {
       "model": "M4_square_two_diagonals",
-      "S_baseline": 0.360252395,
+      "S_baseline": 0.354345625,
       "baseline_status": "ok",
       "intact": {
         "rank": 5,
@@ -141,13 +141,37 @@
     {
       "check": "Tabel 4.11 remove bar0 RR=7/17",
       "expected": 0.4117647058823529,
-      "actual": 0.411764716399654,
+      "actual": 0.4117647061055364,
       "pass_": true
     },
     {
       "check": "Tabel 4.11 remove bar1 RR=10/17",
       "expected": 0.5882352941176471,
-      "actual": 0.5882353041885813,
+      "actual": 0.5882352938944636,
+      "pass_": true
+    },
+    {
+      "check": "Tabel 4.3 e1(AB) RR=0.983152",
+      "expected": 0.983152,
+      "actual": 0.9831523159335573,
+      "pass_": true
+    },
+    {
+      "check": "Tabel 4.3 e1(AB) CI=0.016848",
+      "expected": 0.016848,
+      "actual": 0.01684768406644266,
+      "pass_": true
+    },
+    {
+      "check": "Tabel 4.3 e2(BC) RR=0.964724",
+      "expected": 0.964724,
+      "actual": 0.9647237071836234,
+      "pass_": true
+    },
+    {
+      "check": "Tabel 4.3 e2(BC) CI=0.216162",
+      "expected": 0.216162,
+      "actual": 0.21616198565223466,
       "pass_": true
     },
     {
@@ -175,6 +199,18 @@
       "pass_": true
     },
     {
+      "check": "Tabel 4.3 e5(AC) RR=0.717285",
+      "expected": 0.717285,
+      "actual": 0.7172846207711372,
+      "pass_": true
+    },
+    {
+      "check": "Tabel 4.3 e5(AC) CI=0.472914",
+      "expected": 0.472914,
+      "actual": 0.47291418412191233,
+      "pass_": true
+    },
+    {
       "check": "Guard melabeli M3 e2,e3 GRAPH_BLIND",
       "expected": [
         2,
@@ -189,9 +225,10 @@
   ],
   "inconsistencies": [],
   "deferred_refs": [
-    "Finding #001 (DF-01) Tabel 4.3 e1/e2/e5",
+    "Finding #001 (DF-01) DITUTUP: b_jc per komponen reaksi (Gate 9)",
     "Finding #002 (DF-03) invariansi asimtotik",
     "Finding #003 kasus kritis GRAPH_BLIND (terdeteksi)",
-    "Finding #005 penamaan edge 1-based (tabel disertasi)"
+    "Finding #005 penamaan edge 1-based (tabel disertasi)",
+    "Finding #012 dikoreksi: identitas CI=1-RR(1-eta U*) terpenuhi"
   ]
 }

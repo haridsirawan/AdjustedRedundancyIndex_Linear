@@ -72,6 +72,7 @@ from truss_reference import (assemble_global_stiffness, solve_model,
                              load_models)                       # Gate 1
 from kinematic_guard import GuardCache                          # Gate 3 getter
 from ari_core import _apply_stiffness_multiplier                # Gate 2 util
+from mechanical_guard import svd_redundancy_h                   # Gate 9 (Eq 4.1)
 
 
 # -----------------------------------------------------------------------------
@@ -108,7 +109,7 @@ class IntactFacts:
     capacity: Dict[int, float]                   # R_e [kN]
     N0: Dict[int, float]                         # gaya aksial intak [kN]
     W_e: Dict[int, float]                        # energi regangan per edge
-    h: Dict[int, float]                          # h_e = W_e / sum(W) (fraksi)
+    h: Dict[int, float]                          # h_e (Eq 4.1, SVD baris-U)
     u0: np.ndarray                               # perpindahan intak penuh
     free_dofs: List[int]
     Kff_inv: np.ndarray                          # invers blok bebas K0
@@ -172,9 +173,11 @@ class BoundCache:
         W = np.array([m["E"] * m["area"] / (2.0 * m["L"]) *
                       _axial_proj(res.displacements, m, dim) ** 2
                       for m in meta])
-        tot_W = float(W.sum())
-        h = {int(m["original_id"]): (float(W[e]) / tot_W if tot_W > 0 else 0.0)
-             for e, m in enumerate(meta)}
+        # Gate 9 (koreksi): h_e = k_e a_e K0^{-1} a_e^T (Eq 4.1-4.2, metode
+        # SVD baris-U, 4.2.2). Definisi LAMA (fraksi energi W_e/sum W)
+        # DIGANTI — Tabel 4.4: batang bergaya awal NOL tetap h_e = 1.000000
+        # (fraksi energi utk batang nol-gaya akan ~ 0; bertentangan naskah).
+        h = svd_redundancy_h(self.model)
         caps_in = self.model.get("capacities", {})
         capacity = {int(m["original_id"]):
                     float(caps_in.get(str(m["original_id"]),

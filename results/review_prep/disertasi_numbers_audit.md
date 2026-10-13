@@ -61,6 +61,26 @@ Seluruh rel.err ≤ 3e-8 ≪ 1e-6. Kontrol λ=1: RR=1 eksak, CI=η·U*=0.25 (buk
 | Baseline S(G_M): M1=0.485714, M2=0.379544, M3=M4=0.360252 — sama di ari_screening.csv, ari_screening_full.csv, pipeline/fine CSV ✅ |
 | Kolom ARI pada pipeline_output.csv utk M3-e2/e3 = 1.0 (RR·(1−η·0), U*=0) — konsisten Eq 2.17 ✅ |
 
+---
+
+## UPDATE GATE 9 (2026-10-13) — SELURUH TEMUAN DITUTUP
+
+**Akar masalah DF-01:** b_jc (Eq 2.12) memakai **komponen reaksi searah kasus beban** (bukan magnitudo vektor reaksi gabungan). Kode lama b={0.577219, 0.422781}; kode benar b={A: 0.95, B: 0.05}.
+
+| Element | RR (naskah) | RR (kode baru) | CI (naskah) | CI (kode baru) | Status |
+|---------|-------------|----------------|-------------|----------------|--------|
+| e1 (AB) | 0.983152 | 0.983152316 | 0.016848 | 0.016847684 | ✅ |
+| e2 (BC) | 0.964724 | 0.964723707 | 0.216162 | 0.216161986 | ✅ |
+| e3 (CD) | 1.000000 | 1.000000000 | 0.000000 | 0.000000000 | ✅ |
+| e4 (DA) | 1.000000 | 1.000000000 | 0.000000 | 0.000000000 | ✅ |
+| e5 (AC) | 0.717285 | 0.717284621 | 0.472914 | 0.472914184 | ✅ |
+
+**Koreksi catatan audit lama:** tuduhan "baris e1/e2 tidak konsisten dengan identitas ARI = RR(1−ηU*)" adalah KELIRU. Dengan U* benar (e1: |D|≈0 → U*=0; e2: 30/80=0.375), identitas terpenuhi: e1: CI = 1−0.983152 = 0.016848 ✓; e2: CI = 1−0.964724×0.8125 = 0.216162 ✓.
+
+**Diagnostik Tabel 4.5 kanonik (reproduksi):** kritis 17; ARI diteruskan 5 (terlewat 14/17); pengaman diteruskan 8 (terlewat 9/17); gabungan diteruskan 11 (terlewat 8/17) — **cocok persis dengan naskah**.
+
+Bukti lengkap: `results/review_prep/penyelarasan_disertasi_gate9.md` + `results/verification/checks.csv` (65/65 LULUS).
+
 ## Ringkasan status angka
 - **Cocok dengan naskah:** semua Tabel 4.1; semua Tabel 4.11; kasus kritis e3/e4 Tabel 4.3.
 - **Tidak cocok / perlu keputusan peneliti:** e1, e2, e5 Tabel 4.3 (#001 — hipotesis kuat: bobot tumpuan b_jc per komponen beban c pada model asimetris); inkonsistensi internal baris e1/e2 naskah thd identitas Eq 2.17–2.18 (baru ditemukan Gate 8).

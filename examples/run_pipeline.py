@@ -259,14 +259,27 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
          get("M1_parallel_bars_1d", 0, 0.0), "RR", 7 / 17, 1e-6),
         ("Tabel 4.11 remove bar1 RR=10/17",
          get("M1_parallel_bars_1d", 1, 0.0), "RR", 10 / 17, 1e-6),
+        # Gate 9 (DF-01 ditutup): baris e1/e2/e5 kini tereproduksi <= 4e-7
+        ("Tabel 4.3 e1(AB) RR=0.983152",
+         get("M3_square_one_diagonal", 0, 0.0), "RR", 0.983152, 1e-5),
+        ("Tabel 4.3 e1(AB) CI=0.016848",
+         get("M3_square_one_diagonal", 0, 0.0), "CI", 0.016848, 1e-5),
+        ("Tabel 4.3 e2(BC) RR=0.964724",
+         get("M3_square_one_diagonal", 1, 0.0), "RR", 0.964724, 1e-5),
+        ("Tabel 4.3 e2(BC) CI=0.216162",
+         get("M3_square_one_diagonal", 1, 0.0), "CI", 0.216162, 1e-5),
         ("Tabel 4.3 e3(CD) KRITIS RR=1",
-         get("M3_square_one_diagonal", 2, 0.0), "RR", 1.0, 5e-4),
+         get("M3_square_one_diagonal", 2, 0.0), "RR", 1.0, 1e-6),
         ("Tabel 4.3 e3(CD) KRITIS CI=0",
-         get("M3_square_one_diagonal", 2, 0.0), "CI", 0.0, 5e-4),
+         get("M3_square_one_diagonal", 2, 0.0), "CI", 0.0, 1e-6),
         ("Tabel 4.3 e4(DA) KRITIS RR=1",
-         get("M3_square_one_diagonal", 3, 0.0), "RR", 1.0, 5e-4),
+         get("M3_square_one_diagonal", 3, 0.0), "RR", 1.0, 1e-6),
         ("Tabel 4.3 e4(DA) KRITIS CI=0",
-         get("M3_square_one_diagonal", 3, 0.0), "CI", 0.0, 5e-4),
+         get("M3_square_one_diagonal", 3, 0.0), "CI", 0.0, 1e-6),
+        ("Tabel 4.3 e5(AC) RR=0.717285",
+         get("M3_square_one_diagonal", 4, 0.0), "RR", 0.717285, 1e-5),
+        ("Tabel 4.3 e5(AC) CI=0.472914",
+         get("M3_square_one_diagonal", 4, 0.0), "CI", 0.472914, 1e-5),
     ]
     print("\n[konsistensi-regresi Gate 2]")
     for desc, r, fld, exp, tol in checks:
@@ -346,8 +359,8 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
     print(f"[CSV] {PIPE_CSV} (schema Gate 5: {', '.join(PIPE_COLS)})")
 
     report = dict(
-        generated="Gate 4 pipeline (run_pipeline.py)",
-        date="2026-10-11",
+        generated="Gate 9 pipeline (run_pipeline.py)",
+        date="2026-10-13",
         config=dict(alpha_k=0.5, alpha_R=0.5, q_e=1.0, K=2, gamma=1.0,
                     beta=0.1, eta=0.5, eps_w=1e-9, eps_d=1e-9, eps_R=1e-6,
                     baseline_tol=1e-12, lambdas=list(LAMBDAS)),
@@ -356,10 +369,11 @@ def run_pipeline(models_dir: Path = ROOT / "examples") -> dict:
         per_model=agg,
         consistency_checks=gate2_checks,
         inconsistencies=inconsistencies,
-        deferred_refs=["Finding #001 (DF-01) Tabel 4.3 e1/e2/e5",
+        deferred_refs=["Finding #001 (DF-01) DITUTUP: b_jc per komponen reaksi (Gate 9)",
                        "Finding #002 (DF-03) invariansi asimtotik",
                        "Finding #003 kasus kritis GRAPH_BLIND (terdeteksi)",
-                       "Finding #005 penamaan edge 1-based (tabel disertasi)"],
+                       "Finding #005 penamaan edge 1-based (tabel disertasi)",
+                       "Finding #012 dikoreksi: identitas CI=1-RR(1-eta U*) terpenuhi"],
     )
     OUT_JSON.write_text(json.dumps(report, indent=2, default=str))
     print(f"[JSON] {OUT_JSON}")

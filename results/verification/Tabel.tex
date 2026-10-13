@@ -1,0 +1,25 @@
+% Dibangkitkan otomatis oleh examples/run_verification.py
+% (jangan mengedit manual — Bagian 4.9.2 aturan 2)
+
+\begin{table}[htbp]\centering
+\caption{Reproduksi Tabel 4.1 (hasil solver, empat model utuh).}
+\label{tab:repro41}
+\begin{tabular}{lcccccc}\hline
+Model & Batang & Rank/DOF & $u_{\max}$ (mm) & $U_{\max}$ & $W$ (kNmm) & Cek \\\hline
+M1_parallel_bars_1d & 2 & 1/1 & 1.000000 & 0.500000 & 15.000000 & PASS \\
+M2_planar_triangle & 3 & 3/3 & 1.154460 & 0.442218 & 16.956287 & PASS \\
+M3_square_one_diagonal & 5 & 5/5 & 5.935311 & 0.530330 & 86.139610 & PASS \\
+M4_square_two_diagonals & 6 & 5/5 & 3.582277 & 0.320083 & 51.989854 & PASS \\
+\hline\end{tabular}\end{table}
+
+\begin{table}[htbp]\centering
+\caption{Reproduksi Tabel 4.3 (persegi satu diagonal, $\lambda=0$).}
+\label{tab:repro43}
+\begin{tabular}{lcccc}\hline
+Batang & RR & CI & Rank/DOF & Cek \\\hline
+$e_1$ & 0.983152 & 0.016848 & 4/5 & PASS \\
+$e_2$ & 0.964724 & 0.216162 & 4/5 & PASS \\
+$e_3$ & 1.000000 & 0.000000 & 4/5 & PASS \\
+$e_4$ & 1.000000 & 0.000000 & 4/5 & PASS \\
+$e_5$ & 0.717285 & 0.472914 & 4/5 & PASS \\
+\hline\end{tabular}\end{table}

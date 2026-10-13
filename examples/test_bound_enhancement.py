@@ -8,8 +8,9 @@ instruksi Section 4.9 (toleransi konservatisme bound).
 Cakupan:
   (a) M1: pelemahan bar di lambda=0.25 -> solusi elastik eksak u=2 mm,
       gaya 10+20 kN, kedua utilisasi = 1; bound U_s WAJIB >= 1 (konservatif).
-  (b) M3: penghapusan e3 (zero initial force) -> m_e ~ 1, bound TIDAK boleh
-      memicu kapasitas (benar: tidak ada redistribusi saat N_{e,0}=0).
+  (b) M3: penghapusan e3 (zero initial force) -> regresi Tabel 4.4:
+      h_e = 1.000000, m_e(0) ~ 0, rank 4/5, guard kinematik yang meneruskan
+      (per urutan Eq 4.13 langkah 1 — bound menjadi unusable_m_near_zero).
   (c) Kontrol lambda=1: semua bound = nilai intak, tanpa trigger.
   (d) lambda=0 hapus-total batang pemikul beban: m_e -> 1-h_e, bound harus
       memicu bila batang tersisa tak sanggup memikul.
@@ -92,19 +93,20 @@ def main() -> int:
               fb["U_s"] >= utils.max() - 1e-12,
               f"(U_s={fb['U_s']:.4f}, status={fb['status']})")
 
-    print("(b) M3 removal of e3 (zero initial force) — must NOT trigger")
+    print("(b) M3 removal of e3 (zero initial force) — regresi Tabel 4.4")
     bc3 = BoundCache(M3)
     check("N0[e3] == 0", abs(bc3.facts.N0[3]) < 1e-12)
+    check("h_e(e3) == 1.000000 (SVD; Tabel 4.4)",
+          abs(bc3.facts.h[3] - 1.0) < 1e-9, f"(h={bc3.facts.h[3]:.6f})")
     m_e = bc3.m_factor(3, 0.0)
-    check("m_e(lam=0) ~ 1 (h_e=0)", abs(m_e - 1.0) < 1e-12, f"(m={m_e})")
+    check("m_e(lam=0) ~ 0 (Tabel 4.4: 1.11e-16)", abs(m_e) < 1e-12,
+          f"(m={m_e:.2e})")
     fb = bc3.compute_force_bound(3, 0.0)
-    check("force bound status no_redistribution",
-          fb["status"] == "no_redistribution")
-    check("g_C == 0 (no capacity trigger)", fb["g_C"] == 0,
-          f"(U_s={fb['U_s']:.4f})")
+    check("force bound 'unusable_m_near_zero' (urutan Eq 4.13: kinematik dulu)",
+          fb["status"] == "unusable_m_near_zero", f"(status={fb['status']})")
     db = bc3.compute_displacement_bound(3, 0.0)
-    check("g_D == 0 (no displacement trigger)", db["g_D"] == 0,
-          f"(A_s={db['A_s']})")
+    check("disp bound 'unusable_m_near_zero'",
+          db["status"] == "unusable_m_near_zero", f"(status={db['status']})")
 
     print("(c) lambda=1 control — bounds equal intact values, no triggers")
     for bc, name in ((bc1, "M1"), (bc3, "M3")):
