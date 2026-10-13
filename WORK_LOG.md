@@ -361,3 +361,12 @@ di DEFERRED_FINDINGS.md #010.
 - [x] Hasil: pengaman diteruskan = 32 ✓; kritis 71/39 **cocok persis draf pada varian B**; hitungan ARI-forward berbeda dari draf (30 vs 17) — angka final diregenerasi dari kode tervalidasi; revisi akhir oleh peneliti.
 
 🟢 **GATE 9.2 COMPLETED** — paket parametrik tersedia lengkap; tidak ada lagi item `pending_material`.
+
+## Gate 9.3 + Gate 10 — status_code, perluasan Tabel.tex, lalu audit naskah revisi
+**Date:** 13 Oktober 2026 · **Status:** 🟢 COMPLETED
+
+- [x] Gate 9.3: kolom `status_code` (Tabel 4.7) di `pipeline_output.csv` & `fine_grid_output.csv` (13 kolom kanonik); `Tabel.tex` + reproduksi Tabel 4.2/4.4/4.5-kanonik; `results/revision/forwarded.csv` (52 baris); cek kanonik 68/68; helper `_mag` (dead code) dibuang; `requirements.txt`.
+- [x] Gate 10 — **audit naskah revisi 193 hlm** (menggantikan 222 hlm): seluruh klaim naskah tentang paket Gate 9 terverifikasi PERSIS terhadap repo — forwarded 20/22/10; remaining_misses 28 = 23/4/1; 68/68; Tabel 4.6 (30/32/52; 22/0/0; 67/62/45; 50/39/28); RR e1–e5 0.983152316…0.717284621. Cross-check “40 kasus rank” = 8 kanonik + 32 parametrik ✓. Peta penomoran tabel lama→baru dicatat. Catatan atribusi asisten (naskah menyebut OpenAI Codex; jejak repo: qwen.ai[bot] Gate 1–8, AutoClaw Gate 9–9.3) diserahkan sebagai keputusan peneliti.
+- [x] Laporan transparansi ditulis ulang (Revisi 2) & dokumen Word diperbarui via GenOffice; rincian audit tersimpan di `results/review_prep/audit_naskah_revisi.md`.
+
+🟢 **GATE 9.3 & GATE 10 COMPLETED** — paket terintegrasi di naskah revisi; seluruh angka terverifikasi silang (nol ketidaksesuaian).
