@@ -1,0 +1,7941 @@
+{
+  "family": "S3_frame",
+  "count": 60,
+  "models": [
+    {
+      "id": "S3_001",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=3500, H=4000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            4000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            4000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "aaf78ca937b242e681a71055fd38802afd2970815286348cf8995eee9668541c",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_002",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=5000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 7000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "848ec1a53477c29b3325493dbbce57654783ab9c0aa5f1278f1ab9b61114e96d",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_003",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=3500, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            7000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            3500.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            7000.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 45.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "6d217cc08195d6e5565a0ac7530f900785cfd327120f8ed7c646a8046f1aa174",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_004",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=4000, H=5600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            5600.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            5600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "3d2fa3e95f81121a0e52d1589db6c1255fd3fb4be400ed3412ef5b788321135c",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_005",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=3500, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 65.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "fae5673f362ba75ad295a14896f099ce330c90a96f0dda53b74632a3542029b9",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_006",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=5000, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 35.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a5088be2ed745c593946c24d1214fac6a85518ef96c1a6e5f5f928e6d049f644",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_007",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            10000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            10000.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 60.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "94e82a46a08d35350ab8d14b57988016194f3f431ca63f8d6a2fe919e759d2f8",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_008",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=5000, H=5600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            5600.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            5600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "8c8e31bd19b606c699771d5393ecc533da6805a1d40c6acc67b97de3c32c9cfc",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_009",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=6000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            6000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            6000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 400000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "7abb01f780529c9a769f40ac7b9afa7662370a03d831d0f3d17cc0f0f5a75422",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_010",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 400000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "ae7f8d6ea4bea0e3945728d10301763bcb962552bf7640f39f2783ac04e817da",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_011",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=3500, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            7000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            3500.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            7000.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "31688854e62d2e50ee86526467cf7699bc2c5db7583cace7f670125302042051",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_012",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=5000, H=6400)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3200.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            3200.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6400.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            6400.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 45.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "205b7c85bc60c9d2e1caff5d2609d616e7850bae44e23b6250c2b6081afc8f27",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_013",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 7000.0,
+          "I": 400000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 35.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "ce11518d277f12e7d650d20dfa2a049ea3c25b3c9381eed4ab36593623a99a5f",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_014",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "e8eef3d5b43a3a5b392ebf624a2adc89ba2c1c09aa70cab405c1c80b892c88ea",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_015",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            10000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            10000.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d47499bf61ea74d3af594f49c82a9d0562409fc7a30e8919a7f8edad6456202e",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_016",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=5000, H=5600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            5600.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            5600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 45.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d178f9a9cd58306a6babe5589419b42d5efd4c57f18e9e566efe6cee0287268f",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_017",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=5000, H=4000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            4000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            4000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -70.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -70.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "77d8b39a3196c6d891b4bb6a78aebf56c7fcbcd7590971ad870735d81cb391d4",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_018",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=6000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            6000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            6000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 7000.0,
+          "I": 400000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 35.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "b0595ce794eb530073a2e6332b1cad4fc92a19b8819e12134ec3e91b04007194",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_019",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=4000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            8000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            4000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            8000.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a75391fd783ca7af3e667c0225285780a6ed51f4b38df3919d63261c8dcc0b79",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_020",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=5000, H=5600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            5600.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            5600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 45.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d178f9a9cd58306a6babe5589419b42d5efd4c57f18e9e566efe6cee0287268f",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_021",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=5000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 7000.0,
+          "I": 400000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 65.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "17f970d164424e060a709689b2280f7b6988f6a3a5d46de68e060a6e2bd4a478",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_022",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=6000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            6000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            6000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 7000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -70.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -70.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "05d949468601b33241438ed878ca38c56f45b74bdc627ba36fdc7a03108f9b9f",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_023",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=4000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            8000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            4000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            8000.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a75391fd783ca7af3e667c0225285780a6ed51f4b38df3919d63261c8dcc0b79",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_024",
+      "family": "S3_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=4000, H=6400)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3200.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            3200.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6400.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            6400.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 45.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "556eb916ab7aff666f868681171222f20b7fbf0f7b65cf15c18d85bf58e5b036",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_025",
+      "family": "S3_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=3500, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "b71e7a86c9cdac5fdb74a78acb787cc61779ce0a446004e8f36a97b6c917b389",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_026",
+      "family": "S3_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=6000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            6000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            6000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 7000.0,
+          "I": 400000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "2797940917cbeea478c650eb2f27594071473aae4bb8b83a0c01a343090338b0",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_027",
+      "family": "S3_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            10000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            10000.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 60.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "94e82a46a08d35350ab8d14b57988016194f3f431ca63f8d6a2fe919e759d2f8",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_028",
+      "family": "S3_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=4000, H=5600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            5600.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            5600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 45.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "fe47e4233050c9d1fe18e46ab773aad2c7ccc58b220c01b21ad8d9129aef9c3e",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_029",
+      "family": "S3_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=6000, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            6000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            6000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 7000.0,
+          "I": 400000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 35.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "019d04bac48e9d0f2fd23ef73a2eeb3a3ff2bb3bf7d4427081360410ac7ec437",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_030",
+      "family": "S3_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "2187c902c27de592a8c774131d0d381a994a8e76c4d0c0aa2dadfe95d8117464",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_031",
+      "family": "S3_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=4000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            8000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            4000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            8000.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a75391fd783ca7af3e667c0225285780a6ed51f4b38df3919d63261c8dcc0b79",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_032",
+      "family": "S3_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=5000, H=5600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            5600.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            5600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 45.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d178f9a9cd58306a6babe5589419b42d5efd4c57f18e9e566efe6cee0287268f",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_033",
+      "family": "S3_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 65.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "22885592e36e8c41d67cff95ac9bb4c27fc26b74b44a91a36b7e545a536278c3",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_034",
+      "family": "S3_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=4000, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 7000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "535bcd78854fd35f4113a96371dd6850a6d8904f3f9a9dc20739938bb28d8bc7",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_035",
+      "family": "S3_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=5000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            10000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            10000.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 60.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "784a7e11e6eb5727854410330b3af60e0339a52254c130d0bedd1b3d13e1e8bf",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_036",
+      "family": "S3_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=5000, H=6400)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3200.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            3200.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6400.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            6400.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 45.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "205b7c85bc60c9d2e1caff5d2609d616e7850bae44e23b6250c2b6081afc8f27",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_037",
+      "family": "S3_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=5000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 400000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 65.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -70.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -70.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "840ad87a317e74736a8f69fb80c1dc2be9d9fd17123fb4004e4b9c5e292262fb",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_038",
+      "family": "S3_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=3500, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 65.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -70.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -70.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "91172e003a21a234e80d9cda8dfcc38e63674b548a4bdad3ef264e57443d35eb",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_039",
+      "family": "S3_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=5000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            10000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            10000.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 60.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "784a7e11e6eb5727854410330b3af60e0339a52254c130d0bedd1b3d13e1e8bf",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_040",
+      "family": "S3_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=4000, H=6400)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3200.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            3200.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6400.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            6400.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "c8820fc23693b4a785dfeb7ba58f76713eb690cfb2978564c5bb65ede83a7fb5",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_041",
+      "family": "S3_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 7000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 35.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "5fed3f4d5f887d37fef03df10ca7bebcd43a023ea82a37d146db0e911866cc62",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_042",
+      "family": "S3_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 400000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "74ba836197e1cc53ddcb02d1a645a69eee2a73d0c4afe07a9a603a57bc3414e0",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_043",
+      "family": "S3_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            8000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            8000.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "8d2ce6d9f032c071dd88c07e4226b2e5ee4a0acfadc590df000f2efa7e607e23",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_044",
+      "family": "S3_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=5000, H=6400)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3200.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            3200.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6400.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            6400.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 45.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "f5e8fe554c830bce5a501708b58d206383215ba53b47ed33bf19ca531aeecafe",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_045",
+      "family": "S3_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 7000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 35.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "68a9f8fee4c6a267a3ba3f030b0c43294119e68365c936a441a808e91f468151",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_046",
+      "family": "S3_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=6000, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            6000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            6000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "01f18e253324a8859ab403684bc7fee5f631e478179898de00630300b1b1edff",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_047",
+      "family": "S3_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            10000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            10000.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d47499bf61ea74d3af594f49c82a9d0562409fc7a30e8919a7f8edad6456202e",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_048",
+      "family": "S3_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=5000, H=5600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            5600.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            5600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 45.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d178f9a9cd58306a6babe5589419b42d5efd4c57f18e9e566efe6cee0287268f",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_049",
+      "family": "S3_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=3500, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 7000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d0dbdf1d8c7075b8d89b16dee5fc76a162da4c35b56b1468c8789d3523fbddb5",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_050",
+      "family": "S3_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=3500, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 4000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 65.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "76dcac637128e1b03c6ea60e74aa429d5a607f19a06011f6cc7f0bef40e7e4f5",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_051",
+      "family": "S3_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=3500, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            7000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            3500.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            7000.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "354b082dc8189878ab3bf75ccbee76a9463771d5900e80f734d21936bbde3ca9",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_052",
+      "family": "S3_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=5000, H=5600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            5600.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            5600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "06b789d57a6d62ccb1ff865bb7471717f74a2398f7b673004e96b20c69cb64e9",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_053",
+      "family": "S3_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=6000, H=4000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            4000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            6000.0,
+            4000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            6000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -70.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -70.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "b34c0541c971d53e106b9480f9aa17af07f8c3eb65c3c935febbb0d8127cfce7",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_054",
+      "family": "S3_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=6000, H=4000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            4000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            6000.0,
+            4000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            6000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 20.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "e1b9a2a788dd2c80f86fc85839a1ba967517e3c5c08a7858925c8a7a78f17015",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_055",
+      "family": "S3_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            8000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            8000.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "8d2ce6d9f032c071dd88c07e4226b2e5ee4a0acfadc590df000f2efa7e607e23",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_056",
+      "family": "S3_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=4000, H=5600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            5600.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            5600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "0b0fbc0dea3a152b637148d871acd2f8632ee28ff246fb4c7b29e69596bdf1db",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S3_057",
+      "family": "S3_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=6000, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            6000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            6000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 7000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "fab44a41edd505ac6dc70d105b6208ad0b20ed66bdc05df02841e18508c9ab99",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_058",
+      "family": "S3_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 1-lantai 1-bentang (B=5000, H=4000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            4000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            4000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 150000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "20e9fd7b06ff9045c1737cfc13a0cc24382b977b0683e4f814d09eaa266bbe75",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S3_059",
+      "family": "S3_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 1-lantai 2-bentang (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            8000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            8000.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed",
+        "node_2": "fixed"
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "8d2ce6d9f032c071dd88c07e4226b2e5ee4a0acfadc590df000f2efa7e607e23",
+        "n_elements": 5,
+        "n_nodes": 6,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S3_060",
+      "family": "S3_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 2-lantai 1-bentang (B=4000, H=5600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            5600.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            5600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 45.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -40.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "4865f79fe9b6850f0b46602f94a1bb9d55dce3c39530e24dbee1d6746098ef9c",
+        "n_elements": 6,
+        "n_nodes": 6,
+        "n_damage_scenarios": 24
+      }
+    }
+  ]
+}

@@ -381,3 +381,17 @@ di DEFERRED_FINDINGS.md #010.
 - [x] W2d (S5): Rangka ruang 3D (3D space truss). Verifikasi komponen spasial 3D (ux, uy, uz), simetri perpindahan translasi apex (ux=0, uy=4.78e-11), kesetimbangan vertikal (ΣRz = 10.0 kN, Δ=0), dan deteksi mekanisme kinematik ruang 3D.
 - [x] Unified Dispatcher:  mendukung 5 keluarga struktur (S1 Balok, S2 Rangka Batang, S3 Portal Bidang, S4 Portal Berpengaku, S5 Rangka Ruang 3D).
 - [x] Berkas baru: , , . Seluruh suite pengujian acceptance LULUS (100% PASS).
+
+
+## Gate 13 (W2e–W2f) — Pembangkitan Dataset Induk 300 Model & Manifest (5 Keluarga)
+**Date:** 14 Oktober 2026 · **Status:** 🟢 COMPLETED (100% OK, 300/300 Lulus Solver)
+
+- [x] W2e: Pembangunan manifest spesifikasi lengkap ( & ). Setiap model memiliki ID unik (S1_001 s.d. S5_060), hash spesifikasi SHA-256 anti-duplikasi, atribut satuan terstandarisasi, kondisi batas, dan rincian pembagian data.
+- [x] W2f: Pembangkitan 300 model induk lintas lima keluarga struktur secara deterministik (benih seed = 2026) dengan pembagian partisi naskah Bab 3.9.3:
+  * Formula Development (120 model, 24/keluarga)
+  * Calibration (60 model, 12/keluarga)
+  * Blind Validation (60 model, 12/keluarga)
+  * Final Test (60 model, 12/keluarga)
+- [x] Verifikasi Kestabilan Solver Utuh: Seluruh 300 model dianalisis secara fisik dengan solver terkait; 300/300 berstatus 'ok' (tanpa mekanisme singular/fiktif).
+- [x] Statistik Skenario Gangguan: 1.910 total elemen struktur menghasilkan 7.940 skenario penapisan gangguan tunggal (lambda in {0, 0.25, 0.50, 0.75} + kontrol).
+- [x] Artefak baru: ,  s.d. , , , .

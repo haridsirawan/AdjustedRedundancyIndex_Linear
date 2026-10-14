@@ -1,0 +1,301 @@
+model_id,family,split,description,dimension,n_nodes,n_elements,n_scenarios,solver_status,umax_mm,Umax,strain_energy_kNmm,rank,n_free,ndof,sha256_spec
+S1_001,S1_beam,formula_dev,Balok kantilever 1500 mm (2 elemen),1,3,2,9,ok,84.375,0.45,632.8125,4,4,6,546e651746f17f70cae120182e531a8518a5e9df097d05b647e83a03b27463a1
+S1_002,S1_beam,formula_dev,Balok sederhana L=6000 mm (4 elemen),1,5,4,17,ok,112.5,0.9375,2812.5,8,8,10,a76b823e3f42640aa73912f1ed0f3342a707ebd86b5973c2c57fc267f415fc12
+S1_003,S1_beam,formula_dev,Balok jepit-rol L=3000 mm (2 elemen),1,3,2,9,ok,2.563477,0.140625,32.043457,3,3,6,a8e2f1b54f50225ccc8242d1a9289dbc7db08d189d541830ca222d9b1e4d68ad
+S1_004,S1_beam,formula_dev,Balok menerus 2 bentang L=5000 mm (4 elemen),1,5,4,17,ok,3.242493,0.107422,60.717265,7,7,10,b91197807a5d570a8bee37b7b8f4fa6661e1101b9e04d7c17b64b6d5033f3f7e
+S1_005,S1_beam,formula_dev,Balok kantilever 1500 mm (2 elemen),1,3,2,9,ok,21.09375,0.45,158.203125,4,4,6,a2ec66144b74872f727b3325a490f9de967a3e053821401333915c29b8d2d6df
+S1_006,S1_beam,formula_dev,Balok sederhana L=6000 mm (4 elemen),1,5,4,17,ok,180.0,0.75,3600.0,8,8,10,992a40300681f0aaba2635526daf68837478722c5f02bdaa99f65df44d167ea9
+S1_007,S1_beam,formula_dev,Balok jepit-rol L=4500 mm (2 elemen),1,3,2,9,ok,12.112427,0.295312,211.967468,3,3,6,1e38e58e13896b092a25feea94a60af51ce2c6bcb2200a6d8c591397970aa4f4
+S1_008,S1_beam,formula_dev,Balok menerus 2 bentang L=5000 mm (4 elemen),1,5,4,17,ok,1.424154,0.117188,42.724609,7,7,10,78c5f662931312b2a708917cb2bb53b96050a90dc1909bd2b47354d7a7cca70b
+S1_009,S1_beam,formula_dev,Balok kantilever 3000 mm (1 elemen),1,2,1,5,ok,112.5,0.6,562.5,2,2,4,abeaedf90fb22eed9013df48c38a55cba9ec8a5e946ebd105c1aef4f0f6a9dd5
+S1_010,S1_beam,formula_dev,Balok sederhana L=5000 mm (4 elemen),1,5,4,17,ok,130.208333,0.78125,3255.208333,8,8,10,b661103343e18d6c682bc852a7a23130dc7232104c2cd2ae02ac809902e986b1
+S1_011,S1_beam,formula_dev,Balok jepit-rol L=3000 mm (3 elemen),1,4,3,13,ok,2.662037,0.25,57.291667,5,5,8,dd3cccbb61e0d1b091d2bf623432b7cb7a37848aebf1139c3b794f45b9b80249
+S1_012,S1_beam,formula_dev,Balok menerus 2 bentang L=6000 mm (4 elemen),1,5,4,17,ok,9.228516,0.140625,276.855469,7,7,10,c7b76a6930552b5893e797da5c992b315d305e2125edacdcd367f0f408e1f0e9
+S1_013,S1_beam,formula_dev,Balok kantilever 3000 mm (2 elemen),1,3,2,9,ok,140.625,1.5,1757.8125,4,4,6,a2137e17fedfe946ae2498d3890b9cac6e6047e66064f3c20d89e4f09c1de319
+S1_014,S1_beam,formula_dev,Balok sederhana L=3000 mm (2 elemen),1,3,2,9,ok,28.125,0.1875,281.25,4,4,6,f51553a0f18ca5bf74005501acb4c4e1c6e6549a8f013ed006a506264eb1ad21
+S1_015,S1_beam,formula_dev,Balok jepit-rol L=6000 mm (2 elemen),1,3,2,9,ok,36.914062,0.50625,830.566406,3,3,6,58bf520bab99583c9cc9d940c8828ed578560b449dfc27351426c1103d3908b1
+S1_016,S1_beam,formula_dev,Balok menerus 2 bentang L=6000 mm (4 elemen),1,5,4,17,ok,5.603027,0.128906,104.919434,7,7,10,c9bd5ceebb18a0dea577e7e6b2b575f961325edcae085eade30af5a60adfc8da
+S1_017,S1_beam,formula_dev,Balok kantilever 2000 mm (1 elemen),1,2,1,5,ok,41.666667,1.0,520.833333,2,2,4,13a267b6a932089087247862db290483486449835b787d512d5a894850dbfbc8
+S1_018,S1_beam,formula_dev,Balok sederhana L=5000 mm (4 elemen),1,5,4,17,ok,52.083333,0.625,1041.666667,8,8,10,f89b353f9d6223fd24047dfbce472c577a6501ec1f8f6fc0e780ee0bc5b1c483
+S1_019,S1_beam,formula_dev,Balok jepit-rol L=6000 mm (3 elemen),1,4,3,13,ok,33.127572,0.388889,554.526749,5,5,8,ebc4f3a7c42da511b8c0eb7d7ace6a9a332e3e9f8e0a2b4b821e87342a7573e2
+S1_020,S1_beam,formula_dev,Balok menerus 2 bentang L=5000 mm (4 elemen),1,5,4,17,ok,3.242493,0.107422,60.717265,7,7,10,9b1b971b86aed566268e3816df8764c10926cfbe0042bebad2f8d586036ded48
+S1_021,S1_beam,formula_dev,Balok kantilever 1500 mm (1 elemen),1,2,1,5,ok,17.578125,0.75,219.726563,2,2,4,ccb0968e49c599bf1a6546f520278f0a659424d078a1114b0b75856d6abb1aad
+S1_022,S1_beam,formula_dev,Balok sederhana L=5000 mm (2 elemen),1,3,2,9,ok,130.208333,0.78125,3255.208333,4,4,6,506466f8c3baffc7a503e758450f0c3d5af98a7e159d15fd6c36443c536d6de9
+S1_023,S1_beam,formula_dev,Balok jepit-rol L=4500 mm (3 elemen),1,4,3,13,ok,17.96875,0.375,386.71875,5,5,8,a70059b4389523d6f179aa4b5aa9b7990f6970b5a40c68d1293a093d576c5a55
+S1_024,S1_beam,formula_dev,Balok menerus 2 bentang L=8000 mm (4 elemen),1,5,4,17,ok,21.875,0.1875,656.25,7,7,10,2504fa35efbca1693fc92aa83e1057e8cc1f9a481d5ad6d606eca68aa209a5e3
+S1_025,S1_beam,calibration,Balok kantilever 3000 mm (1 elemen),1,2,1,5,ok,112.5,1.2,1125.0,2,2,4,520fff6c5efbf0cb00518ebcd776d1bcd8dc612e378f8448c8c39fe6523ac3e3
+S1_026,S1_beam,calibration,Balok sederhana L=6000 mm (2 elemen),1,3,2,9,ok,225.0,0.9375,5625.0,4,4,6,960de8486e5a7e8fe0fca38ec2b97916f34edf779b764bc641f21593ad50bc97
+S1_027,S1_beam,calibration,Balok jepit-rol L=3000 mm (3 elemen),1,4,3,13,ok,4.140947,0.194444,69.315844,5,5,8,36247a10c158329a77f8e50ab18447ae9f4afcc005f109c4f50cf869b38fe858
+S1_028,S1_beam,calibration,Balok menerus 2 bentang L=5000 mm (4 elemen),1,5,4,17,ok,6.484985,0.107422,121.43453,7,7,10,e8612c931d10958561688b2db06e75280986cd2561a312f037cf6b4956e911ff
+S1_029,S1_beam,calibration,Balok kantilever 3000 mm (1 elemen),1,2,1,5,ok,450.0,0.6,2250.0,2,2,4,c8b1d3d4e69259a2a1a352c374fa815f4e369c058b64861e12539e8fe802a1cc
+S1_030,S1_beam,calibration,Balok sederhana L=6000 mm (2 elemen),1,3,2,9,ok,67.5,0.5625,1012.5,4,4,6,92b9f135f6f3f45e1fdd9269a0cbb7a1b741d9b4a1c768ebf480c29e4ddd7c92
+S1_031,S1_beam,calibration,Balok jepit-rol L=3000 mm (2 elemen),1,3,2,9,ok,2.563477,0.140625,32.043457,3,3,6,a8e2f1b54f50225ccc8242d1a9289dbc7db08d189d541830ca222d9b1e4d68ad
+S1_032,S1_beam,calibration,Balok menerus 2 bentang L=8000 mm (4 elemen),1,5,4,17,ok,13.28125,0.171875,248.697917,7,7,10,4a90ff90ca5f9817623a18ad97a82c70e73656831b22d915b8987c156431ecce
+S1_033,S1_beam,calibration,Balok kantilever 1500 mm (2 elemen),1,3,2,9,ok,10.546875,0.45,79.101562,4,4,6,c09c6b06d6d87d8c8a3cb11bc33ec801c5dda0a5526de8a785e7e51731bd9ef3
+S1_034,S1_beam,calibration,Balok sederhana L=4000 mm (4 elemen),1,5,4,17,ok,20.0,0.375,300.0,8,8,10,5a3b824e0ed9c9703b77450ee50fc15bca5cc808b92fec9c2e326595f0af354b
+S1_035,S1_beam,calibration,Balok jepit-rol L=6000 mm (3 elemen),1,4,3,13,ok,66.255144,0.388889,1109.053498,5,5,8,052a5354334352c160dfdfa7c45b63e28cbebd6f63de0dd47f3432ed6d31d09c
+S1_036,S1_beam,calibration,Balok menerus 2 bentang L=8000 mm (4 elemen),1,5,4,17,ok,26.5625,0.171875,497.395833,7,7,10,246e91589651b14fabbc5da3209f116592bae8e7b60c1c99a6c9da5cfdfaa55b
+S1_037,S1_beam,blind_val,Balok kantilever 3500 mm (2 elemen),1,3,2,9,ok,133.984375,1.05,1004.882812,4,4,6,f6475a4f6dc07e6473de9aee6f224641b32957ab1006194baf0283e8a4965218
+S1_038,S1_beam,blind_val,Balok sederhana L=4000 mm (4 elemen),1,5,4,17,ok,66.666667,0.25,666.666667,8,8,10,5c95550717d189daa268d3e1076d933a9dcd2411c69ec10901e7fa8303d43306
+S1_039,S1_beam,blind_val,Balok jepit-rol L=4500 mm (2 elemen),1,3,2,9,ok,48.449707,0.295312,847.869873,3,3,6,b0318cb591029a514e4dd878a2b8e7df3d8f1a947a7b6859b4beac73403dbd89
+S1_040,S1_beam,blind_val,Balok menerus 2 bentang L=8000 mm (4 elemen),1,5,4,17,ok,7.291667,0.125,145.833333,7,7,10,0d72470df4316eeb0f8700375a2990a309de2203391f30c0de2f179dd9242187
+S1_041,S1_beam,blind_val,Balok kantilever 3500 mm (2 elemen),1,3,2,9,ok,357.291667,1.4,3572.916667,4,4,6,365af9fde71eca2ee583ae4e281c5231b76d7f0fd18870e86d5b7b1a408126a8
+S1_042,S1_beam,blind_val,Balok sederhana L=6000 mm (4 elemen),1,5,4,17,ok,562.5,0.9375,14062.5,8,8,10,e866bd1ba0dc787fee3d964fe8f21c0bfcb9215684568ce191c6dcf1c7cc2c57
+S1_043,S1_beam,blind_val,Balok jepit-rol L=4500 mm (2 elemen),1,3,2,9,ok,62.29248,0.379688,1401.580811,3,3,6,fe77d5bf061d23b55d0aa0870a4c194ed3502f70d0004ea3ac92adbc6543b2bc
+S1_044,S1_beam,blind_val,Balok menerus 2 bentang L=8000 mm (4 elemen),1,5,4,17,ok,21.875,0.1875,656.25,7,7,10,2504fa35efbca1693fc92aa83e1057e8cc1f9a481d5ad6d606eca68aa209a5e3
+S1_045,S1_beam,blind_val,Balok kantilever 3000 mm (1 elemen),1,2,1,5,ok,1125.0,1.5,14062.5,2,2,4,ef12d19396e2671bccb5f200693932879f02b29749647681cb1af2625f152e1b
+S1_046,S1_beam,blind_val,Balok sederhana L=3000 mm (2 elemen),1,3,2,9,ok,8.4375,0.28125,126.5625,4,4,6,c6a15d2428eeaeadccdeda9499c1c64a944de2e33682ecee67375a18b1f923c2
+S1_047,S1_beam,blind_val,Balok jepit-rol L=3000 mm (2 elemen),1,3,2,9,ok,9.228516,0.253125,207.641602,3,3,6,324d2cb6d7f0497db4e2c3769bdfba62b5d843526599c2197664cbc3002114d3
+S1_048,S1_beam,blind_val,Balok menerus 2 bentang L=5000 mm (4 elemen),1,5,4,17,ok,1.780192,0.078125,35.603841,7,7,10,7315815f3e9567938bce6f50f26d9375b3b46b82806d1bb805f40b73135704f8
+S1_049,S1_beam,final_test,Balok kantilever 3500 mm (1 elemen),1,2,1,5,ok,535.9375,1.05,4019.53125,2,2,4,af6e54231ca64f97dc099356f2c1cbed9dd758be41f47c0d4125e0877940e147
+S1_050,S1_beam,final_test,Balok sederhana L=4000 mm (4 elemen),1,5,4,17,ok,66.666667,0.625,1666.666667,8,8,10,aed04f5e4e42ce3f548ace30b817879474ee7b2fac526c2024d681763196e297
+S1_051,S1_beam,final_test,Balok jepit-rol L=6000 mm (3 elemen),1,4,3,13,ok,66.255144,0.388889,1109.053498,5,5,8,052a5354334352c160dfdfa7c45b63e28cbebd6f63de0dd47f3432ed6d31d09c
+S1_052,S1_beam,final_test,Balok menerus 2 bentang L=6000 mm (4 elemen),1,5,4,17,ok,11.206055,0.128906,209.838867,7,7,10,f09d8a2eaa6daa90f15533f17b749acdf59b07bb5a7d9572b7eaf329c52e8d74
+S1_053,S1_beam,final_test,Balok kantilever 2500 mm (2 elemen),1,3,2,9,ok,81.380208,1.25,1017.252604,4,4,6,506b64213f3145a76feab8765d9c1d145ff7007e3aa49dc0ac6f1bd0543c74c3
+S1_054,S1_beam,final_test,Balok sederhana L=5000 mm (4 elemen),1,5,4,17,ok,260.416667,0.625,5208.333333,8,8,10,f3ca313f0c9a3ff8980dc757fe4af87f062926adbf66ba2e35f5316e6933ce85
+S1_055,S1_beam,final_test,Balok jepit-rol L=6000 mm (3 elemen),1,4,3,13,ok,23.662551,0.277778,282.921811,5,5,8,00b5920efa9787466400d3c88766d8722def76aa09b90c90e1e21d1c1567bcc2
+S1_056,S1_beam,final_test,Balok menerus 2 bentang L=8000 mm (4 elemen),1,5,4,17,ok,7.083333,0.171875,132.638889,7,7,10,d734b3bd3334585d99cf4817b9799ddf836d9bb11a21bd3050fa332ef45f4f75
+S1_057,S1_beam,final_test,Balok kantilever 2000 mm (1 elemen),1,2,1,5,ok,133.333333,0.4,666.666667,2,2,4,6c7d7e2703e33007aa141968c92ecba4839227da6904706d9d0ac21521f86d74
+S1_058,S1_beam,final_test,Balok sederhana L=6000 mm (4 elemen),1,5,4,17,ok,135.0,0.5625,2025.0,8,8,10,e14709c0fcd503ed8ebe71638677f1e95aa58f9482706ccd2a835b3509e54427
+S1_059,S1_beam,final_test,Balok jepit-rol L=3000 mm (3 elemen),1,4,3,13,ok,8.281893,0.194444,138.631687,5,5,8,52c3888ab8cc172302e48b123085b2dc4de6391d54fdf0e299639c1fcd2e96a3
+S1_060,S1_beam,final_test,Balok menerus 2 bentang L=8000 mm (4 elemen),1,5,4,17,ok,3.888889,0.125,77.777778,7,7,10,db40060c890677e211569579d95bdd0b6fc4804b75e284c89e8703a05801dec2
+S2_001,S2_truss,formula_dev,"Rangka batang 2-panel segitiga (B=4000, H=2000)",2,4,5,21,ok,1.724797,0.0,59.498527,5,5,8,16e4388f4afd191d5d42b0ab89845e62cbea699fd4d77f320e5c829a7481dcf6
+S2_002,S2_truss,formula_dev,"Rangka batang 4-panel Pratt (L=6000, H=1800)",2,8,13,53,ok,2.881791,0.0,113.523364,13,13,16,811fbf35031b7a62a5d9a9cb9290fd6c8f8d8630e557c865e0b5a319c7e50ef7
+S2_003,S2_truss,formula_dev,"Rangka batang 4-panel Howe (L=4800, H=1800)",2,8,13,53,ok,1.002821,0.0,19.799496,13,13,16,59b8eed9ad999d8d5fe63f5feb73d19867841dc25ca94b4b83a026fec771175e
+S2_004,S2_truss,formula_dev,"Rangka batang 4-panel Warren (L=4000, H=1400)",2,9,15,61,ok,1.502767,0.0,55.728649,15,15,18,4e489d2a22312697f2c03d6980c735f2d93006ab54281fbfb8342427d36e6d3a
+S2_005,S2_truss,formula_dev,"Rangka batang 2-panel segitiga (B=2000, H=1200)",2,4,5,21,ok,0.271941,0.0,4.036817,5,5,8,d1042e4cd3e96fecdafa980cdd95ad526cfc86388c58725cf9e17239f2f559f5
+S2_006,S2_truss,formula_dev,"Rangka batang 4-panel Pratt (L=4800, H=1800)",2,8,13,53,ok,1.916824,0.0,75.596978,13,13,16,6467e9a308820fc0eaeef8fd1e340709ef92520b5990a0ca99e239724aea511c
+S2_007,S2_truss,formula_dev,"Rangka batang 4-panel Howe (L=6000, H=1200)",2,8,13,53,ok,2.105741,0.0,61.891433,13,13,16,ad50bdae4af746d011c1a6292ced1bd48cc819d65bad297515c214adea1a5694
+S2_008,S2_truss,formula_dev,"Rangka batang 4-panel Warren (L=4800, H=1600)",2,9,15,61,ok,1.820127,0.0,67.434981,15,15,18,4cada1c1b444864d578a6983638ae75a1559d7f758ba1cc227862b04c7455c07
+S2_009,S2_truss,formula_dev,"Rangka batang 2-panel segitiga (B=3000, H=1200)",2,4,5,21,ok,1.025659,0.0,25.17227,5,5,8,ded6528e4cd3585c3361773aaf2d3a6a4769fde85206cf2f086b4c560a4269ce
+S2_010,S2_truss,formula_dev,"Rangka batang 4-panel Pratt (L=4000, H=1200)",2,8,13,53,ok,0.960597,0.0,28.380841,13,13,16,b6c48c03e0c6bf5c53b54b53ae6f0f1995520abf24c787078ef2754762620581
+S2_011,S2_truss,formula_dev,"Rangka batang 4-panel Howe (L=4800, H=1200)",2,8,13,53,ok,1.795287,0.0,35.17645,13,13,16,a129ee166f59c653bfc4ae3daa82d7da673484b54342aeb1fd4d37d6935ec0e0
+S2_012,S2_truss,formula_dev,"Rangka batang 4-panel Warren (L=4000, H=1000)",2,9,15,61,ok,0.782574,0.0,19.253767,15,15,18,6f355a4d91e13f8af263e62309bca5a4660a41d02c096cd9c39d28bb4622cede
+S2_013,S2_truss,formula_dev,"Rangka batang 2-panel segitiga (B=2000, H=2000)",2,4,5,21,ok,0.772494,0.0,26.969466,5,5,8,05e578c7b791fdee44d1cfa7ae1af380baeaa76e166c3ffa12ddd817c1ff96b8
+S2_014,S2_truss,formula_dev,"Rangka batang 4-panel Pratt (L=4800, H=1500)",2,8,13,53,ok,1.476847,0.0,58.179596,13,13,16,026c1231acb7e51e9b5e503a8367cdc40fc92e51ee3c5ff7b731b2d1cef08c51
+S2_015,S2_truss,formula_dev,"Rangka batang 4-panel Howe (L=6000, H=1800)",2,8,13,53,ok,0.997305,0.0,19.590421,13,13,16,2cb0941fab0b1fbbb2fd56b649135df8f0289ba2d21fcca27e4bfd345ce7539c
+S2_016,S2_truss,formula_dev,"Rangka batang 4-panel Warren (L=4800, H=1400)",2,9,15,61,ok,0.637231,0.0,15.703972,15,15,18,395f292f09a6450956e6eeb3226478ecdefa758b0d6b40a5264d5ad58e95123a
+S2_017,S2_truss,formula_dev,"Rangka batang 2-panel segitiga (B=4000, H=1500)",2,4,5,21,ok,2.006791,0.0,68.90625,5,5,8,65c6c1678c50740355faf6a97e31905118836a5bcbcb03f5aee5ed9e4e741525
+S2_018,S2_truss,formula_dev,"Rangka batang 4-panel Pratt (L=4000, H=1800)",2,8,13,53,ok,0.976789,0.0,38.61957,13,13,16,807aba439626a361665a1b7e0ff01b5307170d0301f9c486264b531e43c00ab0
+S2_019,S2_truss,formula_dev,"Rangka batang 4-panel Howe (L=6000, H=1500)",2,8,13,53,ok,2.244109,0.0,65.955844,13,13,16,ee038b0d6723207eb1bb5ee1e538fcbde73cc8193c04d3415deb21690df0de07
+S2_020,S2_truss,formula_dev,"Rangka batang 4-panel Warren (L=4800, H=1000)",2,9,15,61,ok,1.258409,0.0,46.429909,15,15,18,e536e567f9c8e48b02406d112790424cd2d1eb3ea1ecaae57fbf288a44a433fd
+S2_021,S2_truss,formula_dev,"Rangka batang 2-panel segitiga (B=2000, H=1500)",2,4,5,21,ok,0.475397,0.0,11.813386,5,5,8,541aecbc4c1b2d6247391728a04330a77fa57f90992adbe2c9618678b0d6dd8d
+S2_022,S2_truss,formula_dev,"Rangka batang 4-panel Pratt (L=4800, H=1800)",2,8,13,53,ok,1.437618,0.0,42.5233,13,13,16,55228d442b694b91eee5d2845330f7eca92f109ed408d39c4eb1ded34d297998
+S2_023,S2_truss,formula_dev,"Rangka batang 4-panel Howe (L=4800, H=1500)",2,8,13,53,ok,0.783776,0.0,15.408674,13,13,16,3026b8467f4a3f78bef136e462a5a2ee75cb8bbe05f8edc9a99076bfcc6741df
+S2_024,S2_truss,formula_dev,"Rangka batang 4-panel Warren (L=6000, H=1400)",2,9,15,61,ok,1.868458,0.0,45.955333,15,15,18,9b60eecdab7a0e4ded44cead4188fb6e47e4746b4c0d3fae98032de099d3e924
+S2_025,S2_truss,calibration,"Rangka batang 2-panel segitiga (B=4000, H=1200)",2,4,5,21,ok,3.73951,0.0,128.370596,5,5,8,b5cdfe40b4aeef54e5aae2deafee747797b859c5fc1f7e0f81f5e7810a9b477c
+S2_026,S2_truss,calibration,"Rangka batang 4-panel Pratt (L=4000, H=1200)",2,8,13,53,ok,0.960597,0.0,18.920561,13,13,16,a40bafb9b1020be8c11f95695d5e66aefd48dfb0ceff96fcd381b65b4d1b2b80
+S2_027,S2_truss,calibration,"Rangka batang 4-panel Howe (L=6000, H=1500)",2,8,13,53,ok,1.683082,0.0,49.466883,13,13,16,949d9c04beea4b4bee665072a9a1a3fe709226d93b7c3381024279fa0052587c
+S2_028,S2_truss,calibration,"Rangka batang 4-panel Warren (L=4000, H=1400)",2,9,15,61,ok,0.500922,0.0,12.384144,15,15,18,665f8fe8aba1c594cfb3580dfeb72f669256b6d55400c9149c4788103124c070
+S2_029,S2_truss,calibration,"Rangka batang 2-panel segitiga (B=3000, H=1500)",2,4,5,21,ok,0.923999,0.0,22.767293,5,5,8,ceb65472686288c5ed584daa5828fac5091e54f2596e9b719e718665e69ad1c2
+S2_030,S2_truss,calibration,"Rangka batang 4-panel Pratt (L=4000, H=1500)",2,8,13,53,ok,0.399338,0.0,7.874685,13,13,16,950e6ba8dff5461df7127ccf4df0168c4e7dbb8f323bfc2d9f4a35e1348eddb5
+S2_031,S2_truss,calibration,"Rangka batang 4-panel Howe (L=4000, H=1200)",2,8,13,53,ok,0.66487,0.0,13.06028,13,13,16,99ae2b316b66620a2b85255304f84bb8130ee4ae309cca18358b27575f813237
+S2_032,S2_truss,calibration,"Rangka batang 4-panel Warren (L=6000, H=1600)",2,9,15,61,ok,1.25934,0.0,46.500865,15,15,18,4db53af887541c925f16fb029c57013275079acb5d82b3379ccced5be8a05e85
+S2_033,S2_truss,calibration,"Rangka batang 2-panel segitiga (B=3000, H=1200)",2,4,5,21,ok,0.923093,0.0,13.593026,5,5,8,323acf59ab3725516a6b8f5be03238162603cd1554e1d2cdeb17c5925ad20a8a
+S2_034,S2_truss,calibration,"Rangka batang 4-panel Pratt (L=4000, H=1500)",2,8,13,53,ok,0.599008,0.0,17.718042,13,13,16,a8ed9d0a81fe8414f4ccb8b88e8e02d456436c1447ed110bc4afd020e4c5e56f
+S2_035,S2_truss,calibration,"Rangka batang 4-panel Howe (L=4800, H=1500)",2,8,13,53,ok,1.045034,0.0,20.544899,13,13,16,2b62f2f385b7551b27343f05aea184a28b21e72cbbd5affd1af77adea8f66d03
+S2_036,S2_truss,calibration,"Rangka batang 4-panel Warren (L=6000, H=1600)",2,9,15,61,ok,1.67912,0.0,41.334102,15,15,18,84e8d5cb67e19cbbb390b68184282dd3160451d203a41c56e34f14807fe59be2
+S2_037,S2_truss,blind_val,"Rangka batang 2-panel segitiga (B=4000, H=1200)",2,4,5,21,ok,1.869755,0.0,64.185298,5,5,8,310efd764065ca4e8e6cf88aca21f5ea257ced0cc7741a5dc8c7082ebd97daf5
+S2_038,S2_truss,blind_val,"Rangka batang 4-panel Pratt (L=4800, H=1500)",2,8,13,53,ok,1.107635,0.0,43.634697,13,13,16,093df9f73d174a7a200583c51abc173fe3f1990a6ccc70330bf3ede5dcc4e0d7
+S2_039,S2_truss,blind_val,"Rangka batang 4-panel Howe (L=6000, H=1500)",2,8,13,53,ok,2.244109,0.0,43.970563,13,13,16,816049d9f4b4eee3a4786c5284f5e325368584b81a593aecb5aa09233b7cdd9e
+S2_040,S2_truss,blind_val,"Rangka batang 4-panel Warren (L=6000, H=1000)",2,9,15,61,ok,1.858065,0.0,45.789931,15,15,18,24bc185b1556f0c08ea2e9aa8cdfa7abd4b1fc53e7254b1442fe81cc39475586
+S2_041,S2_truss,blind_val,"Rangka batang 2-panel segitiga (B=2000, H=2000)",2,4,5,21,ok,0.331069,0.0,4.953575,5,5,8,f2ec5800578a5b5732820923940a47071c1f75327767af2180eb5f91e08f9c55
+S2_042,S2_truss,blind_val,"Rangka batang 4-panel Pratt (L=6000, H=1500)",2,8,13,53,ok,1.330558,0.0,39.341883,13,13,16,929983c15195d106b80fb298dbceb5c697e178e2120215148705e1e84c22af6f
+S2_043,S2_truss,blind_val,"Rangka batang 4-panel Howe (L=4000, H=1800)",2,8,13,53,ok,1.275057,0.0,37.923508,13,13,16,3f7f12113832fc1e8bea2a4ac7e2a143f8e0ccf712ef32a1336d9ef3e5cbb193
+S2_044,S2_truss,blind_val,"Rangka batang 4-panel Warren (L=4000, H=1400)",2,9,15,61,ok,1.001845,0.0,37.152433,15,15,18,c591104cfef3f0a3351742ce8755566a4187714f3d0536430f09b028014f0a84
+S2_045,S2_truss,blind_val,"Rangka batang 2-panel segitiga (B=4000, H=1500)",2,4,5,21,ok,1.075067,0.0,26.367187,5,5,8,5f2632827e323c3512162a0b5da577f73d6ae011b8e7c0ca87e4b0a9999aa899
+S2_046,S2_truss,blind_val,"Rangka batang 4-panel Pratt (L=6000, H=1800)",2,8,13,53,ok,0.960597,0.0,18.920561,13,13,16,8373a3ce7a36936bca04e022539418ae66eecfd5a294d18919ab0e9dc909e9c7
+S2_047,S2_truss,blind_val,"Rangka batang 4-panel Howe (L=4000, H=1800)",2,8,13,53,ok,0.850038,0.0,16.854892,13,13,16,edda812ee40318ce41049dbf70e520cb1a012cda6806df8fe5149194eceee712
+S2_048,S2_truss,blind_val,"Rangka batang 4-panel Warren (L=4800, H=1000)",2,9,15,61,ok,1.677879,0.0,61.906546,15,15,18,9ccf0650417f0499d7e976c82e35fdf4a67ebf6c62f09d67e3796c65ec4efc2c
+S2_049,S2_truss,final_test,"Rangka batang 2-panel segitiga (B=2000, H=2000)",2,4,5,21,ok,0.662138,0.0,9.907151,5,5,8,d0228fd85b28d015810341e9bc51780eb07bc8c5bdf2552a1cddcc7cb0f5a12a
+S2_050,S2_truss,final_test,"Rangka batang 4-panel Pratt (L=4800, H=1500)",2,8,13,53,ok,1.107635,0.0,43.634697,13,13,16,093df9f73d174a7a200583c51abc173fe3f1990a6ccc70330bf3ede5dcc4e0d7
+S2_051,S2_truss,final_test,"Rangka batang 4-panel Howe (L=4800, H=1200)",2,8,13,53,ok,0.897644,0.0,17.588225,13,13,16,dbf1301b8a3b8ebb3d4b97867f4789a576add4adc1fe01cbd6c750b39196a0af
+S2_052,S2_truss,final_test,"Rangka batang 4-panel Warren (L=4000, H=1600)",2,9,15,61,ok,1.498481,0.0,55.713669,15,15,18,59048e896715e43b58c6a0dff6cc60e98be3880f0e744f2aeb0be5a3b9e6fdc3
+S2_053,S2_truss,final_test,"Rangka batang 2-panel segitiga (B=4000, H=1200)",2,4,5,21,ok,1.780719,0.0,43.663468,5,5,8,a6ca5924bc39acc9f4e6d20825c3f8d037c4ff1f2dbd7d6a6edb4dec75d0b178
+S2_054,S2_truss,final_test,"Rangka batang 4-panel Pratt (L=6000, H=1800)",2,8,13,53,ok,1.440896,0.0,56.761682,13,13,16,6418d9c2b09c2c748c08c07d4a080d262dba1729a952a6f22bc15c46a0a18307
+S2_055,S2_truss,final_test,"Rangka batang 4-panel Howe (L=4000, H=1800)",2,8,13,53,ok,1.275057,0.0,25.282339,13,13,16,badeca34f7f0dcdfea423706f012b094709726d9dfe55473edb6d00030cd7be3
+S2_056,S2_truss,final_test,"Rangka batang 4-panel Warren (L=4000, H=1600)",2,9,15,61,ok,0.998987,0.0,37.142446,15,15,18,bc1448cbfe7ab4af8db005e9b23867ba00f119d6267db8f5d14f4e79b61dfdf7
+S2_057,S2_truss,final_test,"Rangka batang 2-panel segitiga (B=4000, H=1500)",2,4,5,21,ok,0.860053,0.0,12.65625,5,5,8,11eb90582416e1ae5d9b47c8755976f889444077a87b32e747927ce16ff80c14
+S2_058,S2_truss,final_test,"Rangka batang 4-panel Pratt (L=6000, H=1800)",2,8,13,53,ok,0.720448,0.0,14.190421,13,13,16,406fe4e33b61c079ec3e20a0fc6244957eda825aa4cf5bd4e06134f418f8e262
+S2_059,S2_truss,final_test,"Rangka batang 4-panel Howe (L=4000, H=1500)",2,8,13,53,ok,1.253526,0.0,37.124056,13,13,16,5373c7dd0324d0323285bb0a75e1764d2c0b0576a170d2c921360e7b32dc3236
+S2_060,S2_truss,final_test,"Rangka batang 4-panel Warren (L=4800, H=1000)",2,9,15,61,ok,1.118586,0.0,27.51402,15,15,18,b78d906ad01d15819e90630b710359eb1da4f9b058bdcb09e8684948a4a85b97
+S3_001,S3_frame,formula_dev,"Portal 1-lantai 1-bentang (B=3500, H=4000)",2,4,3,13,ok,1.742173,0.251203,20.409364,6,6,12,aaf78ca937b242e681a71055fd38802afd2970815286348cf8995eee9668541c
+S3_002,S3_frame,formula_dev,"Portal 1-lantai 1-bentang (B=5000, H=3000)",2,4,3,13,ok,1.176986,0.219989,21.022934,6,6,12,848ec1a53477c29b3325493dbbce57654783ab9c0aa5f1278f1ab9b61114e96d
+S3_003,S3_frame,formula_dev,"Portal 1-lantai 2-bentang (B=3500, H=3500)",2,6,5,21,ok,1.791064,0.285966,42.969692,9,9,18,6d217cc08195d6e5565a0ac7530f900785cfd327120f8ed7c646a8046f1aa174
+S3_004,S3_frame,formula_dev,"Portal 2-lantai 1-bentang (B=4000, H=5600)",2,6,6,25,ok,3.185319,0.406898,71.024954,12,12,18,3d2fa3e95f81121a0e52d1589db6c1255fd3fb4be400ed3412ef5b788321135c
+S3_005,S3_frame,formula_dev,"Portal 1-lantai 1-bentang (B=3500, H=3500)",2,4,3,13,ok,4.272957,0.711816,146.146546,6,6,12,fae5673f362ba75ad295a14896f099ce330c90a96f0dda53b74632a3542029b9
+S3_006,S3_frame,formula_dev,"Portal 1-lantai 1-bentang (B=5000, H=2800)",2,4,3,13,ok,1.256622,0.329996,28.894992,6,6,12,a5088be2ed745c593946c24d1214fac6a85518ef96c1a6e5f5f928e6d049f644
+S3_007,S3_frame,formula_dev,"Portal 1-lantai 2-bentang (B=5000, H=3500)",2,6,5,21,ok,2.582806,0.394653,80.261301,9,9,18,94e82a46a08d35350ab8d14b57988016194f3f431ca63f8d6a2fe919e759d2f8
+S3_008,S3_frame,formula_dev,"Portal 2-lantai 1-bentang (B=5000, H=5600)",2,6,6,25,ok,3.449696,0.411714,76.005086,12,12,18,8c8e31bd19b606c699771d5393ecc533da6805a1d40c6acc67b97de3c32c9cfc
+S3_009,S3_frame,formula_dev,"Portal 1-lantai 1-bentang (B=6000, H=3500)",2,4,3,13,ok,3.176724,0.536409,90.25074,6,6,12,7abb01f780529c9a769f40ac7b9afa7662370a03d831d0f3d17cc0f0f5a75422
+S3_010,S3_frame,formula_dev,"Portal 1-lantai 1-bentang (B=5000, H=3500)",2,4,3,13,ok,2.247865,0.534142,59.330736,6,6,12,ae7f8d6ea4bea0e3945728d10301763bcb962552bf7640f39f2783ac04e817da
+S3_011,S3_frame,formula_dev,"Portal 1-lantai 2-bentang (B=3500, H=3500)",2,6,5,21,ok,1.19463,0.199013,20.580518,9,9,18,31688854e62d2e50ee86526467cf7699bc2c5db7583cace7f670125302042051
+S3_012,S3_frame,formula_dev,"Portal 2-lantai 1-bentang (B=5000, H=6400)",2,6,6,25,ok,7.255616,0.676285,225.636758,12,12,18,205b7c85bc60c9d2e1caff5d2609d616e7850bae44e23b6250c2b6081afc8f27
+S3_013,S3_frame,formula_dev,"Portal 1-lantai 1-bentang (B=4000, H=3000)",2,4,3,13,ok,1.327568,0.337252,29.422014,6,6,12,ce11518d277f12e7d650d20dfa2a049ea3c25b3c9381eed4ab36593623a99a5f
+S3_014,S3_frame,formula_dev,"Portal 1-lantai 1-bentang (B=5000, H=3500)",2,4,3,13,ok,4.013663,0.518339,103.483628,6,6,12,e8eef3d5b43a3a5b392ebf624a2adc89ba2c1c09aa70cab405c1c80b892c88ea
+S3_015,S3_frame,formula_dev,"Portal 1-lantai 2-bentang (B=5000, H=3500)",2,6,5,21,ok,1.292216,0.205954,22.140228,9,9,18,d47499bf61ea74d3af594f49c82a9d0562409fc7a30e8919a7f8edad6456202e
+S3_016,S3_frame,formula_dev,"Portal 2-lantai 1-bentang (B=5000, H=5600)",2,6,6,25,ok,4.798009,0.537727,137.848652,12,12,18,d178f9a9cd58306a6babe5589419b42d5efd4c57f18e9e566efe6cee0287268f
+S3_017,S3_frame,formula_dev,"Portal 1-lantai 1-bentang (B=5000, H=4000)",2,4,3,13,ok,3.483429,0.652563,106.520748,6,6,12,77d8b39a3196c6d891b4bb6a78aebf56c7fcbcd7590971ad870735d81cb391d4
+S3_018,S3_frame,formula_dev,"Portal 1-lantai 1-bentang (B=6000, H=3500)",2,4,3,13,ok,2.747074,0.382125,56.75877,6,6,12,b0595ce794eb530073a2e6332b1cad4fc92a19b8819e12134ec3e91b04007194
+S3_019,S3_frame,formula_dev,"Portal 1-lantai 2-bentang (B=4000, H=3500)",2,6,5,21,ok,1.227293,0.201603,21.116404,9,9,18,a75391fd783ca7af3e667c0225285780a6ed51f4b38df3919d63261c8dcc0b79
+S3_020,S3_frame,formula_dev,"Portal 2-lantai 1-bentang (B=5000, H=5600)",2,6,6,25,ok,4.798009,0.537727,137.848652,12,12,18,d178f9a9cd58306a6babe5589419b42d5efd4c57f18e9e566efe6cee0287268f
+S3_021,S3_frame,formula_dev,"Portal 1-lantai 1-bentang (B=5000, H=3000)",2,4,3,13,ok,2.577787,0.594351,89.98528,6,6,12,17f970d164424e060a709689b2280f7b6988f6a3a5d46de68e060a6e2bd4a478
+S3_022,S3_frame,formula_dev,"Portal 1-lantai 1-bentang (B=6000, H=3500)",2,4,3,13,ok,1.874639,0.266699,39.965516,6,6,12,05d949468601b33241438ed878ca38c56f45b74bdc627ba36fdc7a03108f9b9f
+S3_023,S3_frame,formula_dev,"Portal 1-lantai 2-bentang (B=4000, H=3500)",2,6,5,21,ok,1.227293,0.201603,21.116404,9,9,18,a75391fd783ca7af3e667c0225285780a6ed51f4b38df3919d63261c8dcc0b79
+S3_024,S3_frame,formula_dev,"Portal 2-lantai 1-bentang (B=4000, H=6400)",2,6,6,25,ok,6.741563,0.669556,211.028819,12,12,18,556eb916ab7aff666f868681171222f20b7fbf0f7b65cf15c18d85bf58e5b036
+S3_025,S3_frame,calibration,"Portal 1-lantai 1-bentang (B=3500, H=3000)",2,4,3,13,ok,1.65681,0.493157,44.775288,6,6,12,b71e7a86c9cdac5fdb74a78acb787cc61779ce0a446004e8f36a97b6c917b389
+S3_026,S3_frame,calibration,"Portal 1-lantai 1-bentang (B=6000, H=3000)",2,4,3,13,ok,1.568971,0.481775,42.554137,6,6,12,2797940917cbeea478c650eb2f27594071473aae4bb8b83a0c01a343090338b0
+S3_027,S3_frame,calibration,"Portal 1-lantai 2-bentang (B=5000, H=3500)",2,6,5,21,ok,2.582806,0.394653,80.261301,9,9,18,94e82a46a08d35350ab8d14b57988016194f3f431ca63f8d6a2fe919e759d2f8
+S3_028,S3_frame,calibration,"Portal 2-lantai 1-bentang (B=4000, H=5600)",2,6,6,25,ok,4.427221,0.5308,128.110921,12,12,18,fe47e4233050c9d1fe18e46ab773aad2c7ccc58b220c01b21ad8d9129aef9c3e
+S3_029,S3_frame,calibration,"Portal 1-lantai 1-bentang (B=6000, H=2800)",2,4,3,13,ok,1.492273,0.316273,31.889522,6,6,12,019d04bac48e9d0f2fd23ef73a2eeb3a3ff2bb3bf7d4427081360410ac7ec437
+S3_030,S3_frame,calibration,"Portal 1-lantai 1-bentang (B=5000, H=3500)",2,4,3,13,ok,3.230347,0.546578,88.010073,6,6,12,2187c902c27de592a8c774131d0d381a994a8e76c4d0c0aa2dadfe95d8117464
+S3_031,S3_frame,calibration,"Portal 1-lantai 2-bentang (B=4000, H=3500)",2,6,5,21,ok,1.227293,0.201603,21.116404,9,9,18,a75391fd783ca7af3e667c0225285780a6ed51f4b38df3919d63261c8dcc0b79
+S3_032,S3_frame,calibration,"Portal 2-lantai 1-bentang (B=5000, H=5600)",2,6,6,25,ok,4.798009,0.537727,137.848652,12,12,18,d178f9a9cd58306a6babe5589419b42d5efd4c57f18e9e566efe6cee0287268f
+S3_033,S3_frame,calibration,"Portal 1-lantai 1-bentang (B=5000, H=3500)",2,4,3,13,ok,4.682304,0.729121,160.882092,6,6,12,22885592e36e8c41d67cff95ac9bb4c27fc26b74b44a91a36b7e545a536278c3
+S3_034,S3_frame,calibration,"Portal 1-lantai 1-bentang (B=4000, H=2800)",2,4,3,13,ok,1.858591,0.465775,52.250736,6,6,12,535bcd78854fd35f4113a96371dd6850a6d8904f3f9a9dc20739938bb28d8bc7
+S3_035,S3_frame,calibration,"Portal 1-lantai 2-bentang (B=5000, H=3000)",2,6,5,21,ok,1.731487,0.351207,54.341615,9,9,18,784a7e11e6eb5727854410330b3af60e0339a52254c130d0bedd1b3d13e1e8bf
+S3_036,S3_frame,calibration,"Portal 2-lantai 1-bentang (B=5000, H=6400)",2,6,6,25,ok,7.255616,0.676285,225.636758,12,12,18,205b7c85bc60c9d2e1caff5d2609d616e7850bae44e23b6250c2b6081afc8f27
+S3_037,S3_frame,blind_val,"Portal 1-lantai 1-bentang (B=5000, H=3000)",2,4,3,13,ok,3.23576,0.599223,123.342846,6,6,12,840ad87a317e74736a8f69fb80c1dc2be9d9fd17123fb4004e4b9c5e292262fb
+S3_038,S3_frame,blind_val,"Portal 1-lantai 1-bentang (B=3500, H=3000)",2,4,3,13,ok,3.219497,0.606659,122.865513,6,6,12,91172e003a21a234e80d9cda8dfcc38e63674b548a4bdad3ef264e57443d35eb
+S3_039,S3_frame,blind_val,"Portal 1-lantai 2-bentang (B=5000, H=3000)",2,6,5,21,ok,1.731487,0.351207,54.341615,9,9,18,784a7e11e6eb5727854410330b3af60e0339a52254c130d0bedd1b3d13e1e8bf
+S3_040,S3_frame,blind_val,"Portal 2-lantai 1-bentang (B=4000, H=6400)",2,6,6,25,ok,4.992488,0.530887,123.02619,12,12,18,c8820fc23693b4a785dfeb7ba58f76713eb690cfb2978564c5bb65ede83a7fb5
+S3_041,S3_frame,blind_val,"Portal 1-lantai 1-bentang (B=5000, H=3500)",2,4,3,13,ok,1.691386,0.394218,32.20635,6,6,12,5fed3f4d5f887d37fef03df10ca7bebcd43a023ea82a37d146db0e911866cc62
+S3_042,S3_frame,blind_val,"Portal 1-lantai 1-bentang (B=4000, H=3000)",2,4,3,13,ok,0.960729,0.206785,15.796626,6,6,12,74ba836197e1cc53ddcb02d1a645a69eee2a73d0c4afe07a9a603a57bc3414e0
+S3_043,S3_frame,blind_val,"Portal 1-lantai 2-bentang (B=4000, H=3000)",2,6,5,21,ok,0.81689,0.178486,14.589662,9,9,18,8d2ce6d9f032c071dd88c07e4226b2e5ee4a0acfadc590df000f2efa7e607e23
+S3_044,S3_frame,blind_val,"Portal 2-lantai 1-bentang (B=5000, H=6400)",2,6,6,25,ok,6.724367,0.600281,191.732421,12,12,18,f5e8fe554c830bce5a501708b58d206383215ba53b47ed33bf19ca531aeecafe
+S3_045,S3_frame,blind_val,"Portal 1-lantai 1-bentang (B=4000, H=3000)",2,4,3,13,ok,1.203065,0.374701,30.261923,6,6,12,68a9f8fee4c6a267a3ba3f030b0c43294119e68365c936a441a808e91f468151
+S3_046,S3_frame,blind_val,"Portal 1-lantai 1-bentang (B=6000, H=2800)",2,4,3,13,ok,0.852566,0.220387,14.289464,6,6,12,01f18e253324a8859ab403684bc7fee5f631e478179898de00630300b1b1edff
+S3_047,S3_frame,blind_val,"Portal 1-lantai 2-bentang (B=5000, H=3500)",2,6,5,21,ok,1.292216,0.205954,22.140228,9,9,18,d47499bf61ea74d3af594f49c82a9d0562409fc7a30e8919a7f8edad6456202e
+S3_048,S3_frame,blind_val,"Portal 2-lantai 1-bentang (B=5000, H=5600)",2,6,6,25,ok,4.798009,0.537727,137.848652,12,12,18,d178f9a9cd58306a6babe5589419b42d5efd4c57f18e9e566efe6cee0287268f
+S3_049,S3_frame,final_test,"Portal 1-lantai 1-bentang (B=3500, H=2800)",2,4,3,13,ok,2.018552,0.436875,56.262547,6,6,12,d0dbdf1d8c7075b8d89b16dee5fc76a162da4c35b56b1468c8789d3523fbddb5
+S3_050,S3_frame,final_test,"Portal 1-lantai 1-bentang (B=3500, H=3000)",2,4,3,13,ok,2.143921,0.63584,73.044109,6,6,12,76dcac637128e1b03c6ea60e74aa429d5a607f19a06011f6cc7f0bef40e7e4f5
+S3_051,S3_frame,final_test,"Portal 1-lantai 2-bentang (B=3500, H=3000)",2,6,5,21,ok,0.791698,0.17621,14.17626,9,9,18,354b082dc8189878ab3bf75ccbee76a9463771d5900e80f734d21936bbde3ca9
+S3_052,S3_frame,final_test,"Portal 2-lantai 1-bentang (B=5000, H=5600)",2,6,6,25,ok,3.824148,0.478225,94.21318,12,12,18,06b789d57a6d62ccb1ff865bb7471717f74a2398f7b673004e96b20c69cb64e9
+S3_053,S3_frame,final_test,"Portal 1-lantai 1-bentang (B=6000, H=4000)",2,4,3,13,ok,4.866746,0.635569,137.913213,6,6,12,b34c0541c971d53e106b9480f9aa17af07f8c3eb65c3c935febbb0d8127cfce7
+S3_054,S3_frame,final_test,"Portal 1-lantai 1-bentang (B=6000, H=4000)",2,4,3,13,ok,2.661366,0.25945,29.601229,6,6,12,e1b9a2a788dd2c80f86fc85839a1ba967517e3c5c08a7858925c8a7a78f17015
+S3_055,S3_frame,final_test,"Portal 1-lantai 2-bentang (B=4000, H=3000)",2,6,5,21,ok,0.81689,0.178486,14.589662,9,9,18,8d2ce6d9f032c071dd88c07e4226b2e5ee4a0acfadc590df000f2efa7e607e23
+S3_056,S3_frame,final_test,"Portal 2-lantai 1-bentang (B=4000, H=5600)",2,6,6,25,ok,3.534487,0.473113,88.145391,12,12,18,0b0fbc0dea3a152b637148d871acd2f8632ee28ff246fb4c7b29e69596bdf1db
+S3_057,S3_frame,final_test,"Portal 1-lantai 1-bentang (B=6000, H=2800)",2,4,3,13,ok,1.620573,0.521893,46.271973,6,6,12,fab44a41edd505ac6dc70d105b6208ad0b20ed66bdc05df02841e18508c9ab99
+S3_058,S3_frame,final_test,"Portal 1-lantai 1-bentang (B=5000, H=4000)",2,4,3,13,ok,5.798601,0.601308,153.273908,6,6,12,20e9fd7b06ff9045c1737cfc13a0cc24382b977b0683e4f814d09eaa266bbe75
+S3_059,S3_frame,final_test,"Portal 1-lantai 2-bentang (B=4000, H=3000)",2,6,5,21,ok,0.81689,0.178486,14.589662,9,9,18,8d2ce6d9f032c071dd88c07e4226b2e5ee4a0acfadc590df000f2efa7e607e23
+S3_060,S3_frame,final_test,"Portal 2-lantai 1-bentang (B=4000, H=5600)",2,6,6,25,ok,4.776596,0.597014,150.472814,12,12,18,4865f79fe9b6850f0b46602f94a1bb9d55dce3c39530e24dbee1d6746098ef9c
+S4_001,S4_braced_frame,formula_dev,"Portal berpengaku diagonal tunggal (B=5000, H=3500)",2,4,4,17,ok,1.344268,0.234841,55.962035,6,6,12,a1cefff9cc64c158813e582fd2b366b6afbe83e42911e58513bc40dfe63cc554
+S4_002,S4_braced_frame,formula_dev,"Portal berpengaku X-brace (B=5000, H=3500)",2,4,5,21,ok,1.06964,0.173823,43.468418,6,6,12,4cb01e1bb8fbd57638fafa00be0513128059de4c4d3e94d9659648008409fedb
+S4_003,S4_braced_frame,formula_dev,"Portal berpengaku Chevron/Inverted-V (B=5000, H=3000)",2,5,6,25,ok,0.714697,0.15537,36.241322,9,9,15,cf5dfbc56ceb0be2f2607a050b88d8a3a8cd788c2ff1e1ae0928462f1304e208
+S4_004,S4_braced_frame,formula_dev,"Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",2,6,10,41,ok,1.057944,0.168304,45.514762,12,12,18,e351165f978c7000102d72bb5906452131f93695c4c1433746fa5f0b13eca4ea
+S4_005,S4_braced_frame,formula_dev,"Portal berpengaku diagonal tunggal (B=4000, H=2800)",2,4,4,17,ok,0.527235,0.156744,12.34314,6,6,12,a7631051b2d58477d8c74de6d5974b27b47366c5a0016c813da9851e2cc46261
+S4_006,S4_braced_frame,formula_dev,"Portal berpengaku X-brace (B=3500, H=3500)",2,4,5,21,ok,0.841929,0.146513,25.789747,6,6,12,5bd59528b728446afa6063b4957d044595fad097dccb74e9b7312ae1065b9531
+S4_007,S4_braced_frame,formula_dev,"Portal berpengaku Chevron/Inverted-V (B=5000, H=3500)",2,5,6,25,ok,1.320683,0.232142,63.195051,9,9,15,d24107996f3a179017ddf5e9aa4a684728009d0dd681e228c79c03e7b382a360
+S4_008,S4_braced_frame,formula_dev,"Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",2,6,10,41,ok,2.424692,0.332893,122.494175,12,12,18,f9ffd9ca774a1a03d03a74614b52e5dbc97cef244b2be355f282ef4083c80c98
+S4_009,S4_braced_frame,formula_dev,"Portal berpengaku diagonal tunggal (B=3500, H=2800)",2,4,4,17,ok,0.863168,0.238342,27.509274,6,6,12,b2509a84e5678d2473fa11c2919d895c6d922e0269faefa66cc9cc98f8eabb0f
+S4_010,S4_braced_frame,formula_dev,"Portal berpengaku X-brace (B=3500, H=3500)",2,4,5,21,ok,0.841929,0.146513,25.789747,6,6,12,5bd59528b728446afa6063b4957d044595fad097dccb74e9b7312ae1065b9531
+S4_011,S4_braced_frame,formula_dev,"Portal berpengaku Chevron/Inverted-V (B=4000, H=3000)",2,5,6,25,ok,0.720051,0.194074,27.560779,9,9,15,de28a8a7a2c03c389aa9f8e8763bbaaaed7d0ecc4b6ea84bd10b56b1bb47e869
+S4_012,S4_braced_frame,formula_dev,"Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",2,6,10,41,ok,1.808917,0.261105,93.119572,12,12,18,d3e70a110deb86304977ac9c1c014e08b155bcbce31df009d5478b9bcda3acda
+S4_013,S4_braced_frame,formula_dev,"Portal berpengaku diagonal tunggal (B=3500, H=3000)",2,4,4,17,ok,1.076097,0.255301,44.72592,6,6,12,401a87f70eacef188414f2389ce7942fa6f738b002b85b36e50d807673052cf2
+S4_014,S4_braced_frame,formula_dev,"Portal berpengaku X-brace (B=5000, H=2800)",2,4,5,21,ok,0.36597,0.101756,11.98093,6,6,12,d76cf7a12b1bdc1fbfc28b06977c6914a1f75cb9e44473190adc3e5fd9ded5d3
+S4_015,S4_braced_frame,formula_dev,"Portal berpengaku Chevron/Inverted-V (B=5000, H=3500)",2,5,6,25,ok,0.728342,0.143866,29.206054,9,9,15,681ac1edfcb0780437512a85608785ce4deea13d98cf4ed0f5236b0bd364cdb2
+S4_016,S4_braced_frame,formula_dev,"Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",2,6,10,41,ok,1.195171,0.181444,48.605255,12,12,18,cda6e19e524f997d0ef0570e6513e78c1caac04cf34039712829b0cbe54edc53
+S4_017,S4_braced_frame,formula_dev,"Portal berpengaku diagonal tunggal (B=3500, H=2800)",2,4,4,17,ok,0.960951,0.259209,40.001533,6,6,12,ae3f5bd4e323063dc7c4373e029bf5965630b4ec3d04f0d616e1ed4accdbaad5
+S4_018,S4_braced_frame,formula_dev,"Portal berpengaku X-brace (B=5000, H=3000)",2,4,5,21,ok,0.390933,0.095579,12.733228,6,6,12,9dea073ea1580d17e502962af2a793406c3c63d19d7d76fcc4a4940b125e22ab
+S4_019,S4_braced_frame,formula_dev,"Portal berpengaku Chevron/Inverted-V (B=5000, H=3000)",2,5,6,25,ok,0.987813,0.226221,50.714752,9,9,15,ed8ef2d792ed2f3813dc8a028354a64552700d71596f451079c9adfcb766c31e
+S4_020,S4_braced_frame,formula_dev,"Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",2,6,10,41,ok,1.638058,0.23383,65.779567,12,12,18,7242d50b5cf76b49eb8293044c69f175b319088fb4ddc0afe8ad5821b5650d70
+S4_021,S4_braced_frame,formula_dev,"Portal berpengaku diagonal tunggal (B=3500, H=3500)",2,4,4,17,ok,1.157369,0.212859,36.796155,6,6,12,07aac0fc0e7c35925e537e2a5938c68157c5108334e11b466e528293cdfdeb52
+S4_022,S4_braced_frame,formula_dev,"Portal berpengaku X-brace (B=4000, H=3500)",2,4,5,21,ok,0.748995,0.125765,30.018756,6,6,12,2892c674142bfcad57f6b5cb38ed8dfd0ee10b7fcfa0ec0ffe4be2b821602048
+S4_023,S4_braced_frame,formula_dev,"Portal berpengaku Chevron/Inverted-V (B=5000, H=3000)",2,5,6,25,ok,0.723515,0.178758,30.100634,9,9,15,d8edaaca1482c69a05aacd58a9ab2f5f7291c6b697130321a7302e803c380c7d
+S4_024,S4_braced_frame,formula_dev,"Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",2,6,10,41,ok,1.310479,0.196263,53.005329,12,12,18,eb908720412073b9e477d21a588fb8fa4fd9dc6b4aa2405af4df6d18d15e773d
+S4_025,S4_braced_frame,calibration,"Portal berpengaku diagonal tunggal (B=4000, H=3000)",2,4,4,17,ok,0.649136,0.167698,14.908635,6,6,12,15e19d935762bd2edaf02a38e21e75d330d66012f78ed62d781e334d805f89a2
+S4_026,S4_braced_frame,calibration,"Portal berpengaku X-brace (B=4000, H=3000)",2,4,5,21,ok,0.413174,0.10826,9.549728,6,6,12,27968bf78bbceb0a4c4481ce48140f11d60de75ccea8408a2398d87150edff3a
+S4_027,S4_braced_frame,calibration,"Portal berpengaku Chevron/Inverted-V (B=4000, H=3000)",2,5,6,25,ok,0.901559,0.21122,41.838749,9,9,15,af0220d959ae18ad82b4c7702543ea45cbaffd6b1732280a0d4d93a9dd8c4e67
+S4_028,S4_braced_frame,calibration,"Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",2,6,10,41,ok,1.903281,0.270818,99.162792,12,12,18,4947f0ccf1dd66a5714bec4119775c18acb1e367f0c91a946121137f7b431eb8
+S4_029,S4_braced_frame,calibration,"Portal berpengaku diagonal tunggal (B=4000, H=2800)",2,4,4,17,ok,0.657227,0.188537,14.92008,6,6,12,b3d35257bba13f5e7887bfaab78d2f91c95dddc4f85091365906fae347963456
+S4_030,S4_braced_frame,calibration,"Portal berpengaku X-brace (B=5000, H=3500)",2,4,5,21,ok,0.860848,0.140113,35.0512,6,6,12,0eb32bf89b5a98ee0cd723fe4465f762c62e8d6b2de0bf51992082af64d45639
+S4_031,S4_braced_frame,calibration,"Portal berpengaku Chevron/Inverted-V (B=5000, H=3000)",2,5,6,25,ok,0.987813,0.226221,50.714752,9,9,15,ed8ef2d792ed2f3813dc8a028354a64552700d71596f451079c9adfcb766c31e
+S4_032,S4_braced_frame,calibration,"Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",2,6,10,41,ok,1.195171,0.181444,48.605255,12,12,18,cda6e19e524f997d0ef0570e6513e78c1caac04cf34039712829b0cbe54edc53
+S4_033,S4_braced_frame,calibration,"Portal berpengaku diagonal tunggal (B=3500, H=3000)",2,4,4,17,ok,0.539831,0.145622,12.692917,6,6,12,07c296e5a3b7c5844ffe84da9df2ab4586d6c58d36be74dce01746bae8a619eb
+S4_034,S4_braced_frame,calibration,"Portal berpengaku X-brace (B=5000, H=2800)",2,4,5,21,ok,0.493268,0.133122,15.886599,6,6,12,73a0d54890e6d2c5aafc24ed25123f77d7b4801ba3500636917dec023b72a484
+S4_035,S4_braced_frame,calibration,"Portal berpengaku Chevron/Inverted-V (B=4000, H=3500)",2,5,6,25,ok,0.834244,0.165435,29.09299,9,9,15,7395907811b2d11d092d6a3e6502c294cd61409cd8761007b8af53ba3803bca3
+S4_036,S4_braced_frame,calibration,"Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",2,6,10,41,ok,1.057944,0.168304,45.514762,12,12,18,e351165f978c7000102d72bb5906452131f93695c4c1433746fa5f0b13eca4ea
+S4_037,S4_braced_frame,blind_val,"Portal berpengaku diagonal tunggal (B=5000, H=3500)",2,4,4,17,ok,1.670787,0.285477,68.968825,6,6,12,c980b514fb1f6300fb9563f008e0618c876d33bed9ad797a00c5206eea11ad12
+S4_038,S4_braced_frame,blind_val,"Portal berpengaku X-brace (B=4000, H=2800)",2,4,5,21,ok,0.63895,0.161274,26.065326,6,6,12,cbcf0e48a50e921e38cbe419b882f3893045325cf5a4b96b0210de4b3821d0cf
+S4_039,S4_braced_frame,blind_val,"Portal berpengaku Chevron/Inverted-V (B=4000, H=3500)",2,5,6,25,ok,1.07125,0.188996,47.264489,9,9,15,b32287190eab923742f8ec3186971f90ad2f0b6ce2b854aebfaedec1f4700536
+S4_040,S4_braced_frame,blind_val,"Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",2,6,10,41,ok,1.73012,0.247468,68.201099,12,12,18,876bc613853f249161b08fb938eb89c097f9cd7fc68013c3fcd54d7a9730c5c4
+S4_041,S4_braced_frame,blind_val,"Portal berpengaku diagonal tunggal (B=4000, H=3000)",2,4,4,17,ok,1.483443,0.3396,60.957993,6,6,12,16bfc2da569b864910afaf96288b68ae7d13ac0635244848d2526db362880ffc
+S4_042,S4_braced_frame,blind_val,"Portal berpengaku X-brace (B=4000, H=3500)",2,4,5,21,ok,1.093874,0.182242,43.950538,6,6,12,d61b66ff01ebf3eecd83ecc230b6b46db7730fe315a361c9cfed3765e635b58e
+S4_043,S4_braced_frame,blind_val,"Portal berpengaku Chevron/Inverted-V (B=4000, H=3000)",2,5,6,25,ok,0.602948,0.159769,23.035225,9,9,15,b6c73a70fad7013d55e8aca0d5aaca7dfb7bcd89cdf2e4a28f5c409b3a12c3e2
+S4_044,S4_braced_frame,blind_val,"Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",2,6,10,41,ok,1.903281,0.270818,99.162792,12,12,18,4947f0ccf1dd66a5714bec4119775c18acb1e367f0c91a946121137f7b431eb8
+S4_045,S4_braced_frame,blind_val,"Portal berpengaku diagonal tunggal (B=5000, H=3500)",2,4,4,17,ok,0.744528,0.145782,17.237733,6,6,12,fd304eefb5b490d18d087740dd10769108dd6ccf932b40dd73db5f31e98fc659
+S4_046,S4_braced_frame,blind_val,"Portal berpengaku X-brace (B=3500, H=2800)",2,4,5,21,ok,0.3514,0.095491,11.164819,6,6,12,768b33e63ab284a083732f8176aa1336d68ec3838ab566f7398d41be0280b523
+S4_047,S4_braced_frame,blind_val,"Portal berpengaku Chevron/Inverted-V (B=4000, H=3000)",2,5,6,25,ok,1.076633,0.257866,50.015846,9,9,15,dddb5cfc44d3bae614ccc7065e1ee4297f998a5404c24eec795233d86a3fbec6
+S4_048,S4_braced_frame,blind_val,"Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",2,6,10,41,ok,1.359421,0.203341,56.325134,12,12,18,8e27301f94f8569ad4f04588074edf8b20a22d339cc18efdb21125b7799ca93c
+S4_049,S4_braced_frame,final_test,"Portal berpengaku diagonal tunggal (B=5000, H=2800)",2,4,4,17,ok,0.513523,0.149602,12.126773,6,6,12,427793b5ca6a67705d78c3a1268aa60d9a6099d7ac4583f4577fa6a9c7f9a1bc
+S4_050,S4_braced_frame,final_test,"Portal berpengaku X-brace (B=4000, H=2800)",2,4,5,21,ok,0.777769,0.196303,31.672454,6,6,12,059a7f956b08e8b0cb83858c65b96a6490035f2bf22d8649d58f9f7702e61131
+S4_051,S4_braced_frame,final_test,"Portal berpengaku Chevron/Inverted-V (B=5000, H=3500)",2,5,6,25,ok,0.81953,0.17034,38.828058,9,9,15,6cdabadfabe57deb4ad01d6c0ead42dd2e7f585f80548d985e7a05154cf9ce3f
+S4_052,S4_braced_frame,final_test,"Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",2,6,10,41,ok,2.424692,0.332893,122.494175,12,12,18,f9ffd9ca774a1a03d03a74614b52e5dbc97cef244b2be355f282ef4083c80c98
+S4_053,S4_braced_frame,final_test,"Portal berpengaku diagonal tunggal (B=3500, H=3000)",2,4,4,17,ok,0.649329,0.169515,14.860451,6,6,12,386baf631de61421483c884450cb3e36a4d50a1e469269770d092b99fbcdc079
+S4_054,S4_braced_frame,final_test,"Portal berpengaku X-brace (B=5000, H=3500)",2,4,5,21,ok,0.724387,0.117923,29.535719,6,6,12,e575cec67b882267631c4c1d4e57fa612506f8b0dcca89377f8f5fd7591e25ba
+S4_055,S4_braced_frame,final_test,"Portal berpengaku Chevron/Inverted-V (B=5000, H=3000)",2,5,6,25,ok,0.585582,0.144799,24.882986,9,9,15,2875fd62f9caae5eac46fcb22c4a3041a23c75239f85a165ede176463d959bc0
+S4_056,S4_braced_frame,final_test,"Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",2,6,10,41,ok,1.808917,0.261105,93.119572,12,12,18,d3e70a110deb86304977ac9c1c014e08b155bcbce31df009d5478b9bcda3acda
+S4_057,S4_braced_frame,final_test,"Portal berpengaku diagonal tunggal (B=3500, H=3500)",2,4,4,17,ok,1.493652,0.266903,46.754993,6,6,12,9c88f90c74bea68bd190e94adffdb4711ca19ba7fe89b8cfbbf90848d1ffb61f
+S4_058,S4_braced_frame,final_test,"Portal berpengaku X-brace (B=5000, H=3500)",2,4,5,21,ok,0.860848,0.140113,35.0512,6,6,12,0eb32bf89b5a98ee0cd723fe4465f762c62e8d6b2de0bf51992082af64d45639
+S4_059,S4_braced_frame,final_test,"Portal berpengaku Chevron/Inverted-V (B=4000, H=3000)",2,5,6,25,ok,0.46302,0.126235,17.542442,9,9,15,395686a471241f5db9410baef83a9a557bed98f8c832fe485567d12ad6354db2
+S4_060,S4_braced_frame,final_test,"Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",2,6,10,41,ok,1.638058,0.23383,65.779567,12,12,18,7242d50b5cf76b49eb8293044c69f175b319088fb4ddc0afe8ad5821b5650d70
+S5_001,S5_space_truss,formula_dev,"Rangka ruang tripod 3D (R=1500, H=1200)",3,4,3,13,ok,0.211714,0.117391,5.39003,3,3,12,99e11fa18dc17464bb92a527ffc46a58315992c63e5acf6d0ae46e393d9ced72
+S5_002,S5_space_truss,formula_dev,"Rangka ruang piramida 4-kaki (B=2000, H=2000)",3,5,4,17,ok,0.428661,0.130129,24.035618,3,3,15,7e3d30a62589025723222e3af94216e763b03b21f7a062d695bc9dffb18056fc
+S5_003,S5_space_truss,formula_dev,"Modul rangka ruang 3D 8-simpul (B=1500, H=1500)",3,8,14,57,ok,1.737118,0.157792,92.308741,12,12,24,da53459f4fefeb8fadf3168c4860438e31416d76d8f91c033715ac9dbd3f57e8
+S5_004,S5_space_truss,formula_dev,"Rangka ruang tripod 3D (R=1500, H=2000)",3,4,3,13,ok,0.431856,0.087963,10.534216,3,3,12,5a1ce733c957c57412933d67b846633fbcf118bf5b723e30a74d38f9d3147cc6
+S5_005,S5_space_truss,formula_dev,"Rangka ruang piramida 4-kaki (B=2500, H=2000)",3,5,4,17,ok,0.538859,0.14681,31.697576,3,3,15,fc9c591a9aee9445577b69369c8af94efd2d8355855838b787013a4d7e066ad9
+S5_006,S5_space_truss,formula_dev,"Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",3,8,14,57,ok,0.504843,0.097071,20.183264,12,12,24,937f27b3553dc984b0e4527fa708fa3707cce20e768c1bfccfd5eea36b54f150
+S5_007,S5_space_truss,formula_dev,"Rangka ruang tripod 3D (R=1000, H=2000)",3,4,3,13,ok,0.416667,0.124226,15.372967,3,3,12,4625ea1fa2170d1929c161d6031353ab0866b24a030e7d482d017c607826b895
+S5_008,S5_space_truss,formula_dev,"Rangka ruang piramida 4-kaki (B=3000, H=2500)",3,5,4,17,ok,0.692235,0.101094,30.507572,3,3,15,7663884113da23a788c4811337419b198f4dfdd8948955770265d5f60a83183f
+S5_009,S5_space_truss,formula_dev,"Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",3,8,14,57,ok,1.19562,0.148451,70.492765,12,12,24,7b0236a09470dfe41224ea99dd89075556806d378a4dcb1a8ef8b746011673b1
+S5_010,S5_space_truss,formula_dev,"Rangka ruang tripod 3D (R=2000, H=2000)",3,4,3,13,ok,0.77746,0.157135,31.112698,3,3,12,75e15d92ed3b33d03c188ba1899269e5cd8502c410e7a4605ba7bd133252ea19
+S5_011,S5_space_truss,formula_dev,"Rangka ruang piramida 4-kaki (B=3000, H=2000)",3,5,4,17,ok,0.380971,0.118441,17.403012,3,3,15,321fbb5d865d8fee001f1991b46575abbf055d219b05bd4e769267a12b45a5e5
+S5_012,S5_space_truss,formula_dev,"Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",3,8,14,57,ok,1.001515,0.108451,37.680265,12,12,24,6557c478fd7f6f5174ec940a583b1c1f316cbdb3f9bd11de8b867369bab4b35a
+S5_013,S5_space_truss,formula_dev,"Rangka ruang tripod 3D (R=1500, H=1600)",3,4,3,13,ok,0.352176,0.092397,8.780278,3,3,12,e03c70a6279de2ed8faedcc52d9f2dc670747d056cb78c9dd4ad1be164ae7b17
+S5_014,S5_space_truss,formula_dev,"Rangka ruang piramida 4-kaki (B=3000, H=1500)",3,5,4,17,ok,0.594629,0.16238,36.291877,3,3,15,20fe2eb951ab7c68da70511133b2594b1164a068568a47fbf4fbee308b2321b4
+S5_015,S5_space_truss,formula_dev,"Modul rangka ruang 3D 8-simpul (B=2000, H=2000)",3,8,14,57,ok,1.021684,0.117792,35.641772,12,12,24,21ac824cf9cf6e6d7146b36eb463e06ccf2680def433212ba589cc0f47653ba7
+S5_016,S5_space_truss,formula_dev,"Rangka ruang tripod 3D (R=1500, H=2500)",3,4,3,13,ok,0.352449,0.103661,14.097946,3,3,12,b2165c3bf0c76fa58980318956164f2205e8ef01c6d63b91614eca41d66149be
+S5_017,S5_space_truss,formula_dev,"Rangka ruang piramida 4-kaki (B=2500, H=2500)",3,5,4,17,ok,0.965464,0.122474,38.034069,3,3,15,2d0b4c70bb0b35c48bd83cdb4dfefb5fa4dd19ad812ede910677fe77cab2de58
+S5_018,S5_space_truss,formula_dev,"Modul rangka ruang 3D 8-simpul (B=2000, H=2000)",3,8,14,57,ok,1.177015,0.102675,42.126557,12,12,24,ccc84a73000a4188fbc83f79806852b08c3e53b3b2e4be4a87f73f6b224948e6
+S5_019,S5_space_truss,formula_dev,"Rangka ruang tripod 3D (R=1000, H=1600)",3,4,3,13,ok,0.312954,0.107443,6.585803,3,3,12,ab392c69ccc7b2ffe43a2f3cf1e7bade945b7c74c124d7f8c089da327aa23d3b
+S5_020,S5_space_truss,formula_dev,"Rangka ruang piramida 4-kaki (B=2500, H=1500)",3,5,4,17,ok,0.324237,0.11592,14.829096,3,3,15,e1d4b34c5221a0a5668ac8c52f0f44db51b61d5be9529ae6edc57c844eab158c
+S5_021,S5_space_truss,formula_dev,"Modul rangka ruang 3D 8-simpul (B=1500, H=1500)",3,8,14,57,ok,1.103451,0.102675,39.493647,12,12,24,91a7e0aec331a8ac233376fea0503cc50005b4e27ec455307f2d8e460621656d
+S5_022,S5_space_truss,formula_dev,"Rangka ruang tripod 3D (R=1000, H=2500)",3,4,3,13,ok,0.264238,0.125654,8.735747,3,3,12,61e676ff5e428c5d5ef7b0509e2a421ad3143b576ea19e49b399cc1c049c2f4a
+S5_023,S5_space_truss,formula_dev,"Rangka ruang piramida 4-kaki (B=2500, H=1500)",3,5,4,17,ok,0.827184,0.121716,38.163114,3,3,15,c37b44b4f24a37efd4f1df00a9b4d964bc07846f17d9e783dc7603dbabd3fa39
+S5_024,S5_space_truss,formula_dev,"Modul rangka ruang 3D 8-simpul (B=1500, H=2000)",3,8,14,57,ok,2.419424,0.130227,74.382435,12,12,24,eaa470fa2e7122c8fc86ead63f16e1a3f412d97078e2c72fcf1c479255f62c56
+S5_025,S5_space_truss,calibration,"Rangka ruang tripod 3D (R=1000, H=1200)",3,4,3,13,ok,0.091726,0.078102,1.310169,3,3,12,f60d53989d30c56b2d99b1e1fce97aab4f55be99db9b1b99bd994ca1c93c23a1
+S5_026,S5_space_truss,calibration,"Rangka ruang piramida 4-kaki (B=2500, H=2500)",3,5,4,17,ok,0.236707,0.076547,6.315091,3,3,15,af90fa1db5746b3d844187685b92dde8e1f332d74475780d64fccb779db45c53
+S5_027,S5_space_truss,calibration,"Modul rangka ruang 3D 8-simpul (B=1500, H=1500)",3,8,14,57,ok,0.926463,0.157792,49.231329,12,12,24,02c639e7efc2b5f831cf3da488d4ec457fba2da55e93be0b8e306197992a66e8
+S5_028,S5_space_truss,calibration,"Rangka ruang tripod 3D (R=2000, H=2500)",3,4,3,13,ok,0.32816,0.042687,4.922402,3,3,12,f137be1d43ded2e58f264b94e42956e94816f2e5ad57f51eb891ea2a71bdce4e
+S5_029,S5_space_truss,calibration,"Rangka ruang piramida 4-kaki (B=3000, H=2000)",3,5,4,17,ok,0.924818,0.112367,42.001708,3,3,15,d53f43c5b41ceb0578fc8330280238c0793ae5c5b502a2458f926982b89332a9
+S5_030,S5_space_truss,calibration,"Modul rangka ruang 3D 8-simpul (B=1500, H=2000)",3,8,14,57,ok,1.169147,0.170227,53.086307,12,12,24,6b52f3722b063caff12c524bc502743f907c3a27412d5a74d890b6f03f16af4c
+S5_031,S5_space_truss,calibration,"Rangka ruang tripod 3D (R=1000, H=2500)",3,4,3,13,ok,0.451117,0.065819,3.944914,3,3,12,9c86dcb4ca09f53ef3e0b8fd5745ed4afd3f98077d82a8f29d0045b6c00944b6
+S5_032,S5_space_truss,calibration,"Rangka ruang piramida 4-kaki (B=2500, H=2500)",3,5,4,17,ok,1.004674,0.130129,56.33348,3,3,15,d8a8e5842e00ce67dd0954d6c630015442a61eb37ef1e1652021a0d3c0c3d347
+S5_033,S5_space_truss,calibration,"Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",3,8,14,57,ok,0.946581,0.097071,37.843619,12,12,24,dff3c0fe7fa5ba627ca6c305a3598550002332aec12de2953dc127a2843949d8
+S5_034,S5_space_truss,calibration,"Rangka ruang tripod 3D (R=1500, H=2500)",3,4,3,13,ok,0.278162,0.082065,3.206304,3,3,12,80d631aaa7a17f88b8c4c077609bfe85cdbb8764a6989976752af74e49d72ae8
+S5_035,S5_space_truss,calibration,"Rangka ruang piramida 4-kaki (B=2500, H=1500)",3,5,4,17,ok,0.648473,0.11592,29.658191,3,3,15,97831010b11761d419c085766d434dddf2557aebe3f9cb4a5a9e8be114a1a30f
+S5_036,S5_space_truss,calibration,"Modul rangka ruang 3D 8-simpul (B=2000, H=2000)",3,8,14,57,ok,0.784676,0.102675,28.084371,12,12,24,a8a492a8ad7c955d5c24310b946cb90255ae6bde4a2dee4773cb537fb169b8c7
+S5_037,S5_space_truss,blind_val,"Rangka ruang tripod 3D (R=1500, H=1200)",3,4,3,13,ok,0.332334,0.17075,13.388933,3,3,12,5e2ef7733bbe45e24ce4f6284d9a317998dcca663d8dcc3af29c8cc5efc17bde
+S5_038,S5_space_truss,blind_val,"Rangka ruang piramida 4-kaki (B=3000, H=2000)",3,5,4,17,ok,0.518223,0.124515,23.777663,3,3,15,bd806fb8d174b6378c3fbdda59899e20e414286a63e600ca0092b404a24a23bb
+S5_039,S5_space_truss,blind_val,"Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",3,8,14,57,ok,1.19562,0.148451,70.492765,12,12,24,7b0236a09470dfe41224ea99dd89075556806d378a4dcb1a8ef8b746011673b1
+S5_040,S5_space_truss,blind_val,"Rangka ruang tripod 3D (R=1500, H=1200)",3,4,3,13,ok,0.437547,0.142292,17.501873,3,3,12,3ed3c016f313c65f662222490ca907752f70a65f754c12c4e6782fdcaaf52900
+S5_041,S5_space_truss,blind_val,"Rangka ruang piramida 4-kaki (B=2000, H=2500)",3,5,4,17,ok,1.16712,0.149,54.223847,3,3,15,e609092a3988585a6d71ce8f7b3b823de72c2c915fb7867607e8a25ae7b191a5
+S5_042,S5_space_truss,blind_val,"Modul rangka ruang 3D 8-simpul (B=2000, H=2000)",3,8,14,57,ok,2.316157,0.157792,123.078322,12,12,24,8945dd80d80997d63c5586380513aa130085d6a2531a01068f1ef28a514c4376
+S5_043,S5_space_truss,blind_val,"Rangka ruang tripod 3D (R=2000, H=1200)",3,4,3,13,ok,0.368084,0.120938,9.244434,3,3,12,1f4a918fcc91bc0f09b25c0fbab590890101989deda2017c6e62878605151928
+S5_044,S5_space_truss,blind_val,"Rangka ruang piramida 4-kaki (B=3000, H=2000)",3,5,4,17,ok,0.495499,0.151848,30.030415,3,3,15,9732f907dfb81be26278355f8b2560dfd88b2dbf9e3373d57dab8ef5c6ed90e8
+S5_045,S5_space_truss,blind_val,"Modul rangka ruang 3D 8-simpul (B=2000, H=2000)",3,8,14,57,ok,2.316157,0.157792,123.078322,12,12,24,8945dd80d80997d63c5586380513aa130085d6a2531a01068f1ef28a514c4376
+S5_046,S5_space_truss,blind_val,"Rangka ruang tripod 3D (R=1000, H=2000)",3,4,3,13,ok,0.149144,0.086958,3.144471,3,3,12,86ef0ce8da59d5f6aa0bffaf0eb42b5036dbe1dfe162b0bd60d3c3c37307ee0f
+S5_047,S5_space_truss,blind_val,"Rangka ruang piramida 4-kaki (B=3000, H=1500)",3,5,4,17,ok,1.486573,0.16238,90.729693,3,3,15,008dd038b8e4f4de9069fd32d5fdabd4b8fea931bcb2c364824fe63c42fbd868
+S5_048,S5_space_truss,blind_val,"Modul rangka ruang 3D 8-simpul (B=2000, H=2000)",3,8,14,57,ok,2.316157,0.157792,123.078322,12,12,24,8945dd80d80997d63c5586380513aa130085d6a2531a01068f1ef28a514c4376
+S5_049,S5_space_truss,final_test,"Rangka ruang tripod 3D (R=2000, H=2000)",3,4,3,13,ok,0.188562,0.04714,2.828427,3,3,12,bbab669425353e46fcca41dc1d9851366024b24b4891f0405f05c5a15a11f0a2
+S5_050,S5_space_truss,final_test,"Rangka ruang piramida 4-kaki (B=2000, H=1500)",3,5,4,17,ok,0.330582,0.077308,9.856799,3,3,15,91bc30dcad480040a8601f708337c97a68190874a58208e7cbf439448cf61286
+S5_051,S5_space_truss,final_test,"Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",3,8,14,57,ok,0.667677,0.108451,25.120177,12,12,24,dd9c36ad19b1e8ddaa80c621b0b14486c83d750500e937521a052e0e1f218f8b
+S5_052,S5_space_truss,final_test,"Rangka ruang tripod 3D (R=1000, H=2500)",3,4,3,13,ok,0.15617,0.035901,2.342547,3,3,12,80cbbee9750921ed93430e9e45f47871af95e786b314ade605dbea14e5716336
+S5_053,S5_space_truss,final_test,"Rangka ruang piramida 4-kaki (B=2000, H=1500)",3,5,4,17,ok,0.791709,0.141732,47.230497,3,3,15,0ac421a02a0cfe7e7b2f3a5575cb3babdb26d65ea1ac3f699899292b8ff5d9cd
+S5_054,S5_space_truss,final_test,"Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",3,8,14,57,ok,1.19562,0.148451,70.492765,12,12,24,7b0236a09470dfe41224ea99dd89075556806d378a4dcb1a8ef8b746011673b1
+S5_055,S5_space_truss,final_test,"Rangka ruang tripod 3D (R=2000, H=2500)",3,4,3,13,ok,0.175019,0.042687,2.625281,3,3,12,209ff04afafcbab304d8203f04eee7a6440845ce8dcf18a4ecba726fdc3bccd6
+S5_056,S5_space_truss,final_test,"Rangka ruang piramida 4-kaki (B=2500, H=1500)",3,5,4,17,ok,0.324237,0.11592,14.829096,3,3,15,e1d4b34c5221a0a5668ac8c52f0f44db51b61d5be9529ae6edc57c844eab158c
+S5_057,S5_space_truss,final_test,"Modul rangka ruang 3D 8-simpul (B=1500, H=2000)",3,8,14,57,ok,2.922867,0.170227,132.715769,12,12,24,f322e9038078f39e7c424f944207089dce156e2d1d0de4a8ff112bf59de90bf7
+S5_058,S5_space_truss,final_test,"Rangka ruang tripod 3D (R=2000, H=1600)",3,4,3,13,ok,0.167772,0.067589,2.54871,3,3,12,f1f8cb531cdaafe063d52f3c22cb4887733e90a4959095386e4b22b3b33e2433
+S5_059,S5_space_truss,final_test,"Rangka ruang piramida 4-kaki (B=2000, H=2000)",3,5,4,17,ok,0.669509,0.099511,17.510024,3,3,15,5dce017ab5b600b2232c9a1f936faef7b88bf46c027ea5f4caf4042fdcd03825
+S5_060,S5_space_truss,final_test,"Modul rangka ruang 3D 8-simpul (B=1500, H=2000)",3,8,14,57,ok,1.935539,0.130227,59.505948,12,12,24,7e7fe6581ce622bae3441afee17250fe058958877e21c368fe0c0c67dd18e234

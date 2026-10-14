@@ -1,0 +1,20 @@
+{
+  "total_models": 300,
+  "models_per_family": {
+    "S1_beam": 60,
+    "S2_truss": 60,
+    "S3_frame": 60,
+    "S4_braced_frame": 60,
+    "S5_space_truss": 60
+  },
+  "splits": {
+    "formula_dev": 120,
+    "calibration": 60,
+    "blind_val": 60,
+    "final_test": 60
+  },
+  "total_elements": 1910,
+  "total_screening_scenarios": 7940,
+  "average_elements_per_model": 6.37,
+  "verification_result": "100% PASS (300/300 stable models)"
+}

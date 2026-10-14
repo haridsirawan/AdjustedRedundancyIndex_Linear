@@ -1,0 +1,10386 @@
+{
+  "family": "S5_space_truss",
+  "count": 60,
+  "models": [
+    {
+      "id": "S5_001",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1500, H=1200)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -749.9999999999997,
+            1299.0381056766582,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -750.0000000000007,
+            -1299.0381056766576,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            1200.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -50.0,
+            "Fx": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "99e11fa18dc17464bb92a527ffc46a58315992c63e5acf6d0ae46e393d9ced72",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_002",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1000.0,
+            -1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1000.0,
+            -1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1000.0,
+            1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1000.0,
+            1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -120.0,
+            "Fx": 10.0,
+            "Fy": 15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "7e3d30a62589025723222e3af94216e763b03b21f7a062d695bc9dffb18056fc",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_003",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=1500, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            1500.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            1500.0,
+            1500.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            1500.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "da53459f4fefeb8fadf3168c4860438e31416d76d8f91c033715ac9dbd3f57e8",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_004",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1500, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -749.9999999999997,
+            1299.0381056766582,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -750.0000000000007,
+            -1299.0381056766576,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -50.0,
+            "Fx": 5.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "5a1ce733c957c57412933d67b846633fbcf118bf5b723e30a74d38f9d3147cc6",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_005",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2500, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -120.0,
+            "Fx": 20.0,
+            "Fy": 15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "fc9c591a9aee9445577b69369c8af94efd2d8355855838b787013a4d7e066ad9",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_006",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -40.0,
+            "Fx": 15.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "937f27b3553dc984b0e4527fa708fa3707cce20e768c1bfccfd5eea36b54f150",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_007",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -499.9999999999998,
+            866.0254037844388,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -500.00000000000045,
+            -866.0254037844384,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -80.0,
+            "Fx": 5.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "4625ea1fa2170d1929c161d6031353ab0866b24a030e7d482d017c607826b895",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_008",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=3000, H=2500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -90.0,
+            "Fx": 10.0,
+            "Fy": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "7663884113da23a788c4811337419b198f4dfdd8948955770265d5f60a83183f",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_009",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "7b0236a09470dfe41224ea99dd89075556806d378a4dcb1a8ef8b746011673b1",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_010",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=2000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -999.9999999999995,
+            1732.0508075688776,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -1000.0000000000009,
+            -1732.0508075688767,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -80.0,
+            "Fx": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "75e15d92ed3b33d03c188ba1899269e5cd8502c410e7a4605ba7bd133252ea19",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_011",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=3000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -90.0,
+            "Fx": 20.0,
+            "Fy": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "321fbb5d865d8fee001f1991b46575abbf055d219b05bd4e769267a12b45a5e5",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_012",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -40.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "6557c478fd7f6f5174ec940a583b1c1f316cbdb3f9bd11de8b867369bab4b35a",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_013",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1500, H=1600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -749.9999999999997,
+            1299.0381056766582,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -750.0000000000007,
+            -1299.0381056766576,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            1600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -50.0,
+            "Fx": 5.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "e03c70a6279de2ed8faedcc52d9f2dc670747d056cb78c9dd4ad1be164ae7b17",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_014",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=3000, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -120.0,
+            "Fx": 20.0,
+            "Fy": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "20fe2eb951ab7c68da70511133b2594b1164a068568a47fbf4fbee308b2321b4",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_015",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -40.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "21ac824cf9cf6e6d7146b36eb463e06ccf2680def433212ba589cc0f47653ba7",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_016",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1500, H=2500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -749.9999999999997,
+            1299.0381056766582,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -750.0000000000007,
+            -1299.0381056766576,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            2500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -80.0,
+            "Fx": 0.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "b2165c3bf0c76fa58980318956164f2205e8ef01c6d63b91614eca41d66149be",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_017",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2500, H=2500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -90.0,
+            "Fx": 20.0,
+            "Fy": 15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "2d0b4c70bb0b35c48bd83cdb4dfefb5fa4dd19ad812ede910677fe77cab2de58",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_018",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -40.0,
+            "Fx": 15.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "ccc84a73000a4188fbc83f79806852b08c3e53b3b2e4be4a87f73f6b224948e6",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_019",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1000, H=1600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -499.9999999999998,
+            866.0254037844388,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -500.00000000000045,
+            -866.0254037844384,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            1600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -50.0,
+            "Fx": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "ab392c69ccc7b2ffe43a2f3cf1e7bade945b7c74c124d7f8c089da327aa23d3b",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_020",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2500, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -90.0,
+            "Fx": 10.0,
+            "Fy": 15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "e1d4b34c5221a0a5668ac8c52f0f44db51b61d5be9529ae6edc57c844eab158c",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_021",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=1500, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            1500.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            1500.0,
+            1500.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            1500.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -40.0,
+            "Fx": 15.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "91a7e0aec331a8ac233376fea0503cc50005b4e27ec455307f2d8e460621656d",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_022",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1000, H=2500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -499.9999999999998,
+            866.0254037844388,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -500.00000000000045,
+            -866.0254037844384,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            2500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -80.0,
+            "Fx": 5.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "61e676ff5e428c5d5ef7b0509e2a421ad3143b576ea19e49b399cc1c049c2f4a",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_023",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2500, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -90.0,
+            "Fx": 20.0,
+            "Fy": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "c37b44b4f24a37efd4f1df00a9b4d964bc07846f17d9e783dc7603dbabd3fa39",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_024",
+      "family": "S5_space_truss",
+      "split": "formula_dev",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=1500, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            1500.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            1500.0,
+            1500.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            1500.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -40.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "eaa470fa2e7122c8fc86ead63f16e1a3f412d97078e2c72fcf1c479255f62c56",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_025",
+      "family": "S5_space_truss",
+      "split": "calibration",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1000, H=1200)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -499.9999999999998,
+            866.0254037844388,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -500.00000000000045,
+            -866.0254037844384,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            1200.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -30.0,
+            "Fx": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "f60d53989d30c56b2d99b1e1fce97aab4f55be99db9b1b99bd994ca1c93c23a1",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_026",
+      "family": "S5_space_truss",
+      "split": "calibration",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2500, H=2500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 10.0,
+            "Fy": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "af90fa1db5746b3d844187685b92dde8e1f332d74475780d64fccb779db45c53",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_027",
+      "family": "S5_space_truss",
+      "split": "calibration",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=1500, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            1500.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            1500.0,
+            1500.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            1500.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "02c639e7efc2b5f831cf3da488d4ec457fba2da55e93be0b8e306197992a66e8",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_028",
+      "family": "S5_space_truss",
+      "split": "calibration",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=2000, H=2500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -999.9999999999995,
+            1732.0508075688776,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -1000.0000000000009,
+            -1732.0508075688767,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            2500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -30.0,
+            "Fx": 0.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "f137be1d43ded2e58f264b94e42956e94816f2e5ad57f51eb891ea2a71bdce4e",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_029",
+      "family": "S5_space_truss",
+      "split": "calibration",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=3000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -90.0,
+            "Fx": 10.0,
+            "Fy": 15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d53f43c5b41ceb0578fc8330280238c0793ae5c5b502a2458f926982b89332a9",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_030",
+      "family": "S5_space_truss",
+      "split": "calibration",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=1500, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            1500.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            1500.0,
+            1500.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            1500.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "6b52f3722b063caff12c524bc502743f907c3a27412d5a74d890b6f03f16af4c",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_031",
+      "family": "S5_space_truss",
+      "split": "calibration",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1000, H=2500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -499.9999999999998,
+            866.0254037844388,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -500.00000000000045,
+            -866.0254037844384,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            2500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -30.0,
+            "Fx": 5.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "9c86dcb4ca09f53ef3e0b8fd5745ed4afd3f98077d82a8f29d0045b6c00944b6",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_032",
+      "family": "S5_space_truss",
+      "split": "calibration",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2500, H=2500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -120.0,
+            "Fx": 10.0,
+            "Fy": 15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d8a8e5842e00ce67dd0954d6c630015442a61eb37ef1e1652021a0d3c0c3d347",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_033",
+      "family": "S5_space_truss",
+      "split": "calibration",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -40.0,
+            "Fx": 15.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "dff3c0fe7fa5ba627ca6c305a3598550002332aec12de2953dc127a2843949d8",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_034",
+      "family": "S5_space_truss",
+      "split": "calibration",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1500, H=2500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -749.9999999999997,
+            1299.0381056766582,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -750.0000000000007,
+            -1299.0381056766576,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            2500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -30.0,
+            "Fx": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "80d631aaa7a17f88b8c4c077609bfe85cdbb8764a6989976752af74e49d72ae8",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_035",
+      "family": "S5_space_truss",
+      "split": "calibration",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2500, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -90.0,
+            "Fx": 10.0,
+            "Fy": 15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "97831010b11761d419c085766d434dddf2557aebe3f9cb4a5a9e8be114a1a30f",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_036",
+      "family": "S5_space_truss",
+      "split": "calibration",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -40.0,
+            "Fx": 15.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a8a492a8ad7c955d5c24310b946cb90255ae6bde4a2dee4773cb537fb169b8c7",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_037",
+      "family": "S5_space_truss",
+      "split": "blind_val",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1500, H=1200)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -749.9999999999997,
+            1299.0381056766582,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -750.0000000000007,
+            -1299.0381056766576,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            1200.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -80.0,
+            "Fx": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "5e2ef7733bbe45e24ce4f6284d9a317998dcca663d8dcc3af29c8cc5efc17bde",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_038",
+      "family": "S5_space_truss",
+      "split": "blind_val",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=3000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -90.0,
+            "Fx": 20.0,
+            "Fy": 15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "bd806fb8d174b6378c3fbdda59899e20e414286a63e600ca0092b404a24a23bb",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_039",
+      "family": "S5_space_truss",
+      "split": "blind_val",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "7b0236a09470dfe41224ea99dd89075556806d378a4dcb1a8ef8b746011673b1",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_040",
+      "family": "S5_space_truss",
+      "split": "blind_val",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1500, H=1200)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -749.9999999999997,
+            1299.0381056766582,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -750.0000000000007,
+            -1299.0381056766576,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            1200.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -80.0,
+            "Fx": 0.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "3ed3c016f313c65f662222490ca907752f70a65f754c12c4e6782fdcaaf52900",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_041",
+      "family": "S5_space_truss",
+      "split": "blind_val",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2000, H=2500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1000.0,
+            -1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1000.0,
+            -1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1000.0,
+            1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1000.0,
+            1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -120.0,
+            "Fx": 20.0,
+            "Fy": 15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "e609092a3988585a6d71ce8f7b3b823de72c2c915fb7867607e8a25ae7b191a5",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_042",
+      "family": "S5_space_truss",
+      "split": "blind_val",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "8945dd80d80997d63c5586380513aa130085d6a2531a01068f1ef28a514c4376",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_043",
+      "family": "S5_space_truss",
+      "split": "blind_val",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=2000, H=1200)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -999.9999999999995,
+            1732.0508075688776,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -1000.0000000000009,
+            -1732.0508075688767,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            1200.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -50.0,
+            "Fx": 5.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "1f4a918fcc91bc0f09b25c0fbab590890101989deda2017c6e62878605151928",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_044",
+      "family": "S5_space_truss",
+      "split": "blind_val",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=3000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -120.0,
+            "Fx": 20.0,
+            "Fy": 15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "9732f907dfb81be26278355f8b2560dfd88b2dbf9e3373d57dab8ef5c6ed90e8",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_045",
+      "family": "S5_space_truss",
+      "split": "blind_val",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "8945dd80d80997d63c5586380513aa130085d6a2531a01068f1ef28a514c4376",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_046",
+      "family": "S5_space_truss",
+      "split": "blind_val",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -499.9999999999998,
+            866.0254037844388,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -500.00000000000045,
+            -866.0254037844384,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -50.0,
+            "Fx": 5.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "86ef0ce8da59d5f6aa0bffaf0eb42b5036dbe1dfe162b0bd60d3c3c37307ee0f",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_047",
+      "family": "S5_space_truss",
+      "split": "blind_val",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=3000, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            -1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -120.0,
+            "Fx": 20.0,
+            "Fy": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "008dd038b8e4f4de9069fd32d5fdabd4b8fea931bcb2c364824fe63c42fbd868",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_048",
+      "family": "S5_space_truss",
+      "split": "blind_val",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "8945dd80d80997d63c5586380513aa130085d6a2531a01068f1ef28a514c4376",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_049",
+      "family": "S5_space_truss",
+      "split": "final_test",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=2000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -999.9999999999995,
+            1732.0508075688776,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -1000.0000000000009,
+            -1732.0508075688767,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -30.0,
+            "Fx": 0.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "bbab669425353e46fcca41dc1d9851366024b24b4891f0405f05c5a15a11f0a2",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_050",
+      "family": "S5_space_truss",
+      "split": "final_test",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2000, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1000.0,
+            -1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1000.0,
+            -1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1000.0,
+            1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1000.0,
+            1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 10.0,
+            "Fy": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "91bc30dcad480040a8601f708337c97a68190874a58208e7cbf439448cf61286",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_051",
+      "family": "S5_space_truss",
+      "split": "final_test",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -40.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "dd9c36ad19b1e8ddaa80c621b0b14486c83d750500e937521a052e0e1f218f8b",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_052",
+      "family": "S5_space_truss",
+      "split": "final_test",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=1000, H=2500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            1000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -499.9999999999998,
+            866.0254037844388,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -500.00000000000045,
+            -866.0254037844384,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            2500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -30.0,
+            "Fx": 0.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "80cbbee9750921ed93430e9e45f47871af95e786b314ade605dbea14e5716336",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_053",
+      "family": "S5_space_truss",
+      "split": "final_test",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2000, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1000.0,
+            -1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1000.0,
+            -1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1000.0,
+            1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1000.0,
+            1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -120.0,
+            "Fx": 20.0,
+            "Fy": 10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "0ac421a02a0cfe7e7b2f3a5575cb3babdb26d65ea1ac3f699899292b8ff5d9cd",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_054",
+      "family": "S5_space_truss",
+      "split": "final_test",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=2000, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            2000.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            2000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            2000.0,
+            0.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            2000.0,
+            2000.0,
+            1500.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            2000.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "7b0236a09470dfe41224ea99dd89075556806d378a4dcb1a8ef8b746011673b1",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_055",
+      "family": "S5_space_truss",
+      "split": "final_test",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=2000, H=2500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -999.9999999999995,
+            1732.0508075688776,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -1000.0000000000009,
+            -1732.0508075688767,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            2500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -30.0,
+            "Fx": 0.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "209ff04afafcbab304d8203f04eee7a6440845ce8dcf18a4ecba726fdc3bccd6",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_056",
+      "family": "S5_space_truss",
+      "split": "final_test",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2500, H=1500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1250.0,
+            -1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1250.0,
+            1250.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            1500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -90.0,
+            "Fx": 10.0,
+            "Fy": 15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "e1d4b34c5221a0a5668ac8c52f0f44db51b61d5be9529ae6edc57c844eab158c",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_057",
+      "family": "S5_space_truss",
+      "split": "final_test",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=1500, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            1500.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            1500.0,
+            1500.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            1500.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -60.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "f322e9038078f39e7c424f944207089dce156e2d1d0de4a8ff112bf59de90bf7",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    },
+    {
+      "id": "S5_058",
+      "family": "S5_space_truss",
+      "split": "final_test",
+      "dimension": 3,
+      "description": "Rangka ruang tripod 3D (R=2000, H=1600)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            2000.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            -999.9999999999995,
+            1732.0508075688776,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            -1000.0000000000009,
+            -1732.0508075688767,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            0.0,
+            1600.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "capacity": 300.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 3,
+          "components": {
+            "Fz": -30.0,
+            "Fx": 5.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "f1f8cb531cdaafe063d52f3c22cb4887733e90a4959095386e4b22b3b33e2433",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S5_059",
+      "family": "S5_space_truss",
+      "split": "final_test",
+      "dimension": 3,
+      "description": "Rangka ruang piramida 4-kaki (B=2000, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            -1000.0,
+            -1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1000.0,
+            -1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1000.0,
+            1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            -1000.0,
+            1000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 800.0,
+          "capacity": 400.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -60.0,
+            "Fx": 20.0,
+            "Fy": 15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "5dce017ab5b600b2232c9a1f936faef7b88bf46c027ea5f4caf4042fdcd03825",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S5_060",
+      "family": "S5_space_truss",
+      "split": "final_test",
+      "dimension": 3,
+      "description": "Modul rangka ruang 3D 8-simpul (B=1500, H=2000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            1500.0,
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            1500.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            0.0,
+            1500.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            1500.0,
+            0.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 6,
+          "coords": [
+            1500.0,
+            1500.0,
+            2000.0
+          ]
+        },
+        {
+          "id": 7,
+          "coords": [
+            0.0,
+            1500.0,
+            2000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 4,
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 5,
+          "nodes": [
+            5,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 6,
+          "nodes": [
+            6,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 7,
+          "nodes": [
+            7,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 8,
+          "nodes": [
+            4,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 9,
+          "nodes": [
+            5,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 10,
+          "nodes": [
+            0,
+            5
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 11,
+          "nodes": [
+            1,
+            6
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 12,
+          "nodes": [
+            2,
+            7
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        },
+        {
+          "id": 13,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1000.0,
+          "capacity": 500.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_1": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_2": [
+          "ux",
+          "uy",
+          "uz"
+        ],
+        "node_3": [
+          "ux",
+          "uy",
+          "uz"
+        ]
+      },
+      "loads": [
+        {
+          "node": 4,
+          "components": {
+            "Fz": -40.0,
+            "Fx": 25.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 6,
+          "components": {
+            "Fz": -40.0
+          }
+        },
+        {
+          "node": 7,
+          "components": {
+            "Fz": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "7e7fe6581ce622bae3441afee17250fe058958877e21c368fe0c0c67dd18e234",
+        "n_elements": 14,
+        "n_nodes": 8,
+        "n_damage_scenarios": 56
+      }
+    }
+  ]
+}

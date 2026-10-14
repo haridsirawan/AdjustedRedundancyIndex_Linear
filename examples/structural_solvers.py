@@ -813,9 +813,13 @@ def solve_structural_model(model: dict) -> StructuralSolverResult:
             res_s2 = solve_truss_s2(model)
             # Adaptasi ke StructuralSolverResult
             node_disp_dict = {}
+            dim_s2 = int(model.get("dimension", 2))
             for nid in range(len(model.get("nodes", []))):
-                node_disp_dict[nid] = {"ux": float(res_s2.displacements[2*nid]),
-                                       "uy": float(res_s2.displacements[2*nid+1])}
+                if dim_s2 == 1:
+                    node_disp_dict[nid] = {"ux": float(res_s2.displacements[nid])}
+                else:
+                    node_disp_dict[nid] = {"ux": float(res_s2.displacements[2*nid]),
+                                           "uy": float(res_s2.displacements[2*nid+1])}
             elem_forces = {}
             for eid, force in enumerate(res_s2.element_forces):
                 elem_forces[eid] = {"axial_force": float(force), "utilization": float(res_s2.utilizations[eid])}

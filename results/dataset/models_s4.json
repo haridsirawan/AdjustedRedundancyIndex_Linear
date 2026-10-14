@@ -1,0 +1,9441 @@
+{
+  "family": "S4_braced_frame",
+  "count": 60,
+  "models": [
+    {
+      "id": "S4_001",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a1cefff9cc64c158813e582fd2b366b6afbe83e42911e58513bc40dfe63cc554",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_002",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "4cb01e1bb8fbd57638fafa00be0513128059de4c4d3e94d9659648008409fedb",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_003",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=5000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2500.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 75.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "cf5dfbc56ceb0be2f2607a050b88d8a3a8cd788c2ff1e1ae0928462f1304e208",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_004",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "e351165f978c7000102d72bb5906452131f93695c4c1433746fa5f0b13eca4ea",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_005",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=4000, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 40.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a7631051b2d58477d8c74de6d5974b27b47366c5a0016c813da9851e2cc46261",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_006",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=3500, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 60.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "5bd59528b728446afa6063b4957d044595fad097dccb74e9b7312ae1065b9531",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_007",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2500.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 75.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d24107996f3a179017ddf5e9aa4a684728009d0dd681e228c79c03e7b382a360",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_008",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 42.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 70.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "f9ffd9ca774a1a03d03a74614b52e5dbc97cef244b2be355f282ef4083c80c98",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_009",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=3500, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 60.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "b2509a84e5678d2473fa11c2919d895c6d922e0269faefa66cc9cc98f8eabb0f",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_010",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=3500, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 60.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "5bd59528b728446afa6063b4957d044595fad097dccb74e9b7312ae1065b9531",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_011",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2000.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "de28a8a7a2c03c389aa9f8e8763bbaaaed7d0ecc4b6ea84bd10b56b1bb47e869",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_012",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 42.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 70.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d3e70a110deb86304977ac9c1c014e08b155bcbce31df009d5478b9bcda3acda",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_013",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=3500, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "401a87f70eacef188414f2389ce7942fa6f738b002b85b36e50d807673052cf2",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_014",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=5000, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 60.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d76cf7a12b1bdc1fbfc28b06977c6914a1f75cb9e44473190adc3e5fd9ded5d3",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_015",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2500.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "681ac1edfcb0780437512a85608785ce4deea13d98cf4ed0f5236b0bd364cdb2",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_016",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "cda6e19e524f997d0ef0570e6513e78c1caac04cf34039712829b0cbe54edc53",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_017",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=3500, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "ae3f5bd4e323063dc7c4373e029bf5965630b4ec3d04f0d616e1ed4accdbaad5",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_018",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=5000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 60.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "9dea073ea1580d17e502962af2a793406c3c63d19d7d76fcc4a4940b125e22ab",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_019",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=5000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2500.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 75.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "ed8ef2d792ed2f3813dc8a028354a64552700d71596f451079c9adfcb766c31e",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_020",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "7242d50b5cf76b49eb8293044c69f175b319088fb4ddc0afe8ad5821b5650d70",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_021",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=3500, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 60.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "07aac0fc0e7c35925e537e2a5938c68157c5108334e11b466e528293cdfdeb52",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_022",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=4000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "2892c674142bfcad57f6b5cb38ed8dfd0ee10b7fcfa0ec0ffe4be2b821602048",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_023",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=5000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2500.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d8edaaca1482c69a05aacd58a9ab2f5f7291c6b697130321a7302e803c380c7d",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_024",
+      "family": "S4_braced_frame",
+      "split": "formula_dev",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "eb908720412073b9e477d21a588fb8fa4fd9dc6b4aa2405af4df6d18d15e773d",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_025",
+      "family": "S4_braced_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 40.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "15e19d935762bd2edaf02a38e21e75d330d66012f78ed62d781e334d805f89a2",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_026",
+      "family": "S4_braced_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 40.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "27968bf78bbceb0a4c4481ce48140f11d60de75ccea8408a2398d87150edff3a",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_027",
+      "family": "S4_braced_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2000.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 75.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "af0220d959ae18ad82b4c7702543ea45cbaffd6b1732280a0d4d93a9dd8c4e67",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_028",
+      "family": "S4_braced_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 42.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 70.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "4947f0ccf1dd66a5714bec4119775c18acb1e367f0c91a946121137f7b431eb8",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_029",
+      "family": "S4_braced_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=4000, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 40.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "b3d35257bba13f5e7887bfaab78d2f91c95dddc4f85091365906fae347963456",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_030",
+      "family": "S4_braced_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "0eb32bf89b5a98ee0cd723fe4465f762c62e8d6b2de0bf51992082af64d45639",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_031",
+      "family": "S4_braced_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=5000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2500.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 75.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "ed8ef2d792ed2f3813dc8a028354a64552700d71596f451079c9adfcb766c31e",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_032",
+      "family": "S4_braced_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "cda6e19e524f997d0ef0570e6513e78c1caac04cf34039712829b0cbe54edc53",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_033",
+      "family": "S4_braced_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=3500, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 40.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "07c296e5a3b7c5844ffe84da9df2ab4586d6c58d36be74dce01746bae8a619eb",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_034",
+      "family": "S4_braced_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=5000, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 60.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "73a0d54890e6d2c5aafc24ed25123f77d7b4801ba3500636917dec023b72a484",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_035",
+      "family": "S4_braced_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=4000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2000.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "7395907811b2d11d092d6a3e6502c294cd61409cd8761007b8af53ba3803bca3",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_036",
+      "family": "S4_braced_frame",
+      "split": "calibration",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "e351165f978c7000102d72bb5906452131f93695c4c1433746fa5f0b13eca4ea",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_037",
+      "family": "S4_braced_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "c980b514fb1f6300fb9563f008e0618c876d33bed9ad797a00c5206eea11ad12",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_038",
+      "family": "S4_braced_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=4000, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "cbcf0e48a50e921e38cbe419b882f3893045325cf5a4b96b0210de4b3821d0cf",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_039",
+      "family": "S4_braced_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=4000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2000.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 75.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "b32287190eab923742f8ec3186971f90ad2f0b6ce2b854aebfaedec1f4700536",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_040",
+      "family": "S4_braced_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "876bc613853f249161b08fb938eb89c097f9cd7fc68013c3fcd54d7a9730c5c4",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_041",
+      "family": "S4_braced_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "16bfc2da569b864910afaf96288b68ae7d13ac0635244848d2526db362880ffc",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_042",
+      "family": "S4_braced_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=4000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d61b66ff01ebf3eecd83ecc230b6b46db7730fe315a361c9cfed3765e635b58e",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_043",
+      "family": "S4_braced_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2000.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "b6c73a70fad7013d55e8aca0d5aaca7dfb7bcd89cdf2e4a28f5c409b3a12c3e2",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_044",
+      "family": "S4_braced_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 42.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 70.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "4947f0ccf1dd66a5714bec4119775c18acb1e367f0c91a946121137f7b431eb8",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_045",
+      "family": "S4_braced_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 40.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "fd304eefb5b490d18d087740dd10769108dd6ccf932b40dd73db5f31e98fc659",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_046",
+      "family": "S4_braced_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=3500, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 60.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "768b33e63ab284a083732f8176aa1336d68ec3838ab566f7398d41be0280b523",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_047",
+      "family": "S4_braced_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2000.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 75.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "dddb5cfc44d3bae614ccc7065e1ee4297f998a5404c24eec795233d86a3fbec6",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_048",
+      "family": "S4_braced_frame",
+      "split": "blind_val",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "8e27301f94f8569ad4f04588074edf8b20a22d339cc18efdb21125b7799ca93c",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_049",
+      "family": "S4_braced_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=5000, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 40.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "427793b5ca6a67705d78c3a1268aa60d9a6099d7ac4583f4577fa6a9c7f9a1bc",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_050",
+      "family": "S4_braced_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=4000, H=2800)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            2800.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "059a7f956b08e8b0cb83858c65b96a6490035f2bf22d8649d58f9f7702e61131",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_051",
+      "family": "S4_braced_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2500.0,
+            3500.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 75.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "6cdabadfabe57deb4ad01d6c0ead42dd2e7f585f80548d985e7a05154cf9ce3f",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_052",
+      "family": "S4_braced_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 42.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 70.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "f9ffd9ca774a1a03d03a74614b52e5dbc97cef244b2be355f282ef4083c80c98",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_053",
+      "family": "S4_braced_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=3500, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 40.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "386baf631de61421483c884450cb3e36a4d50a1e469269770d092b99fbcdc079",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_054",
+      "family": "S4_braced_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "e575cec67b882267631c4c1d4e57fa612506f8b0dcca89377f8f5fd7591e25ba",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_055",
+      "family": "S4_braced_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=5000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2500.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "2875fd62f9caae5eac46fcb22c4a3041a23c75239f85a165ede176463d959bc0",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_056",
+      "family": "S4_braced_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=4000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            4000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 2500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 42.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 70.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d3e70a110deb86304977ac9c1c014e08b155bcbce31df009d5478b9bcda3acda",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    },
+    {
+      "id": "S4_057",
+      "family": "S4_braced_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal berpengaku diagonal tunggal (B=3500, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            3500.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            3500.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 60.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "9c88f90c74bea68bd190e94adffdb4711ca19ba7fe89b8cfbbf90848d1ffb61f",
+        "n_elements": 4,
+        "n_nodes": 4,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S4_058",
+      "family": "S4_braced_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal berpengaku X-brace (B=5000, H=3500)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            5000.0,
+            3500.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "brace",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            3,
+            1
+          ],
+          "E": 200.0,
+          "A": 2000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 80.0,
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "0eb32bf89b5a98ee0cd723fe4465f762c62e8d6b2de0bf51992082af64d45639",
+        "n_elements": 5,
+        "n_nodes": 4,
+        "n_damage_scenarios": 20
+      }
+    },
+    {
+      "id": "S4_059",
+      "family": "S4_braced_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal berpengaku Chevron/Inverted-V (B=4000, H=3000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            4000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            4000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            2000.0,
+            3000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            4,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 300000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            2
+          ],
+          "E": 200.0,
+          "A": 5000.0,
+          "I": 200000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "brace",
+          "nodes": [
+            0,
+            4
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 5,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 3000.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -60.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "395686a471241f5db9410baef83a9a557bed98f8c832fe485567d12ad6354db2",
+        "n_elements": 6,
+        "n_nodes": 5,
+        "n_damage_scenarios": 24
+      }
+    },
+    {
+      "id": "S4_060",
+      "family": "S4_braced_frame",
+      "split": "final_test",
+      "dimension": 2,
+      "description": "Portal 2-lantai berpengaku ganda X-brace (B=5000, H=6000)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "coords": [
+            0.0,
+            0.0
+          ]
+        },
+        {
+          "id": 1,
+          "coords": [
+            5000.0,
+            0.0
+          ]
+        },
+        {
+          "id": 2,
+          "coords": [
+            0.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 3,
+          "coords": [
+            5000.0,
+            3000.0
+          ]
+        },
+        {
+          "id": 4,
+          "coords": [
+            0.0,
+            6000.0
+          ]
+        },
+        {
+          "id": 5,
+          "coords": [
+            5000.0,
+            6000.0
+          ]
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "type": "frame",
+          "nodes": [
+            0,
+            2
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "type": "frame",
+          "nodes": [
+            1,
+            3
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "type": "frame",
+          "nodes": [
+            2,
+            4
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 3,
+          "type": "frame",
+          "nodes": [
+            3,
+            5
+          ],
+          "E": 200.0,
+          "A": 6000.0,
+          "I": 250000000.0,
+          "N_capacity": 1200.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 4,
+          "type": "frame",
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 5,
+          "type": "frame",
+          "nodes": [
+            4,
+            5
+          ],
+          "E": 200.0,
+          "A": 6500.0,
+          "I": 350000000.0,
+          "N_capacity": 1500.0,
+          "M_capacity": 150000.0
+        },
+        {
+          "id": 6,
+          "type": "brace",
+          "nodes": [
+            0,
+            3
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 7,
+          "type": "brace",
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 8,
+          "type": "brace",
+          "nodes": [
+            2,
+            5
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        },
+        {
+          "id": 9,
+          "type": "brace",
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "A": 1500.0,
+          "I": 0.0,
+          "release": "both",
+          "N_capacity": 500.0,
+          "M_capacity": 1.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_1": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fx": 30.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fx": 50.0
+          }
+        },
+        {
+          "node": 4,
+          "components": {
+            "Fy": -50.0
+          }
+        },
+        {
+          "node": 5,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "7242d50b5cf76b49eb8293044c69f175b319088fb4ddc0afe8ad5821b5650d70",
+        "n_elements": 10,
+        "n_nodes": 6,
+        "n_damage_scenarios": 40
+      }
+    }
+  ]
+}

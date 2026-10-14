@@ -1,0 +1,4926 @@
+{
+  "family": "S1_beam",
+  "count": 60,
+  "models": [
+    {
+      "id": "S1_001",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok kantilever 1500 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 750.0
+        },
+        {
+          "id": 2,
+          "x": 1500.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 1000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 1000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "546e651746f17f70cae120182e531a8518a5e9df097d05b647e83a03b27463a1",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_002",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok sederhana L=6000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        },
+        {
+          "id": 3,
+          "x": 4500.0
+        },
+        {
+          "id": 4,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a76b823e3f42640aa73912f1ed0f3342a707ebd86b5973c2c57fc267f415fc12",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_003",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=3000 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 12000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 12000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_2": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -25.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a8e2f1b54f50225ccc8242d1a9289dbc7db08d189d541830ca222d9b1e4d68ad",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_004",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=5000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1250.0
+        },
+        {
+          "id": 2,
+          "x": 2500.0
+        },
+        {
+          "id": 3,
+          "x": 3750.0
+        },
+        {
+          "id": 4,
+          "x": 5000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -20.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "b91197807a5d570a8bee37b7b8f4fa6661e1101b9e04d7c17b64b6d5033f3f7e",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_005",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok kantilever 1500 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 750.0
+        },
+        {
+          "id": 2,
+          "x": 1500.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a2ec66144b74872f727b3325a490f9de967a3e053821401333915c29b8d2d6df",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_006",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok sederhana L=6000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        },
+        {
+          "id": 3,
+          "x": 4500.0
+        },
+        {
+          "id": 4,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "992a40300681f0aaba2635526daf68837478722c5f02bdaa99f65df44d167ea9",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_007",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=4500 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2250.0
+        },
+        {
+          "id": 2,
+          "x": 4500.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 12000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 12000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_2": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -35.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "1e38e58e13896b092a25feea94a60af51ce2c6bcb2200a6d8c591397970aa4f4",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_008",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=5000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1250.0
+        },
+        {
+          "id": 2,
+          "x": 2500.0
+        },
+        {
+          "id": 3,
+          "x": 3750.0
+        },
+        {
+          "id": 4,
+          "x": 5000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 15000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 15000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 15000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 15000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "78c5f662931312b2a708917cb2bb53b96050a90dc1909bd2b47354d7a7cca70b",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_009",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok kantilever 3000 mm (1 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "abeaedf90fb22eed9013df48c38a55cba9ec8a5e946ebd105c1aef4f0f6a9dd5",
+        "n_elements": 1,
+        "n_nodes": 2,
+        "n_damage_scenarios": 4
+      }
+    },
+    {
+      "id": "S1_010",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok sederhana L=5000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1250.0
+        },
+        {
+          "id": 2,
+          "x": 2500.0
+        },
+        {
+          "id": 3,
+          "x": 3750.0
+        },
+        {
+          "id": 4,
+          "x": 5000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "b661103343e18d6c682bc852a7a23130dc7232104c2cd2ae02ac809902e986b1",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_011",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=3000 mm (3 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1000.0
+        },
+        {
+          "id": 2,
+          "x": 2000.0
+        },
+        {
+          "id": 3,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 12000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 12000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 12000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -45.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "dd3cccbb61e0d1b091d2bf623432b7cb7a37848aebf1139c3b794f45b9b80249",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S1_012",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=6000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        },
+        {
+          "id": 3,
+          "x": 4500.0
+        },
+        {
+          "id": 4,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "c7b76a6930552b5893e797da5c992b315d305e2125edacdcd367f0f408e1f0e9",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_013",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok kantilever 3000 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -25.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a2137e17fedfe946ae2498d3890b9cac6e6047e66064f3c20d89e4f09c1de319",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_014",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok sederhana L=3000 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -20.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "f51553a0f18ca5bf74005501acb4c4e1c6e6549a8f013ed006a506264eb1ad21",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_015",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=6000 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 3000.0
+        },
+        {
+          "id": 2,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 12000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 12000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_2": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -45.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "58bf520bab99583c9cc9d940c8828ed578560b449dfc27351426c1103d3908b1",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_016",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=6000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        },
+        {
+          "id": 3,
+          "x": 4500.0
+        },
+        {
+          "id": 4,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -20.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "c9bd5ceebb18a0dea577e7e6b2b575f961325edcae085eade30af5a60adfc8da",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_017",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok kantilever 2000 mm (1 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -25.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "13a267b6a932089087247862db290483486449835b787d512d5a894850dbfbc8",
+        "n_elements": 1,
+        "n_nodes": 2,
+        "n_damage_scenarios": 4
+      }
+    },
+    {
+      "id": "S1_018",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok sederhana L=5000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1250.0
+        },
+        {
+          "id": 2,
+          "x": 2500.0
+        },
+        {
+          "id": 3,
+          "x": 3750.0
+        },
+        {
+          "id": 4,
+          "x": 5000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "f89b353f9d6223fd24047dfbce472c577a6501ec1f8f6fc0e780ee0bc5b1c483",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_019",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=6000 mm (3 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        },
+        {
+          "id": 2,
+          "x": 4000.0
+        },
+        {
+          "id": 3,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -35.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "ebc4f3a7c42da511b8c0eb7d7ace6a9a332e3e9f8e0a2b4b821e87342a7573e2",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S1_020",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=5000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1250.0
+        },
+        {
+          "id": 2,
+          "x": 2500.0
+        },
+        {
+          "id": 3,
+          "x": 3750.0
+        },
+        {
+          "id": 4,
+          "x": 5000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -20.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "9b1b971b86aed566268e3816df8764c10926cfbe0042bebad2f8d586036ded48",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_021",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok kantilever 1500 mm (1 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -25.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "ccb0968e49c599bf1a6546f520278f0a659424d078a1114b0b75856d6abb1aad",
+        "n_elements": 1,
+        "n_nodes": 2,
+        "n_damage_scenarios": 4
+      }
+    },
+    {
+      "id": "S1_022",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok sederhana L=5000 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2500.0
+        },
+        {
+          "id": 2,
+          "x": 5000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "506466f8c3baffc7a503e758450f0c3d5af98a7e159d15fd6c36443c536d6de9",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_023",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=4500 mm (3 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        },
+        {
+          "id": 3,
+          "x": 4500.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -45.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a70059b4389523d6f179aa4b5aa9b7990f6970b5a40c68d1293a093d576c5a55",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S1_024",
+      "family": "S1_beam",
+      "split": "formula_dev",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=8000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        },
+        {
+          "id": 2,
+          "x": 4000.0
+        },
+        {
+          "id": 3,
+          "x": 6000.0
+        },
+        {
+          "id": 4,
+          "x": 8000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "2504fa35efbca1693fc92aa83e1057e8cc1f9a481d5ad6d606eca68aa209a5e3",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_025",
+      "family": "S1_beam",
+      "split": "calibration",
+      "dimension": 1,
+      "description": "Balok kantilever 3000 mm (1 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -20.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "520fff6c5efbf0cb00518ebcd776d1bcd8dc612e378f8448c8c39fe6523ac3e3",
+        "n_elements": 1,
+        "n_nodes": 2,
+        "n_damage_scenarios": 4
+      }
+    },
+    {
+      "id": "S1_026",
+      "family": "S1_beam",
+      "split": "calibration",
+      "dimension": 1,
+      "description": "Balok sederhana L=6000 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 3000.0
+        },
+        {
+          "id": 2,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "960de8486e5a7e8fe0fca38ec2b97916f34edf779b764bc641f21593ad50bc97",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_027",
+      "family": "S1_beam",
+      "split": "calibration",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=3000 mm (3 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1000.0
+        },
+        {
+          "id": 2,
+          "x": 2000.0
+        },
+        {
+          "id": 3,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -35.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "36247a10c158329a77f8e50ab18447ae9f4afcc005f109c4f50cf869b38fe858",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S1_028",
+      "family": "S1_beam",
+      "split": "calibration",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=5000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1250.0
+        },
+        {
+          "id": 2,
+          "x": 2500.0
+        },
+        {
+          "id": 3,
+          "x": 3750.0
+        },
+        {
+          "id": 4,
+          "x": 5000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -20.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "e8612c931d10958561688b2db06e75280986cd2561a312f037cf6b4956e911ff",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_029",
+      "family": "S1_beam",
+      "split": "calibration",
+      "dimension": 1,
+      "description": "Balok kantilever 3000 mm (1 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 1000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "c8b1d3d4e69259a2a1a352c374fa815f4e369c058b64861e12539e8fe802a1cc",
+        "n_elements": 1,
+        "n_nodes": 2,
+        "n_damage_scenarios": 4
+      }
+    },
+    {
+      "id": "S1_030",
+      "family": "S1_beam",
+      "split": "calibration",
+      "dimension": 1,
+      "description": "Balok sederhana L=6000 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 3000.0
+        },
+        {
+          "id": 2,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "92b9f135f6f3f45e1fdd9269a0cbb7a1b741d9b4a1c768ebf480c29e4ddd7c92",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_031",
+      "family": "S1_beam",
+      "split": "calibration",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=3000 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 12000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 12000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_2": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -25.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "a8e2f1b54f50225ccc8242d1a9289dbc7db08d189d541830ca222d9b1e4d68ad",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_032",
+      "family": "S1_beam",
+      "split": "calibration",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=8000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        },
+        {
+          "id": 2,
+          "x": 4000.0
+        },
+        {
+          "id": 3,
+          "x": 6000.0
+        },
+        {
+          "id": 4,
+          "x": 8000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -20.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "4a90ff90ca5f9817623a18ad97a82c70e73656831b22d915b8987c156431ecce",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_033",
+      "family": "S1_beam",
+      "split": "calibration",
+      "dimension": 1,
+      "description": "Balok kantilever 1500 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 750.0
+        },
+        {
+          "id": 2,
+          "x": 1500.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "c09c6b06d6d87d8c8a3cb11bc33ec801c5dda0a5526de8a785e7e51731bd9ef3",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_034",
+      "family": "S1_beam",
+      "split": "calibration",
+      "dimension": 1,
+      "description": "Balok sederhana L=4000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1000.0
+        },
+        {
+          "id": 2,
+          "x": 2000.0
+        },
+        {
+          "id": 3,
+          "x": 3000.0
+        },
+        {
+          "id": 4,
+          "x": 4000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "5a3b824e0ed9c9703b77450ee50fc15bca5cc808b92fec9c2e326595f0af354b",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_035",
+      "family": "S1_beam",
+      "split": "calibration",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=6000 mm (3 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        },
+        {
+          "id": 2,
+          "x": 4000.0
+        },
+        {
+          "id": 3,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -35.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "052a5354334352c160dfdfa7c45b63e28cbebd6f63de0dd47f3432ed6d31d09c",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S1_036",
+      "family": "S1_beam",
+      "split": "calibration",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=8000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        },
+        {
+          "id": 2,
+          "x": 4000.0
+        },
+        {
+          "id": 3,
+          "x": 6000.0
+        },
+        {
+          "id": 4,
+          "x": 8000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -20.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "246e91589651b14fabbc5da3209f116592bae8e7b60c1c99a6c9da5cfdfaa55b",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_037",
+      "family": "S1_beam",
+      "split": "blind_val",
+      "dimension": 1,
+      "description": "Balok kantilever 3500 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1750.0
+        },
+        {
+          "id": 2,
+          "x": 3500.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "f6475a4f6dc07e6473de9aee6f224641b32957ab1006194baf0283e8a4965218",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_038",
+      "family": "S1_beam",
+      "split": "blind_val",
+      "dimension": 1,
+      "description": "Balok sederhana L=4000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1000.0
+        },
+        {
+          "id": 2,
+          "x": 2000.0
+        },
+        {
+          "id": 3,
+          "x": 3000.0
+        },
+        {
+          "id": 4,
+          "x": 4000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -20.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "5c95550717d189daa268d3e1076d933a9dcd2411c69ec10901e7fa8303d43306",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_039",
+      "family": "S1_beam",
+      "split": "blind_val",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=4500 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2250.0
+        },
+        {
+          "id": 2,
+          "x": 4500.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_2": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -35.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "b0318cb591029a514e4dd878a2b8e7df3d8f1a947a7b6859b4beac73403dbd89",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_040",
+      "family": "S1_beam",
+      "split": "blind_val",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=8000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        },
+        {
+          "id": 2,
+          "x": 4000.0
+        },
+        {
+          "id": 3,
+          "x": 6000.0
+        },
+        {
+          "id": 4,
+          "x": 8000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -20.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -20.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "0d72470df4316eeb0f8700375a2990a309de2203391f30c0de2f179dd9242187",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_041",
+      "family": "S1_beam",
+      "split": "blind_val",
+      "dimension": 1,
+      "description": "Balok kantilever 3500 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1750.0
+        },
+        {
+          "id": 2,
+          "x": 3500.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -20.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "365af9fde71eca2ee583ae4e281c5231b76d7f0fd18870e86d5b7b1a408126a8",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_042",
+      "family": "S1_beam",
+      "split": "blind_val",
+      "dimension": 1,
+      "description": "Balok sederhana L=6000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        },
+        {
+          "id": 3,
+          "x": 4500.0
+        },
+        {
+          "id": 4,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "e866bd1ba0dc787fee3d964fe8f21c0bfcb9215684568ce191c6dcf1c7cc2c57",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_043",
+      "family": "S1_beam",
+      "split": "blind_val",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=4500 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2250.0
+        },
+        {
+          "id": 2,
+          "x": 4500.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_2": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -45.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "fe77d5bf061d23b55d0aa0870a4c194ed3502f70d0004ea3ac92adbc6543b2bc",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_044",
+      "family": "S1_beam",
+      "split": "blind_val",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=8000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        },
+        {
+          "id": 2,
+          "x": 4000.0
+        },
+        {
+          "id": 3,
+          "x": 6000.0
+        },
+        {
+          "id": 4,
+          "x": 8000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "2504fa35efbca1693fc92aa83e1057e8cc1f9a481d5ad6d606eca68aa209a5e3",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_045",
+      "family": "S1_beam",
+      "split": "blind_val",
+      "dimension": 1,
+      "description": "Balok kantilever 3000 mm (1 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 1000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -25.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "ef12d19396e2671bccb5f200693932879f02b29749647681cb1af2625f152e1b",
+        "n_elements": 1,
+        "n_nodes": 2,
+        "n_damage_scenarios": 4
+      }
+    },
+    {
+      "id": "S1_046",
+      "family": "S1_beam",
+      "split": "blind_val",
+      "dimension": 1,
+      "description": "Balok sederhana L=3000 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 10000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "c6a15d2428eeaeadccdeda9499c1c64a944de2e33682ecee67375a18b1f923c2",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_047",
+      "family": "S1_beam",
+      "split": "blind_val",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=3000 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_2": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -45.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "324d2cb6d7f0497db4e2c3769bdfba62b5d843526599c2197664cbc3002114d3",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_048",
+      "family": "S1_beam",
+      "split": "blind_val",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=5000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1250.0
+        },
+        {
+          "id": 2,
+          "x": 2500.0
+        },
+        {
+          "id": 3,
+          "x": 3750.0
+        },
+        {
+          "id": 4,
+          "x": 5000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -20.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -20.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "7315815f3e9567938bce6f50f26d9375b3b46b82806d1bb805f40b73135704f8",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_049",
+      "family": "S1_beam",
+      "split": "final_test",
+      "dimension": 1,
+      "description": "Balok kantilever 3500 mm (1 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 3500.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -15.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "af6e54231ca64f97dc099356f2c1cbed9dd758be41f47c0d4125e0877940e147",
+        "n_elements": 1,
+        "n_nodes": 2,
+        "n_damage_scenarios": 4
+      }
+    },
+    {
+      "id": "S1_050",
+      "family": "S1_beam",
+      "split": "final_test",
+      "dimension": 1,
+      "description": "Balok sederhana L=4000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1000.0
+        },
+        {
+          "id": 2,
+          "x": 2000.0
+        },
+        {
+          "id": 3,
+          "x": 3000.0
+        },
+        {
+          "id": 4,
+          "x": 4000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -50.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "aed04f5e4e42ce3f548ace30b817879474ee7b2fac526c2024d681763196e297",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_051",
+      "family": "S1_beam",
+      "split": "final_test",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=6000 mm (3 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        },
+        {
+          "id": 2,
+          "x": 4000.0
+        },
+        {
+          "id": 3,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -35.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "052a5354334352c160dfdfa7c45b63e28cbebd6f63de0dd47f3432ed6d31d09c",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S1_052",
+      "family": "S1_beam",
+      "split": "final_test",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=6000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        },
+        {
+          "id": 3,
+          "x": 4500.0
+        },
+        {
+          "id": 4,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 4000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -20.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "f09d8a2eaa6daa90f15533f17b749acdf59b07bb5a7d9572b7eaf329c52e8d74",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_053",
+      "family": "S1_beam",
+      "split": "final_test",
+      "dimension": 1,
+      "description": "Balok kantilever 2500 mm (2 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1250.0
+        },
+        {
+          "id": 2,
+          "x": 2500.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 8000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -25.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "506b64213f3145a76feab8765d9c1d145ff7007e3aa49dc0ac6f1bd0543c74c3",
+        "n_elements": 2,
+        "n_nodes": 3,
+        "n_damage_scenarios": 8
+      }
+    },
+    {
+      "id": "S1_054",
+      "family": "S1_beam",
+      "split": "final_test",
+      "dimension": 1,
+      "description": "Balok sederhana L=5000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1250.0
+        },
+        {
+          "id": 2,
+          "x": 2500.0
+        },
+        {
+          "id": 3,
+          "x": 3750.0
+        },
+        {
+          "id": 4,
+          "x": 5000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 2000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -40.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "f3ca313f0c9a3ff8980dc757fe4af87f062926adbf66ba2e35f5316e6933ce85",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_055",
+      "family": "S1_beam",
+      "split": "final_test",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=6000 mm (3 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        },
+        {
+          "id": 2,
+          "x": 4000.0
+        },
+        {
+          "id": 3,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 6000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -25.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "00b5920efa9787466400d3c88766d8722def76aa09b90c90e1e21d1c1567bcc2",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S1_056",
+      "family": "S1_beam",
+      "split": "final_test",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=8000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        },
+        {
+          "id": 2,
+          "x": 4000.0
+        },
+        {
+          "id": 3,
+          "x": 6000.0
+        },
+        {
+          "id": 4,
+          "x": 8000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 15000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 15000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 15000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 15000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -30.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -20.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "d734b3bd3334585d99cf4817b9799ddf836d9bb11a21bd3050fa332ef45f4f75",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_057",
+      "family": "S1_beam",
+      "split": "final_test",
+      "dimension": 1,
+      "description": "Balok kantilever 2000 mm (1 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 1000000.0,
+          "A": 2000.0,
+          "M_capacity": 50000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -10.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "6c7d7e2703e33007aa141968c92ecba4839227da6904706d9d0ac21521f86d74",
+        "n_elements": 1,
+        "n_nodes": 2,
+        "n_damage_scenarios": 4
+      }
+    },
+    {
+      "id": "S1_058",
+      "family": "S1_beam",
+      "split": "final_test",
+      "dimension": 1,
+      "description": "Balok sederhana L=6000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1500.0
+        },
+        {
+          "id": 2,
+          "x": 3000.0
+        },
+        {
+          "id": 3,
+          "x": 4500.0
+        },
+        {
+          "id": 4,
+          "x": 6000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 5000000.0,
+          "A": 3000.0,
+          "M_capacity": 80000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 2,
+          "components": {
+            "Fy": -30.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "e14709c0fcd503ed8ebe71638677f1e95aa58f9482706ccd2a835b3509e54427",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    },
+    {
+      "id": "S1_059",
+      "family": "S1_beam",
+      "split": "final_test",
+      "dimension": 1,
+      "description": "Balok jepit-rol L=3000 mm (3 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 1000.0
+        },
+        {
+          "id": 2,
+          "x": 2000.0
+        },
+        {
+          "id": 3,
+          "x": 3000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 3000000.0,
+          "A": 3500.0,
+          "M_capacity": 100000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "fixed",
+        "node_3": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -35.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "52c3888ab8cc172302e48b123085b2dc4de6391d54fdf0e299639c1fcd2e96a3",
+        "n_elements": 3,
+        "n_nodes": 4,
+        "n_damage_scenarios": 12
+      }
+    },
+    {
+      "id": "S1_060",
+      "family": "S1_beam",
+      "split": "final_test",
+      "dimension": 1,
+      "description": "Balok menerus 2 bentang L=8000 mm (4 elemen)",
+      "units": {
+        "force": "kN",
+        "length": "mm",
+        "elasticity": "kN/mm^2"
+      },
+      "nodes": [
+        {
+          "id": 0,
+          "x": 0.0
+        },
+        {
+          "id": 1,
+          "x": 2000.0
+        },
+        {
+          "id": 2,
+          "x": 4000.0
+        },
+        {
+          "id": 3,
+          "x": 6000.0
+        },
+        {
+          "id": 4,
+          "x": 8000.0
+        }
+      ],
+      "elements": [
+        {
+          "id": 0,
+          "nodes": [
+            0,
+            1
+          ],
+          "E": 200.0,
+          "I": 15000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 1,
+          "nodes": [
+            1,
+            2
+          ],
+          "E": 200.0,
+          "I": 15000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 2,
+          "nodes": [
+            2,
+            3
+          ],
+          "E": 200.0,
+          "I": 15000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        },
+        {
+          "id": 3,
+          "nodes": [
+            3,
+            4
+          ],
+          "E": 200.0,
+          "I": 15000000.0,
+          "A": 4000.0,
+          "M_capacity": 120000.0
+        }
+      ],
+      "boundary_conditions": {
+        "node_0": "pinned",
+        "node_2": "roller",
+        "node_4": "roller"
+      },
+      "loads": [
+        {
+          "node": 1,
+          "components": {
+            "Fy": -20.0
+          }
+        },
+        {
+          "node": 3,
+          "components": {
+            "Fy": -20.0
+          }
+        }
+      ],
+      "meta": {
+        "sha256_spec": "db40060c890677e211569579d95bdd0b6fc4804b75e284c89e8703a05801dec2",
+        "n_elements": 4,
+        "n_nodes": 5,
+        "n_damage_scenarios": 16
+      }
+    }
+  ]
+}
