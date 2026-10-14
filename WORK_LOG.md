@@ -370,3 +370,14 @@ di DEFERRED_FINDINGS.md #010.
 - [x] Laporan transparansi ditulis ulang (Revisi 2) & dokumen Word diperbarui via GenOffice; rincian audit tersimpan di `results/review_prep/audit_naskah_revisi.md`.
 
 🟢 **GATE 9.3 & GATE 10 COMPLETED** — paket terintegrasi di naskah revisi; seluruh angka terverifikasi silang (nol ketidaksesuaian).
+
+
+## Gate 12 (W2a–W2d) — Implementasi Solver Multi-Keluarga (S1, S3, S4, S5)
+**Date:** 14 Oktober 2026 · **Status:** 🟢 COMPLETED (100% PASS)
+
+- [x] W2a (S1): Elemen balok transversal & lentur (Euler-Bernoulli 2D/1D). Verifikasi lendutan titik pusat simply-supported beam (v = PL^3/48EI, Δ=3.33e-9) & cantilever beam (v = PL^3/3EI, Δ=3.33e-9), reaksi tumpuan, momen, dan deteksi mekanisme rotasi (status 'rank_deficient').
+- [x] W2b (S3): Elemen portal bidang (2D plane frame) dengan aksial dan lentur. Verifikasi portal lateral (drift ux1 = 2.023366 mm), transformasi koordinat lokal-global, dan pelepasan sendi momen ujung (moment release Mi = 0 eksis nol), serta mekanisme goyang.
+- [x] W2c (S4): Portal bidang berpengaku (braced frame). Verifikasi reduksi drift oleh pengaku diagonal (reduksi 59.56%), transfer gaya geser ke bracing (N = 39.54 kN), dan rasio interaksi aksial-lentur (P-M).
+- [x] W2d (S5): Rangka ruang 3D (3D space truss). Verifikasi komponen spasial 3D (ux, uy, uz), simetri perpindahan translasi apex (ux=0, uy=4.78e-11), kesetimbangan vertikal (ΣRz = 10.0 kN, Δ=0), dan deteksi mekanisme kinematik ruang 3D.
+- [x] Unified Dispatcher:  mendukung 5 keluarga struktur (S1 Balok, S2 Rangka Batang, S3 Portal Bidang, S4 Portal Berpengaku, S5 Rangka Ruang 3D).
+- [x] Berkas baru: , , . Seluruh suite pengujian acceptance LULUS (100% PASS).
