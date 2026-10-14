@@ -9,6 +9,10 @@ Salinan Word: `Inventaris Repositori ARI.docx` (folder riset) — versi Markdown
 | Repo GitHub | https://github.com/haridsirawan/Adjusted-Redundancy-Index (privat) |
 | Folder lokal | `…/Research/Adjusted Redudancy Index/Coding/` |
 | Branch / HEAD | `main` @ `416093e` |
+| `e79bd17` | **Gate 10**: audit naskah revisi (193 hal) — seluruh klaim paket Gate 9 terverifikasi persis |
+| `02a43f2` | **Gate 11 (K6)**: rekonsiliasi draf 17/32/41 vs kode 30/32/52 — selisih terlokalisasi |
+| `6f2b95e` | **Gate 11 (W1)**: diagnosa 28 kasus kritis terlewat + evaluasi kandidat kebijakan (P1..P7) |
+| `eeabcb4` | **Gate 12 (W2a–W2d)**: solver multi-keluarga S1, S3, S4, S5 + uji analitis 100% PASS |
 | File terlacak | **66 file** (≈11 MB; `examples/` = 5.418 baris Python + JSON) |
 | Status | Semua runner HIJAU — kanonik 68/68, guard 33/33, pipeline PASS, grid halus PASS, plot PASS |
 
@@ -24,6 +28,10 @@ Salinan Word: `Inventaris Repositori ARI.docx` (folder riset) — versi Markdown
 | `f5b7bbe` | **Gate 9.1**: `ari_tutorial.py` (Kode 4.2) + `run_guard_verification.py` (§4.5.11) |
 | `ab2628d` | **Gate 9.2**: paket parametrik §4.2.4 — 16 model, 272 skenario, decisions/remaining_misses |
 | `416093e` | **Gate 9.3**: `status_code` di semua CSV; Tabel.tex diperluas; `forwarded.csv`; panduan revisi |
+| `e79bd17` | **Gate 10**: audit naskah revisi (193 hal) — seluruh klaim paket Gate 9 terverifikasi persis |
+| `02a43f2` | **Gate 11 (K6)**: rekonsiliasi draf 17/32/41 vs kode 30/32/52 — selisih terlokalisasi |
+| `6f2b95e` | **Gate 11 (W1)**: diagnosa 28 kasus kritis terlewat + evaluasi kandidat kebijakan (P1..P7) |
+| `eeabcb4` | **Gate 12 (W2a–W2d)**: solver multi-keluarga S1, S3, S4, S5 + uji analitis 100% PASS |
 
 ## 3. Daftar lengkap isi repositori (66 file)
 
@@ -31,6 +39,9 @@ Salinan Word: `Inventaris Repositori ARI.docx` (folder riset) — versi Markdown
 | File | Fungsi |
 |---|---|
 | `verification_models.json` | 4 model kanonik §4.1.2 (geometri, beban, kapasitas, skala) |
+| `structural_solvers.py` | Solver FE struktur multi-keluarga: S1 Balok, S3 Portal, S4 Berpengaku, S5 Rangka Ruang 3D |
+| `test_structural_solvers.py` | Suite uji analitis dan acceptance test untuk S1, S3, S4, S5 (100% PASS) |
+| `verification_solvers_s1_s5.json` | Model acuan kanonik untuk solver multi-keluarga S1, S3, S4, S5 |
 | `truss_reference.py` | Solver FE batang aksial (rank-check eig 1e-10, tanpa pseudoinverse) |
 | `ari_core.py` | Mesin ARI Eq 2.5–2.18 (b_jc per komponen reaksi; λ=0 hapus eksak; status Tabel 4.7) |
 | `ari_tutorial.py` | Tutorial rantai ARI contoh dua batang (urutan reproduksi Kode 4.2) |
