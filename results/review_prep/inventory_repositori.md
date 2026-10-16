@@ -15,6 +15,7 @@ Salinan Word: `Inventaris Repositori ARI.docx` (folder riset) — versi Markdown
 | `eeabcb4` | **Gate 12 (W2a–W2d)**: solver multi-keluarga S1, S3, S4, S5 + uji analitis 100% PASS |
 | `60f4361` | **Gate 13 (W2e–W2f)**: dataset induk 300 model lintas 5 keluarga + manifest lengkap |
 | `bd370b3` | **Gate 14 (W5)**: pembekuan protokol pra-validasi buta (`manifest_config_frozen.json`) |
+| `Gate 15` | **Gate 15 (W3/W4)**: penyaringan operasional skala penuh 300 model × 7.940 skenario & validasi A–D |
 | File terlacak | **66 file** (≈11 MB; `examples/` = 5.418 baris Python + JSON) |
 | Status | Semua runner HIJAU — kanonik 68/68, guard 33/33, pipeline PASS, grid halus PASS, plot PASS |
 
@@ -36,6 +37,7 @@ Salinan Word: `Inventaris Repositori ARI.docx` (folder riset) — versi Markdown
 | `eeabcb4` | **Gate 12 (W2a–W2d)**: solver multi-keluarga S1, S3, S4, S5 + uji analitis 100% PASS |
 | `60f4361` | **Gate 13 (W2e–W2f)**: dataset induk 300 model lintas 5 keluarga + manifest lengkap |
 | `bd370b3` | **Gate 14 (W5)**: pembekuan protokol pra-validasi buta (`manifest_config_frozen.json`) |
+| `Gate 15` | **Gate 15 (W3/W4)**: penyaringan operasional skala penuh 300 model × 7.940 skenario & validasi A–D |
 
 ## 3. Daftar lengkap isi repositori (66 file)
 
@@ -44,6 +46,7 @@ Salinan Word: `Inventaris Repositori ARI.docx` (folder riset) — versi Markdown
 |---|---|
 | `verification_models.json` | 4 model kanonik §4.1.2 (geometri, beban, kapasitas, skala) |
 | `freeze_protocol_config.py` | Pembekuan protokol & konfigurasi pra-validasi buta (`manifest_config_frozen.json`, Gate 14) |
+| `run_screening_s1_s5.py` | Penyaringan operasional 300 model × 7.940 skenario, kalibrasi, bootstrap B=10.000 & ablasi (Gate 15) |
 | `generate_dataset_s1_s5.py` | Generator model parametrik 300 model & builder manifest dataset |
 | `structural_solvers.py` | Solver FE struktur multi-keluarga: S1 Balok, S3 Portal, S4 Berpengaku, S5 Rangka Ruang 3D |
 | `generate_dataset_s1_s5.py` | Generator model parametrik 300 model & builder manifest dataset |

@@ -405,3 +405,16 @@ di DEFERRED_FINDINGS.md #010.
 - [x] Ambang penapisan & aturan penerusan dibekukan: `tau_ci_primary = 0.50`, `F = {CI >= tau_CI} U {g(s) = 1} U Abstensi`, grid kalibrasi `T = {0.00, 0.01, ..., 1.00}` (101 titik), benih deterministik `seed = 2026`, bootstrap berkelompok `B = 10000` pada unit model induk.
 - [x] Kunci segel partisi data (anti-leakage): `formula_dev` (120 model, 3.176 skenario), `calibration` (60 model, 1.580 skenario), `blind_val` (60 model, 1.584 skenario — TERKUNCI), `final_test` (60 model, 1.600 skenario — TERKUNCI).
 - [x] Artefak baru: `examples/freeze_protocol_config.py`, `results/screening/manifest_config_frozen.json`, `results/dataset/manifest_config_frozen.json`, `manifest_config_frozen.json` (Segel SHA-256: `879ee5bd0497f6d7bb96b9a2f502aaa5809e9fd16e0311a9853a9e8d7e3fc2ad`).
+
+## Gate 15 (W3/W4) — Penyaringan Operasional Skala Penuh & Validasi Lintas Keluarga (300 Model × 7.940 Skenario)
+**Date:** 16 Oktober 2026 · **Status:** 🟢 COMPLETED (100% Two-Pass Anti-Leakage Audit Verified)
+
+- [x] W3/W4: Eksekusi penyaringan operasional skala penuh pada 300 model induk lintas 5 keluarga struktur (S1–S5: 1.910 elemen, 7.640 skenario gangguan + 300 kontrol utuh = 7.940 skenario) melalui modul `examples/run_screening_s1_s5.py`.
+- [x] Pass 1 (Pra-Analisis Murni): Seluruh skor ARI, CI, dan pengaman kinematik spektral umum `h_e = lambda_max(K_{0,ff}^{-1/2} K_{e,ff} K_{0,ff}^{-1/2})` dihitung murni dari informasi model utuh dan disimpan ke `results/screening/decisions_300.csv` (SHA-256: `b64fcb4ebc3691f8...`) sebelum solver pascagangguan dijalankan.
+- [x] Pengaman Kinematik Lintas Keluarga: Menangkap 100% (920/920) kasus kehilangan rank / mekanisme kinematik pada seluruh 300 model (0 terlewat), dibandingkan ARI murni tanpa pengaman yang melewatkan 825/920 mekanisme.
+- [x] Pass 2 (Evaluasi Acuan, Kalibrasi 101 Titik, Bootstrap B=10.000 & Ablasi 6 Varian):
+  * Kebijakan P0 (`CI >= 0.50 U Guard`): 1.236 diteruskan (reduksi 83.8%), Recall(B) pooled 64.8% (rerata model 52.0%, L95 = 48.2%); pada S2 rangka batang mencapai recall 99.0% (reduksi 75.0%).
+  * Kebijakan P1 (`P0 U lambda=0`): 2.090 diteruskan (reduksi 72.6%), Recall(B) pooled 89.7% (rerata model 90.0%, L95 = 88.4%); meningkatkan recall S3 portal bidang dari 47.5% ke 100.0% dan S4 portal berpengaku dari 10.6% ke 95.5%.
+  * Kebijakan P5 (`P0 U [lambda<=0.25 & CI>0.35]`): 1.438 diteruskan (reduksi 81.2%), Recall(B) pooled 70.3% (rerata model 60.9%, L95 = 57.2%).
+  * Korelasi Spearman median lintas 300 model `rho_median = 0.7023` (memenuhi target Gerbang B >= 0.70).
+- [x] Artefak baru: `examples/run_screening_s1_s5.py`, `results/screening/{decisions_300.csv, forwarded_300.csv, remaining_misses_300.csv, calibration_grid_tau.csv, screening_summary_300.json}`, dan `results/validation/{full_evaluation_300.csv, screening_metrics_by_family_split.csv, ablation_300.csv, gate_validation_report_300.json}`.

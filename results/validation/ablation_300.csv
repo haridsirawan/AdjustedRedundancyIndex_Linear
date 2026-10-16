@@ -1,0 +1,7 @@
+variant,eta,K,alpha_k,alpha_R,use_guard,forwarded_scenarios,pooled_reduction_rate,pooled_recall_B,critical_missed_B,rank_deficient_missed,spearman_rho_median,spearman_rho_mean
+V0_full_ari_plus_guard,0.5,2,0.5,0.5,1,1236,0.83822,0.648428,604,0,0.702256,0.701799
+V1_no_util_penalty_eta0,0.0,2,0.5,0.5,1,1071,0.859817,0.597788,691,0,0.74088,0.695335
+V2_single_path_K1,0.5,1,0.5,0.5,1,1263,0.834686,0.648428,604,0,0.692308,0.58161
+V3_stiffness_only_ak1,0.5,2,1.0,0.0,1,1241,0.837565,0.648428,604,0,0.68976,0.690217
+V4_capacity_only_aR1,0.5,2,0.0,1.0,1,1236,0.83822,0.648428,604,0,0.73035,0.709931
+V5_ari_without_guard,0.5,2,0.5,0.5,0,411,0.946204,0.168219,1429,825,0.702256,0.701799
