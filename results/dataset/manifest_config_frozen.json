@@ -1,0 +1,801 @@
+{
+  "protocol_id": "ARI-FROZEN-PROTOCOL-v1.0",
+  "version": "1.0.0",
+  "gate": "Gate 14 (W5 — Pembekuan Protokol Pra-Validasi Buta)",
+  "status": "FROZEN_PRE_BLIND_VALIDATION",
+  "frozen_date": "2026-10-16",
+  "author": "Harids Irawan, S.T., M.T.",
+  "institution": "Program Doktor Ilmu Teknik, Konsentrasi Teknik Sipil, Sekolah Pascasarjana Universitas Negeri Yogyakarta",
+  "dissertation_sections": [
+    "Bagian 3.9.4 (Aturan Pemilihan Ambang yang Dapat Diaudit)",
+    "Bagian 3.9.5 (Ablasi, Pembekuan, dan Pembukaan Data Buta)",
+    "Bagian 3.10–3.13 (Acuan Mekanis, Pembanding, Gerbang Validasi A–D, Inferensi Statistik)",
+    "Bagian 4.9.2 & 4.10.1 (Protokol Finalisasi Naskah dan Data & Keluaran Validasi Utama)",
+    "Bagian 5.2 (Ketertelusuran dan Keputusan yang Masih Terbuka)"
+  ],
+  "units_system": {
+    "force": "kN",
+    "length": "mm",
+    "area": "mm^2",
+    "inertia": "mm^4",
+    "elastic_modulus": "kN/mm^2",
+    "stress": "kN/mm^2",
+    "moment": "kN*mm",
+    "strain_energy": "kN*mm",
+    "default_steel_E": 200.0
+  },
+  "random_seeds": {
+    "master_seed": 2026,
+    "dataset_generation_seed": 2026,
+    "family_seed_offsets": {
+      "S1_beam": 20261,
+      "S2_truss": 20262,
+      "S3_frame": 20263,
+      "S4_braced_frame": 20264,
+      "S5_space_truss": 20265
+    },
+    "bootstrap_inference_seed": 2026,
+    "random_baseline_screening_seed": 2026
+  },
+  "ari_formula_config": {
+    "alpha_k": 0.5,
+    "alpha_R": 0.5,
+    "alpha_sum_constraint": 1.0,
+    "q_e_canonical": 1.0,
+    "K_max_edge_disjoint_paths": 2,
+    "gamma_path_rank_decay": 1.0,
+    "beta_support_reaction_floor": 0.1,
+    "eta_utilization_penalty": 0.5,
+    "disruption_lambdas": [
+      0.0,
+      0.25,
+      0.5,
+      0.75
+    ],
+    "intact_control_included": true,
+    "disruption_rule_lambda_pos": "w_e -> lambda * w_e (tanpa renormalisasi ulang skala s_k, s_R — Bagian 4.8.4)",
+    "disruption_rule_lambda_zero": "Sisi e dihapus eksak dari graf skor G_{M_e,0} (Bagian 2.8)",
+    "path_search_method": "Enumerasi jalur sederhana edge-disjoint eksak (tersertifikasi, Bagian 4.8.6)",
+    "fixed_scales_canonical": {
+      "M1_parallel_bars_1d": {
+        "s_k": 15.0,
+        "s_R": 30.0
+      },
+      "M2_planar_triangle": {
+        "s_k": 20.0,
+        "s_R": 40.0
+      },
+      "M3_square_one_diagonal": {
+        "s_k": 20.0,
+        "s_R": 80.0
+      },
+      "M4_square_two_diagonals": {
+        "s_k": 20.0,
+        "s_R": 80.0
+      }
+    },
+    "family_default_scales": {
+      "S1_beam": {
+        "s_k": 20.0,
+        "s_R": 80.0
+      },
+      "S2_truss": {
+        "s_k": 20.0,
+        "s_R": 80.0
+      },
+      "S3_frame": {
+        "s_k": 20.0,
+        "s_R": 80.0
+      },
+      "S4_braced_frame": {
+        "s_k": 20.0,
+        "s_R": 80.0
+      },
+      "S5_space_truss": {
+        "s_k": 20.0,
+        "s_R": 80.0
+      }
+    }
+  },
+  "numerical_tolerances": {
+    "eps_w_edge_weight_reg": 1e-09,
+    "eps_d_path_distance_reg": 1e-09,
+    "eps_R_capacity_reg": 1e-06,
+    "baseline_score_tol": 1e-12,
+    "solver_rank_tol_relative": 1e-10,
+    "solver_singular_policy": "REJECT_NO_PSEUDOINVERSE (status='rank_deficient')",
+    "analytical_verification_rel_tol": 0.01,
+    "guard_margin_tol_m_s": 1e-08,
+    "bound_d0_floor_mm": 1e-10,
+    "bound_h_floor": 1e-12,
+    "bound_near_zero_force_kN": 1e-12,
+    "max_search_time_s": null,
+    "max_search_nodes": 200000,
+    "unit_invariance_tol": 1e-12
+  },
+  "screening_thresholds_and_policy": {
+    "tau_ci_primary": 0.5,
+    "forwarding_rule_eq_3_12": "F = {s in S : CI_s >= tau_CI} U G_guard U A_abstain",
+    "abstention_rule": "Semua skenario dengan status invalid_baseline, search_timeout, atau uncertified WAJIB diteruskan (forward=True)",
+    "kinematic_guard_enabled": true,
+    "kinematic_guard_rule_eq_4_5": "g(s) = 1 bila m_e(lambda) <= 1e-8 atau K_{e,lambda} rank_deficient -> langsung diteruskan",
+    "calibration_grid_T": {
+      "min": 0.0,
+      "max": 1.0,
+      "step": 0.01,
+      "n_points": 101,
+      "selection_rule_eq_3_1_3_2": "tau* = min argmax_{tau in T_layak} Reduksi_cal(tau) dengan L_cal,0.95(tau) >= 0.95 dan Reduksi_cal(tau) >= 0.30"
+    },
+    "pre_analysis_bounds_config": {
+      "A_lim": 2.0,
+      "d_lim": null,
+      "m_margin": 1e-08,
+      "d0_floor": 1e-10,
+      "h_floor": 1e-12,
+      "near_zero_force": 1e-12,
+      "eig_rel_tol": 1e-10
+    },
+    "layered_policy_config": {
+      "A_lim": 2.0,
+      "d_lim": null,
+      "m_margin": 1e-08,
+      "d0_floor": 1e-10,
+      "h_floor": 1e-12,
+      "near_zero_force": 1e-12,
+      "eig_rel_tol": 1e-10,
+      "ci_forward": 0.5,
+      "use_disrupted_rank_signal": true,
+      "require_ari": false
+    },
+    "k8_policy_status": {
+      "decision_id": "K8",
+      "current_active_policy": "P0 (CI >= 0.50 U Kinematic Guard g(s)=1 U Abstention)",
+      "candidate_policies_documented": {
+        "P0": {
+          "rule": "CI >= 0.50 U g(s)=1",
+          "dev_272_forwarded": 52,
+          "dev_272_recall_B": 0.6056,
+          "dev_272_reduction": 0.8088
+        },
+        "P1_recommended": {
+          "rule": "P0 U (lambda == 0.0)",
+          "dev_272_forwarded": 84,
+          "dev_272_recall_B": 0.8732,
+          "dev_272_reduction": 0.6912
+        },
+        "P5_conservative": {
+          "rule": "P0 U (lambda <= 0.25 and CI > 0.35)",
+          "dev_272_forwarded": 70,
+          "dev_272_recall_B": 0.7746,
+          "dev_272_reduction": 0.7426
+        }
+      },
+      "note": "Titik operasi dasar dibekukan pada tau_CI = 0.50 (P0); kandidat lapisan kehati-hatian P1 dan P5 terdaftar resmi untuk evaluasi komparatif terpisah pada partisi kalibrasi sesuai protokol Bagian 3.9.4–3.9.5."
+    }
+  },
+  "critical_label_and_reference_protocol": {
+    "critical_set_definition_eq_3_9": "C = C_peringkat U C_konsekuensi U C_mekanisme",
+    "n_ref_formula_eq_3_8": "n_ref = min(N, max(3, ceil(0.10 * N)))",
+    "tie_breaking_rule": "Include all tied scenarios at the n_ref boundary (aturan ikatan inklusif)",
+    "diagnostic_criticality_criteria": {
+      "mechanism": "rank(K_ff(s)) < n_free (singular / mekanisme kinematik)",
+      "utilization_exceeded": "U_max(s) > 1.0 (konvensi A: kapasitas state gangguan; konvensi B: kapasitas awal utuh — keduanya dilaporkan berdampingan)",
+      "displacement_amplification": "u_max(s) > 2.0 * u_max(0) (A_lim = 2.0)"
+    },
+    "response_change_indicators_eq_3_3_3_6": [
+      "delta_u",
+      "delta_U",
+      "delta_F",
+      "delta_k"
+    ],
+    "anti_leakage_contract": "Penyaring (ARI + pengaman) DILARANG membaca kolom respons pascagangguan. Keputusan penerusan disimpan beserta hash SHA-256 sebelum label evaluasi validasi buta dibuka."
+  },
+  "validation_gates_targets": {
+    "Gate_A_mathematical_algorithmic": {
+      "range_ari_ci": "[0.0, 1.0]",
+      "unit_invariance_max_diff": 1e-12,
+      "intact_control_rr": 1.0,
+      "post_disruption_leakage": 0
+    },
+    "Gate_B_mechanical_conformity": {
+      "spearman_rho_median_min": 0.7,
+      "spearman_rho_ci95_lower_min": 0.5,
+      "delta_rho_vs_best_baseline_median_min": 0.1,
+      "top_n_ref_coverage_min": 0.8,
+      "top1_ci_in_top3_crc": true,
+      "normalized_rank_error_median_max": 0.15
+    },
+    "Gate_C_stability_and_ablation": {
+      "perturbation_grid_relative": [
+        -0.1,
+        -0.05,
+        -0.01,
+        0.01,
+        0.05,
+        0.1
+      ],
+      "rank_correlation_perturbed_min": 0.8,
+      "jaccard_critical_set_min": 0.8,
+      "mandatory_ablations": [
+        "no_utilization_adjustment (eta = 0)",
+        "single_shortest_path (K = 1)",
+        "stiffness_only_weight (alpha_k = 1.0, alpha_R = 0.0)",
+        "capacity_only_weight (alpha_k = 0.0, alpha_R = 1.0)",
+        "uniform_support_weight (beta = 1.0)",
+        "guard_only_vs_ari_only_vs_combined"
+      ]
+    },
+    "Gate_D_operational_screening": {
+      "mean_model_recall_ci95_lower_min": 0.95,
+      "mean_model_reduction_min": 0.3,
+      "recall_gain_over_random_equal_budget_min": 0.15,
+      "recall_gain_over_baseline_ci95_lower_gt": 0.0,
+      "bootstrap_resamples_B": 10000,
+      "bootstrap_clustering_unit": "parent_model_id (mengambil ulang model induk beserta seluruh skenario turunannya — Persamaan 3.10)",
+      "bootstrap_quantile_alpha_one_sided": 0.05
+    }
+  },
+  "dataset_partitions": {
+    "total_parent_models": 300,
+    "total_elements": 1910,
+    "total_scenarios": 7940,
+    "families": [
+      "S1_beam",
+      "S2_truss",
+      "S3_frame",
+      "S4_braced_frame",
+      "S5_space_truss"
+    ],
+    "splits": {
+      "formula_dev": {
+        "role": "Pemilihan rumus, eksplorasi fitur, dan validasi silang berkelompok (CV)",
+        "n_models": 120,
+        "n_elements": 764,
+        "n_scenarios": 3176,
+        "labels_locked_blind": false,
+        "tuning_allowed": true,
+        "split_spec_sha256": "3646288841bc13d2d8457f035e2843be448ac8b0de4c1f696856fd1a25fecb3b",
+        "families": {
+          "S1_beam": {
+            "n_models": 24,
+            "n_elements": 68,
+            "n_scenarios": 296,
+            "model_id_range": "S1_001..S1_024",
+            "model_ids": [
+              "S1_001",
+              "S1_002",
+              "S1_003",
+              "S1_004",
+              "S1_005",
+              "S1_006",
+              "S1_007",
+              "S1_008",
+              "S1_009",
+              "S1_010",
+              "S1_011",
+              "S1_012",
+              "S1_013",
+              "S1_014",
+              "S1_015",
+              "S1_016",
+              "S1_017",
+              "S1_018",
+              "S1_019",
+              "S1_020",
+              "S1_021",
+              "S1_022",
+              "S1_023",
+              "S1_024"
+            ]
+          },
+          "S2_truss": {
+            "n_models": 24,
+            "n_elements": 276,
+            "n_scenarios": 1128,
+            "model_id_range": "S2_001..S2_024",
+            "model_ids": [
+              "S2_001",
+              "S2_002",
+              "S2_003",
+              "S2_004",
+              "S2_005",
+              "S2_006",
+              "S2_007",
+              "S2_008",
+              "S2_009",
+              "S2_010",
+              "S2_011",
+              "S2_012",
+              "S2_013",
+              "S2_014",
+              "S2_015",
+              "S2_016",
+              "S2_017",
+              "S2_018",
+              "S2_019",
+              "S2_020",
+              "S2_021",
+              "S2_022",
+              "S2_023",
+              "S2_024"
+            ]
+          },
+          "S3_frame": {
+            "n_models": 24,
+            "n_elements": 102,
+            "n_scenarios": 432,
+            "model_id_range": "S3_001..S3_024",
+            "model_ids": [
+              "S3_001",
+              "S3_002",
+              "S3_003",
+              "S3_004",
+              "S3_005",
+              "S3_006",
+              "S3_007",
+              "S3_008",
+              "S3_009",
+              "S3_010",
+              "S3_011",
+              "S3_012",
+              "S3_013",
+              "S3_014",
+              "S3_015",
+              "S3_016",
+              "S3_017",
+              "S3_018",
+              "S3_019",
+              "S3_020",
+              "S3_021",
+              "S3_022",
+              "S3_023",
+              "S3_024"
+            ]
+          },
+          "S4_braced_frame": {
+            "n_models": 24,
+            "n_elements": 150,
+            "n_scenarios": 624,
+            "model_id_range": "S4_001..S4_024",
+            "model_ids": [
+              "S4_001",
+              "S4_002",
+              "S4_003",
+              "S4_004",
+              "S4_005",
+              "S4_006",
+              "S4_007",
+              "S4_008",
+              "S4_009",
+              "S4_010",
+              "S4_011",
+              "S4_012",
+              "S4_013",
+              "S4_014",
+              "S4_015",
+              "S4_016",
+              "S4_017",
+              "S4_018",
+              "S4_019",
+              "S4_020",
+              "S4_021",
+              "S4_022",
+              "S4_023",
+              "S4_024"
+            ]
+          },
+          "S5_space_truss": {
+            "n_models": 24,
+            "n_elements": 168,
+            "n_scenarios": 696,
+            "model_id_range": "S5_001..S5_024",
+            "model_ids": [
+              "S5_001",
+              "S5_002",
+              "S5_003",
+              "S5_004",
+              "S5_005",
+              "S5_006",
+              "S5_007",
+              "S5_008",
+              "S5_009",
+              "S5_010",
+              "S5_011",
+              "S5_012",
+              "S5_013",
+              "S5_014",
+              "S5_015",
+              "S5_016",
+              "S5_017",
+              "S5_018",
+              "S5_019",
+              "S5_020",
+              "S5_021",
+              "S5_022",
+              "S5_023",
+              "S5_024"
+            ]
+          }
+        }
+      },
+      "calibration": {
+        "role": "Kalibrasi ambang penapisan (tau) dan aturan penerusan pra-analisis",
+        "n_models": 60,
+        "n_elements": 380,
+        "n_scenarios": 1580,
+        "labels_locked_blind": false,
+        "tuning_allowed": true,
+        "split_spec_sha256": "8f097d0b33fb2b1aa2bdb50aaf77ed7e6d2d4120126027d783782ab3cc74c4c2",
+        "families": {
+          "S1_beam": {
+            "n_models": 12,
+            "n_elements": 32,
+            "n_scenarios": 140,
+            "model_id_range": "S1_025..S1_036",
+            "model_ids": [
+              "S1_025",
+              "S1_026",
+              "S1_027",
+              "S1_028",
+              "S1_029",
+              "S1_030",
+              "S1_031",
+              "S1_032",
+              "S1_033",
+              "S1_034",
+              "S1_035",
+              "S1_036"
+            ]
+          },
+          "S2_truss": {
+            "n_models": 12,
+            "n_elements": 138,
+            "n_scenarios": 564,
+            "model_id_range": "S2_025..S2_036",
+            "model_ids": [
+              "S2_025",
+              "S2_026",
+              "S2_027",
+              "S2_028",
+              "S2_029",
+              "S2_030",
+              "S2_031",
+              "S2_032",
+              "S2_033",
+              "S2_034",
+              "S2_035",
+              "S2_036"
+            ]
+          },
+          "S3_frame": {
+            "n_models": 12,
+            "n_elements": 51,
+            "n_scenarios": 216,
+            "model_id_range": "S3_025..S3_036",
+            "model_ids": [
+              "S3_025",
+              "S3_026",
+              "S3_027",
+              "S3_028",
+              "S3_029",
+              "S3_030",
+              "S3_031",
+              "S3_032",
+              "S3_033",
+              "S3_034",
+              "S3_035",
+              "S3_036"
+            ]
+          },
+          "S4_braced_frame": {
+            "n_models": 12,
+            "n_elements": 75,
+            "n_scenarios": 312,
+            "model_id_range": "S4_025..S4_036",
+            "model_ids": [
+              "S4_025",
+              "S4_026",
+              "S4_027",
+              "S4_028",
+              "S4_029",
+              "S4_030",
+              "S4_031",
+              "S4_032",
+              "S4_033",
+              "S4_034",
+              "S4_035",
+              "S4_036"
+            ]
+          },
+          "S5_space_truss": {
+            "n_models": 12,
+            "n_elements": 84,
+            "n_scenarios": 348,
+            "model_id_range": "S5_025..S5_036",
+            "model_ids": [
+              "S5_025",
+              "S5_026",
+              "S5_027",
+              "S5_028",
+              "S5_029",
+              "S5_030",
+              "S5_031",
+              "S5_032",
+              "S5_033",
+              "S5_034",
+              "S5_035",
+              "S5_036"
+            ]
+          }
+        }
+      },
+      "blind_val": {
+        "role": "Validasi buta bebas penyetelan ulang (TERKUNCI sebelum keputusan penerusan disimpan)",
+        "n_models": 60,
+        "n_elements": 381,
+        "n_scenarios": 1584,
+        "labels_locked_blind": true,
+        "tuning_allowed": false,
+        "split_spec_sha256": "b7293f565209b8a3db6a49075f42e7a85ce7561d78904cb257211269af006966",
+        "families": {
+          "S1_beam": {
+            "n_models": 12,
+            "n_elements": 33,
+            "n_scenarios": 144,
+            "model_id_range": "S1_037..S1_048",
+            "model_ids": [
+              "S1_037",
+              "S1_038",
+              "S1_039",
+              "S1_040",
+              "S1_041",
+              "S1_042",
+              "S1_043",
+              "S1_044",
+              "S1_045",
+              "S1_046",
+              "S1_047",
+              "S1_048"
+            ]
+          },
+          "S2_truss": {
+            "n_models": 12,
+            "n_elements": 138,
+            "n_scenarios": 564,
+            "model_id_range": "S2_037..S2_048",
+            "model_ids": [
+              "S2_037",
+              "S2_038",
+              "S2_039",
+              "S2_040",
+              "S2_041",
+              "S2_042",
+              "S2_043",
+              "S2_044",
+              "S2_045",
+              "S2_046",
+              "S2_047",
+              "S2_048"
+            ]
+          },
+          "S3_frame": {
+            "n_models": 12,
+            "n_elements": 51,
+            "n_scenarios": 216,
+            "model_id_range": "S3_037..S3_048",
+            "model_ids": [
+              "S3_037",
+              "S3_038",
+              "S3_039",
+              "S3_040",
+              "S3_041",
+              "S3_042",
+              "S3_043",
+              "S3_044",
+              "S3_045",
+              "S3_046",
+              "S3_047",
+              "S3_048"
+            ]
+          },
+          "S4_braced_frame": {
+            "n_models": 12,
+            "n_elements": 75,
+            "n_scenarios": 312,
+            "model_id_range": "S4_037..S4_048",
+            "model_ids": [
+              "S4_037",
+              "S4_038",
+              "S4_039",
+              "S4_040",
+              "S4_041",
+              "S4_042",
+              "S4_043",
+              "S4_044",
+              "S4_045",
+              "S4_046",
+              "S4_047",
+              "S4_048"
+            ]
+          },
+          "S5_space_truss": {
+            "n_models": 12,
+            "n_elements": 84,
+            "n_scenarios": 348,
+            "model_id_range": "S5_037..S5_048",
+            "model_ids": [
+              "S5_037",
+              "S5_038",
+              "S5_039",
+              "S5_040",
+              "S5_041",
+              "S5_042",
+              "S5_043",
+              "S5_044",
+              "S5_045",
+              "S5_046",
+              "S5_047",
+              "S5_048"
+            ]
+          }
+        }
+      },
+      "final_test": {
+        "role": "Uji akhir independen lintas keluarga (TERKUNCI hingga evaluasi validasi buta selesai)",
+        "n_models": 60,
+        "n_elements": 385,
+        "n_scenarios": 1600,
+        "labels_locked_blind": true,
+        "tuning_allowed": false,
+        "split_spec_sha256": "c40587e5fc9659dac6a37714f091ab284ae63e9051b4f185b3bdc24943bea24e",
+        "families": {
+          "S1_beam": {
+            "n_models": 12,
+            "n_elements": 37,
+            "n_scenarios": 160,
+            "model_id_range": "S1_049..S1_060",
+            "model_ids": [
+              "S1_049",
+              "S1_050",
+              "S1_051",
+              "S1_052",
+              "S1_053",
+              "S1_054",
+              "S1_055",
+              "S1_056",
+              "S1_057",
+              "S1_058",
+              "S1_059",
+              "S1_060"
+            ]
+          },
+          "S2_truss": {
+            "n_models": 12,
+            "n_elements": 138,
+            "n_scenarios": 564,
+            "model_id_range": "S2_049..S2_060",
+            "model_ids": [
+              "S2_049",
+              "S2_050",
+              "S2_051",
+              "S2_052",
+              "S2_053",
+              "S2_054",
+              "S2_055",
+              "S2_056",
+              "S2_057",
+              "S2_058",
+              "S2_059",
+              "S2_060"
+            ]
+          },
+          "S3_frame": {
+            "n_models": 12,
+            "n_elements": 51,
+            "n_scenarios": 216,
+            "model_id_range": "S3_049..S3_060",
+            "model_ids": [
+              "S3_049",
+              "S3_050",
+              "S3_051",
+              "S3_052",
+              "S3_053",
+              "S3_054",
+              "S3_055",
+              "S3_056",
+              "S3_057",
+              "S3_058",
+              "S3_059",
+              "S3_060"
+            ]
+          },
+          "S4_braced_frame": {
+            "n_models": 12,
+            "n_elements": 75,
+            "n_scenarios": 312,
+            "model_id_range": "S4_049..S4_060",
+            "model_ids": [
+              "S4_049",
+              "S4_050",
+              "S4_051",
+              "S4_052",
+              "S4_053",
+              "S4_054",
+              "S4_055",
+              "S4_056",
+              "S4_057",
+              "S4_058",
+              "S4_059",
+              "S4_060"
+            ]
+          },
+          "S5_space_truss": {
+            "n_models": 12,
+            "n_elements": 84,
+            "n_scenarios": 348,
+            "model_id_range": "S5_049..S5_060",
+            "model_ids": [
+              "S5_049",
+              "S5_050",
+              "S5_051",
+              "S5_052",
+              "S5_053",
+              "S5_054",
+              "S5_055",
+              "S5_056",
+              "S5_057",
+              "S5_058",
+              "S5_059",
+              "S5_060"
+            ]
+          }
+        }
+      }
+    }
+  },
+  "software_environment": {
+    "python_version": "3.9.6",
+    "numpy_version": "2.0.2",
+    "platform": "macOS-13.7.8-x86_64-i386-64bit"
+  },
+  "artifact_hashes_sha256": {
+    "examples_code": {
+      "analyze_remaining_misses.py": "6f363fd873826a0ef282b074ee2236a792bb1e1c7f610237de101f744998c64c",
+      "ari_core.py": "8a584bb2271e9a4679ee3bf1f67e9637081849ca9affb34933aaaf2b2b7db727",
+      "ari_tutorial.py": "30cdbaf2ae560c97fa49661b1b6095cad10b0ddb19571a0cf862cc5701c1a96b",
+      "bound_enhancement.py": "a275c58198ddfc75c23466eb07ec18004bfbcfa5cd1710ff8dd9b579087d9b5e",
+      "curve_extractor.py": "b9f5e08e9f5f117e6ce575a6559de0ab6728016d60047379cd5a98c8fe7da9ad",
+      "fine_grid_runner.py": "aaef7c06872b260ff40f398892e13167ddf2b735bbb53c30b439512fe9379af8",
+      "generate_dataset_s1_s5.py": "22770820bbb547b837e95859ab07a49d65d6b0c4269ccb925df1fbe116078173",
+      "kinematic_guard.py": "477131670d7ddd7bf7753b3f9c522626b82c84cfc4cf933de09917712e03fa22",
+      "layered_policy.py": "18041bbb75d4fbec2a78799d7dc7e767d921f1c755ad66a42c9d29c769e2d021",
+      "mechanical_guard.py": "36bc05809e7222bac31c753af23e0d82de3e7223df86fb2b708a28d0c27f446c",
+      "plot_curves.py": "953b0bc55484904ae8132e5c50321d1ce87be4af2b4b37bfbf60f4b05a9ce8f0",
+      "reconcile_ari_forward.py": "2848ed21f3563547afa42cabde266f426f04a067eae12e11c7f3513017974c41",
+      "run_ablation_bounds.py": "cecc0aef525e61746a8f8619d49e467bc02238172383dd479528c05d81018f0a",
+      "run_guard_verification.py": "62669228599836e9b1ac1772ad49d59e7c9538b73e0bccdd65d78e7b0f196f38",
+      "run_pipeline.py": "d0a2c9bb415bb82b956b5c5226f02abcf25872454df5137c663c2916ab5c8018",
+      "run_verification.py": "f94a30fe22fd127f1170b137406de5f32a4a334b38f54860706490f307276a38",
+      "structural_solvers.py": "00ae3cfc1ea9a9003d402ce9ff60a689d5964a5b2c934aaf049f311d56cf5854",
+      "test_ari.py": "bc8eb54e84dceca2c7ab94922c486f359e65e3998ffeffd45f82bd760c12a786",
+      "test_bound_enhancement.py": "7034ba0461e2a084d2a49261a0cb11b3daba9e1ec0ce04c795fce6558dc3df2f",
+      "test_leakage_audit.py": "5985be74c7542c37300160ba43671da763d1ec8efaef376f7c1b62bced0d10c7",
+      "test_structural_solvers.py": "5b237b3caa665ba143b9c1cce355de64940eabdb3cac955cfd2992f8668f63c5",
+      "test_truss_reference.py": "a5410a817d87b28ff9d72ab282bbf0caabd5b3f1ed36c04361a2d963c53db8ba",
+      "truss_reference.py": "2193383dabb408db23e10b408084fb027b8b318289650404c8cc2cca2c86aa8d",
+      "verification_models.json": "f1c3439ed9c9e52cdc7d16ddf826302e1c19d81afea13e4389b89dbd817dac41",
+      "verification_solvers_s1_s5.json": "50b0d877543981d050c7a6fb2786683f6cf9e65ef35fae830e398e04caead4b6"
+    },
+    "dataset_files": {
+      "dataset_stats.json": "e639cf19a40a428831cbf8c737ad183023599a8adf580328ca43a8885909e388",
+      "manifest.csv": "4a07ae7462a05ba573b59e4322478e06548c8439f1a068c6b027cd6f325a8ac8",
+      "manifest.json": "693d804f5ae967ea3f08b198a5503be9f3469a1902c1d9f7cc96bab6625ff546",
+      "models_s1.json": "166ee38a675650c04ef57bb2b5f62246ea39d5392db6509f4848a7bae6157a67",
+      "models_s2.json": "618671154b7e16b032f02b4c948fca5b7df01ee2787ca0670ce76d7e3d6a95f4",
+      "models_s3.json": "8fd6c5e791a7cefeb457070fa2fb0a5b242806bc186236834abb1af9c1535ca6",
+      "models_s4.json": "a10e1caa38f06158c2cf32cb8f16c824757f6031e08f9db4d68f93879ebdb027",
+      "models_s5.json": "d5fbda124559511221d7a50613521ab36bbb5af44de7a324abdb30279b67e928"
+    }
+  },
+  "frozen_config_sha256": "879ee5bd0497f6d7bb96b9a2f502aaa5809e9fd16e0311a9853a9e8d7e3fc2ad"
+}
