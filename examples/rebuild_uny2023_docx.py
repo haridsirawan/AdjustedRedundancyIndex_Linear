@@ -1589,12 +1589,12 @@ def extract_catalog_and_q1_rows(doc):
     for child in doc.element.body.iterchildren():
         if isinstance(child, CT_P):
             p = Paragraph(child, doc)
-            if 528 <= p_idx <= 783:
+            if 250 <= p_idx <= 508:
                 items.append(("P", p_idx, p.text))
             p_idx += 1
         elif isinstance(child, CT_Tbl):
             t = Table(child, doc)
-            if 528 <= p_idx <= 784:
+            if 250 <= p_idx <= 508:
                 for r in t.rows:
                     row_txt = " ".join(c.text.strip().replace("\n", " ") for c in r.cells)
                     items.append(("TR", p_idx, row_txt))
@@ -1653,10 +1653,10 @@ def extract_catalog_and_q1_rows(doc):
         blob = re.sub(r"\s+", " ", blob).strip()
         catalog_rows.append([sk, info["cat"], clean_text_artifacts(blob)])
 
-    # Ekstrak 43 baris Q1 RIS dari P0868..P1050
+    # Ekstrak 43 baris Q1 RIS dari P0590..P0775
     pages = []
     cur_page = {"src": [], "theme": [], "mode": "src"}
-    for i in range(868, 1051):
+    for i in range(590, 776):
         t = doc.paragraphs[i].text.strip()
         if not t:
             continue
@@ -2527,7 +2527,7 @@ def main():
         if isinstance(child, CT_P):
             p = Paragraph(child, doc)
             p_elements.append((p_idx, p))
-            if p_idx >= 2161:
+            if p_idx >= 1885:
                 gate11_17_blocks.append(("P", p))
             p_idx += 1
         elif isinstance(child, CT_Tbl):
@@ -2642,13 +2642,13 @@ def main():
     new_body_elements.append(
         make_p_element("PENDAHULUAN", bold=True, size_pt=12.0, align="center", line_spacing=2.0, space_before_pt=0.0, space_after_pt=12.0)
     )
-    for p_id in range(284, 342):
+    for p_id in range(9, 68):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 1 utuh (Peta Kontribusi)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T1"], font_size_pt=10.0))
 
-    for p_id in range(356, 365):
+    for p_id in range(82, 91):
         _add_body_p(p_elements[p_id][1])
 
     # C. BAB II KAJIAN PUSTAKA
@@ -2659,25 +2659,25 @@ def main():
     new_body_elements.append(
         make_p_element("KAJIAN PUSTAKA", bold=True, size_pt=12.0, align="center", line_spacing=2.0, space_before_pt=0.0, space_after_pt=12.0)
     )
-    for p_id in range(367, 381):
+    for p_id in range(93, 105):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 2 (Pembedaan Konstruk)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T2"], font_size_pt=10.5))
 
-    for p_id in range(384, 400):
+    for p_id in range(105, 124):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Gambar 1 (Transformasi Rangka Batang ke Graf)
     new_body_elements.extend(make_captioned_figure(doc, *FIGURES_SPEC["G1"], font_size_pt=10.0))
 
-    for p_id in range(413, 432):
+    for p_id in range(137, 156):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Gambar 2 (Operasi Pelemahan & Penghapusan Sisi)
     new_body_elements.extend(make_captioned_figure(doc, *FIGURES_SPEC["G2"], font_size_pt=10.0))
 
-    for p_id in range(443, 464):
+    for p_id in range(167, 188):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan narasi ringkas Subbab J (Green AI)
@@ -2692,13 +2692,13 @@ def main():
     )
 
     # Subbab K: Hasil Penelusuran dan Dokumentasi Literatur (dengan Tabel 3 & Tabel 4)
-    for p_id in range(465, 471):
+    for p_id in range(189, 195):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 3 (Penelusuran Tema)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T3"], font_size_pt=10.5))
 
-    for p_id in range(482, 484):
+    for p_id in range(206, 208):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 4 (Sumber Terpilih)
@@ -2715,22 +2715,39 @@ def main():
         )
     )
 
-    for p_id in range(784, 798):
+    for p_id in range(508, 522):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 5 (Matriks Sintesis Penelitian Terdahulu)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T5"], font_size_pt=10.0))
 
-    for p_id in range(844, 866):
+    for p_id in range(568, 590):
         _add_body_p(p_elements[p_id][1])
 
-    for p_id in range(1052, 1074):
+    # Narasi penghubung ke Lampiran 1 untuk artikel jurnal Q1
+    new_body_elements.append(
+        make_p_element("1. Referensi Inti dan Referensi Pendukung", bold=True, size_pt=12.0, align="left", line_spacing=2.0, space_before_pt=8.0, space_after_pt=4.0, keep_with_next=True)
+    )
+    new_body_elements.append(
+        make_p_element(
+            "Matriks telaah komprehensif 43 artikel jurnal internasional bereputasi tinggi (Q1) dari rekaman penelusuran RIS disajikan pada Lampiran 1 (Tabel Lampiran 2) sesuai ketentuan Bab V.B.9.a.5 Panduan Disertasi UNY 2023.",
+            bold=False, size_pt=12.0, align="both", line_spacing=2.0, first_line_cm=1.0
+        )
+    )
+
+    for p_id in range(776, 799):
+        _add_body_p(p_elements[p_id][1])
+
+    # Sisipkan Gambar 3 (Alur Pembentukan Skor ARI, CI, dan Pengaman Kinematik)
+    new_body_elements.extend(make_captioned_figure(doc, *FIGURES_SPEC["G3"], font_size_pt=10.0))
+
+    for p_id in range(799, 811):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Gambar 4 (Kerangka Berpikir: Pemisahan Jalur Operasional & Acuan)
     new_body_elements.extend(make_captioned_figure(doc, *FIGURES_SPEC["G4"], font_size_pt=10.0))
 
-    for p_id in range(1088, 1095):
+    for p_id in range(812, 819):
         _add_body_p(p_elements[p_id][1])
 
     # D. BAB III METODE PENELITIAN
@@ -2741,67 +2758,61 @@ def main():
     new_body_elements.append(
         make_p_element("METODE PENELITIAN", bold=True, size_pt=12.0, align="center", line_spacing=2.0, space_before_pt=0.0, space_after_pt=12.0)
     )
-    for p_id in range(1097, 1126):
+    for p_id in range(821, 867):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Gambar 5 (Alur Keputusan Penyaringan Sebelum GNN)
     new_body_elements.extend(make_captioned_figure(doc, *FIGURES_SPEC["G5"], font_size_pt=10.0))
 
-    for p_id in range(1144, 1145):
-        _add_body_p(p_elements[p_id][1])
-
     # Sisipkan Tabel 6 (Rencana & Realisasi Sampel 300 Model)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T6"], font_size_pt=10.5))
 
-    for p_id in range(1148, 1157):
+    for p_id in range(872, 891):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Gambar 6 (Skema Pemisahan Partisi Berdasarkan Model Induk)
     new_body_elements.extend(make_captioned_figure(doc, *FIGURES_SPEC["G6"], font_size_pt=10.0))
 
-    for p_id in range(1168, 1173):
-        _add_body_p(p_elements[p_id][1])
-
     # Sisipkan Tabel 7 (Tahapan Validasi Lanjutan)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T7"], font_size_pt=10.5))
 
-    for p_id in range(1189, 1193):
+    for p_id in range(892, 916):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 8 (Variabel Operasional)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T8"], font_size_pt=10.0))
 
-    for p_id in range(1204, 1212):
+    for p_id in range(928, 935):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 9 (Variasi Topologi & Mekanis S1–S5)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T9"], font_size_pt=10.5))
 
-    for p_id in range(1223, 1228):
+    for p_id in range(947, 971):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Gambar 7 (Skema Idealisasi Lima Keluarga Struktur S1–S5)
     new_body_elements.extend(make_captioned_figure(doc, *FIGURES_SPEC["G7"], font_size_pt=10.0))
 
-    for p_id in range(1248, 1257):
+    for p_id in range(972, 980):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 10 (Instrumen Penelitian)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T10"], font_size_pt=10.5))
 
-    for p_id in range(1263, 1282):
+    for p_id in range(987, 1005):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 11 (Prasyarat Realisasi Lima Keluarga S1–S5)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T11"], font_size_pt=10.0))
 
-    for p_id in range(1299, 1416):
+    for p_id in range(1023, 1139):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 12 (Audit Kandidat GNN Acuan)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T12"], font_size_pt=10.0))
 
-    for p_id in range(1417, 1465):
+    for p_id in range(1141, 1189):
         _add_body_p(p_elements[p_id][1])
 
     # E. BAB IV HASIL PENELITIAN DAN PEMBAHASAN
@@ -2812,67 +2823,67 @@ def main():
     new_body_elements.append(
         make_p_element("HASIL PENELITIAN DAN PEMBAHASAN", bold=True, size_pt=12.0, align="center", line_spacing=2.0, space_before_pt=0.0, space_after_pt=12.0)
     )
-    for p_id in range(1467, 1482):
+    for p_id in range(1191, 1206):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Gambar 8 (Empat Model Kanonik)
     new_body_elements.extend(make_captioned_figure(doc, *FIGURES_SPEC["G8"], font_size_pt=10.5))
 
-    for p_id in range(1484, 1496):
+    for p_id in range(1208, 1220):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 13 (Hasil Solver Kanonik Utuh)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T13"], font_size_pt=10.5))
 
-    for p_id in range(1497, 1503):
+    for p_id in range(1221, 1227):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 14 (Status Gangguan Kanonik)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T14"], font_size_pt=10.5))
 
-    for p_id in range(1509, 1514):
+    for p_id in range(1233, 1238):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 15 (Skor Graf & Rank Persegi Satu Diagonal)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T15"], font_size_pt=10.5))
 
-    for p_id in range(1515, 1517):
+    for p_id in range(1239, 1241):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Gambar 9 (Kasus Mekanisme Terlewat Persegi Satu Diagonal)
     new_body_elements.extend(make_captioned_figure(doc, *FIGURES_SPEC["G9"], font_size_pt=10.0))
 
-    for p_id in range(1525, 1530):
+    for p_id in range(1249, 1254):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Gambar 10 (Kurva CI terhadap Pelemahan)
     new_body_elements.extend(make_captioned_figure(doc, *FIGURES_SPEC["G10"], font_size_pt=10.5))
 
-    for p_id in range(1531, 1577):
+    for p_id in range(1255, 1301):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 16 (Uji Regresi Dua Kehilangan Bergaya Awal Nol)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T16"], font_size_pt=10.5))
 
-    for p_id in range(1578, 1579):
+    for p_id in range(1302, 1303):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 17 (Diagnostik Pengembangan Runner Lokal)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T17"], font_size_pt=10.5))
 
-    for p_id in range(1581, 1589):
+    for p_id in range(1305, 1313):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 18 (Diagnostik Parametrik Gate 9 Unggahan)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T18"], font_size_pt=10.5))
 
-    for p_id in range(1590, 1621):
+    for p_id in range(1314, 1345):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 19 (Sintesis Hubungan Pertanyaan Penelitian & Bukti)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T19"], font_size_pt=10.0))
 
-    for p_id in range(1624, 1717):
+    for p_id in range(1348, 1441):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Kode 1 (Pseudocode Pencarian Lintasan)
@@ -2898,13 +2909,13 @@ def main():
         make_p_element(code_text, bold=False, size_pt=10.0, align="left", line_spacing=1.0, first_line_cm=0.0, font_name="Courier New", space_before_pt=2.0, space_after_pt=6.0)
     )
 
-    for p_id in range(1719, 1729):
+    for p_id in range(1443, 1453):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 20 (Kode Status Operasional)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T20"], font_size_pt=10.5))
 
-    for p_id in range(1746, 1764):
+    for p_id in range(1470, 1488):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Kode 2 (Urutan Reproduksi)
@@ -2923,31 +2934,31 @@ def main():
         make_p_element(code_repro, bold=False, size_pt=10.0, align="left", line_spacing=1.0, first_line_cm=0.0, font_name="Courier New", space_before_pt=2.0, space_after_pt=6.0)
     )
 
-    for p_id in range(1764, 1768):
+    for p_id in range(1488, 1492):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 21 (Keluaran Direktori results/verification)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T21"], font_size_pt=10.5))
 
-    for p_id in range(1788, 1793):
+    for p_id in range(1512, 1517):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 22 (Berkas Bukti Numerik Gate 9)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T22"], font_size_pt=10.5))
 
-    for p_id in range(1804, 1813):
+    for p_id in range(1528, 1537):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 23 (Skema Minimum Berkas Data)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T23"], font_size_pt=10.5))
 
-    for p_id in range(1820, 1838):
+    for p_id in range(1544, 1562):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 24 (Kasus Uji Minimum & Hasil Harapan)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T24"], font_size_pt=10.0))
 
-    for p_id in range(1873, 1900):
+    for p_id in range(1597, 1624):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan rumus analitis (4.16) rapi tanpa tabel serpihan
@@ -2955,49 +2966,49 @@ def main():
         make_p_element("S(G^M) = (1/2)*(4/7) + (1/2)*(2/5) = 17/35 . (4.16)", bold=False, size_pt=12.0, align="center", line_spacing=1.5, space_before_pt=4.0, space_after_pt=4.0)
     )
 
-    for p_id in range(1901, 1903):
+    for p_id in range(1625, 1627):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 25 (Contoh Analitis Dua Batang Paralel)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T25"], font_size_pt=10.5))
 
-    for p_id in range(1904, 1933):
+    for p_id in range(1628, 1657):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 26 (Hitungan Ambang Delapan Gangguan)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T26"], font_size_pt=10.5))
 
-    for p_id in range(1934, 1959):
+    for p_id in range(1658, 1683):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 27 (Status Pemenuhan Prasyarat Eksperimen)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T27"], font_size_pt=10.0))
 
-    for p_id in range(1976, 1982):
+    for p_id in range(1700, 1706):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 28 (Rincian Pekerjaan Finalisasi Gate 11–17)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T28"], font_size_pt=10.0))
 
-    for p_id in range(1996, 2020):
+    for p_id in range(1720, 1744):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 29 (Inventaris Hasil Aktual menurut Partisi Data)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T29"], font_size_pt=10.0))
 
-    for p_id in range(2025, 2034):
+    for p_id in range(1749, 1758):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 30 (Ringkasan Bukti & Keputusan Gerbang Validasi A–D & Integrasi)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T30"], font_size_pt=9.5))
 
-    for p_id in range(2037, 2042):
+    for p_id in range(1761, 1766):
         _add_body_p(p_elements[p_id][1])
 
     # Sisipkan Tabel 31 (Pemisahan Biaya Operasional Integrasi ARI–GNN)
     new_body_elements.extend(make_captioned_table(doc, *TABLES_SPEC["T31"], font_size_pt=9.5))
 
-    for p_id in range(2055, 2064):
+    for p_id in range(1779, 1788):
         _add_body_p(p_elements[p_id][1])
 
     # F. BAB V SIMPULAN DAN SARAN
@@ -3008,7 +3019,7 @@ def main():
     new_body_elements.append(
         make_p_element("SIMPULAN DAN SARAN", bold=True, size_pt=12.0, align="center", line_spacing=2.0, space_before_pt=0.0, space_after_pt=12.0)
     )
-    for p_id in range(2066, 2102):
+    for p_id in range(1790, 1826):
         _add_body_p(p_elements[p_id][1])
 
     # G. DAFTAR PUSTAKA (APA 7th Edition — 1 spasi dalam pustaka, hanging indent 1.0 cm, jarak antarpustaka 12 pt)
@@ -3019,7 +3030,7 @@ def main():
     # Gabungkan baris pustaka yang terpotong di P2103..P2160
     bib_entries = []
     cur_bib = []
-    for p_id in range(2103, 2161):
+    for p_id in range(1827, 1885):
         t_raw = p_elements[p_id][1].text.strip()
         if not t_raw:
             continue
