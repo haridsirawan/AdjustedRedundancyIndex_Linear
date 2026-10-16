@@ -60,7 +60,11 @@ Catatan: gate 7 (agregasi laporan) dilaporkan selesai oleh peneliti (commit 93a8
 ## Log dokumentasi (root)
 | File | Isi | Status |
 |---|---|---|
-| WORK_LOG.md | Entri sesi Gate 1–8 | ✅ |
+| manifest_config_frozen.json | Paket protokol beku pra-validasi buta (Gate 14 — W5) | ✅ |
+| results/dataset/{manifest.json, manifest.csv, models_s1..s5.json, dataset_stats.json} | Dataset induk 300 model S1–S5 (Gate 13 — W2e/W2f) | ✅ |
+| results/screening/manifest_config_frozen.json | Salinan arsip protokol beku pada direktori penyaringan (Gate 14 — W5) | ✅ |
+| examples/{structural_solvers.py, test_structural_solvers.py, generate_dataset_s1_s5.py, freeze_protocol_config.py} | Solver multi-keluarga S1–S5, generator 300 model, & pembekuan protokol (Gate 12–14) | ✅ |
+| WORK_LOG.md | Entri sesi Gate 1–14 | ✅ |
 | DEFERRED_FINDINGS.md | Finding #001–#012 + Last Checked | ✅ |
 | ARCHITECTURE.md | File ini | ✅ (Gate 8) |
 

@@ -380,7 +380,7 @@ di DEFERRED_FINDINGS.md #010.
 - [x] W2c (S4): Portal bidang berpengaku (braced frame). Verifikasi reduksi drift oleh pengaku diagonal (reduksi 59.56%), transfer gaya geser ke bracing (N = 39.54 kN), dan rasio interaksi aksial-lentur (P-M).
 - [x] W2d (S5): Rangka ruang 3D (3D space truss). Verifikasi komponen spasial 3D (ux, uy, uz), simetri perpindahan translasi apex (ux=0, uy=4.78e-11), kesetimbangan vertikal (ΣRz = 10.0 kN, Δ=0), dan deteksi mekanisme kinematik ruang 3D.
 - [x] Unified Dispatcher:  mendukung 5 keluarga struktur (S1 Balok, S2 Rangka Batang, S3 Portal Bidang, S4 Portal Berpengaku, S5 Rangka Ruang 3D).
-- [x] Berkas baru: , , . Seluruh suite pengujian acceptance LULUS (100% PASS).
+- [x] Berkas baru: `examples/structural_solvers.py`, `examples/verification_solvers_s1_s5.json`, `examples/test_structural_solvers.py`. Seluruh suite pengujian acceptance LULUS (100% PASS).
 
 
 ## Gate 13 (W2e–W2f) — Pembangkitan Dataset Induk 300 Model & Manifest (5 Keluarga)
@@ -394,4 +394,14 @@ di DEFERRED_FINDINGS.md #010.
   * Final Test (60 model, 12/keluarga)
 - [x] Verifikasi Kestabilan Solver Utuh: Seluruh 300 model dianalisis secara fisik dengan solver terkait; 300/300 berstatus 'ok' (tanpa mekanisme singular/fiktif).
 - [x] Statistik Skenario Gangguan: 1.910 total elemen struktur menghasilkan 7.940 skenario penapisan gangguan tunggal (lambda in {0, 0.25, 0.50, 0.75} + kontrol).
-- [x] Artefak baru: ,  s.d. , , , .
+- [x] Artefak baru: `examples/generate_dataset_s1_s5.py`, `results/dataset/models_s1.json` s.d. `models_s5.json`, `results/dataset/manifest.json`, `results/dataset/manifest.csv`, `results/dataset/dataset_stats.json`.
+
+## Gate 14 (W5) — Pembekuan Protokol & Konfigurasi Pra-Validasi Buta (Protocol Freezing)
+**Date:** 16 Oktober 2026 · **Status:** 🟢 COMPLETED (FROZEN_PRE_BLIND_VALIDATION)
+
+- [x] W5: Pembekuan protokol formal (`ARI-FROZEN-PROTOCOL-v1.0`, v1.0.0) melalui modul `examples/freeze_protocol_config.py` sebelum label evaluasi validasi buta (`blind_val`) dibuka.
+- [x] Parameter formula ARI dibekukan: `alpha_k = 0.5`, `alpha_R = 0.5`, `q_e = 1.0`, `K = 2`, `gamma = 1.0`, `beta = 0.1`, `eta = 0.5`, `lambda in {0.0, 0.25, 0.50, 0.75}` + kontrol utuh.
+- [x] Toleransi numerik dibekukan: `eps_w = 1e-9`, `eps_d = 1e-9`, `eps_R = 1e-6`, `baseline_tol = 1e-12`, `RANK_TOL_RELATIVE = 1e-10` (tanpa pseudoinverse), `MARGIN_TOL = 1e-8`, `A_lim = 2.0`.
+- [x] Ambang penapisan & aturan penerusan dibekukan: `tau_ci_primary = 0.50`, `F = {CI >= tau_CI} U {g(s) = 1} U Abstensi`, grid kalibrasi `T = {0.00, 0.01, ..., 1.00}` (101 titik), benih deterministik `seed = 2026`, bootstrap berkelompok `B = 10000` pada unit model induk.
+- [x] Kunci segel partisi data (anti-leakage): `formula_dev` (120 model, 3.176 skenario), `calibration` (60 model, 1.580 skenario), `blind_val` (60 model, 1.584 skenario — TERKUNCI), `final_test` (60 model, 1.600 skenario — TERKUNCI).
+- [x] Artefak baru: `examples/freeze_protocol_config.py`, `results/screening/manifest_config_frozen.json`, `results/dataset/manifest_config_frozen.json`, `manifest_config_frozen.json` (Segel SHA-256: `879ee5bd0497f6d7bb96b9a2f502aaa5809e9fd16e0311a9853a9e8d7e3fc2ad`).

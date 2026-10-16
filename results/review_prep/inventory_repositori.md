@@ -13,7 +13,8 @@ Salinan Word: `Inventaris Repositori ARI.docx` (folder riset) — versi Markdown
 | `02a43f2` | **Gate 11 (K6)**: rekonsiliasi draf 17/32/41 vs kode 30/32/52 — selisih terlokalisasi |
 | `6f2b95e` | **Gate 11 (W1)**: diagnosa 28 kasus kritis terlewat + evaluasi kandidat kebijakan (P1..P7) |
 | `eeabcb4` | **Gate 12 (W2a–W2d)**: solver multi-keluarga S1, S3, S4, S5 + uji analitis 100% PASS |
-| `Gate 13` | **Gate 13 (W2e–W2f)**: dataset induk 300 model lintas 5 keluarga + manifest lengkap |
+| `60f4361` | **Gate 13 (W2e–W2f)**: dataset induk 300 model lintas 5 keluarga + manifest lengkap |
+| `bd370b3` | **Gate 14 (W5)**: pembekuan protokol pra-validasi buta (`manifest_config_frozen.json`) |
 | File terlacak | **66 file** (≈11 MB; `examples/` = 5.418 baris Python + JSON) |
 | Status | Semua runner HIJAU — kanonik 68/68, guard 33/33, pipeline PASS, grid halus PASS, plot PASS |
 
@@ -33,7 +34,8 @@ Salinan Word: `Inventaris Repositori ARI.docx` (folder riset) — versi Markdown
 | `02a43f2` | **Gate 11 (K6)**: rekonsiliasi draf 17/32/41 vs kode 30/32/52 — selisih terlokalisasi |
 | `6f2b95e` | **Gate 11 (W1)**: diagnosa 28 kasus kritis terlewat + evaluasi kandidat kebijakan (P1..P7) |
 | `eeabcb4` | **Gate 12 (W2a–W2d)**: solver multi-keluarga S1, S3, S4, S5 + uji analitis 100% PASS |
-| `Gate 13` | **Gate 13 (W2e–W2f)**: dataset induk 300 model lintas 5 keluarga + manifest lengkap |
+| `60f4361` | **Gate 13 (W2e–W2f)**: dataset induk 300 model lintas 5 keluarga + manifest lengkap |
+| `bd370b3` | **Gate 14 (W5)**: pembekuan protokol pra-validasi buta (`manifest_config_frozen.json`) |
 
 ## 3. Daftar lengkap isi repositori (66 file)
 
@@ -41,6 +43,7 @@ Salinan Word: `Inventaris Repositori ARI.docx` (folder riset) — versi Markdown
 | File | Fungsi |
 |---|---|
 | `verification_models.json` | 4 model kanonik §4.1.2 (geometri, beban, kapasitas, skala) |
+| `freeze_protocol_config.py` | Pembekuan protokol & konfigurasi pra-validasi buta (`manifest_config_frozen.json`, Gate 14) |
 | `generate_dataset_s1_s5.py` | Generator model parametrik 300 model & builder manifest dataset |
 | `structural_solvers.py` | Solver FE struktur multi-keluarga: S1 Balok, S3 Portal, S4 Berpengaku, S5 Rangka Ruang 3D |
 | `generate_dataset_s1_s5.py` | Generator model parametrik 300 model & builder manifest dataset |

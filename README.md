@@ -35,6 +35,9 @@ python3 run_pipeline.py           # pipeline lengkap + konsistensi antar-lapisan
 python3 run_verification.py       # verifikasi kanonik penuh 65 pemeriksaan (Tabel 4.1–4.5/4.11)
 python3 run_guard_verification.py # paket pengaman -A2 (analitis + regresi + diagnostik)
 python3 mechanical_guard.py       # pengaman kinematik Eq 4.1–4.4 (h_e SVD, regresi Tabel 4.4)
+python3 test_structural_solvers.py # verifikasi solver multi-keluarga S1–S5 (Gate 12)
+python3 generate_dataset_s1_s5.py  # pembangkitan 300 model induk S1–S5 & manifest (Gate 13)
+python3 freeze_protocol_config.py  # pembekuan protokol pra-validasi buta (Gate 14)
 ```
 
 ## Isi repo
@@ -49,7 +52,10 @@ python3 mechanical_guard.py       # pengaman kinematik Eq 4.1–4.4 (h_e SVD, re
 | `results/` | Keluaran verifikasi: CSV, JSON, PDF kurva, `review_prep/` (+ keluaran kontrak Tabel 4.8 Gate 9) |
 | `results/revision/` | Paket parametrik §4.2.4: 16 model (272 skenario) + `decisions.csv` + `remaining_misses.csv` + `forwarded.csv` (Gate 9.2/9.3) |
 | `ARCHITECTURE.md` | Arsitektur pipeline + daftar file aktual & statusnya |
-| `WORK_LOG.md` | Log progres per gate (Gate 1–9) |
+| `manifest_config_frozen.json` | Konfigurasi & protokol beku pra-validasi buta (`ARI-FROZEN-PROTOCOL-v1.0`, Gate 14) |
+| `results/dataset/` | Dataset induk 300 model S1–S5 (1.910 elemen, 7.940 skenario) + `manifest.json`/`csv` (Gate 13) |
+| `results/screening/` | Manifest konfigurasi penapisan beku (`manifest_config_frozen.json`, Gate 14) |
+| `WORK_LOG.md` | Log progres per gate (Gate 1–14) |
 | `DEFERRED_FINDINGS.md` | Temuan yang ditunda beserta statusnya |
 | `debug_archive/`, `unified_debug_gate2.py`, `debug_results.csv` | Diagnostik grid-search Gate 2 |
 
