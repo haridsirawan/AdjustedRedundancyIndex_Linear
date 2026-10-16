@@ -1,0 +1,37 @@
+{
+  "model_id": "StructGNN-CRC-v1.0",
+  "architecture": "3-Layer Edge-Node Message-Passing GNN + ReLU Readout MLP (Dual Head: Ridge CRC_B & IRLS Critical Probability)",
+  "reference_basis": "Adapted from StructGNN (Chou et al., 2024) & StructGNN-E (Song et al., 2023) for multi-family line-element graphs S1-S5",
+  "license": "MIT (Academic Research Prototype in Repository)",
+  "weights_file": "results/integration/gnn_weights_s6.npz",
+  "weights_sha256": "81f00159a791e02fe4f7f5ff578fa352c6975ca714eb2814d82973c89332330f",
+  "training_split": "formula_dev (120 parent models, 3,056 disruption scenarios)",
+  "calibration_split": "calibration (60 parent models, 1,520 disruption scenarios)",
+  "blind_and_test_splits_touched_during_training": false,
+  "ari_used_as_input_feature": false,
+  "post_disruption_solver_used_at_inference": false,
+  "node_feature_dim": 7,
+  "edge_feature_dim": 15,
+  "hidden_dim": 24,
+  "num_message_passing_layers": 3,
+  "calibrated_threshold_c_GNN": 0.5,
+  "training_diagnostics": {
+    "train_samples": 3056,
+    "cal_samples": 1520,
+    "c_gnn_threshold": 0.5,
+    "train_mae_crc": 0.038838,
+    "train_rmse_crc": 0.066412,
+    "cal_mae_crc": 0.039546,
+    "cal_rmse_crc": 0.069175,
+    "cal_crit_recall": 0.981928
+  },
+  "separate_preparation_costs": {
+    "gnn_training_and_calibration_time_ms": 2464.663,
+    "warmup_pass_time_ms": 57.842,
+    "exact_fem_all_7640_scenarios_time_ms": 8115.239
+  },
+  "determinism_and_consistency_check": {
+    "max_diff_across_treatments_on_same_scenario": 0.0,
+    "status": "PASS"
+  }
+}
