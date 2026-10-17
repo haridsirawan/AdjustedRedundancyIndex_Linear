@@ -1,6 +1,6 @@
 # Adjusted Redundancy Index (ARI) — Implementasi Komputasi & Verifikasi Disertasi
 
-Repositori resmi implementasi algoritma, solver referensi elemen hingga, pengaman kinematik berbasis dekomposisi nilai singular (*Singular Value Decomposition* / SVD), serta protokol evaluasi untuk penelitian disertasi doktor:
+Repositori resmi implementasi algoritma, solver referensi elemen hingga, pengaman kinematik berbasis dekomposisi nilai singular (*Singular Value Decomposition* / SVD)
 
 > **Pengembangan dan Validasi Adjusted Redundancy Index untuk Penapisan Pra-Analisis Skenario Gangguan Elemen pada Evaluasi Struktur Berbasis Graph Neural Network**
 
