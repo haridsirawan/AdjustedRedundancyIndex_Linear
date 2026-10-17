@@ -6,7 +6,7 @@ Suite Solver Elemen Hingga Struktur Multi-Keluarga untuk Penelitian Disertasi:
 "Adjusted Redundancy Index (ARI)" — Harids Irawan (2026).
 
 Memenuhi Prasyarat Realisasi Dataset Utama (Tabel 3.6, Tabel 4.15, Tabel 4.16 butir 2,
-dan Dokumen Kerja 04 Pekerjaan Sisa W2a–W2d):
+dan Spesifikasi Teknis Pemenuhan Lima Keluarga Struktur S1–S5):
 ---------------------------------------------------------------------------------------
 * S1 (W2a): Elemen balok dengan translasi dan rotasi (Euler-Bernoulli 2D/1D).
             Mencakup lendutan, rotasi, reaksi tumpuan, momen lentur, gaya geser,

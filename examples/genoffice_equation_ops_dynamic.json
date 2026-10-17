@@ -1,26 +1,26 @@
 [
   {
     "op": "replace_blocks",
-    "startBlockIndex": 1671,
-    "endBlockIndex": 1672,
+    "startBlockIndex": 1664,
+    "endBlockIndex": 1665,
     "html": "<formula>u_1(\\lambda) = \\frac{30}{20\\lambda + 10} \\quad [\\text{mm}] \\quad (4.19)</formula>"
   },
   {
     "op": "replace_blocks",
-    "startBlockIndex": 1668,
-    "endBlockIndex": 1669,
+    "startBlockIndex": 1661,
+    "endBlockIndex": 1662,
     "html": "<formula>ARI_1(\\lambda) = \\frac{10\\lambda + 7}{17} \\quad (4.18)</formula>"
   },
   {
     "op": "replace_blocks",
-    "startBlockIndex": 1667,
-    "endBlockIndex": 1668,
+    "startBlockIndex": 1660,
+    "endBlockIndex": 1661,
     "html": "<formula>w_{1,\\lambda} = \\frac{4}{7}\\lambda, \\quad RR_1(\\lambda) = \\frac{10\\lambda + 7}{17} \\quad (4.17)</formula>"
   },
   {
     "op": "replace_blocks",
-    "startBlockIndex": 1649,
-    "endBlockIndex": 1650,
+    "startBlockIndex": 1642,
+    "endBlockIndex": 1643,
     "html": "<formula>k_{\\text{sys}}^{(0)} = 30 \\text{ kN/mm}, \\quad u^{(0)} = 1 \\text{ mm}, \\quad D_1 = 20 \\text{ kN}, \\quad D_2 = 10 \\text{ kN} \\quad (4.15)</formula>"
   },
   {
