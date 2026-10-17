@@ -1,0 +1,230 @@
+[
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 1167,
+    "endBlockIndex": 1169,
+    "html": "<formula>u_1(\\lambda) = \\frac{30}{20\\lambda + 10} \\quad [\\text{mm}] \\quad (4.19)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 1161,
+    "endBlockIndex": 1165,
+    "html": "<formula>w_{1,\\lambda} = \\frac{4}{7}\\lambda, \\quad RR_1(\\lambda) = \\frac{10\\lambda + 7}{17}</formula><p>Untuk gangguan batang kedua,</p><formula>RR_2(\\lambda) = \\frac{10 + 7\\lambda}{17}</formula><formula>CI_1(\\lambda) = 1 - \\frac{3}{4}\\left(\\frac{10\\lambda + 7}{17}\\right) \\quad (4.17)</formula><formula>CI_2(\\lambda) = 1 - \\frac{3}{4}\\left(\\frac{10 + 7\\lambda}{17}\\right) \\quad (4.18)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 1148,
+    "endBlockIndex": 1148,
+    "html": "<formula>S(G^M) = \\frac{1}{2}\\left(\\frac{4}{7}\\right) + \\frac{1}{2}\\left(\\frac{2}{5}\\right) = \\frac{17}{35} \\quad (4.16)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 1144,
+    "endBlockIndex": 1145,
+    "html": "<formula>k_{\\text{sys}}^{(0)} = 30 \\text{ kN/mm}, \\quad u^{(0)} = 1 \\text{ mm}, \\quad D_1 = 20 \\text{ kN}, \\quad D_2 = 10 \\text{ kN} \\quad (4.15)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 1069,
+    "endBlockIndex": 1069,
+    "html": "<formula>K_e = \\frac{E_e A_e}{L_e} b_e^T b_e \\quad (4.14)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 1014,
+    "endBlockIndex": 1014,
+    "html": "<formula>F^+(s) = 1_{\\{F(s) = 1 \\ \\vee \\ g_C(s) = 1 \\ \\vee \\ g_D(s) = 1 \\ \\vee \\ \\text{batas tidak dapat dipakai}\\}} \\quad (4.13)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 1002,
+    "endBlockIndex": 1008,
+    "html": "<formula>|P_i \\Delta u_s|_2 \\le \\frac{\\alpha_s |N_{e,0}|}{m_s} \\sqrt{\\frac{c_i h_e}{k_e}}, \\quad d_s = \\max_i \\left( |P_i u_0|_2 + \\frac{\\alpha_s |N_{e,0}|}{m_s} \\sqrt{\\frac{c_i h_e}{k_e}} \\right) \\quad (4.12)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 999,
+    "endBlockIndex": 1000,
+    "html": "<formula>c_i = \\lambda_{\\max}\\left(P_i K_0^{-1} P_i^T\\right), \\quad d_0 = \\max_i |P_i u_0|_2 \\quad (4.11)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 994,
+    "endBlockIndex": 994,
+    "html": "<formula>U_s = \\max_{j \\in E_s} \\frac{D_{j,s}}{R_{j,s}} \\quad (4.10)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 989,
+    "endBlockIndex": 992,
+    "html": "<formula>D_{j,s} = \\begin{cases} |N_{j,0}| + \\frac{\\alpha_s |N_{e,0}|}{m_s}\\sqrt{\\frac{k_j}{k_e} h_j h_e}, & j \\ne e \\ \\frac{\\lambda |N_{e,0}|}{m_s}, & j = e, \\ \\lambda > 0 \\end{cases} \\quad (4.9)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 986,
+    "endBlockIndex": 987,
+    "html": "<formula>|k_j a_j K_0^{-1} a_e^T| \\le \\sqrt{\\frac{k_j}{k_e} h_j h_e} \\quad (4.8)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 984,
+    "endBlockIndex": 984,
+    "html": "<p>Tuliskan <formula>\\alpha_s = 1 - \\lambda</formula> dan <formula>m_s = m_e(\\lambda)</formula> sebagaimana Persamaan (4.2). Hanya jika pengaman lolos dan margin cukup jauh dari nol, identitas pembaruan rank satu memberikan</p><formula>\\Delta u_s = \\frac{\\alpha_s N_{e,0}}{m_s} K_0^{-1} a_e^T \\quad (4.7)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 980,
+    "endBlockIndex": 980,
+    "html": "<formula>K_0 u_0 = f, \\quad N_{j,0} = k_j a_j u_0, \\quad D_j = |N_{j,0}| \\quad (4.6)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 910,
+    "endBlockIndex": 910,
+    "html": "<formula>F(s) = 1_{\\{\\text{CI}(s) \\ge \\tau \\ \\vee \\ g(s) = 1 \\ \\vee \\ \\text{ARI abstain atau tidak sah}\\}} \\quad (4.5)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 905,
+    "endBlockIndex": 905,
+    "html": "<formula>\\frac{\\lambda_{\\min}(K_{e,\\lambda})}{\\lambda_{\\max}(K_{e,\\lambda})} \\ge m_e \\rho_0 \\quad (4.4)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 899,
+    "endBlockIndex": 902,
+    "html": "<p>Dengan <formula>v_e = \\sqrt{k_e} K_0^{-1/2} a_e^T</formula>, transformasi kongruensi menghasilkan</p><formula>K_0^{-1/2} K_{e,\\lambda} K_0^{-1/2} = I - (1-\\lambda) v_e v_e^T \\quad (4.3)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 898,
+    "endBlockIndex": 898,
+    "html": "<formula>K_{e,\\lambda} = K_0 - (1-\\lambda) k_e a_e^T a_e, \\quad m_e(\\lambda) = 1 - (1-\\lambda) h_e \\quad (4.2)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 895,
+    "endBlockIndex": 896,
+    "html": "<formula>K_0 = \\sum_e k_e a_e^T a_e, \\quad h_e = k_e a_e K_0^{-1} a_e^T \\quad (4.1)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 816,
+    "endBlockIndex": 816,
+    "html": "<formula>\\Delta E = E_{\\text{tanpa}} - E_{\\text{dengan}}, \\quad r_E = \\frac{\\Delta E}{E_{\\text{tanpa}}} \\quad (3.21)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 815,
+    "endBlockIndex": 815,
+    "html": "<p>Estimasi emisi dan keputusan manfaat. Untuk interval pengukuran <i>j</i> dengan energi <formula>\\Delta E_{v,j}</formula> dalam kWh dan intensitas emisi listrik <formula>\\iota_j</formula> dalam kg CO2e/kWh, estimasi emisi operasional adalah</p><formula>\\hat{M}_{\\text{CO}_2\\text{e},v} = \\sum_j \\Delta E_{v,j} \\, \\iota_j \\quad (3.20)</formula><p>Sumber, lokasi, periode, metode akuntansi, dan ketidakpastian faktor emisi dicatat. Faktor rata-rata periode merupakan asumsi estimasi, bukan pengukuran emisi langsung atau bukti emisi marginal yang dihindari. Untuk mengisolasi perbedaan komputasi, gunakan faktor emisi acuan yang sama dalam pembandingan utama; variasi lokasi atau waktu dianalisis terpisah. Jika faktor yang sesuai tidak tersedia, laporkan energi saja. Energi pendinginan atau fasilitas hanya ditambahkan jika datanya tersedia dan belum tercakup, dengan batas dan asumsi yang eksplisit. Untuk <formula>E_{\\text{tanpa}} > 0</formula>, laporkan</p>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 811,
+    "endBlockIndex": 811,
+    "html": "<formula>E_{\\text{dengan}} = E_{\\text{persiapan}} + E_{\\text{ARI}} + E_{\\text{pengaman}} + E_{\\text{inferensi},F} + E_{\\text{penanganan}} \\quad (3.19)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 805,
+    "endBlockIndex": 807,
+    "html": "<formula>E_v = \\frac{1}{3{,}6 \\times 10^6} \\int_{t_{0,v}}^{t_{1,v}} P_{\\text{el},v}(t) \\, dt \\quad [\\text{kWh}] \\quad (3.18)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 796,
+    "endBlockIndex": 797,
+    "html": "<formula>T_{\\text{hemat}} = T_{\\text{tanpa}} - T_{\\text{ARI-GNN}} \\quad (3.16)</formula><formula>T_{\\text{ARI-GNN}} = T_{\\text{utuh}} + T_{\\text{ARI}} + T_{\\text{seleksi}} + T_{\\text{graf},F} + T_{\\text{inferensi},F} + T_{\\text{penanganan}} \\quad (3.17)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 789,
+    "endBlockIndex": 792,
+    "html": "<formula>\\text{MAE}(Q) = \\frac{1}{|Q|}\\sum_{s \\in Q} |\\hat{y}_s - y_s|, \\quad \\text{RMSE}(Q) = \\sqrt{\\frac{1}{|Q|}\\sum_{s \\in Q} (\\hat{y}_s - y_s)^2} \\quad (3.15)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 786,
+    "endBlockIndex": 786,
+    "html": "<formula>\\text{Recall}_{\\text{akhir}}(F) = \\frac{|H_F \\cap C|}{|C|} \\quad (3.14)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 784,
+    "endBlockIndex": 784,
+    "html": "<formula>\\text{Recall}_{\\text{saring}} = \\frac{|F \\cap C|}{|C|}, \\quad \\text{Reduksi} = 1 - \\frac{|F|}{|S|} \\quad (3.13)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 778,
+    "endBlockIndex": 778,
+    "html": "<formula>F = \\{s \\in S : CI_s \\ge \\tau_{CI}\\} \\cup A \\quad (3.12)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 735,
+    "endBlockIndex": 736,
+    "html": "<formula>D_j(s) = \\frac{ARI_s(p_j + \\Delta p_j) - ARI_s(p_j - \\Delta p_j)}{2\\Delta p_j} \\quad (3.11)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 726,
+    "endBlockIndex": 730,
+    "html": "<formula>\\bar{R} = \\frac{1}{M}\\sum_{m=1}^M R_m, \\quad L_{0{,}95} = Q_{0{,}05}\\left(\\bar{R}^{*(1)}, \\ldots, \\bar{R}^{*(B)}\\right), \\quad B \\ge 10\\,000 \\quad (3.10)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 712,
+    "endBlockIndex": 712,
+    "html": "<formula>n_{\\text{ref}} = \\min\\{N, \\max\\{3, \\text{ceil}( 0{,}10 N )\\}\\} \\quad (3.8)</formula><formula>C = C_{\\text{peringkat}} \\cup C_{\\text{konsekuensi}} \\cup C_{\\text{mekanisme}} \\quad (3.9)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 706,
+    "endBlockIndex": 710,
+    "html": "<formula>\\hat{\\delta}_h^{(s)} = \\frac{\\delta_h^{(s)}}{\\delta_h^{(s)} + t_h}, \\quad y_s = \\text{CRC}_{\\text{konv},s} = \\max_{h \\in H} \\hat{\\delta}_h^{(s)}, \\quad H \\subseteq \\{u, U, F, k\\} \\quad (3.7)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 701,
+    "endBlockIndex": 703,
+    "html": "<formula>\\delta_k^{(s)} = \\max\\left(\\frac{k_{\\text{sys}}^{(0)} - k_{\\text{sys}}^{(s)}}{k_{\\text{sys}}^{(0)} + \\epsilon_k}, 0\\right) \\quad (3.6)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 695,
+    "endBlockIndex": 700,
+    "html": "<formula>\\delta_F^{(s)} = \\max_{g \\in G_F} \\frac{\\max_{a \\in g} |F_a^{(s)} - F_a^{(0)}|}{\\max_{a \\in g} |F_a^{(0)}| + \\epsilon_{F,g}} \\quad (3.5)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 691,
+    "endBlockIndex": 694,
+    "html": "<formula>\\delta_U^{(s)} = \\frac{|U_{\\max}^{(s)} - U_{\\max}^{(0)}|}{|U_{\\max}^{(0)}| + \\epsilon_U} \\quad (3.4)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 687,
+    "endBlockIndex": 690,
+    "html": "<formula>\\delta_u^{(s)} = \\frac{|u_{\\max}^{(s)} - u_{\\max}^{(0)}|}{|u_{\\max}^{(0)}| + \\epsilon_u} \\quad (3.3)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 675,
+    "endBlockIndex": 675,
+    "html": "<formula>T_{\\text{layak}} = \\{\\tau \\in T : L_{\\text{cal}}(\\tau) \\ge 0{,}95, \\ \\text{Reduksi}_{\\text{cal}}(\\tau) \\ge 0{,}30\\} \\quad (3.1)</formula><formula>\\tau^* \\in \\arg\\max_{\\tau \\in T_{\\text{layak}}} \\text{Reduksi}_{\\text{cal}}(\\tau) \\quad (3.2)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 408,
+    "endBlockIndex": 408,
+    "html": "<formula>0 \\le S(G_{e,\\lambda}^M) \\le S(G^M), \\quad 0 \\le RR_e(\\lambda) \\le 1, \\quad 0 \\le ARI_e(\\lambda) \\le 1 \\quad (2.19)</formula>"
+  },
+  {
+    "op": "replace_blocks",
+    "startBlockIndex": 398,
+    "endBlockIndex": 403,
+    "html": "<formula>RR_e(\\lambda) = \\frac{S(G_{e,\\lambda}^M)}{S(G^M)} \\quad (2.15)</formula><formula>U_e^* = \\min\\left(\\frac{D_e}{R_e + \\epsilon_{R,e}}, 1\\right) \\quad (2.16)</formula><formula>ARI_e(\\lambda) = RR_e(\\lambda)(1 - \\eta U_e^*), \\quad 0 \\le \\eta \\le 1 \\quad (2.17)</formula><formula>CI_e(\\lambda) = 1 - ARI_e(\\lambda) \\quad (2.18)</formula>"
+  }
+]
