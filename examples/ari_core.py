@@ -736,6 +736,115 @@ def compute_ari(am: AriModelData, disruption: Optional[Tuple[int, float]] = None
                           solver_status=solver_status)
 
 
+def phi_sat(x: float, eps_phi: float = 1.0) -> float:
+    """Fungsi kompresi saturasi rasional phi(x) = x / (x + eps_phi)."""
+    if not math.isfinite(x) or x >= 1e12:
+        return 1.0
+    x_pos = max(0.0, float(x))
+    return x_pos / (x_pos + eps_phi)
+
+
+def compute_ari_v2(am: AriModelData, disruption: Optional[Tuple[int, float]] = None,
+                   bound_cache: Optional[object] = None,
+                   weights: Tuple[float, float, float] = (0.25, 0.45, 0.30),
+                   eps_phi: float = 1.0,
+                   tau_m: float = 1e-8,
+                   config: Optional[dict] = None,
+                   baseline: Optional[Tuple[float, str]] = None,
+                   pair_cache: Optional[dict] = None,
+                   scales: Optional[dict] = None) -> ScenarioResult:
+    """ARI v2 — Formulasi Terpadu Tiga Kanal Sherman-Morrison (Bebas Kebocoran).
+
+    ARI_e^{v2}(lambda) = RR_e(lambda) * [ w_k * m_e(lambda) +
+                                          w_c * (1 - phi(U_hat_e^{SM})) +
+                                          w_d * (1 - phi(D_hat_e^{SM})) ]
+    dengan w_k + w_c + w_d = 1, w_i >= 0, dan phi(x) = x / (x + eps_phi).
+    CI_e^{v2}(lambda) = 1 - ARI_e^{v2}(lambda).
+
+    Seluruh komponen dihitung 100% dari cache model utuh K_0^{-1}, N_{e,0}, h_e, c_i.
+    Kondisi batas singular saat m_e(lambda) <= tau_m menetapkan U_hat = D_hat = inf,
+    sehingga ARI_e^{v2} = 0 dan CI_e^{v2} = 1.0 (deteksi mekanisme sempurna).
+    """
+    res_v1 = compute_ari(am, disruption, config=config, baseline=baseline,
+                         pair_cache=pair_cache, scales=scales)
+    if disruption is None or res_v1.edge_id is None:
+        return res_v1
+
+    eid, lam = res_v1.edge_id, res_v1.lam
+    if lam >= 1.0:
+        return res_v1
+
+    # Inisialisasi BoundCache jika belum diberikan
+    if bound_cache is None:
+        try:
+            from bound_enhancement import BoundCache
+            bound_cache = BoundCache(am.model)
+        except Exception:
+            bound_cache = None
+
+    is_mech = False
+    m_s = 1.0
+    u_hat = 1.0
+    d_hat = 1.0
+
+    if bound_cache is not None:
+        kin = bound_cache.guard.scenario(eid, lam)
+        m_s = float(bound_cache.m_factor(eid, lam))
+        is_mech = (not kin["solvable"]) or (kin["rank_drop"] > 0) or (m_s <= tau_m)
+        if is_mech:
+            u_hat = float("inf")
+            d_hat = float("inf")
+        else:
+            fb = bound_cache.compute_force_bound(eid, lam)
+            db = bound_cache.compute_displacement_bound(eid, lam)
+            u_hat = float(fb.get("U_s", 1.0)) if fb.get("status") in ("ok", "no_redistribution", "control_ok") else float("inf")
+            a_s = db.get("A_s", None)
+            d_hat = (float(a_s) / 2.0) if (a_s is not None and db.get("status") == "ok") else float("inf")
+    else:
+        # Fallback konservatif jika BoundCache tidak tersedia
+        is_mech = (res_v1.solver_status == "rank_deficient")
+        if is_mech:
+            u_hat = d_hat = float("inf")
+
+    w_k, w_c, w_d = weights
+    rr = float(res_v1.RR) if res_v1.RR is not None else 0.0
+
+    if is_mech or m_s <= tau_m:
+        ari_v2 = 0.0
+        ci_v2 = 1.0
+    else:
+        ret_k = max(0.0, min(1.0, m_s))
+        ret_c = max(0.0, 1.0 - phi_sat(u_hat, eps_phi))
+        ret_d = max(0.0, 1.0 - phi_sat(d_hat, eps_phi))
+        ari_v2 = rr * (w_k * ret_k + w_c * ret_c + w_d * ret_d)
+        ci_v2 = max(0.0, min(1.0, 1.0 - ari_v2))
+
+    det = dict(res_v1.detail)
+    det.update({
+        "ari_version": "v2",
+        "m_s": m_s,
+        "u_hat_sm": u_hat,
+        "d_hat_sm": d_hat,
+        "weights": weights,
+        "eps_phi": eps_phi,
+        "is_mechanism": is_mech,
+    })
+
+    return ScenarioResult(
+        edge_id=eid,
+        lam=lam,
+        S=res_v1.S,
+        RR=res_v1.RR,
+        U_star=res_v1.U_star,
+        ARI=ari_v2,
+        CI=ci_v2,
+        status=res_v1.status,
+        detail=det,
+        solver_status=res_v1.solver_status,
+    )
+
+
+
 # -----------------------------------------------------------------------------
 # Skrining penuh (audit trail lengkap)
 # -----------------------------------------------------------------------------

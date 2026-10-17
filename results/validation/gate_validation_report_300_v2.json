@@ -1,0 +1,107 @@
+{
+  "title": "Validasi Komprehensif ARI v2 (Formulasi Tiga Kanal Sherman-Morrison)",
+  "generated_at": "2026-10-17T13:57:13.800030+00:00",
+  "weights": {
+    "w_k": 0.25,
+    "w_c": 0.45,
+    "w_d": 0.3
+  },
+  "eps_phi": 1.0,
+  "spearman_ci_crc": {
+    "median": 0.927710843373494,
+    "mean": 0.8697376084087108,
+    "comparison_v1_median": 0.702256,
+    "comparison_util_median": 0.904639,
+    "status_gate_C": "PASS (surpasses both ARI v1 and intact utilization baseline)"
+  },
+  "operating_points": {
+    "tau_0_40_zero_miss": {
+      "threshold_tau": 0.4,
+      "calibration": {
+        "model_mean_recall_B": 1.0,
+        "model_L95_recall_B": 1.0,
+        "model_mean_reduction": 0.35930784493284496,
+        "pooled_recall_B": 1.0,
+        "critical_missed_B": 0,
+        "total_critical_B": 332,
+        "gain_vs_util_mean": 0.002777777777777777,
+        "gain_vs_util_L95": 0.0
+      },
+      "blind_val": {
+        "model_mean_recall_B": 1.0,
+        "model_L95_recall_B": 1.0,
+        "model_mean_reduction": 0.3474664224664224,
+        "pooled_recall_B": 1.0,
+        "critical_missed_B": 0,
+        "total_critical_B": 352,
+        "gain_vs_util_mean": 0.002777777777777777,
+        "gain_vs_util_L95": 0.0
+      },
+      "final_test": {
+        "model_mean_recall_B": 1.0,
+        "model_L95_recall_B": 1.0,
+        "model_mean_reduction": 0.3546527777777778,
+        "pooled_recall_B": 1.0,
+        "critical_missed_B": 0,
+        "total_critical_B": 350,
+        "gain_vs_util_mean": 0.002777777777777777,
+        "gain_vs_util_L95": 0.0
+      },
+      "all_300_models": {
+        "model_mean_recall_B": 1.0,
+        "model_L95_recall_B": 1.0,
+        "model_mean_reduction": 0.35171291208791206,
+        "pooled_recall_B": 1.0,
+        "critical_missed_B": 0,
+        "total_critical_B": 1718,
+        "gain_vs_util_mean": 0.0038888888888888883,
+        "gain_vs_util_L95": 0.0016666666666666663
+      },
+      "gate_D_status": "PASS (L95 = 100.0% >= 95.0% and Reduction = 35.2% >= 30.0%)"
+    },
+    "tau_0_50_high_efficiency": {
+      "threshold_tau": 0.5,
+      "calibration": {
+        "model_mean_recall_B": 0.9858333333333333,
+        "model_L95_recall_B": 0.9733333333333333,
+        "model_mean_reduction": 0.5095985958485959,
+        "pooled_recall_B": 0.9879518072289156,
+        "critical_missed_B": 4,
+        "total_critical_B": 332,
+        "gain_vs_util_mean": -0.0010714285714285676,
+        "gain_vs_util_L95": -0.017347222222222215
+      },
+      "blind_val": {
+        "model_mean_recall_B": 0.9913690476190475,
+        "model_L95_recall_B": 0.9821428571428572,
+        "model_mean_reduction": 0.49692994505494503,
+        "pooled_recall_B": 0.9886363636363636,
+        "critical_missed_B": 4,
+        "total_critical_B": 352,
+        "gain_vs_util_mean": 0.005158730158730159,
+        "gain_vs_util_L95": 0.0
+      },
+      "final_test": {
+        "model_mean_recall_B": 0.982638888888889,
+        "model_L95_recall_B": 0.9673611111111111,
+        "model_mean_reduction": 0.5163385225885225,
+        "pooled_recall_B": 0.9828571428571429,
+        "critical_missed_B": 6,
+        "total_critical_B": 350,
+        "gain_vs_util_mean": 0.004365079365079364,
+        "gain_vs_util_L95": -0.012301587301587303
+      },
+      "all_300_models": {
+        "model_mean_recall_B": 0.9899325396825397,
+        "model_L95_recall_B": 0.9853130952380953,
+        "model_mean_reduction": 0.5075503663003663,
+        "pooled_recall_B": 0.989522700814901,
+        "critical_missed_B": 18,
+        "total_critical_B": 1718,
+        "gain_vs_util_mean": 0.007769841269841272,
+        "gain_vs_util_L95": 0.0018087301587301596
+      },
+      "gate_D_status": "PASS (L95 = 98.5% >= 95.0% and Reduction = 50.8% >= 30.0%)"
+    }
+  }
+}
