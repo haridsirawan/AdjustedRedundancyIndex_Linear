@@ -2,26 +2,11 @@
 
 Repositori resmi implementasi algoritma, solver referensi elemen hingga, pengaman kinematik berbasis dekomposisi nilai singular (*Singular Value Decomposition* / SVD), serta protokol evaluasi untuk penelitian disertasi doktor:
 
-> **Pengembangan dan Validasi Adjusted Redundancy Index untuk Penapisan Pra-Analisis Skenario Gangguan Elemen pada Evaluasi Struktur Berbasis Graph Neural Network**  
-> **Peneliti:** Harids Irawan, S.T., M.T. (NIM 23051690001)  
-> **Program Studi:** Doktor Ilmu Teknik (Konsentrasi Teknik Sipil), Sekolah Pascasarjana Universitas Negeri Yogyakarta (2026)
+> **Pengembangan dan Validasi Adjusted Redundancy Index untuk Penapisan Pra-Analisis Skenario Gangguan Elemen pada Evaluasi Struktur Berbasis Graph Neural Network**
 
 ---
 
-## 1. Ruang Lingkup Ilmiah & Kedudukan Bukti
-
-Sejalan dengan batas keabsahan metodologis dan epistemik pada naskah disertasi (Bab I Subbab E, Bab III, Bab IV Subbab I–J, dan Bab V), artefak di dalam repositori ini dikelompokkan secara tegas ke dalam dua kedudukan bukti:
-
-1. **Bukti Terverifikasi Deterministik (*Verified Core Findings*):**
-   * **Empat Model Kanonik Batang Aksial 1D/2D (`M1`–`M4`):** Verifikasi numerik eksak lintas 64 skenario gangguan dan 20 kontrol terhadap seluruh persamaan inti ARI (Persamaan 2.5–2.18), menghasilkan kelulusan **68/68 pemeriksaan otomatis** (`results/verification/checks.csv`).
-   * **Enam Belas Model Parametrik Pengembangan (272 Skenario):** Evaluasi diagnostik pengembangan pengaman kinematik $h_e = k_e \mathbf{a}_e \mathbf{K}_0^{-1} \mathbf{a}_e^\top$ berbasis SVD (Persamaan 4.1–4.7) yang membuktikan penangkapan **100% kasus kehilangan rank (mekanisme kinematik)** pada graf yang tetap terhubung secara topologis (`results/revision/` & `results/verification/guard_verification.json`). Varian parametrik ini merupakan variasi batas terarah untuk pengujian diagnostik, bukan sampel acak populasi struktur independen.
-2. **Evaluasi Empiris Skala Penuh & Integrasi GNN (*Full-Scale Evaluation & Surrogate Integration*):**
-   * **Validasi Skala Penuh 300 Model Induk Multi-Keluarga (`S1`–`S5` / 7.640 Skenario):** Membuktikan keunggulan inovasi formulasi terpadu tiga kanal **ARI v2** yang menggabungkan rasio redundansi graf dengan cadangan kekakuan kinematik, kapasitas batas Sherman–Morrison, dan pembesaran perpindahan. Evaluasi empiris meluluskan Gerbang C dan Gerbang D secara meyakinkan dengan jaminan **100% Zero-Miss** ($\tau = 0{,}40$, recall 100%, reduksi 45,3%) dan efisiensi reduksi tinggi ($\tau = 0{,}50$, recall 99,0%, reduksi 60,4%) (`results/validation/gate_validation_report_300_v2.json` & `full_evaluation_300_v2.csv`).
-   * **Eksperimen Integrasi Berpasangan ARI–GNN (`StructGNN-CRC v1.0`):** Evaluasi berpasangan 9 perlakuan pada 7.640 skenario gangguan membuktikan perlakuan `T7_ARI_v2_tau40_GNN` mencapai *Zero-Miss* ($Drop_{U95} = 0{,}00\%$, recall 97,73%, identik sempurna dengan evaluasi penuh tanpa penapisan) sambil menghemat 45,3% inferensi graf (3.459 skenario), sedangkan `T8_ARI_v2_tau50_GNN` menghemat 60,4% inferensi graf (4.618 skenario) dengan recall 97,09% (`results/integration/treatment_comparison_s6.csv` & `cost_breakdown_table_4_19.csv`).
-
----
-
-## 2. Arsitektur Pipeline Komputasi
+## 1. Arsitektur Pipeline Komputasi
 
 ```text
 examples/verification_models.json
@@ -44,7 +29,7 @@ examples/ari_core.py              (Lapis 2 — Mesin Inti ARI: w_e^M, Φ^K_ij, S
 
 ---
 
-## 3. Instalasi & Cara Menjalankan Verifikasi
+## 2. Instalasi & Cara Menjalankan Verifikasi
 
 ### Prasyarat Lingkungan
 * Python $\ge 3.9$
@@ -55,7 +40,7 @@ pip install -r requirements.txt
 ```
 
 ### A. Verifikasi Terpadu Satu Pintu (*Recommended*)
-Jalankan skrip utama di akar repositori untuk mengeksekusi seluruh 9 tahapan verifikasi secara otomatis:
+Jalankan skrip utama di akar repositori untuk mengeksekusi seluruh 11 tahapan verifikasi secara otomatis:
 
 ```bash
 python3 run_all_verifications.py
@@ -95,7 +80,7 @@ python3 run_gnn_integration_s6.py    # Evaluasi integrasi ARI v2–GNN (StructGN
 
 ---
 
-## 4. Struktur Direktori Repositori
+## 3. Struktur Direktori Repositori
 
 ```text
 .
@@ -107,7 +92,7 @@ python3 run_gnn_integration_s6.py    # Evaluasi integrasi ARI v2–GNN (StructGN
 ├── DEFERRED_FINDINGS.md             # Dokumentasi penutupan temuan numerik & rekonsiliasi formula
 ├── requirements.txt                 # Daftar dependensi pustaka Python
 ├── manifest_config_frozen.json      # Segel konfigurasi protokol beku (ARI-FROZEN-PROTOCOL-v1.0)
-├── run_all_verifications.py         # Skrip eksekusi verifikasi otomatis satu pintu (9 tahap)
+├── run_all_verifications.py         # Skrip eksekusi verifikasi otomatis satu pintu (11 tahap)
 ├── examples/                        # 29 berkas ilmiah (27 modul Python & 2 spesifikasi model JSON)
 └── results/                         # Artefak keluaran verifikasi, diagnostik, dan protokol
     ├── verification/                # Keluaran verifikasi kanonik (68/68 lulus, CSV, JSON, LaTeX, PDF)
@@ -122,7 +107,7 @@ python3 run_gnn_integration_s6.py    # Evaluasi integrasi ARI v2–GNN (StructGN
 
 ---
 
-## 5. Lisensi & Sitasi
+## 4. Lisensi & Sitasi
 
 Kode sumber dalam repositori ini dilisensikan di bawah **Apache License 2.0** (lihat berkas [`LICENSE`](LICENSE)).  
 Untuk menyitasi karya ini dalam publikasi ilmiah, gunakan tombol **"Cite this repository"** pada halaman GitHub atau merujuk pada metadata di [`CITATION.cff`](CITATION.cff).
