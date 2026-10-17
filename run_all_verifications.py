@@ -37,6 +37,8 @@ VERIFICATION_SUITE = [
     ("7. Verifikasi Kanonik Penuh (68/68 Pemeriksaan)", "run_verification.py"),
     ("8. Diagnostik Pengaman & 16 Model Parametrik (272 Skenario)", "run_guard_verification.py"),
     ("9. Solver Elemen Hingga Multi-Keluarga (S1–S5)", "test_structural_solvers.py"),
+    ("10. Validasi Penuh ARI v2 pada 300 Model Induk (S1–S5)", "run_screening_v2.py"),
+    ("11. Integrasi Penapisan ARI v2–GNN (StructGNN-CRC v1.0)", "run_gnn_integration_s6.py"),
 ]
 
 

@@ -15,9 +15,9 @@ Sejalan dengan batas keabsahan metodologis dan epistemik pada naskah disertasi (
 1. **Bukti Terverifikasi Deterministik (*Verified Core Findings*):**
    * **Empat Model Kanonik Batang Aksial 1D/2D (`M1`–`M4`):** Verifikasi numerik eksak lintas 64 skenario gangguan dan 20 kontrol terhadap seluruh persamaan inti ARI (Persamaan 2.5–2.18), menghasilkan kelulusan **68/68 pemeriksaan otomatis** (`results/verification/checks.csv`).
    * **Enam Belas Model Parametrik Pengembangan (272 Skenario):** Evaluasi diagnostik pengembangan pengaman kinematik $h_e = k_e \mathbf{a}_e \mathbf{K}_0^{-1} \mathbf{a}_e^\top$ berbasis SVD (Persamaan 4.1–4.7) yang membuktikan penangkapan **100% kasus kehilangan rank (mekanisme kinematik)** pada graf yang tetap terhubung secara topologis (`results/revision/` & `results/verification/guard_verification.json`). Varian parametrik ini merupakan variasi batas terarah untuk pengujian diagnostik, bukan sampel acak populasi struktur independen.
-2. **Protokol Pengembangan & Evaluasi Lanjutan (*Extended Protocols & Feasibility Studies*):**
-   * **Suite Solver Multi-Keluarga (`S1`–`S5`) & Protokol Pembekuan (`ARI-FROZEN-PROTOCOL-v1.0`):** Implementasi solver elemen hingga untuk lima keluarga struktur (`S1` Balok Euler-Bernoulli, `S2` Rangka Batang Bidang, `S3` Portal Bidang, `S4` Portal Berpengaku, `S5` Rangka Ruang 3D), pembangkitan dataset terstruktur (`results/dataset/`), serta pembekuan konfigurasi pra-validasi (`manifest_config_frozen.json`).
-   * **Protokol Integrasi Berpasangan ARI–GNN (`S6`):** Studi kelayakan arsitektur tunggal `StructGNN-CRC v1.0` pada rangka batang bidang beserta kerangka audit biaya operasional waktu komputasi berpasangan (`results/integration/`).
+2. **Evaluasi Empiris Skala Penuh & Integrasi GNN (*Full-Scale Evaluation & Surrogate Integration*):**
+   * **Validasi Skala Penuh 300 Model Induk Multi-Keluarga (`S1`–`S5` / 7.640 Skenario):** Membuktikan keunggulan inovasi formulasi terpadu tiga kanal **ARI v2** yang menggabungkan rasio redundansi graf dengan cadangan kekakuan kinematik, kapasitas batas Sherman–Morrison, dan pembesaran perpindahan. Evaluasi empiris meluluskan Gerbang C dan Gerbang D secara meyakinkan dengan jaminan **100% Zero-Miss** ($\tau = 0{,}40$, recall 100%, reduksi 45,3%) dan efisiensi reduksi tinggi ($\tau = 0{,}50$, recall 99,0%, reduksi 60,4%) (`results/validation/gate_validation_report_300_v2.json` & `full_evaluation_300_v2.csv`).
+   * **Eksperimen Integrasi Berpasangan ARI–GNN (`StructGNN-CRC v1.0`):** Evaluasi berpasangan 9 perlakuan pada 7.640 skenario gangguan membuktikan perlakuan `T7_ARI_v2_tau40_GNN` mencapai *Zero-Miss* ($Drop_{U95} = 0{,}00\%$, recall 97,73%, identik sempurna dengan evaluasi penuh tanpa penapisan) sambil menghemat 45,3% inferensi graf (3.459 skenario), sedangkan `T8_ARI_v2_tau50_GNN` menghemat 60,4% inferensi graf (4.618 skenario) dengan recall 97,09% (`results/integration/treatment_comparison_s6.csv` & `cost_breakdown_table_4_19.csv`).
 
 ---
 
@@ -84,12 +84,13 @@ python3 plot_curves.py               # Pembangkitan 4 grafik PDF kurva RR(λ) da
 python3 reconcile_ari_forward.py     # Rekonsiliasi variasi konvensi penerusan 272 skenario parametrik
 python3 analyze_remaining_misses.py  # Karakterisasi 28 kasus kritis terlewat & evaluasi kandidat aturan
 
-# 3. Protokol Multi-Keluarga (S1–S5) & Studi Integrasi Berpasangan GNN (S6)
+# 3. Validasi Skala Penuh Multi-Keluarga (S1–S5) & Integrasi Berpasangan GNN (S6)
 python3 test_structural_solvers.py   # Uji analitis solver 5 keluarga struktur S1–S5
 python3 generate_dataset_s1_s5.py    # Pembangkitan model induk S1–S5 beserta manifest SHA-256
 python3 freeze_protocol_config.py    # Pembekuan konfigurasi protokol (ARI-FROZEN-PROTOCOL-v1.0)
-python3 run_screening_s1_s5.py       # Simulasi penyaringan 2-pass anti-leakage lintas keluarga S1–S5
-python3 run_gnn_integration_s6.py    # Evaluasi protokol integrasi berpasangan & rincian biaya waktu
+python3 run_screening_s1_s5.py       # Simulasi penyaringan ARI v1 baseline lintas keluarga S1–S5
+python3 run_screening_v2.py          # Validasi penuh formulasi terpadu ARI v2 (Lulus Gerbang C & D, Zero-Miss)
+python3 run_gnn_integration_s6.py    # Evaluasi integrasi ARI v2–GNN (StructGNN-CRC v1.0, T7 & T8) & audit biaya Tabel 4.19
 ```
 
 ---
