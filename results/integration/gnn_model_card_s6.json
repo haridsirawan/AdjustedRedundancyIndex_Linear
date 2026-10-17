@@ -26,9 +26,9 @@
     "cal_crit_recall": 0.981928
   },
   "separate_preparation_costs": {
-    "gnn_training_and_calibration_time_ms": 2464.663,
-    "warmup_pass_time_ms": 57.842,
-    "exact_fem_all_7640_scenarios_time_ms": 8115.239
+    "gnn_training_and_calibration_time_ms": 2415.177,
+    "warmup_pass_time_ms": 58.449,
+    "exact_fem_all_7640_scenarios_time_ms": 8656.336
   },
   "determinism_and_consistency_check": {
     "max_diff_across_treatments_on_same_scenario": 0.0,

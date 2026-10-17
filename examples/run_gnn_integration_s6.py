@@ -10,15 +10,17 @@ Menjalankan protokol integrasi Bagian 3.18 & Bagian 4.10.5 pada 300 model induk
    kalibrasi ambang keluaran c_GNN pada partisi `calibration` (60 model induk).
 2. Pembekuan bobot (`results/integration/gnn_weights_s6.npz`) dan kartu model
    (`results/integration/gnn_model_card_s6.json`) beserta hash SHA-256.
-3. Evaluasi berpasangan pada 7 perlakuan sesuai Bagian 3.18.4:
-   - T0_Full_GNN     : Tanpa penyaringan (seluruh kandidat dievaluasi GNN)
-   - T1_Random_P0    : Penyaringan acak dengan anggaran per model setara P0
-                       (kasus Guard/abstensi tetap diteruskan sesuai 3.18.4)
-   - T2_Util_P0      : Penyaringan utilisasi awal dengan anggaran per model setara P0
-   - T3_ARI_P0_GNN   : Penyaringan ARI dasar + Guard (P0: CI >= 0.50 U Guard) + GNN
-   - T4_ARI_P1_GNN   : Penyaringan ARI diperluas (P1: CI >= 0.50 U Guard U [lambda=0]) + GNN
-   - T5_Random_P1    : Penyaringan acak dengan anggaran per model setara P1
-   - T6_Util_P1      : Penyaringan utilisasi awal dengan anggaran per model setara P1
+3. Evaluasi berpasangan pada 9 perlakuan sesuai Bagian 3.18.4 dan evaluasi ARI v2:
+   - T0_Full_GNN          : Tanpa penyaringan (seluruh kandidat dievaluasi GNN)
+   - T1_Random_P0         : Penyaringan acak dengan anggaran per model setara P0
+                            (kasus Guard/abstensi tetap diteruskan sesuai 3.18.4)
+   - T2_Util_P0           : Penyaringan utilisasi awal dengan anggaran per model setara P0
+   - T3_ARI_P0_GNN        : Penyaringan ARI v1 dasar + Guard (P0: CI >= 0.50 U Guard) + GNN
+   - T4_ARI_P1_GNN        : Penyaringan ARI v1 diperluas (P1: CI >= 0.50 U Guard U [lambda=0]) + GNN
+   - T5_Random_P1         : Penyaringan acak dengan anggaran per model setara P1
+   - T6_Util_P1           : Penyaringan utilisasi awal dengan anggaran per model setara P1
+   - T7_ARI_v2_tau40_GNN  : Penyaringan ARI v2 (tau = 0.40, Zero-Miss Operating Point) + GNN
+   - T8_ARI_v2_tau50_GNN  : Penyaringan ARI v2 (tau = 0.50, High-Efficiency Operating Point) + GNN
 4. Pengukuran biaya waktu operasional berpasangan (10 pengulangan dengan pemanasan,
    urutan berimbang, dan dekomposisi komponen Tabel 4.19:
    T_utuh, T_ARI, T_seleksi, T_graf_F, T_inferensi_F, T_penanganan, T_total, T_hemat)
@@ -46,6 +48,11 @@ from run_screening_s1_s5 import (
     compute_family_dev_scales,
     prepare_multi_family_ari_engine,
     score_multi_family_graph,
+)
+from run_screening_v2 import (
+    compute_intact_sm_cache,
+    evaluate_sm_bounds,
+    phi_sat,
 )
 
 
@@ -78,7 +85,7 @@ def load_all_models() -> tuple[Dict[str, Dict[str, Any]], Dict[str, List[dict]]]
 
 def load_evaluation_rows() -> List[Dict[str, Any]]:
     rows: List[Dict[str, Any]] = []
-    with open(VALIDATION_DIR / "full_evaluation_300.csv", "r", encoding="utf-8") as f:
+    with open(VALIDATION_DIR / "full_evaluation_300_v2.csv", "r", encoding="utf-8") as f:
         reader = csv.DictReader(f)
         for r in reader:
             rows.append(r)
@@ -116,6 +123,28 @@ def score_all_scenarios_ari_and_guard(
         for lam in LAMS:
             _, _ = score_multi_family_graph(eng, (eid, lam), pair_cache)
             _ = guard.m_e(eid, lam)
+
+
+def score_all_scenarios_ari_v2_and_guard(
+    m: dict, intact_res: ss.StructuralSolverResult, fam_scale: Dict[str, float]
+) -> None:
+    """Menjalankan perhitungan penuh ARI v2 + Sherman-Morrison Bounds + Pengaman Kinematik."""
+    eng = prepare_multi_family_ari_engine(m, intact_res, fam_scale)
+    guard = GeneralizedMechanicalGuard(m)
+    sm_cache = compute_intact_sm_cache(m, guard, eng, intact_res)
+    pair_cache: Dict[Any, Any] = {}
+    s_intact, _ = score_multi_family_graph(eng, None, pair_cache)
+    for el in m["elements"]:
+        eid = int(el["id"])
+        for lam in LAMS:
+            s_dis, _ = score_multi_family_graph(eng, (eid, lam), pair_cache)
+            rr = s_dis / s_intact if s_intact > 0 else 0.0
+            m_s = guard.m_e(eid, lam)
+            u_hat, d_hat = evaluate_sm_bounds(sm_cache, eid, lam, m_s)
+            ret_k = max(0.0, min(1.0, m_s))
+            ret_c = max(0.0, 1.0 - phi_sat(u_hat, 1.0))
+            ret_d = max(0.0, 1.0 - phi_sat(d_hat, 1.0))
+            _ = rr * (0.35 * ret_k + 0.35 * ret_c + 0.30 * ret_d)
 
 
 def main() -> None:
@@ -211,6 +240,8 @@ def main() -> None:
         "T4_ARI_P1_GNN": np.zeros(n_scen, dtype=np.int32),
         "T5_Random_P1": np.zeros(n_scen, dtype=np.int32),
         "T6_Util_P1": np.zeros(n_scen, dtype=np.int32),
+        "T7_ARI_v2_tau40_GNN": np.zeros(n_scen, dtype=np.int32),
+        "T8_ARI_v2_tau50_GNN": np.zeros(n_scen, dtype=np.int32),
     }
 
     for mid, idxs in model_to_scen_idx.items():
@@ -218,12 +249,16 @@ def main() -> None:
         guard_arr = np.array([int(disruption_rows[k]["guard_flag"]) for k in idxs], dtype=np.int32)
         p0_arr = np.array([int(disruption_rows[k]["fwd_P0"]) for k in idxs], dtype=np.int32)
         p1_arr = np.array([int(disruption_rows[k]["fwd_P1"]) for k in idxs], dtype=np.int32)
+        v2_tau40_arr = np.array([int(disruption_rows[k]["fwd_v2_tau40"]) for k in idxs], dtype=np.int32)
+        v2_tau50_arr = np.array([int(disruption_rows[k]["fwd_v2_tau50"]) for k in idxs], dtype=np.int32)
         util_arr = np.array([float(disruption_rows[k]["util_baseline_score"]) for k in idxs], dtype=np.float64)
         lam_arr = np.array([float(disruption_rows[k]["lambda"]) for k in idxs], dtype=np.float64)
         util_dmg_score = util_arr * (1.0 - lam_arr)
 
         fwd_masks["T3_ARI_P0_GNN"][idxs_arr] = p0_arr
         fwd_masks["T4_ARI_P1_GNN"][idxs_arr] = p1_arr
+        fwd_masks["T7_ARI_v2_tau40_GNN"][idxs_arr] = v2_tau40_arr
+        fwd_masks["T8_ARI_v2_tau50_GNN"][idxs_arr] = v2_tau50_arr
 
         mandatory_local = np.where(guard_arr == 1)[0]
         pool_local = np.where(guard_arr == 0)[0]
@@ -257,6 +292,7 @@ def main() -> None:
         mid: {
             "t_intact_ms": 0.0,
             "t_ari_guard_ms": 0.0,
+            "t_ari_v2_guard_ms": 0.0,
             "t_select_ms": 0.0,
             "t_graph_full_ms": 0.0,
             "t_inf_full_ms": 0.0,
@@ -267,6 +303,12 @@ def main() -> None:
             "t_graph_P1_ms": 0.0,
             "t_inf_P1_ms": 0.0,
             "t_handle_P1_ms": 0.0,
+            "t_graph_v2_tau40_ms": 0.0,
+            "t_inf_v2_tau40_ms": 0.0,
+            "t_handle_v2_tau40_ms": 0.0,
+            "t_graph_v2_tau50_ms": 0.0,
+            "t_inf_v2_tau50_ms": 0.0,
+            "t_handle_v2_tau50_ms": 0.0,
         }
         for mid in models_by_id
     }
@@ -277,6 +319,8 @@ def main() -> None:
         rep_full = 0.0
         rep_p0 = 0.0
         rep_p1 = 0.0
+        rep_v2_tau40 = 0.0
+        rep_v2_tau50 = 0.0
         model_keys = sorted(models_by_id.keys())
         if rep % 2 == 1:
             model_keys = list(reversed(model_keys))
@@ -296,10 +340,17 @@ def main() -> None:
             score_all_scenarios_ari_and_guard(m, intact_res, fam_scales[fam])
             t_ari = (time.perf_counter() - t0) * 1000.0
 
+            # 2b) ARI v2 + Sherman-Morrison Bounds + Guard (T_ARI_v2)
+            t0 = time.perf_counter()
+            score_all_scenarios_ari_v2_and_guard(m, intact_res, fam_scales[fam])
+            t_ari_v2 = (time.perf_counter() - t0) * 1000.0
+
             # 3) Selection decision (T_seleksi)
             t0 = time.perf_counter()
             f_p0 = [k for k in scen_idxs if fwd_masks["T3_ARI_P0_GNN"][k] == 1]
             f_p1 = [k for k in scen_idxs if fwd_masks["T4_ARI_P1_GNN"][k] == 1]
+            f_v2_tau40 = [k for k in scen_idxs if fwd_masks["T7_ARI_v2_tau40_GNN"][k] == 1]
+            f_v2_tau50 = [k for k in scen_idxs if fwd_masks["T8_ARI_v2_tau50_GNN"][k] == 1]
             t_sel = (time.perf_counter() - t0) * 1000.0
 
             # 4) Full GNN (no screening): Graph construction + Inference + Handling
@@ -365,9 +416,52 @@ def main() -> None:
             _ = [int(disruption_rows[k]["guard_flag"]) or p["pred_crit"] for k, p in zip(f_p1, p_p1)]
             t_h_p1 = (time.perf_counter() - t0) * 1000.0
 
+            # 7) ARI v2 tau40 Screened GNN: Graph + Inference + Handling only on F_v2_tau40
+            t0 = time.perf_counter()
+            g_list_v2_tau40 = [
+                build_scenario_graph_features(
+                    m,
+                    intact_res,
+                    int(disruption_rows[k]["edge_id"]),
+                    float(disruption_rows[k]["lambda"]),
+                )
+                for k in f_v2_tau40
+            ]
+            t_g_v2_tau40 = (time.perf_counter() - t0) * 1000.0
+
+            t0 = time.perf_counter()
+            p_v2_tau40 = [gnn.predict_single(g) for g in g_list_v2_tau40]
+            t_i_v2_tau40 = (time.perf_counter() - t0) * 1000.0
+
+            t0 = time.perf_counter()
+            _ = [int(disruption_rows[k]["guard_flag"]) or p["pred_crit"] for k, p in zip(f_v2_tau40, p_v2_tau40)]
+            t_h_v2_tau40 = (time.perf_counter() - t0) * 1000.0
+
+            # 8) ARI v2 tau50 Screened GNN: Graph + Inference + Handling only on F_v2_tau50
+            t0 = time.perf_counter()
+            g_list_v2_tau50 = [
+                build_scenario_graph_features(
+                    m,
+                    intact_res,
+                    int(disruption_rows[k]["edge_id"]),
+                    float(disruption_rows[k]["lambda"]),
+                )
+                for k in f_v2_tau50
+            ]
+            t_g_v2_tau50 = (time.perf_counter() - t0) * 1000.0
+
+            t0 = time.perf_counter()
+            p_v2_tau50 = [gnn.predict_single(g) for g in g_list_v2_tau50]
+            t_i_v2_tau50 = (time.perf_counter() - t0) * 1000.0
+
+            t0 = time.perf_counter()
+            _ = [int(disruption_rows[k]["guard_flag"]) or p["pred_crit"] for k, p in zip(f_v2_tau50, p_v2_tau50)]
+            t_h_v2_tau50 = (time.perf_counter() - t0) * 1000.0
+
             mt = model_timing[mid]
             mt["t_intact_ms"] += t_intact / n_reps
             mt["t_ari_guard_ms"] += t_ari / n_reps
+            mt["t_ari_v2_guard_ms"] += t_ari_v2 / n_reps
             mt["t_select_ms"] += t_sel / n_reps
             mt["t_graph_full_ms"] += t_g_full / n_reps
             mt["t_inf_full_ms"] += t_i_full / n_reps
@@ -378,10 +472,18 @@ def main() -> None:
             mt["t_graph_P1_ms"] += t_g_p1 / n_reps
             mt["t_inf_P1_ms"] += t_i_p1 / n_reps
             mt["t_handle_P1_ms"] += t_h_p1 / n_reps
+            mt["t_graph_v2_tau40_ms"] += t_g_v2_tau40 / n_reps
+            mt["t_inf_v2_tau40_ms"] += t_i_v2_tau40 / n_reps
+            mt["t_handle_v2_tau40_ms"] += t_h_v2_tau40 / n_reps
+            mt["t_graph_v2_tau50_ms"] += t_g_v2_tau50 / n_reps
+            mt["t_inf_v2_tau50_ms"] += t_i_v2_tau50 / n_reps
+            mt["t_handle_v2_tau50_ms"] += t_h_v2_tau50 / n_reps
 
             rep_full += t_intact + t_g_full + t_i_full + t_h_full
             rep_p0 += t_intact + t_ari + t_sel + t_g_p0 + t_i_p0 + t_h_p0
             rep_p1 += t_intact + t_ari + t_sel + t_g_p1 + t_i_p1 + t_h_p1
+            rep_v2_tau40 += t_intact + t_ari_v2 + t_sel + t_g_v2_tau40 + t_i_v2_tau40 + t_h_v2_tau40
+            rep_v2_tau50 += t_intact + t_ari_v2 + t_sel + t_g_v2_tau50 + t_i_v2_tau50 + t_h_v2_tau50
 
         rep_totals_ms.append(
             {
@@ -389,8 +491,12 @@ def main() -> None:
                 "T_tanpa_ms": round(rep_full, 4),
                 "T_ARI_P0_GNN_ms": round(rep_p0, 4),
                 "T_ARI_P1_GNN_ms": round(rep_p1, 4),
+                "T_ARI_v2_tau40_GNN_ms": round(rep_v2_tau40, 4),
+                "T_ARI_v2_tau50_GNN_ms": round(rep_v2_tau50, 4),
                 "T_hemat_P0_ms": round(rep_full - rep_p0, 4),
                 "T_hemat_P1_ms": round(rep_full - rep_p1, 4),
+                "T_hemat_v2_tau40_ms": round(rep_full - rep_v2_tau40, 4),
+                "T_hemat_v2_tau50_ms": round(rep_full - rep_v2_tau50, 4),
             }
         )
 
@@ -433,6 +539,8 @@ def main() -> None:
             "T4_ARI_P1_GNN",
             "T5_Random_P1",
             "T6_Util_P1",
+            "T7_ARI_v2_tau40_GNN",
+            "T8_ARI_v2_tau50_GNN",
         ]:
             f_mask = fwd_masks[t_name][idx_arr] == 1
             n_fwd = int(np.sum(f_mask))
@@ -535,6 +643,7 @@ def main() -> None:
     def summarize_cost_table(model_ids: List[str], label: str) -> Dict[str, Any]:
         t_intact = np.array([model_timing[m]["t_intact_ms"] for m in model_ids])
         t_ari = np.array([model_timing[m]["t_ari_guard_ms"] for m in model_ids])
+        t_ari_v2 = np.array([model_timing[m]["t_ari_v2_guard_ms"] for m in model_ids])
         t_sel = np.array([model_timing[m]["t_select_ms"] for m in model_ids])
         t_g_full = np.array([model_timing[m]["t_graph_full_ms"] for m in model_ids])
         t_i_full = np.array([model_timing[m]["t_inf_full_ms"] for m in model_ids])
@@ -548,29 +657,48 @@ def main() -> None:
         t_i_p1 = np.array([model_timing[m]["t_inf_P1_ms"] for m in model_ids])
         t_h_p1 = np.array([model_timing[m]["t_handle_P1_ms"] for m in model_ids])
 
+        t_g_v2_tau40 = np.array([model_timing[m]["t_graph_v2_tau40_ms"] for m in model_ids])
+        t_i_v2_tau40 = np.array([model_timing[m]["t_inf_v2_tau40_ms"] for m in model_ids])
+        t_h_v2_tau40 = np.array([model_timing[m]["t_handle_v2_tau40_ms"] for m in model_ids])
+
+        t_g_v2_tau50 = np.array([model_timing[m]["t_graph_v2_tau50_ms"] for m in model_ids])
+        t_i_v2_tau50 = np.array([model_timing[m]["t_inf_v2_tau50_ms"] for m in model_ids])
+        t_h_v2_tau50 = np.array([model_timing[m]["t_handle_v2_tau50_ms"] for m in model_ids])
+
         tot_full_uncached = t_intact + t_g_full + t_i_full + t_h_full
         tot_p0_uncached = t_intact + t_ari + t_sel + t_g_p0 + t_i_p0 + t_h_p0
         tot_p1_uncached = t_intact + t_ari + t_sel + t_g_p1 + t_i_p1 + t_h_p1
+        tot_v2_tau40_uncached = t_intact + t_ari_v2 + t_sel + t_g_v2_tau40 + t_i_v2_tau40 + t_h_v2_tau40
+        tot_v2_tau50_uncached = t_intact + t_ari_v2 + t_sel + t_g_v2_tau50 + t_i_v2_tau50 + t_h_v2_tau50
 
         sav_p0_uncached = tot_full_uncached - tot_p0_uncached
         sav_p1_uncached = tot_full_uncached - tot_p1_uncached
+        sav_v2_tau40_uncached = tot_full_uncached - tot_v2_tau40_uncached
+        sav_v2_tau50_uncached = tot_full_uncached - tot_v2_tau50_uncached
 
         tot_full_cached = t_g_full + t_i_full + t_h_full
         tot_p0_cached = t_ari + t_sel + t_g_p0 + t_i_p0 + t_h_p0
         tot_p1_cached = t_ari + t_sel + t_g_p1 + t_i_p1 + t_h_p1
+        tot_v2_tau40_cached = t_ari_v2 + t_sel + t_g_v2_tau40 + t_i_v2_tau40 + t_h_v2_tau40
+        tot_v2_tau50_cached = t_ari_v2 + t_sel + t_g_v2_tau50 + t_i_v2_tau50 + t_h_v2_tau50
 
         ci_sav_p0 = bootstrap_paired_ci(sav_p0_uncached)
         ci_sav_p1 = bootstrap_paired_ci(sav_p1_uncached)
+        ci_sav_v2_tau40 = bootstrap_paired_ci(sav_v2_tau40_uncached)
+        ci_sav_v2_tau50 = bootstrap_paired_ci(sav_v2_tau50_uncached)
 
         sum_full = float(np.sum(tot_full_uncached))
         sum_p0 = float(np.sum(tot_p0_uncached))
         sum_p1 = float(np.sum(tot_p1_uncached))
+        sum_v2_tau40 = float(np.sum(tot_v2_tau40_uncached))
+        sum_v2_tau50 = float(np.sum(tot_v2_tau50_uncached))
 
         return {
             "subset": label,
             "n_models": len(model_ids),
             "T_utuh_ms": round(float(np.sum(t_intact)), 3),
             "T_ARI_dan_Guard_ms": round(float(np.sum(t_ari)), 3),
+            "T_ARI_v2_dan_Guard_ms": round(float(np.sum(t_ari_v2)), 3),
             "T_seleksi_ms": round(float(np.sum(t_sel)), 3),
             "T_graf_tanpa_ms": round(float(np.sum(t_g_full)), 3),
             "T_inferensi_tanpa_ms": round(float(np.sum(t_i_full)), 3),
@@ -581,16 +709,30 @@ def main() -> None:
             "T_graf_P1_ms": round(float(np.sum(t_g_p1)), 3),
             "T_inferensi_P1_ms": round(float(np.sum(t_i_p1)), 3),
             "T_penanganan_P1_ms": round(float(np.sum(t_h_p1)), 3),
+            "T_graf_v2_tau40_ms": round(float(np.sum(t_g_v2_tau40)), 3),
+            "T_inferensi_v2_tau40_ms": round(float(np.sum(t_i_v2_tau40)), 3),
+            "T_penanganan_v2_tau40_ms": round(float(np.sum(t_h_v2_tau40)), 3),
+            "T_graf_v2_tau50_ms": round(float(np.sum(t_g_v2_tau50)), 3),
+            "T_inferensi_v2_tau50_ms": round(float(np.sum(t_i_v2_tau50)), 3),
+            "T_penanganan_v2_tau50_ms": round(float(np.sum(t_h_v2_tau50)), 3),
             "T_total_tanpa_uncached_ms": round(sum_full, 3),
             "T_total_P0_uncached_ms": round(sum_p0, 3),
             "T_total_P1_uncached_ms": round(sum_p1, 3),
+            "T_total_v2_tau40_uncached_ms": round(sum_v2_tau40, 3),
+            "T_total_v2_tau50_uncached_ms": round(sum_v2_tau50, 3),
             "T_hemat_P0_uncached_ms": round(sum_full - sum_p0, 3),
             "T_hemat_P1_uncached_ms": round(sum_full - sum_p1, 3),
+            "T_hemat_v2_tau40_uncached_ms": round(sum_full - sum_v2_tau40, 3),
+            "T_hemat_v2_tau50_uncached_ms": round(sum_full - sum_v2_tau50, 3),
             "pct_hemat_P0_uncached": round(100.0 * (sum_full - sum_p0) / max(sum_full, 1e-9), 2),
             "pct_hemat_P1_uncached": round(100.0 * (sum_full - sum_p1) / max(sum_full, 1e-9), 2),
+            "pct_hemat_v2_tau40_uncached": round(100.0 * (sum_full - sum_v2_tau40) / max(sum_full, 1e-9), 2),
+            "pct_hemat_v2_tau50_uncached": round(100.0 * (sum_full - sum_v2_tau50) / max(sum_full, 1e-9), 2),
             "T_total_tanpa_cached_ms": round(float(np.sum(tot_full_cached)), 3),
             "T_total_P0_cached_ms": round(float(np.sum(tot_p0_cached)), 3),
             "T_total_P1_cached_ms": round(float(np.sum(tot_p1_cached)), 3),
+            "T_total_v2_tau40_cached_ms": round(float(np.sum(tot_v2_tau40_cached)), 3),
+            "T_total_v2_tau50_cached_ms": round(float(np.sum(tot_v2_tau50_cached)), 3),
             "pct_hemat_P0_cached": round(
                 100.0
                 * (float(np.sum(tot_full_cached)) - float(np.sum(tot_p0_cached)))
@@ -603,10 +745,26 @@ def main() -> None:
                 / max(float(np.sum(tot_full_cached)), 1e-9),
                 2,
             ),
+            "pct_hemat_v2_tau40_cached": round(
+                100.0
+                * (float(np.sum(tot_full_cached)) - float(np.sum(tot_v2_tau40_cached)))
+                / max(float(np.sum(tot_full_cached)), 1e-9),
+                2,
+            ),
+            "pct_hemat_v2_tau50_cached": round(
+                100.0
+                * (float(np.sum(tot_full_cached)) - float(np.sum(tot_v2_tau50_cached)))
+                / max(float(np.sum(tot_full_cached)), 1e-9),
+                2,
+            ),
             "per_model_sav_P0_mean_ms": round(ci_sav_p0["mean"], 4),
             "per_model_sav_P0_l95_ms": round(ci_sav_p0["l95_1sided"], 4),
             "per_model_sav_P1_mean_ms": round(ci_sav_p1["mean"], 4),
             "per_model_sav_P1_l95_ms": round(ci_sav_p1["l95_1sided"], 4),
+            "per_model_sav_v2_tau40_mean_ms": round(ci_sav_v2_tau40["mean"], 4),
+            "per_model_sav_v2_tau40_l95_ms": round(ci_sav_v2_tau40["l95_1sided"], 4),
+            "per_model_sav_v2_tau50_mean_ms": round(ci_sav_v2_tau50["mean"], 4),
+            "per_model_sav_v2_tau50_l95_ms": round(ci_sav_v2_tau50["l95_1sided"], 4),
         }
 
     all_mids = sorted(models_by_id.keys())
@@ -675,7 +833,7 @@ def main() -> None:
     for r in metrics_rows:
         if r["split"] in ("ALL_300", "blind_val", "final_test", "S2_truss_ALL"):
             print(
-                f"[{r['split']:12s}] {r['treatment']:14s} | Fwd={r['n_forwarded']:4d} (Red={r['reduction_ratio']*100:5.1f}%) "
+                f"[{r['split']:12s}] {r['treatment']:20s} | Fwd={r['n_forwarded']:4d} (Red={r['reduction_ratio']*100:5.1f}%) "
                 f"| RecScreen={r['recall_screen']*100:5.1f}% | RecEnd(Op)={r['recall_end_operational']*100:5.1f}% "
                 f"(L95={r['model_l95_recall_end']*100:5.1f}%, DropU95={r['model_u95_recall_drop_vs_full']*100:5.2f}%) "
                 f"| MAE(Q)={r['mae_valid_f']:.4f}"
@@ -685,8 +843,10 @@ def main() -> None:
     for c in cost_rows:
         print(
             f"[{c['subset']:13s}] T_tanpa={c['T_total_tanpa_uncached_ms']:.1f}ms | "
-            f"T_P0={c['T_total_P0_uncached_ms']:.1f}ms (Hemat={c['T_hemat_P0_uncached_ms']:.1f}ms / {c['pct_hemat_P0_uncached']:.1f}%, L95/m={c['per_model_sav_P0_l95_ms']:.4f}ms) | "
-            f"T_P1={c['T_total_P1_uncached_ms']:.1f}ms (Hemat={c['T_hemat_P1_uncached_ms']:.1f}ms / {c['pct_hemat_P1_uncached']:.1f}%, L95/m={c['per_model_sav_P1_l95_ms']:.4f}ms)"
+            f"T_P0={c['T_total_P0_uncached_ms']:.1f}ms (Hemat={c['T_hemat_P0_uncached_ms']:.1f}ms / {c['pct_hemat_P0_uncached']:.1f}%) | "
+            f"T_P1={c['T_total_P1_uncached_ms']:.1f}ms (Hemat={c['T_hemat_P1_uncached_ms']:.1f}ms / {c['pct_hemat_P1_uncached']:.1f}%) | "
+            f"T_v2_40={c['T_total_v2_tau40_uncached_ms']:.1f}ms (Hemat={c['T_hemat_v2_tau40_uncached_ms']:.1f}ms / {c['pct_hemat_v2_tau40_uncached']:.1f}%) | "
+            f"T_v2_50={c['T_total_v2_tau50_uncached_ms']:.1f}ms (Hemat={c['T_hemat_v2_tau50_uncached_ms']:.1f}ms / {c['pct_hemat_v2_tau50_uncached']:.1f}%)"
         )
 
 
