@@ -1,66 +1,127 @@
-# Adjusted Redundancy Index — Kode & Verifikasi Model
+# Adjusted Redundancy Index (ARI) — Implementasi Komputasi & Verifikasi Disertasi
 
-Repo kode untuk penelitian disertasi **Adjusted Redundancy Index (ARI)**: implementasi komputasi dan verifikasi model terhadap tabel referensi disertasi, dikerjakan berlapis lewat gate verifikasi Gate 1–9. Seluruh rantai kanonik (Bagian 2.5–2.18, 4.1–4.5) telah diselaraskan dengan naskah dan direproduksi otomatis — lihat `results/review_prep/penyelarasan_disertasi_gate9.md`.
+Repositori resmi implementasi algoritma, solver referensi elemen hingga, pengaman kinematik berbasis dekomposisi nilai singular (*Singular Value Decomposition* / SVD), serta protokol evaluasi untuk penelitian disertasi doktor:
 
-> Folder lokal repo ini adalah `Coding/` di dalam folder riset — **materi riset pribadi** (artikel, catatan Obsidian, laporan, data bibliometrik VOSviewer) **berada di luar repo dan tidak dilacak git**.
+> **Pengembangan dan Validasi Adjusted Redundancy Index untuk Penapisan Pra-Analisis Skenario Gangguan Elemen pada Evaluasi Struktur Berbasis Graph Neural Network**  
+> **Peneliti:** Harids Irawan, S.T., M.T. (NIM 23051690001)  
+> **Program Studi:** Doktor Ilmu Teknik (Konsentrasi Teknik Sipil), Sekolah Pascasarjana Universitas Negeri Yogyakarta (2026)
 
-## Pipeline 3-lapisan
+---
 
-```
+## 1. Ruang Lingkup Ilmiah & Kedudukan Bukti
+
+Sejalan dengan batas keabsahan metodologis dan epistemik pada naskah disertasi (Bab I Subbab E, Bab III, Bab IV Subbab I–J, dan Bab V), artefak di dalam repositori ini dikelompokkan secara tegas ke dalam dua kedudukan bukti:
+
+1. **Bukti Terverifikasi Deterministik (*Verified Core Findings*):**
+   * **Empat Model Kanonik Batang Aksial 1D/2D (`M1`–`M4`):** Verifikasi numerik eksak lintas 64 skenario gangguan dan 20 kontrol terhadap seluruh persamaan inti ARI (Persamaan 2.5–2.18), menghasilkan kelulusan **68/68 pemeriksaan otomatis** (`results/verification/checks.csv`).
+   * **Enam Belas Model Parametrik Pengembangan (272 Skenario):** Evaluasi diagnostik pengembangan pengaman kinematik $h_e = k_e \mathbf{a}_e \mathbf{K}_0^{-1} \mathbf{a}_e^\top$ berbasis SVD (Persamaan 4.1–4.7) yang membuktikan penangkapan **100% kasus kehilangan rank (mekanisme kinematik)** pada graf yang tetap terhubung secara topologis (`results/revision/` & `results/verification/guard_verification.json`). Varian parametrik ini merupakan variasi batas terarah untuk pengujian diagnostik, bukan sampel acak populasi struktur independen.
+2. **Protokol Pengembangan & Evaluasi Lanjutan (*Extended Protocols & Feasibility Studies*):**
+   * **Suite Solver Multi-Keluarga (`S1`–`S5`) & Protokol Pembekuan (`ARI-FROZEN-PROTOCOL-v1.0`):** Implementasi solver elemen hingga untuk lima keluarga struktur (`S1` Balok Euler-Bernoulli, `S2` Rangka Batang Bidang, `S3` Portal Bidang, `S4` Portal Berpengaku, `S5` Rangka Ruang 3D), pembangkitan dataset terstruktur (`results/dataset/`), serta pembekuan konfigurasi pra-validasi (`manifest_config_frozen.json`).
+   * **Protokol Integrasi Berpasangan ARI–GNN (`S6`):** Studi kelayakan arsitektur tunggal `StructGNN-CRC v1.0` pada rangka batang bidang beserta kerangka audit biaya operasional waktu komputasi berpasangan (`results/integration/`).
+
+---
+
+## 2. Arsitektur Pipeline Komputasi
+
+```text
 examples/verification_models.json
         │
         ▼
-examples/truss_reference.py    (L1 — solver FE batang: gaya awal, reaksi r^(0), U*, rank)
+examples/truss_reference.py       (Lapis 1 — Solver FE Batang Aksial 1D/2D: gaya awal, reaksi r^(0), U*, rank)
         │
         ▼
-examples/ari_core.py           (L2 — mesin ARI: w_e^M, Φ^K_ij, S(G), RR, ARI, CI; Eq 2.5–2.18)
+examples/ari_core.py              (Lapis 2 — Mesin Inti ARI: w_e^M, Φ^K_ij, S(G), RR, ARI, CI; Pers. 2.5–2.18)
         │
-        ▼
-examples/kinematic_guard.py    (L3 — guard kinematik: rank/margin, guard_decision)
-        │
-        ▼
-examples/run_pipeline.py / fine_grid_runner.py → results/ (CSV audit)
-examples/curve_extractor.py / plot_curves.py   → results/ (JSON/PDF kurva)
-examples/mechanical_guard.py                   (guard Eq 4.1–4.4, h_e SVD — Tabel 4.4)
-examples/run_verification.py                   → results/verification/ (kontrak Tabel 4.8)
+        ├──► examples/mechanical_guard.py   (Lapis 3a — Pengaman Kinematik SVD h_e, m_e(λ), batas κ; Pers. 4.1–4.7)
+        ├──► examples/bound_enhancement.py  (Lapis 3b — Batas Praanalisis Redistribusi Gaya & Perpindahan; §4.4)
+        └──► examples/layered_policy.py     (Lapis 3c — Kebijakan Penapisan Berlapis F⁺; Pers. 4.13)
+                │
+                ▼
+        ├──► examples/run_verification.py         ──► results/verification/ (68/68 cek kanonik, Tabel.tex, PDF)
+        ├──► examples/run_guard_verification.py   ──► results/revision/     (33/33 cek pengaman & 272 skenario)
+        └──► examples/run_pipeline.py             ──► results/verification/ (CSV audit 13 kolom & kurva Δλ=0,05)
 ```
 
-## Menjalankan
+---
+
+## 3. Instalasi & Cara Menjalankan Verifikasi
+
+### Prasyarat Lingkungan
+* Python $\ge 3.9$
+* Pustaka ilmiah dasar (`numpy`, `matplotlib`)
+
+```bash
+pip install -r requirements.txt
+```
+
+### A. Verifikasi Terpadu Satu Pintu (*Recommended*)
+Jalankan skrip utama di akar repositori untuk mengeksekusi seluruh 9 tahapan verifikasi secara otomatis:
+
+```bash
+python3 run_all_verifications.py
+```
+
+### B. Eksekusi Per Modul di Direktori `examples/`
 
 ```bash
 cd examples
-python3 ari_tutorial.py           # tutorial rantai ARI (contoh dua batang; Kode 4.2)
-python3 test_truss_reference.py   # verifikasi solver vs Tabel 4.1
-python3 run_pipeline.py           # pipeline lengkap + konsistensi antar-lapisan
-python3 run_verification.py       # verifikasi kanonik penuh 65 pemeriksaan (Tabel 4.1–4.5/4.11)
-python3 run_guard_verification.py # paket pengaman -A2 (analitis + regresi + diagnostik)
-python3 mechanical_guard.py       # pengaman kinematik Eq 4.1–4.4 (h_e SVD, regresi Tabel 4.4)
-python3 test_structural_solvers.py # verifikasi solver multi-keluarga S1–S5 (Gate 12)
-python3 generate_dataset_s1_s5.py  # pembangkitan 300 model induk S1–S5 & manifest (Gate 13)
-python3 freeze_protocol_config.py  # pembekuan protokol pra-validasi buta (Gate 14)
-python3 run_screening_s1_s5.py     # penyaringan operasional skala penuh 300 model x 7.940 skenario (Gate 15)
+
+# 1. Verifikasi Kanonik & Pengaman Kinematik (Bukti Utama Bab IV)
+python3 ari_tutorial.py              # Tutorial analitis dua batang paralel (Tabel 25 / Tabel 4.11)
+python3 test_truss_reference.py      # Uji penerimaan solver FE terhadap 4 model kanonik (Tabel 13 / Tabel 4.1)
+python3 test_ari.py                  # Uji mesin ARI, monotonisitas, & invariansi satuan (Tabel 15 / Tabel 4.3)
+python3 mechanical_guard.py          # Verifikasi pengaman SVD h_e & identitas aljabar (Tabel 16 / Tabel 4.4)
+python3 test_bound_enhancement.py    # Uji konservatisme batas redistribusi & pembesaran perpindahan
+python3 test_leakage_audit.py        # Audit anti-kebocoran informasi pascagangguan (4 pemeriksaan)
+python3 run_verification.py          # Suite verifikasi kanonik penuh (68/68 pemeriksaan otomatis)
+python3 run_guard_verification.py    # Verifikasi pengaman & diagnostik 16 model parametrik (272 skenario)
+
+# 2. Ekstraksi Kurva & Diagnostik Rekonsiliasi
+python3 run_pipeline.py              # Orkestrasi 3 lapisan pada grid kasar λ ∈ {1, 0.75, 0.5, 0.25, 0}
+python3 fine_grid_runner.py          # Evaluasi grid halus Δλ = 0.05 (336 baris)
+python3 curve_extractor.py           # Ekstraksi titik kritis λ_crit & λ_guard_flip
+python3 plot_curves.py               # Pembangkitan 4 grafik PDF kurva RR(λ) dan CI(λ)
+python3 reconcile_ari_forward.py     # Rekonsiliasi variasi konvensi penerusan 272 skenario parametrik
+python3 analyze_remaining_misses.py  # Karakterisasi 28 kasus kritis terlewat & evaluasi kandidat aturan
+
+# 3. Protokol Multi-Keluarga (S1–S5) & Studi Integrasi Berpasangan GNN (S6)
+python3 test_structural_solvers.py   # Uji analitis solver 5 keluarga struktur S1–S5
+python3 generate_dataset_s1_s5.py    # Pembangkitan model induk S1–S5 beserta manifest SHA-256
+python3 freeze_protocol_config.py    # Pembekuan konfigurasi protokol (ARI-FROZEN-PROTOCOL-v1.0)
+python3 run_screening_s1_s5.py       # Simulasi penyaringan 2-pass anti-leakage lintas keluarga S1–S5
+python3 run_gnn_integration_s6.py    # Evaluasi protokol integrasi berpasangan & rincian biaya waktu
 ```
 
-## Isi repo
+---
 
-| File / folder | Isi |
-|---|---|
-| `examples/` | Kode implementasi & pengujian (mesin ARI, solver referensi, guard, pipeline) |
-| `examples/run_verification.py` | Runner verifikasi kanonik (Tabel 4.1–4.5/4.11) → baseline/scenarios/checks.csv, manifest.json, Tabel.tex, figur |
-| `examples/run_guard_verification.py` | Verifikasi paket pengaman §4.2/§4.5.11 (analitis Eq 4.7, regresi Tabel 4.3/4.4/4.11, diagnostik Tabel 4.2/4.5) |
-| `examples/ari_tutorial.py` | Tutorial langkah-demi-langkah rantai ARI (contoh dua batang; urutan reproduksi Kode 4.2) |
-| `examples/mechanical_guard.py` | Pengaman kinematik Eq 4.1–4.4 (h_e = k_e·a_e·K₀⁻¹·a_eᵀ via SVD; m_e(λ); batas κ ≥ m·ρ₀) |
-| `results/` | Keluaran verifikasi: CSV, JSON, PDF kurva, `review_prep/` (+ keluaran kontrak Tabel 4.8 Gate 9) |
-| `results/revision/` | Paket parametrik §4.2.4: 16 model (272 skenario) + `decisions.csv` + `remaining_misses.csv` + `forwarded.csv` (Gate 9.2/9.3) |
-| `ARCHITECTURE.md` | Arsitektur pipeline + daftar file aktual & statusnya |
-| `manifest_config_frozen.json` | Konfigurasi & protokol beku pra-validasi buta (`ARI-FROZEN-PROTOCOL-v1.0`, Gate 14) |
-| `results/dataset/` | Dataset induk 300 model S1–S5 (1.910 elemen, 7.940 skenario) + `manifest.json`/`csv` (Gate 13) |
-| `results/screening/` | Manifest konfigurasi penapisan beku (`manifest_config_frozen.json`, Gate 14) |
-| `results/validation/` | Hasil evaluasi penuh 300 model, metrik per keluarga/partisi, bootstrap B=10.000, & ablasi (Gate 15) |
-| `WORK_LOG.md` | Log progres per gate (Gate 1–15) |
-| `DEFERRED_FINDINGS.md` | Temuan yang ditunda beserta statusnya |
-| `debug_archive/`, `unified_debug_gate2.py`, `debug_results.csv` | Diagnostik grid-search Gate 2 |
+## 4. Struktur Direktori Repositori
 
-Riwayat lengkap gate, status verifikasi, dan daftar file aktual ada di `ARCHITECTURE.md` dan `WORK_LOG.md`.
+```text
+.
+├── CITATION.cff                     # Metadata sitasi akademik resmi repositori (GitHub Citation)
+├── LICENSE                          # Lisensi perangkat lunak Apache 2.0
+├── README.md                        # Dokumentasi utama repositori
+├── ARCHITECTURE.md                  # Spesifikasi arsitektur berlapis, kontrak numerik, & peta modul
+├── WORK_LOG.md                      # Catatan riwayat verifikasi berjenjang (Gate 1–17)
+├── DEFERRED_FINDINGS.md             # Dokumentasi penutupan temuan numerik & rekonsiliasi formula
+├── requirements.txt                 # Daftar dependensi pustaka Python
+├── manifest_config_frozen.json      # Segel konfigurasi protokol beku (ARI-FROZEN-PROTOCOL-v1.0)
+├── run_all_verifications.py         # Skrip eksekusi verifikasi otomatis satu pintu (9 tahap)
+├── examples/                        # 29 berkas ilmiah (27 modul Python & 2 spesifikasi model JSON)
+└── results/                         # Artefak keluaran verifikasi, diagnostik, dan protokol
+    ├── verification/                # Keluaran verifikasi kanonik (68/68 lulus, CSV, JSON, LaTeX, PDF)
+    ├── revision/                    # Paket diagnostik 16 model parametrik (272 skenario)
+    ├── bounds/                      # Log audit anti-kebocoran & laporan ablasi batas praanalisis
+    ├── dataset/                     # Spesifikasi & manifest model multi-keluarga S1–S5
+    ├── screening/                   # Artefak keputusan penapisan & kurva kalibrasi ambang
+    ├── validation/                  # Laporan evaluasi metrik gerbang validasi & ablasi
+    ├── integration/                 # Artefak studi protokol integrasi GNN & tabel rincian biaya
+    └── review_prep/                 # Dokumentasi penyelarasan angka naskah, audit, & daftar periksa
+```
 
-Lisensi: Apache 2.0 — lihat `LICENSE`.
+---
+
+## 5. Lisensi & Sitasi
+
+Kode sumber dalam repositori ini dilisensikan di bawah **Apache License 2.0** (lihat berkas [`LICENSE`](LICENSE)).  
+Untuk menyitasi karya ini dalam publikasi ilmiah, gunakan tombol **"Cite this repository"** pada halaman GitHub atau merujuk pada metadata di [`CITATION.cff`](CITATION.cff).

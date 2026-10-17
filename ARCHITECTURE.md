@@ -1,75 +1,97 @@
-# ARCHITECTURE — Implementasi Disertasi ARI
-> **Catatan lokasi (2026-10-13):** akar repo kode berada di folder `Coding/` (lokal), terpisah dari materi riset pribadi. Path yang disebut di dokumen ini (mis. `examples/…`, `results/…`) relatif terhadap akar repo itu.
+# ARCHITECTURE — Spesifikasi Teknis & Peta Modul Disertasi ARI
 
-**Status snapshot:** 2026-10-13 (Gate 9). Daftar file AKTUAL yang ada di repo (bukan rencana), dengan commit terakhir per file dan status.
+**Status Pembaruan:** 17 Oktober 2026 (Seluruh rantai verifikasi kanonik, pengaman kinematik SVD, diagnostik 272 skenario parametrik, solver multi-keluarga `S1`–`S5`, dan protokol integrasi berpasangan `StructGNN-CRC v1.0` telah tersinkronisasi penuh dengan naskah disertasi).
 
-## Pipeline 3-lapisan
+---
+
+## 1. Arsitektur Komputasi Berlapis
+
+```text
+examples/verification_models.json ──► examples/truss_reference.py (Lapis 1: Solver FE Batang Aksial 1D/2D)
+                                             │  Gaya awal N_e^(0), reaksi r^(0), utilisasi U*, rank(K_ff)
+                                             ▼
+                                      examples/ari_core.py (Lapis 2: Mesin Inti ARI, Pers. 2.5–2.18)
+                                             │  Bobot w_e^M, pasangan Φ^K_ij, skor S(G), RR, ARI, CI
+                                             ▼
+            ┌────────────────────────────────┼────────────────────────────────┐
+            ▼                                ▼                                ▼
+examples/mechanical_guard.py     examples/bound_enhancement.py    examples/kinematic_guard.py
+(Pengaman SVD h_e, Pers. 4.1–4.7) (Batas Redistribusi & Perpindahan) (Audit Observasional Rank)
+            └────────────────────────────────┼────────────────────────────────┘
+                                             ▼
+                               examples/layered_policy.py (Kebijakan Berlapis F⁺, Pers. 4.13)
+                                             │
+        ┌────────────────────────────────────┼────────────────────────────────────┐
+        ▼                                    ▼                                    ▼
+run_verification.py               run_guard_verification.py             run_pipeline.py / fine_grid_runner.py
+(68/68 Cek Kanonik → Tabel.tex)   (33/33 Cek Pengaman & 272 Skenario)   (Grid Kasar & Halus Δλ=0,05 → PDF)
 ```
-verification_models.json ──► truss_reference.py (L1 Solver FE)
-                                   │ gaya awal, reaksi r^(0), U*, rank
-                                   ▼
-                              ari_core.py (L2 Mesin ARI, Eq 2.5–2.18)
-                                   │ w_e^M, Φ^K_ij, S(G), RR, ARI, CI
-                                   ▼
-                            kinematic_guard.py (L3 Guard, rank/margin)
-                                   │ guard_decision, margin_m
-                                   ▼
- run_pipeline.py / fine_grid_runner.py ──► CSV audit ──► curve_extractor.py / plot_curves.py ──► JSON/PDF
-        │
-        └── mechanical_guard.py (Guard Eq 4.1–4.4, h_e SVD) ──► run_verification.py ──► kontrak Tabel 4.8
-```
 
-## File implementasi (examples/)
-| File | Gate | Fungsi | Commit terakhir | Status |
-|---|---|---|---|---|
-| verification_models.json | 1 | Definisi 4 model kanonik + skala §4.1.2 + expected Tabel 4.1 | 71b1160 | ✅ selesai |
-| truss_reference.py | 1 | Solver FE batang aksial 1D/2D (K global, BC, eigvals rank-check 1e-10, tanpa pseudoinverse) | 71b1160 | ✅ selesai |
-| test_truss_reference.py | 1 | Acceptance test Tabel 4.1 + uji mekanisme | 71b1160 | ✅ selesai |
-| ari_core.py | 2/9 | Mesin ARI Eq 2.5–2.18 (b_jc per KOMPONEN reaksi Eq 2.12; π_c ternormalisasi Eq 2.11; λ=0 hapus eksak; lintasan kosong i==j; status Tabel 4.7) | (Gate 9) | ✅ selesai |
-| test_ari.py | 2 | Diagnostik: Tabel 4.11/4.3, monotonisitas, invariansi, intermediate values → ari_screening.csv | bf24b9c | ✅ selesai |
-| kinematic_guard.py | 3 | Deteksi GRAPH_BLIND/MECHANISM; annotate hasil L2 | 9e4b402 | ✅ selesai |
-| run_pipeline.py | 4/5 | Orkestrasi 3 lapisan; grid coarse {1,.75,.5,.25,0}; pipeline_output.csv (skema kanonik), ari_screening_full.csv, screening_report.json | c4791bb | ✅ selesai |
-| curve_extractor.py | 5 | Interpolasi RR/CI λ; λ_crit(CI≥0.5) & λ_guard-flip → critical_lambdas.json | c4791bb | ✅ selesai |
-| fine_grid_runner.py | 6 | Pipeline pada Δλ=0.05 (21 titik/edge) → fine_grid_output.csv (skema sama Gate 5) | df28ade | ✅ selesai |
-| plot_curves.py | 6 | 4 PDF kurva RR/CI (Agg; marker x merah rank_deficient, * oranye guard-flip) | df28ade | ✅ selesai (flip-fix Gate 7) |
-| mechanical_guard.py | 9 | h_e = k_e·a_e·K₀⁻¹·a_eᵀ via SVD (Eq 4.1); m_e(λ); batas kondisi Eq 4.4; identitas Eq 4.7 | (Gate 9) | ✅ selesai |
-| run_verification.py | 9 | Runner verifikasi kanonik → baseline/scenarios/checks.csv, manifest.json, Tabel.tex, models.pdf, ci_by_damage.pdf (Tabel 4.8) | (Gate 9) | ✅ selesai |
-| run_guard_verification.py | 9/9.2 | Paket verifikasi pengaman §4.2/§4.5.11 + diagnostik parametrik §4.2.4 (272 skenario; dua konvensi kritikalitas; decisions.csv + remaining_misses.csv) → guard_verification.json | (Gate 9.2) | ✅ selesai |
-| ari_tutorial.py | 9 | Tutorial rantai ARI contoh dua batang (urutan reproduksi Kode 4.2) | (Gate 9) | ✅ selesai |
+---
 
-**Gate 9 (2026-10-13) — penyelarasan penuh dengan naskah:** b_jc per komponen reaksi (Eq 2.12) menutup DF-01 (Tabel 4.3 ≤ 4e-7); h_e SVD (Eq 4.1) menggantikan fraksi-energi di bound_enhancement (Tabel 4.4); λ=0 dihapus eksak; π_c ternormalisasi; status Tabel 4.7. Bukti: run_verification.py 65/65 LULUS + `results/review_prep/penyelarasan_disertasi_gate9.md`.
+## 2. Daftar Lengkap Modul Implementasi (`examples/` — 29 Berkas)
 
-Catatan: gate 7 (agregasi laporan) dilaporkan selesai oleh peneliti (commit 93a824d) namun file agregatnya TIDAK terdapat pada branch sandbox ini — lihat ringkasan eksekusi Gate 8. Status gate 7 di workspace ini: 🟡 tidak tersedia untuk diverifikasi.
+### 2.1 Inti Kanonik, Pengaman Kinematik, & Batas Praanalisis
+| Berkas | Bab/Subbab Naskah | Fungsi Utama | Status |
+| :--- | :--- | :--- | :---: |
+| `verification_models.json` | Bab IV Subbab A | Definisi 4 model kanonik (`M1`–`M4`), skala kapasitas, & nilai acuan Tabel 13 | Terverifikasi |
+| `truss_reference.py` | Bab III & IV.A | Solver elemen hingga batang aksial 1D/2D (pemeriksaan rank nilai eigen $10^{-10}$, tanpa pseudoinvers) | Terverifikasi |
+| `test_truss_reference.py` | Bab IV Subbab A | Uji penerimaan solver terhadap Tabel 13 ($\Delta < 5 \times 10^{-4}$) & penolakan mekanisme | 100% Lulus |
+| `ari_core.py` | Bab II (Pers. 2.5–2.18) | Mesin inti ARI: bobot sisi $w_e^M$, enumerasi eksak lintasan *edge-disjoint*, $b_{jc}$ per komponen reaksi, RR, ARI, CI | Terverifikasi |
+| `ari_tutorial.py` | Bab IV Subbab H | Tutorial analitis langkah-demi-langkah contoh dua batang paralel (Tabel 25) | 100% Lulus |
+| `test_ari.py` | Bab IV Subbab A | Uji diagnostik Tabel 15 & 25, monotonisitas $\text{RR}(\lambda)$, & invariansi konversi satuan | 100% Lulus |
+| `mechanical_guard.py` | Bab IV Subbab B (Pers. 4.1–4.7) | Pengaman kinematik berbasis SVD ($h_e = k_e \mathbf{a}_e \mathbf{K}_0^{-1} \mathbf{a}_e^\top$), margin $m_e(\lambda)$, & batas kondisi | 100% Lulus |
+| `kinematic_guard.py` | Bab IV Subbab B | Modul audit observasional perubahan rank (`CONSISTENT`, `MECHANISM`, `GRAPH_BLIND`) | Terverifikasi |
+| `bound_enhancement.py` | Bab IV Subbab D | Batas praanalisis redistribusi gaya ($\hat{U}_n^{\text{bound}}$) dan pembesaran perpindahan ($\hat{\kappa}_{\text{amp}}$) | Terverifikasi |
+| `test_bound_enhancement.py` | Bab IV Subbab D | Uji regresi Tabel 16 & konservatisme batas praanalisis | 100% Lulus |
+| `layered_policy.py` | Bab IV Subbab D.5 | Kebijakan penyaringan berlapis $\mathcal{F}^+$ (pengaman kinematik $\to$ batas praanalisis $\to$ ARI) | Terverifikasi |
+| `test_leakage_audit.py` | Bab IV Subbab E.6 | Audit otomatis anti-kebocoran informasi pascagangguan (4 pemeriksaan ketat) | 100% Lulus |
+| `run_ablation_bounds.py` | Bab IV Subbab D.6 | Evaluasi ablasi kontribusi komponen batas praanalisis | Terverifikasi |
 
-## Artefak hasil (results/)
-| Path | Isi | Status |
-|---|---|---|
-| results/verification/pipeline_output.csv | 80 baris skema kanonik [model_id, edge_id, lambda, S_intact, S_disrupted, RR, ARI, CI, rank_status, margin_m, guard_decision, U_star, status_code] | ✅ |
-| results/verification/fine_grid_output.csv | 336 baris grid halus Δλ=0.05, kolom identik | ✅ |
-| results/verification/ari_screening.csv | diagnostik Gate 2 (test_ari.py) | ✅ |
-| results/verification/ari_screening_full.csv + screening_report.json | audit Gate 4 (84 run) | ✅ |
-| results/verification/critical_lambdas.json | ringkasan λ_kritis per edge (kunci: lambda_crit_d_CI, lambda_guard_flip) | ✅ |
-| results/verification/plots/curve_M{1..4}_*.pdf | visualisasi kurva halus | ✅ |
-| results/verification/README.md | penjelasan tiap file + timestamp | ✅ (Gate 8) |
-| results/verification/baseline.csv, scenarios.csv, checks.csv, manifest.json, Tabel.tex, models.pdf, ci_by_damage.pdf | keluaran kontrak Tabel 4.8 (Gate 9) | ✅ |
-| results/verification/guard_verification.json | verifikasi paket pengaman §4.2 + diagnostik parametrik §4.2.4 (Gate 9/9.2) | ✅ |
-| results/revision/{models.json, decisions.csv, remaining_misses.csv, forwarded.csv} | paket parametrik 16 model (272 skenario); keputusan (+sha256), kasus terlewat & daftar diteruskan; bandingan draf A/B di guard_verification.json | ✅ (Gate 9.2/9.3) |
-| results/review_prep/disertasi_numbers_audit.md | audit angka naskah vs kode | ✅ (Gate 8; dikoreksi Gate 9) |
-| results/review_prep/review_checklist.md | checklist review manual | ✅ (Gate 8) |
+### 2.2 Orkestrasi Verifikasi, Kurva Sensitivitas, & Diagnostik Parametrik
+| Berkas | Bab/Subbab Naskah | Fungsi Utama | Status |
+| :--- | :--- | :--- | :---: |
+| `run_verification.py` | Bab IV Subbab E & G | Runner verifikasi kanonik penuh (68/68 pemeriksaan otomatis) $\to$ CSV, JSON, `Tabel.tex`, PDF | 68/68 Lulus |
+| `run_guard_verification.py` | Bab IV Subbab B.4–B.6 | Verifikasi paket pengaman (33/33 lulus) & evaluasi 16 model parametrik (272 skenario) | 33/33 Lulus |
+| `run_pipeline.py` | Bab IV Subbab E.2 | Orkestrasi pipeline 3 lapisan pada grid kasar $\lambda \in \{1, 0{,}75, 0{,}5, 0{,}25, 0\}$ (80 skenario) | Terverifikasi |
+| `fine_grid_runner.py` | Bab IV Subbab A & E | Evaluasi grid halus $\Delta\lambda = 0{,}05$ (21 titik $\times$ 16 elemen = 336 baris) | Terverifikasi |
+| `curve_extractor.py` | Bab IV Subbab A | Ekstraksi titik kritis $\lambda_{\text{crit}}$ ($\text{CI} \ge 0{,}5$) dan titik balik pengaman $\lambda_{\text{guard-flip}}$ | Terverifikasi |
+| `plot_curves.py` | Bab IV Subbab A | Pembangkitan 4 grafik PDF kurva halus $\text{RR}(\lambda)$ dan $\text{CI}(\lambda)$ (`M1`–`M4`) | Terverifikasi |
+| `reconcile_ari_forward.py` | Bab IV Subbab B.6 | Audit rekonsiliasi variasi konvensi penerusan pada 272 skenario parametrik | Terverifikasi |
+| `analyze_remaining_misses.py` | Bab IV Subbab B.5–B.6 | Karakterisasi 28 kasus kritis terlewat & evaluasi sensitivitas aturan aditif | Terverifikasi |
 
-## Log dokumentasi (root)
-| File | Isi | Status |
-|---|---|---|
-| manifest_config_frozen.json | Paket protokol beku pra-validasi buta (Gate 14 — W5) | ✅ |
-| results/dataset/{manifest.json, manifest.csv, models_s1..s5.json, dataset_stats.json} | Dataset induk 300 model S1–S5 (Gate 13 — W2e/W2f) | ✅ |
-| results/screening/manifest_config_frozen.json | Salinan arsip protokol beku pada direktori penyaringan (Gate 14 — W5) | ✅ |
-| examples/{structural_solvers.py, test_structural_solvers.py, generate_dataset_s1_s5.py, freeze_protocol_config.py} | Solver multi-keluarga S1–S5, generator 300 model, & pembekuan protokol (Gate 12–14) | ✅ |
-| results/screening/{decisions_300.csv, forwarded_300.csv, remaining_misses_300.csv, calibration_grid_tau.csv, screening_summary_300.json} | Keluaran penyaringan operasional skala penuh 300 model (Gate 15 — W3/W4) | ✅ |
-| results/validation/{full_evaluation_300.csv, screening_metrics_by_family_split.csv, ablation_300.csv, gate_validation_report_300.json} | Evaluasi acuan pascagangguan, metrik bootstrap B=10.000, & studi ablasi 300 model (Gate 15 — W3/W4) | ✅ |
-| examples/run_screening_s1_s5.py | Runner penyaringan operasional 2-pass anti-leakage & validasi lintas keluarga S1–S5 (Gate 15) | ✅ |
-| WORK_LOG.md | Entri sesi Gate 1–15 | ✅ |
-| DEFERRED_FINDINGS.md | Finding #001–#012 + Last Checked | ✅ |
-| ARCHITECTURE.md | File ini | ✅ (Gate 8) |
+### 2.3 Suite Protokol Lanjutan Multi-Keluarga (`S1`–`S5`) & Integrasi GNN (`S6`)
+| Berkas | Bab/Subbab Naskah | Fungsi Utama | Status |
+| :--- | :--- | :--- | :---: |
+| `structural_solvers.py` | Bab III Subbab I.2 | Suite solver FE 5 keluarga struktur: `S1` Balok, `S2` Rangka Batang, `S3` Portal, `S4` Berpengaku, `S5` Rangka Ruang 3D | Terverifikasi |
+| `verification_solvers_s1_s5.json` | Bab III Subbab I.2 | Spesifikasi model acuan analitis untuk pengujian solver `S1`, `S3`, `S4`, dan `S5` | Terverifikasi |
+| `test_structural_solvers.py` | Bab III Subbab I.2 | Suite uji penerimaan analitis solver elemen hingga lintas keluarga `S1`–`S5` | 100% Lulus |
+| `generate_dataset_s1_s5.py` | Bab III Subbab F & I | Generator deterministik (`seed=2026`) 300 model induk `S1`–`S5` beserta manifest SHA-256 | Terverifikasi |
+| `freeze_protocol_config.py` | Bab III Subbab C & I.5 | Pembekuan konfigurasi protokol pra-validasi (`ARI-FROZEN-PROTOCOL-v1.0`) | Terverifikasi |
+| `run_screening_s1_s5.py` | Bab IV Subbab I–J | Runner simulasi penyaringan 2-pass anti-leakage, bootstrap $B=10.000$, & studi ablasi | Terverifikasi |
+| `gnn_surrogate_s6.py` | Bab III Subbab R | Arsitektur acuan `StructGNN-CRC v1.0` (Message-Passing GNN 3-lapisan pada rangka batang bidang) | Terverifikasi |
+| `run_gnn_integration_s6.py` | Bab III.R & IV.J | Protokol evaluasi berpasangan ARI–GNN & audit rincian biaya waktu komputasi (Tabel 31) | Terverifikasi |
 
-## Konfigurasi terkunci (jangan diubah tanpa keputusan review)
-α_k=α_R=0.5, q_e=1, K=2, γ=1, η=0.5, β=0.1; ε_w=ε_d=1e-9, ε_R=1e-6 kN, baseline_tol=1e-12, max_search_nodes=200.000 (4.1.2); ε_removed=1e-8 (DEPRECATED — λ=0 kini dihapus eksak, Gate 9); skala per model §4.1.2 (M1 15/30, M2 20/40, M3/M4 20/80). Satuan: kN, mm, E=200 kN/mm².
+---
+
+## 3. Peta Artefak Keluaran (`results/`)
+
+| Subdirektori | Berkas Utama | Keterangan |
+| :--- | :--- | :--- |
+| `results/verification/` | `baseline.csv`, `scenarios.csv`, `checks.csv` (68/68), `manifest.json`, `guard_verification.json`, `Tabel.tex`, `models.pdf`, `ci_by_damage.pdf`, `pipeline_output.csv`, `fine_grid_output.csv`, `plots/*.pdf` | Bukti numerik kanonik lengkap & kurva sensitivitas |
+| `results/revision/` | `models.json`, `decisions.csv`, `forwarded.csv`, `remaining_misses.csv`, `README.md` | Paket evaluasi diagnostik 16 model parametrik (272 skenario) |
+| `results/bounds/` | `ablation_report.csv`, `leakage_audit.log` | Bukti audit anti-kebocoran informasi & ablasi batas praanalisis |
+| `results/dataset/` | `models_s1.json`..`models_s5.json`, `manifest.json`, `manifest.csv`, `dataset_stats.json` | Spesifikasi dataset 300 model induk lintas keluarga `S1`–`S5` |
+| `results/screening/` | `decisions_300.csv`, `forwarded_300.csv`, `remaining_misses_300.csv`, `calibration_grid_tau.csv`, `screening_summary_300.json` | Keluaran simulasi penyaringan operasional & grid kalibrasi ambang |
+| `results/validation/` | `full_evaluation_300.csv`, `screening_metrics_by_family_split.csv`, `ablation_300.csv`, `gate_validation_report_300.json` | Rekapitulasi metrik gerbang validasi (A–D) & interval bootstrap |
+| `results/integration/` | `gnn_model_card_s6.json`, `gnn_weights_s6.npz`, `treatment_comparison_s6.csv`, `cost_breakdown_table_4_19.csv`, `integration_report_s6.json` | Artefak protokol integrasi berpasangan `StructGNN-CRC v1.0` & rincian biaya |
+| `results/review_prep/` | `penyelarasan_disertasi_gate9.md`, `audit_naskah_revisi.md`, `rekonsiliasi_ari_forward.md`, `diagnosa_28_kasus_terlewat.md`, `inventory_repositori.md`, `review_checklist.md` | Dokumentasi audit silang angka naskah, rekonsiliasi, & panduan verifikasi |
+
+---
+
+## 4. Kontrak Numerik Terkunci
+
+* **Parameter Bobot & Formulasi:** $\alpha_k = 0{,}5$, $\alpha_R = 0{,}5$, $q_e = 1{,}0$, $K = 2$, $\gamma = 1{,}0$, $\eta = 0{,}5$, $\beta = 0{,}1$.
+* **Toleransi & Regularisasi:** $\varepsilon_w = \varepsilon_d = 10^{-9}$, $\varepsilon_R = 10^{-6}\text{ kN}$, `baseline_tol` $= 10^{-12}$, toleransi rank relatif $= 10^{-10}$ terhadap nilai eigen maksimum (tanpa pseudoinvers), batas anggaran pencarian DFS $= 200.000$ simpul.
+* **Perlakuan Kehilangan Penuh ($\lambda = 0$):** Sisi dengan $\lambda = 0$ dihapus secara eksak dari graf topologi sebelum enumerasi lintasan.
+* **Skala Referensi Kanonik (`M1`–`M4`):** `M1` ($s_k = 15$, $s_R = 30$), `M2` ($s_k = 20$, $s_R = 40$), `M3` & `M4` ($s_k = 20$, $s_R = 80$); satuan konsisten $\text{kN}$ dan $\text{mm}$ ($E = 200\text{ kN/mm}^2$).

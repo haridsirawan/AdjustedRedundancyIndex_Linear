@@ -1,135 +1,89 @@
 # Inventaris Repositori — Adjusted Redundancy Index (ARI)
-**Dibuat:** 13 Oktober 2026 · oleh AutoClaw · untuk pemeriksaan manual oleh peneliti (Harids Irawan).
-**Koneksi GenOffice:** ✅ terhubung (GenOffice v0.11.505; menulis/membaca docx, xlsx, pptx).
-Salinan Word: `Inventaris Repositori ARI.docx` (folder riset) — versi Markdown ini ada di repo.
 
-## 1. Ringkasan repositori
-| Item | Nilai |
-|---|---|
-| Repo GitHub | https://github.com/haridsirawan/Adjusted-Redundancy-Index (privat) |
-| Folder lokal | `…/Research/Adjusted Redudancy Index/Coding/` |
-| Branch / HEAD | `main` @ `416093e` |
-| `e79bd17` | **Gate 10**: audit naskah revisi (193 hal) — seluruh klaim paket Gate 9 terverifikasi persis |
-| `02a43f2` | **Gate 11 (K6)**: rekonsiliasi draf 17/32/41 vs kode 30/32/52 — selisih terlokalisasi |
-| `6f2b95e` | **Gate 11 (W1)**: diagnosa 28 kasus kritis terlewat + evaluasi kandidat kebijakan (P1..P7) |
-| `eeabcb4` | **Gate 12 (W2a–W2d)**: solver multi-keluarga S1, S3, S4, S5 + uji analitis 100% PASS |
-| `60f4361` | **Gate 13 (W2e–W2f)**: dataset induk 300 model lintas 5 keluarga + manifest lengkap |
-| `bd370b3` | **Gate 14 (W5)**: pembekuan protokol pra-validasi buta (`manifest_config_frozen.json`) |
-| `Gate 15` | **Gate 15 (W3/W4)**: penyaringan operasional skala penuh 300 model × 7.940 skenario & validasi A–D |
-| File terlacak | **66 file** (≈11 MB; `examples/` = 5.418 baris Python + JSON) |
-| Status | Semua runner HIJAU — kanonik 68/68, guard 33/33, pipeline PASS, grid halus PASS, plot PASS |
+**Pembaruan Terakhir:** 17 Oktober 2026  
+**Peneliti:** Harids Irawan, S.T., M.T. (Sekolah Pascasarjana Universitas Negeri Yogyakarta)  
+**Repositori GitHub:** `https://github.com/haridsirawan/Adjusted-Redundancy-Index`
 
-## 2. Riwayat commit (pekerjaan sesi ini)
-| Commit | Isi singkat |
-|---|---|
-| `6399cef` | Impor materi riset; tambah README + .gitignore; setop melacak .DS_Store |
-| `79ba0e3` | Merge cabang verifikasi (ARI Gate 1–8 milik kerja sebelumnya) |
-| `90e6462` | Berhenti melacak `__pycache__` |
-| `cb0fe40` | Reorganisasi: pindahkan suite verifikasi ke folder `AutoClaw/` |
-| `87241ce` | Pisahkan repo kode ke folder `Coding/` (repo = kode saja, materi riset keluar) |
-| `7753f63` | **Gate 9**: selaraskan kode dengan naskah — Tabel 4.3 tereproduksi ≤ 4e-7; h_e SVD; mekanisme lain |
-| `f5b7bbe` | **Gate 9.1**: `ari_tutorial.py` (Kode 4.2) + `run_guard_verification.py` (§4.5.11) |
-| `ab2628d` | **Gate 9.2**: paket parametrik §4.2.4 — 16 model, 272 skenario, decisions/remaining_misses |
-| `416093e` | **Gate 9.3**: `status_code` di semua CSV; Tabel.tex diperluas; `forwarded.csv`; panduan revisi |
-| `e79bd17` | **Gate 10**: audit naskah revisi (193 hal) — seluruh klaim paket Gate 9 terverifikasi persis |
-| `02a43f2` | **Gate 11 (K6)**: rekonsiliasi draf 17/32/41 vs kode 30/32/52 — selisih terlokalisasi |
-| `6f2b95e` | **Gate 11 (W1)**: diagnosa 28 kasus kritis terlewat + evaluasi kandidat kebijakan (P1..P7) |
-| `eeabcb4` | **Gate 12 (W2a–W2d)**: solver multi-keluarga S1, S3, S4, S5 + uji analitis 100% PASS |
-| `60f4361` | **Gate 13 (W2e–W2f)**: dataset induk 300 model lintas 5 keluarga + manifest lengkap |
-| `bd370b3` | **Gate 14 (W5)**: pembekuan protokol pra-validasi buta (`manifest_config_frozen.json`) |
-| `Gate 15` | **Gate 15 (W3/W4)**: penyaringan operasional skala penuh 300 model × 7.940 skenario & validasi A–D |
+---
 
-## 3. Daftar lengkap isi repositori (66 file)
+## 1. Ringkasan Status Repositori
 
-### 3.1 `examples/` — kode & model (19 file)
-| File | Fungsi |
-|---|---|
-| `verification_models.json` | 4 model kanonik §4.1.2 (geometri, beban, kapasitas, skala) |
-| `freeze_protocol_config.py` | Pembekuan protokol & konfigurasi pra-validasi buta (`manifest_config_frozen.json`, Gate 14) |
-| `run_screening_s1_s5.py` | Penyaringan operasional 300 model × 7.940 skenario, kalibrasi, bootstrap B=10.000 & ablasi (Gate 15) |
-| `generate_dataset_s1_s5.py` | Generator model parametrik 300 model & builder manifest dataset |
-| `structural_solvers.py` | Solver FE struktur multi-keluarga: S1 Balok, S3 Portal, S4 Berpengaku, S5 Rangka Ruang 3D |
-| `generate_dataset_s1_s5.py` | Generator model parametrik 300 model & builder manifest dataset |
-| `test_structural_solvers.py` | Suite uji analitis dan acceptance test untuk S1, S3, S4, S5 (100% PASS) |
-| `verification_solvers_s1_s5.json` | Model acuan kanonik untuk solver multi-keluarga S1, S3, S4, S5 |
-| `truss_reference.py` | Solver FE batang aksial (rank-check eig 1e-10, tanpa pseudoinverse) |
-| `ari_core.py` | Mesin ARI Eq 2.5–2.18 (b_jc per komponen reaksi; λ=0 hapus eksak; status Tabel 4.7) |
-| `ari_tutorial.py` | Tutorial rantai ARI contoh dua batang (urutan reproduksi Kode 4.2) |
-| `mechanical_guard.py` | Pengaman kinematik Eq 4.1–4.4 (h_e = k_e·a_e·K₀⁻¹·a_eᵀ via SVD; m_e(λ); batas κ) |
-| `kinematic_guard.py` | Guard observasional lama (rank/solvabilitas; dipertahankan sebagai audit) |
-| `bound_enhancement.py` | Bound praanalisis §4.4 (h_e SVD — dikoreksi Gate 9) |
-| `layered_policy.py` | Kebijakan berlapis F⁺ (Eq 4.13; urutan: guard → bound → ARI) |
-| `run_pipeline.py` | Pipeline 3 lapisan → CSV kanonik 13 kolom + laporan konsistensi |
-| `fine_grid_runner.py` | Grid halus Δλ=0.05 (21 titik × 16 edge = 336 baris) |
-| `curve_extractor.py` | Ekstraksi λ_kritis & λ_guard-flip → `critical_lambdas.json` |
-| `plot_curves.py` | 4 PDF kurva RR(λ)/CI(λ) |
-| `test_ari.py` | Diagnostik inti: Tabel 4.3/4.11, monotonisitas, konversi satuan |
-| `test_bound_enhancement.py` | Regresi bound (Tabel 4.4 + konservatisme) |
-| `test_leakage_audit.py` | Audit kebocoran §4.5.6 (4 pemeriksaan) |
-| `test_truss_reference.py` | Acceptance solver vs Tabel 4.1 |
-| `run_verification.py` | Runner verifikasi kanonik (kontrak Tabel 4.8) — 68/68 pemeriksaan |
-| `run_guard_verification.py` | Paket pengaman §4.2 + diagnostik parametrik §4.2.4 |
-| `run_ablation_bounds.py` | Ablasi bound praanalisis (peninggalan sesi sebelumnya) |
+| Parameter | Keterangan |
+| :--- | :--- |
+| **Cabang Utama** | `main` |
+| **Total Berkas di `examples/`** | 29 berkas ilmiah (27 modul Python & 2 berkas spesifikasi JSON) |
+| **Subdirektori `results/`** | 8 subdirektori (`verification`, `revision`, `bounds`, `dataset`, `screening`, `validation`, `integration`, `review_prep`) |
+| **Runner Verifikasi Satu Pintu** | `python3 run_all_verifications.py` (9/9 tahap lulus 100%) |
+| **Status Pemeriksaan Kanonik** | 68/68 pemeriksaan otomatis LULUS (`results/verification/checks.csv`) |
+| **Status Pemeriksaan Pengaman SVD** | 33/33 pemeriksaan LULUS (`results/verification/guard_verification.json`) |
+| **Kebersihan Repositori** | Bebas dari skrip *debugging* sementara (`debug_archive/`), bebas dari skrip pemformatan dokumen Word lokal, dan bebas dari *cache* sistem operasi |
 
-### 3.2 `results/verification/` — keluaran kontrak naskah (20 item)
-| File | Isi |
-|---|---|
-| `README.md` | Penjelasan tiap file |
-| `Tabel.tex` | **Reproduksi Tabel 4.1, 4.2, 4.3, 4.4, 4.5-kanonik (LaTeX, siap tempel)** |
-| `baseline.csv` | Respons 4 model utuh vs Tabel 4.1 (umax, Umax, W) |
-| `scenarios.csv` | 4 kontrol utuh + 16 kontrol edge + 64 gangguan; status skor & solver terpisah |
-| `checks.csv` | **68/68 pemeriksaan LULUS** (semua tabel + Eq 2.19 + monotonisitas) |
-| `manifest.json` | Konfigurasi, versi pustaka, waktu, hash sumber |
-| `guard_verification.json` | §A analitis, §B regresi, §C diagnostik kanonik, **§D parametrik + bandingan draf** |
-| `models.pdf` / `ci_by_damage.pdf` | Diagram 4 model / kurva CI + penanda rank |
-| `pipeline_output.csv` | 80 baris, skema kanonik **13 kolom** (termasuk `status_code`) |
-| `fine_grid_output.csv` | 336 baris grid halus, kolom identik |
-| `ari_screening.csv` / `ari_screening_full.csv` | Diagnostik test_ari / audit 84 run |
-| `screening_report.json` | Agregat pipeline + konsistensi antar-lapisan |
-| `critical_lambdas.json` | λ_kritis (CI≥0.5) & λ_guard-flip per edge |
-| `plots/curve_M1…M4*.pdf` | 4 kurva halus RR/CI |
+---
 
-### 3.3 `results/revision/` — paket parametrik §4.2.4 (5 file)
-| File | Isi |
-|---|---|
-| `models.json` | 16 model parametrik (4 grup × 4 konfigurasi) + target draf |
-| `decisions.csv` | Keputusan penerusan 272 skenario (disimpan sebelum respons acuan; sha256 dicatat) |
-| `remaining_misses.csv` | 28 kasus kritis tak diteruskan (varian B) |
-| `forwarded.csv` | 52 skenario diteruskan (kolom `by`: ari/guard/both; kritikalitas A/B) |
-| `README.md` | Hasil & catatan rekonsiliasi draf vs kode |
+## 2. Daftar Lengkap Berkas Repositori
 
-### 3.4 `results/review_prep/` — bahan review (5 file)
-| File | Isi |
-|---|---|
-| `penyelarasan_disertasi_gate9.md` | **Laporan lengkap pemetaan naskah → kode → bukti** |
-| `revision_guide.md` | **Panduan revisi akhir naskah** (apa yang harus diubah, apa yang tidak) |
-| `disertasi_numbers_audit.md` | Audit angka naskah vs kode (dengan koreksi Gate 9) |
-| `review_checklist.md` | Checklist review manual (status terbaru) |
-| `inventory_repositori.md` | Dokumen ini |
+### 2.1 Berkas Akar (*Root Directory* — 9 Berkas)
+| Berkas | Fungsi |
+| :--- | :--- |
+| `README.md` | Dokumentasi utama repositori, ruang lingkup epistemik, & panduan eksekusi |
+| `ARCHITECTURE.md` | Spesifikasi arsitektur berlapis, kontrak numerik terkunci, & peta modul |
+| `CITATION.cff` | Metadata sitasi akademik standar GitHub untuk disertasi |
+| `LICENSE` | Lisensi perangkat lunak terbuka Apache 2.0 |
+| `requirements.txt` | Daftar dependensi pustaka Python (`numpy`, `matplotlib`) |
+| `run_all_verifications.py` | Skrip eksekusi otomatis satu pintu untuk seluruh 9 tahapan verifikasi |
+| `manifest_config_frozen.json` | Segel konfigurasi protokol beku (`ARI-FROZEN-PROTOCOL-v1.0`) |
+| `WORK_LOG.md` | Catatan riwayat verifikasi berjenjang (Gate 1 s.d. Gate 17) |
+| `DEFERRED_FINDINGS.md` | Dokumentasi penutupan temuan numerik & rekonsiliasi formula |
 
-### 3.5 `results/bounds/` (2) · Root (8) · `debug_archive/` (8)
-- `results/bounds/`: `ablation_report.csv`, `leakage_audit.log` — audit bound praanalisis.
-- Root: `README.md` (peta repo), `ARCHITECTURE.md` (file aktual + status), `WORK_LOG.md` (Gate 1–9.3), `DEFERRED_FINDINGS.md` (DF-01/03 ditutup; #012 dikoreksi), `LICENSE` (Apache-2.0), `.gitignore`, `requirements.txt` (numpy, matplotlib), `unified_debug_gate2.py` + `debug_results.csv` (diagnostik Gate 2).
-- `debug_archive/`: 8 skrip debug Gate 2 (arsip).
+### 2.2 Direktori `examples/` — Kode Sumber & Spesifikasi Model (29 Berkas)
+| Berkas | Fungsi |
+| :--- | :--- |
+| `ari_core.py` | Mesin inti ARI (Pers. 2.5–2.18: bobot sisi, enumerasi lintasan eksak, $b_{jc}$ per komponen reaksi, RR, ARI, CI) |
+| `ari_tutorial.py` | Tutorial analitis rantai perhitungan ARI pada dua batang paralel (Tabel 25) |
+| `truss_reference.py` | Solver elemen hingga batang aksial 1D/2D dengan pemeriksaan rank nilai eigen $10^{-10}$ |
+| `test_truss_reference.py` | Uji penerimaan solver terhadap 4 model kanonik (Tabel 13) & penolakan mekanisme |
+| `verification_models.json` | Spesifikasi 4 model kanonik (`M1`–`M4`) beserta parameter skala & nilai acuan |
+| `test_ari.py` | Pengujian diagnostik inti ARI, monotonisitas $\text{RR}(\lambda)$, & invariansi konversi satuan |
+| `mechanical_guard.py` | Pengaman kinematik berbasis SVD ($h_e = k_e \mathbf{a}_e \mathbf{K}_0^{-1} \mathbf{a}_e^\top$, margin $m_e(\lambda)$, batas $\kappa$) |
+| `kinematic_guard.py` | Modul audit observasional perubahan rank (`CONSISTENT`, `MECHANISM`, `GRAPH_BLIND`) |
+| `bound_enhancement.py` | Batas praanalisis redistribusi gaya dan pembesaran perpindahan (§4.4) |
+| `test_bound_enhancement.py` | Uji regresi Tabel 16 dan sifat konservatisme batas praanalisis |
+| `layered_policy.py` | Kebijakan penyaringan berlapis $\mathcal{F}^+$ (Pers. 4.13) |
+| `test_leakage_audit.py` | Audit otomatis anti-kebocoran informasi pascagangguan (4 pemeriksaan) |
+| `run_ablation_bounds.py` | Evaluasi ablasi komponen batas praanalisis |
+| `run_verification.py` | Runner verifikasi kanonik penuh (68/68 pemeriksaan otomatis) |
+| `run_guard_verification.py` | Runner verifikasi pengaman (33/33 lulus) & diagnostik 16 model parametrik (272 skenario) |
+| `run_pipeline.py` | Orkestrasi pipeline 3 lapisan pada grid kasar $\lambda \in \{1, 0{,}75, 0{,}5, 0{,}25, 0\}$ |
+| `fine_grid_runner.py` | Evaluasi grid halus $\Delta\lambda = 0{,}05$ (336 baris) |
+| `curve_extractor.py` | Ekstraksi titik kritis $\lambda_{\text{crit}}$ dan $\lambda_{\text{guard-flip}}$ |
+| `plot_curves.py` | Pembangkitan 4 grafik PDF kurva $\text{RR}(\lambda)$ dan $\text{CI}(\lambda)$ |
+| `reconcile_ari_forward.py` | Rekonsiliasi variasi konvensi penerusan pada 272 skenario parametrik |
+| `analyze_remaining_misses.py` | Karakterisasi 28 kasus kritis terlewat & evaluasi kandidat aturan aditif |
+| `structural_solvers.py` | Suite solver elemen hingga 5 keluarga struktur (`S1`–`S5`) |
+| `verification_solvers_s1_s5.json` | Spesifikasi model acuan analitis untuk solver multi-keluarga `S1`–`S5` |
+| `test_structural_solvers.py` | Suite uji analitis solver elemen hingga lintas keluarga `S1`–`S5` |
+| `generate_dataset_s1_s5.py` | Pembangkitan deterministik 300 model induk `S1`–`S5` & manifest SHA-256 |
+| `freeze_protocol_config.py` | Pembekuan konfigurasi protokol pra-validasi (`ARI-FROZEN-PROTOCOL-v1.0`) |
+| `run_screening_s1_s5.py` | Runner simulasi penyaringan 2-pass anti-leakage lintas keluarga `S1`–`S5` |
+| `gnn_surrogate_s6.py` | Implementasi arsitektur acuan `StructGNN-CRC v1.0` pada rangka batang bidang |
+| `run_gnn_integration_s6.py` | Evaluasi protokol integrasi berpasangan ARI–GNN & rincian biaya waktu komputasi |
 
-## 4. Dibuat vs disunting pada sesi ini
-**Dibuat baru:** `mechanical_guard.py`, `run_verification.py`, `run_guard_verification.py`, `ari_tutorial.py`, `requirements.txt`, seluruh `results/revision/*`, `results/review_prep/{penyelarasan_disertasi_gate9, revision_guide, inventory_repositori}.md`, dan keluaran `results/verification/{Tabel.tex, baseline.csv, scenarios.csv, checks.csv, manifest.json, models.pdf, ci_by_damage.pdf, guard_verification.json}`.
-**Disunting:** `ari_core.py` (inti perbaikan), `test_ari.py`, `run_pipeline.py`, `fine_grid_runner.py`, `bound_enhancement.py`, `test_bound_enhancement.py`, `README.md`, `ARCHITECTURE.md`, `WORK_LOG.md`, `DEFERRED_FINDINGS.md`, audit & checklist.
-**Tidak diubah:** `truss_reference.py`, `kinematic_guard.py`, `layered_policy.py`, `run_ablation_bounds.py`, `verification_models.json`, `debug_archive/*`.
+### 2.3 Direktori `results/` — Artefak Keluaran Terstruktur
+* **`results/verification/`**: `baseline.csv`, `scenarios.csv`, `checks.csv` (68/68 lulus), `manifest.json`, `guard_verification.json`, `Tabel.tex`, `models.pdf`, `ci_by_damage.pdf`, `pipeline_output.csv`, `fine_grid_output.csv`, `ari_screening.csv`, `ari_screening_full.csv`, `screening_report.json`, `critical_lambdas.json`, `plots/curve_M1..M4*.pdf`, `README.md`.
+* **`results/revision/`**: `models.json` (16 model parametrik), `decisions.csv` (272 skenario), `forwarded.csv` (52 skenario), `remaining_misses.csv` (28 skenario), `README.md`.
+* **`results/bounds/`**: `ablation_report.csv`, `leakage_audit.log`.
+* **`results/dataset/`**: `models_s1.json` s.d. `models_s5.json`, `manifest.json`, `manifest.csv`, `dataset_stats.json`, `manifest_config_frozen.json`.
+* **`results/screening/`**: `decisions_300.csv`, `forwarded_300.csv`, `remaining_misses_300.csv`, `calibration_grid_tau.csv`, `screening_summary_300.json`, `manifest_config_frozen.json`.
+* **`results/validation/`**: `full_evaluation_300.csv`, `screening_metrics_by_family_split.csv`, `ablation_300.csv`, `gate_validation_report_300.json`.
+* **`results/integration/`**: `gnn_model_card_s6.json`, `gnn_weights_s6.npz`, `treatment_comparison_s6.csv`, `cost_breakdown_table_4_19.csv`, `integration_report_s6.json`.
+* **`results/review_prep/`**: `penyelarasan_disertasi_gate9.md`, `audit_naskah_revisi.md`, `rekonsiliasi_ari_forward.md`, `rekonsiliasi_ari_forward_kasus.csv`, `diagnosa_28_kasus_terlewat.md`, `diagnosa_28_kasus_terlewat.csv`, `disertasi_numbers_audit.md`, `review_checklist.md`, `revision_guide.md`, `inventory_repositori.md`.
 
-## 5. Cara cek manual (±5 menit)
+---
+
+## 3. Prosedur Pemeriksaan Cepat
+
 ```bash
-cd "…/Adjusted Redudancy Index/Coding"
-git pull && pip install -r requirements.txt
-cd examples
-python3 test_truss_reference.py    # harap: SEMUA UJI LOLOS (Tabel 4.1)
-python3 test_ari.py                # harap: semua cek keras LULUS (Tabel 4.3 <= 4e-7)
-python3 mechanical_guard.py        # harap: ALL PASS (Tabel 4.4, Eq 4.4/4.7)
-python3 run_verification.py        # harap: 68/68 LULUS
-python3 run_guard_verification.py  # harap: PASS (33/33; bagian D = parametrik)
+python3 run_all_verifications.py
 ```
-Lalu bandingkan: `results/verification/checks.csv` (68 baris), `guard_verification.json` §D, dan angka-angka di `Tabel.tex`.
 
-## 6. Menunggu keputusan peneliti (revisi akhir)
-1. **Tabel 4.5 paruh parametrik** — pilih konvensi kritikalitas final (A: kapasitas state saat itu — konsisten tabel kanonik; B: kapasitas asli — kritis 71/39 cocok draf) dan salin angka sisi-ARI hasil regenerasi (draf 17 vs kode 30; tidak dapat direkonsiliasi dengan mesin tervalidasi).
-2. **Istilah naskah** — §2.6 invariansi → invariansi konversi satuan; hapus ε_removed; penomoran edge 1-based; kosakata status Tabel 4.7. (Rinci: `revision_guide.md`.)
+Seluruh 9 tahapan verifikasi berjalan otomatis dalam $\approx 12$ detik dengan status akhir **9/9 LULUS**.
